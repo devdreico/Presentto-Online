@@ -37,6 +37,7 @@
     initCounters();
     initImagePerformance();
     initCookieConsent();
+    initDemoDisclaimer();
 
     function initScrollMetrics() {
       var lastY = window.scrollY || document.documentElement.scrollTop;
@@ -138,6 +139,16 @@
           box.remove();
         });
       });
+    }
+
+    function initDemoDisclaimer() {
+      if (document.querySelector('.demo-disclaimer')) return;
+      var disclaimer = document.createElement('aside');
+      disclaimer.className = 'demo-disclaimer';
+      disclaimer.setAttribute('role', 'note');
+      disclaimer.innerHTML = '<strong>Demo de referencia</strong><span>Los datos, nombres, imágenes, precios, ubicaciones y diseños de este sitio son demostraciones de calidad simple y generalizadas. No representan necesariamente información comercial real o definitiva.</span>';
+      var main = document.querySelector('main');
+      if (main) main.insertBefore(disclaimer, main.firstChild);
     }
 
     function initHeroLayers() {

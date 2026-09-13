@@ -125,10 +125,30 @@ img {
 .premium-cookie-actions button { padding: 9px 12px; border: 1px solid var(--color-primary, #f57c00); border-radius: 6px; background: transparent; color: var(--color-text, #16181d); cursor: pointer; font: inherit; font-weight: 800; }
 .premium-cookie-actions button:last-child { background: var(--color-primary, #f57c00); color: #fff; }
 
+.demo-disclaimer {
+  display: flex;
+  max-width: 1160px;
+  margin: 18px auto 0;
+  padding: 13px 18px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid color-mix(in srgb, var(--color-primary, #f57c00) 24%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--color-primary, #f57c00) 8%, var(--color-bg, #fff));
+  color: var(--color-text-muted, rgba(22, 24, 29, .66));
+  font-size: .72rem;
+  text-align: center;
+}
+.demo-disclaimer strong { color: var(--color-text, #16181d); font-weight: 800; }
+.demo-disclaimer span { max-width: 800px; }
+
 @media (max-width: 600px) {
   .premium-cookie { display: block; }
   .premium-cookie-actions { margin-top: 12px; }
   .premium-cookie-actions button { flex: 1; }
+  .demo-disclaimer { display: block; margin: 12px 14px 0; text-align: left; }
+  .demo-disclaimer strong { display: block; margin-bottom: 4px; }
 }
 
 ::selection {

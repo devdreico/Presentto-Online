@@ -9,6 +9,7 @@ import preguntasPage from './content/preguntas.html?raw';
 import privacidadPage from './content/privacidad.html?raw';
 import terminosPage from './content/terminos.html?raw';
 import cookiesPage from './content/cookies.html?raw';
+import mapaPage from './content/mapa.html?raw';
 
 const rootPages = new Set([
   'index.html',
@@ -21,6 +22,7 @@ const rootPages = new Set([
   'privacidad.html',
   'terminos.html',
   'cookies.html',
+  'mapa.html',
 ]);
 
 const pageSources: Record<string, string> = {
@@ -34,6 +36,7 @@ const pageSources: Record<string, string> = {
   'privacidad.html': privacidadPage,
   'terminos.html': terminosPage,
   'cookies.html': cookiesPage,
+  'mapa.html': mapaPage,
 };
 
 function pageFromUrl() {
@@ -52,6 +55,16 @@ function pageMarkup(html: string) {
     document.head.appendChild(clonedElement);
   });
   documentFragment.querySelectorAll('script').forEach((script) => script.remove());
+  const navigation = documentFragment.querySelector('.site-header nav');
+  if (navigation && !navigation.querySelector('a[href="mapa.html"]')) {
+    const mapLink = documentFragment.createElement('a');
+    mapLink.href = 'mapa.html';
+    mapLink.textContent = 'Mapa';
+    navigation.insertBefore(mapLink, navigation.querySelector('.nav-cta'));
+  }
+  navigation?.querySelectorAll('a').forEach((link) => {
+    link.classList.toggle('active', link.getAttribute('href') === pageFromUrl());
+  });
   const footer = documentFragment.querySelector('footer');
   if (footer && !footer.querySelector('.managed-by')) {
     const managedBy = documentFragment.createElement('p');
