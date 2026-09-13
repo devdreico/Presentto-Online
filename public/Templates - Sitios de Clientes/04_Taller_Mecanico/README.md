@@ -18,10 +18,16 @@
 - **Gimmick visual:** Grid background tipo rejilla técnica, scanline animado en hero, glow pulse central, etiquetas con borde neón
 
 ## Páginas
-- `index.html` — Hero cyberpunk con grid bg + scanline + glow pulse, isotipo "Taller Especializado" con dot animado, ISO cards flotando en 3D, about con contadores, servicios isométricos, métricas con tilt 3D, CTA cyan
+- `index.html` — Portada funcional con propuesta del taller, llamada a WhatsApp, servicios destacados y navegación principal
 - `servicios.html` — 4 categorías (Diagnóstico, Mecánica General, Latonería, Eléctricos) con items detallados y precios, item destacado "Cambio de Aceite" con highlight cyan
-- `galeria.html` — Galería con filtros (Todos / Taller / Mecánica / Latonería), 9 imágenes reales
+- `galeria.html` — Galería con filtros (Todos / Taller / Mecánica / Latonería), usando los assets disponibles
 - `contacto.html` — 4 tarjetas glass, formulario "Diagnóstico gratis" con placeholders técnicos, mapa
+
+## Uso técnico
+- La portada sirve como punto de entrada de una demo para talleres mecánicos locales.
+- `script.js` gestiona el menú móvil y los filtros de galería; `premium-template.js` añade reveals, consentimiento de cookies y mejoras visuales compartidas.
+- Las imágenes de `assets/images/` son material de demostración; deben sustituirse por fotografías y datos autorizados del cliente antes de publicar.
+- El formulario y los enlaces de WhatsApp son puntos de integración: requieren datos, endpoint y número definitivos del negocio.
 
 ## Animaciones Disruptivas
 - **Isométrico 3D Tilt** — Cards del hero y métricas rotan en perspectiva 3D siguiendo el mouse (`rotateX` + `rotateY` + `translateZ`), efecto holograma
@@ -32,10 +38,8 @@
 - **Neón Cian** — Sombras y textos con glow `0 0 40px`
 
 ## Assets
-- `assets/images/hero-taller.jpg` — Hero principal
 - `assets/images/mecanico-01.jpg` — Mecánico trabajando
 - `assets/images/mecanico-02.jpg` — Reparación de motor
-- `assets/images/diagnostico.jpg` — Diagnóstico computarizado
 - `assets/images/herramientas.jpg` — Herramientas profesionales
 - `assets/images/local-taller.jpg` — Instalaciones
 - `assets/images/gallery/gallery-01.jpg` a 07 — Galería
