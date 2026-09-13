@@ -36,6 +36,7 @@
     initButtonPress();
     initCounters();
     initImagePerformance();
+    initCookieConsent();
 
     function initScrollMetrics() {
       var lastY = window.scrollY || document.documentElement.scrollTop;
@@ -113,6 +114,29 @@
           image.classList.add('premium-image-fallback');
           image.setAttribute('alt', (image.getAttribute('alt') || 'Imagen') + ' no disponible');
         }, { once: true });
+      });
+    }
+
+    function initCookieConsent() {
+      var key = 'presentto-consent';
+      var hasConsent = document.cookie.split('; ').some(function (cookie) {
+        return cookie.indexOf(key + '=') === 0;
+      });
+      if (hasConsent) return;
+
+      var box = document.createElement('aside');
+      box.className = 'premium-cookie';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-label', 'Preferencias de cookies');
+      box.innerHTML = '<div><strong>Tu privacidad importa</strong><p>Usamos cookies necesarias para que esta demo funcione.</p></div><div class="premium-cookie-actions"><button type="button" data-cookie-choice="necessary">Solo necesarias</button><button type="button" data-cookie-choice="all">Aceptar</button></div>';
+      document.body.appendChild(box);
+
+      box.querySelectorAll('[data-cookie-choice]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var choice = button.getAttribute('data-cookie-choice') || 'necessary';
+          document.cookie = key + '=' + choice + '; Max-Age=31536000; Path=/; SameSite=Lax';
+          box.remove();
+        });
       });
     }
 

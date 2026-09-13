@@ -52,7 +52,67 @@ function pageMarkup(html: string) {
     document.head.appendChild(clonedElement);
   });
   documentFragment.querySelectorAll('script').forEach((script) => script.remove());
+  const footer = documentFragment.querySelector('footer');
+  if (footer && !footer.querySelector('.managed-by')) {
+    const managedBy = documentFragment.createElement('p');
+    managedBy.className = 'managed-by';
+    managedBy.textContent = 'Servicio administrado por Soverath Holding S.A.S. · Desarrollo respaldado por Aeperion Systems.';
+    footer.prepend(managedBy);
+  }
   return documentFragment.body.innerHTML;
+}
+
+function readCookie(name: string) {
+  return document.cookie.split('; ').find((cookie) => cookie.startsWith(`${name}=`))?.split('=')[1] || null;
+}
+
+function writeCookie(name: string, value: string, maxAge = 31536000) {
+  document.cookie = `${name}=${value}; Max-Age=${maxAge}; Path=/; SameSite=Lax`;
+}
+
+function CookieConsent() {
+  const [consent, setConsent] = useState(readCookie('presentto-consent'));
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [analytics, setAnalytics] = useState(false);
+
+  if (consent) return null;
+
+  const saveConsent = (allowAnalytics: boolean) => {
+    writeCookie('presentto-consent', allowAnalytics ? 'all' : 'necessary');
+    writeCookie('presentto-analytics', allowAnalytics ? 'granted' : 'denied');
+    setConsent(allowAnalytics ? 'all' : 'necessary');
+    setSettingsOpen(false);
+  };
+
+  return (
+    <>
+      <aside className="cookie-box" role="dialog" aria-label="Preferencias de cookies">
+        <div>
+          <strong>Tu privacidad importa</strong>
+          <p>Usamos cookies necesarias para que Presentto funcione y, solo con tu permiso, cookies opcionales para medir mejoras de navegación. <a href="/index.html?page=cookies.html">Ver política.</a></p>
+        </div>
+        <div className="cookie-actions">
+          <button type="button" onClick={() => saveConsent(false)}>Solo necesarias</button>
+          <button type="button" onClick={() => saveConsent(true)}>Aceptar todas</button>
+          <button type="button" onClick={() => setSettingsOpen(true)}>Configurar</button>
+        </div>
+      </aside>
+      {settingsOpen && (
+        <div className="cookie-settings" role="dialog" aria-modal="true" aria-labelledby="cookie-settings-title">
+          <div className="cookie-settings-backdrop" onClick={() => setSettingsOpen(false)} />
+          <section className="cookie-settings-panel">
+            <button className="cookie-settings-close" type="button" aria-label="Cerrar preferencias" onClick={() => setSettingsOpen(false)}>×</button>
+            <p className="eyebrow">PREFERENCIAS</p>
+            <h2 id="cookie-settings-title">Controla tus cookies.</h2>
+            <p>Las cookies necesarias mantienen la seguridad y el funcionamiento básico. Las opcionales nos ayudan a entender qué debemos mejorar.</p>
+            <label className="cookie-option"><span><strong>Necesarias</strong><small>Siempre activas para navegación, seguridad y preferencias.</small></span><input type="checkbox" checked readOnly /></label>
+            <label className="cookie-option"><span><strong>Analítica</strong><small>Opcional. No se activa hasta que la autorices.</small></span><input type="checkbox" checked={analytics} onChange={(event) => setAnalytics(event.target.checked)} /></label>
+            <button className="button primary" type="button" onClick={() => saveConsent(analytics)}>Guardar preferencias <span>↗</span></button>
+          </section>
+        </div>
+      )}
+    </>
+  );
 }
 
 function App() {
@@ -188,33 +248,15 @@ function App() {
     };
     form?.addEventListener('submit', submitForm);
 
-    const cookieKey = 'presentto-cookie-consent';
-    let cookieConsent: string | null = null;
-    try { cookieConsent = window.localStorage.getItem(cookieKey); } catch { /* El sitio funciona sin almacenamiento local. */ }
-    let cookieBox: HTMLElement | null = null;
-    if (!cookieConsent) {
-      cookieBox = document.createElement('aside');
-      cookieBox.className = 'cookie-box';
-      cookieBox.setAttribute('role', 'dialog');
-      cookieBox.setAttribute('aria-label', 'Preferencias de cookies');
-      cookieBox.innerHTML = '<p>Usamos cookies técnicas para recordar tus preferencias y mejorar tu navegación. <a href="cookies.html">Conoce más</a>.</p><div class="cookie-actions"><button type="button" data-cookie="accept">Aceptar</button><button type="button" data-cookie="reject">Rechazar</button></div>';
-      document.body.appendChild(cookieBox);
-      cookieBox.querySelectorAll<HTMLButtonElement>('[data-cookie]').forEach((button) => button.addEventListener('click', () => {
-        try { window.localStorage.setItem(cookieKey, button.dataset.cookie || ''); } catch { /* Preferencia solo durante la sesión. */ }
-        cookieBox?.remove();
-      }));
-    }
-
     return () => {
       root.removeEventListener('click', navigate);
       observer?.disconnect();
       form?.removeEventListener('submit', submitForm);
       modal?.remove();
-      cookieBox?.remove();
     };
   }, [markup]);
 
-  return <div ref={contentRef} dangerouslySetInnerHTML={{ __html: markup }} />;
+  return <><div ref={contentRef} dangerouslySetInnerHTML={{ __html: markup }} /><CookieConsent /></>;
 }
 
 export default App;
