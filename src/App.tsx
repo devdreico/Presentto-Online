@@ -53,7 +53,13 @@ function pageMarkup(html: string) {
     .replaceAll('25.000 COP', '40.000 COP')
     .replaceAll('120.000 COP', '40.000 COP')
     .replaceAll('presentthost.online', 'tuempresa.online')
-    .replaceAll('subdominio', 'dominio propio');
+    .replaceAll('subdominio', 'dominio propio')
+    .replaceAll('menú digital para restaurantes', 'Presenttación Digital para negocios')
+    .replaceAll('menú digital', 'presencia digital')
+    .replaceAll('menú interactivo', 'sitio web completo')
+    .replaceAll('servicio a mesa', 'presencia digital')
+    .replaceAll('pedidos a domicilio', 'solicitudes de clientes')
+    .replaceAll('comandas', 'solicitudes');
   documentFragment.body.innerHTML = replaceText(documentFragment.body.innerHTML);
   documentFragment.head.innerHTML = replaceText(documentFragment.head.innerHTML);
 
@@ -109,12 +115,12 @@ function pageMarkup(html: string) {
 
   if (page === 'preguntas.html') {
     const questions = [...documentFragment.querySelectorAll('[data-faq]')];
-    const menuQuestion = questions.find((card) => card.textContent?.toLowerCase().includes('menú digital'));
+    const menuQuestion = questions.find((card) => card.textContent?.toLowerCase().includes('presencia digital'));
     if (menuQuestion) {
-      menuQuestion.setAttribute('data-question', '¿El precio incluye IVA?');
-      menuQuestion.setAttribute('data-answer', 'Sí. El valor de la Presenttación Digital es de $40.000 COP con IVA incluido.');
+      menuQuestion.setAttribute('data-question', '¿Qué incluye la Presenttación Digital?');
+      menuQuestion.setAttribute('data-answer', 'Incluye un sitio web completo, dominio propio, correo profesional, implementaciones tecnológicas, ajustes hasta tu satisfacción, SEO, imágenes y funcionalidades necesarias para tu negocio.');
       const title = menuQuestion.querySelector('h2');
-      if (title) title.textContent = '¿El precio incluye IVA?';
+      if (title) title.textContent = '¿Qué incluye la Presenttación Digital?';
     }
     const hostingQuestion = questions.find((card) => card.textContent?.toLowerCase().includes('tuempresa.online'));
     if (hostingQuestion) {
@@ -131,6 +137,8 @@ function pageMarkup(html: string) {
   }
 
   if (page === 'contacto.html') {
+    const contactDescription = documentFragment.querySelector('.contact-aside > p:not(.eyebrow):not(.muted)');
+    if (contactDescription) contactDescription.textContent = 'Cuéntanos qué quieres lograr y convertimos tu idea en una presencia digital clara, útil y lista para crecer.';
     const form = documentFragment.querySelector<HTMLFormElement>('#contactForm');
     if (form) {
       form.action = 'https://formspree.io/f/xvkgarev';
