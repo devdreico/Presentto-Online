@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /Templates
+Disallow: /Templates/
+Disallow: /private/
+Disallow: /admin/
+Host: presentto.online
 Sitemap: https://presentto.online/sitemap.xml
