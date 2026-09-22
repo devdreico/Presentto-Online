@@ -83,6 +83,16 @@ function pageMarkup(html: string) {
       featureActions.className = 'actions plan-cta';
       featureActions.innerHTML = '<a class="button primary" href="contacto.html">Comprar Presenttación Digital <span>↗</span></a>';
       featureGrid.insertAdjacentElement('afterend', featureActions);
+
+      const trustSection = documentFragment.createElement('section');
+      trustSection.className = 'section trust-section';
+      trustSection.innerHTML = '<div class="wrap"><p class="eyebrow">RESULTADOS DE REFERENCIA</p><div class="section-heading"><h2>Una web que se siente<br><em>hecha para tu negocio.</em></h2><p>Escenarios habituales que una Presenttación Digital bien construida ayuda a resolver desde el primer día.</p></div><div class="trust-grid"><article class="trust-card"><span class="trust-icon">01</span><h3>Más confianza</h3><p>Una presencia clara para que nuevos clientes entiendan quién eres, qué ofreces y cómo contactarte.</p><small>Resultado esperado · No es una reseña publicada</small></article><article class="trust-card"><span class="trust-icon">02</span><h3>Más oportunidades</h3><p>Información ordenada, llamadas a la acción visibles y una experiencia pensada para convertir visitas en conversaciones.</p><small>Resultado esperado · Se adapta a tus objetivos</small></article><article class="trust-card"><span class="trust-icon">03</span><h3>Más autonomía</h3><p>Un sitio propio con dominio, correo profesional y una base digital lista para acompañar el crecimiento del negocio.</p><small>Resultado esperado · Alcance acordado contigo</small></article></div></div></section>';
+      featureSection.insertAdjacentElement('afterend', trustSection);
+
+      const stackSection = documentFragment.createElement('section');
+      stackSection.className = 'section stack-section';
+      stackSection.innerHTML = '<div class="wrap"><p class="eyebrow">RESPALDO TÉCNICO</p><div class="section-heading"><h2>Tecnología útil,<br><em>sin complicaciones.</em></h2><p>Trabajamos con tecnologías y estándares profesionales para construir una presencia rápida, accesible y preparada para crecer.</p></div><div class="stack-grid"><article class="stack-card"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="Icono HTML5"><strong>HTML5</strong><span>Estructura semántica</span></article><article class="stack-card"><img src="https://cdn.simpleicons.org/css3/1572B6" alt="Icono CSS3"><strong>CSS3</strong><span>Diseño responsive</span></article><article class="stack-card"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="Icono JavaScript"><strong>JavaScript</strong><span>Interacciones útiles</span></article><article class="stack-card"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="Icono React"><strong>React</strong><span>Componentes escalables</span></article><article class="stack-card"><span class="stack-badge">SEO</span><strong>SEO local</strong><span>Encontrabilidad técnica</span></article><article class="stack-card"><span class="stack-badge">A11Y</span><strong>Accesibilidad</strong><span>Experiencia inclusiva</span></article></div><p class="stack-note">Tecnologías y estándares de trabajo. No representa certificaciones oficiales de terceros.</p></div></section>';
+      trustSection.insertAdjacentElement('afterend', stackSection);
     }
     const heroCta = documentFragment.querySelector('.hero .button.primary');
     if (heroCta) heroCta.innerHTML = 'Comprar plan <span>↗</span>';
@@ -259,7 +269,7 @@ function App() {
     root.addEventListener('click', navigate);
 
     const animated = root.querySelectorAll<HTMLElement>(
-      '.section, .proof, .final-cta, .work-card, .demo-card, .service-card, .faq-card, .process-card, .reference-grid article',
+      '.section, .proof, .final-cta, .work-card, .demo-card, .service-card, .faq-card, .process-card, .reference-grid article, .trust-card, .stack-card',
     );
     animated.forEach((element, index) => {
       element.classList.add('reveal');
