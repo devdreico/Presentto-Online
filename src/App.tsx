@@ -46,6 +46,69 @@ function pageFromUrl() {
 
 function pageMarkup(html: string) {
   const documentFragment = new DOMParser().parseFromString(html, 'text/html');
+  const page = pageFromUrl();
+  const replaceText = (value: string) => value
+    .replaceAll('$25.000', '$40.000')
+    .replaceAll('$120.000', '$40.000')
+    .replaceAll('25.000 COP', '40.000 COP')
+    .replaceAll('120.000 COP', '40.000 COP');
+  documentFragment.body.innerHTML = replaceText(documentFragment.body.innerHTML);
+  documentFragment.head.innerHTML = replaceText(documentFragment.head.innerHTML);
+
+  if (page === 'index.html') {
+    const heroPrice = documentFragment.querySelector('.hero-price');
+    if (heroPrice) heroPrice.innerHTML = '<strong>$40.000</strong><span>COP<br>IVA incluido</span>';
+    const proofPrice = documentFragment.querySelector('.proof-grid div');
+    if (proofPrice) proofPrice.innerHTML = '<strong>$40.000</strong><span>IVA incluido</span>';
+    const offer = documentFragment.querySelector('.offer-section');
+    if (offer) {
+      offer.innerHTML = '<div class="wrap offer-card"><div><p class="eyebrow">PACK PRESENTTACIÓN DIGITAL</p><h2>Tu negocio listo<br><em>para crecer online.</em></h2><p>Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la información, imágenes, datos y funcionalidades necesarias.</p></div><div class="offer-price"><strong>$40.000</strong><span>COP · IVA incluido</span><small>Creación personalizada · Hosting · SEO local<br>Contenido e identidad de tu negocio</small><a class="button primary" href="contacto.html">Solicitar servicio <span>↗</span></a></div></div>';
+    }
+  }
+
+  if (page === 'servicios.html') {
+    documentFragment.querySelector('.service-special')?.remove();
+    const mainService = documentFragment.querySelector('.service-main');
+    if (mainService) {
+      const title = mainService.querySelector('h2');
+      const description = mainService.querySelector('p:not(.eyebrow)');
+      const price = mainService.querySelector('.service-price strong');
+      const period = mainService.querySelector('.service-price span');
+      const action = mainService.querySelector('.service-price .button');
+      if (title) title.innerHTML = 'Presenttación<br><em>Digital</em>';
+      if (description) description.textContent = 'Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la información, imágenes, datos y funcionalidades necesarias.';
+      if (price) price.textContent = '$40.000';
+      if (period) period.textContent = 'COP · IVA incluido';
+      if (action) action.innerHTML = 'Solicitar servicio <span>↗</span>';
+    }
+    const heading = documentFragment.querySelector('.page-hero h1');
+    if (heading) heading.innerHTML = 'Una solución.<br><em>Una presencia real.</em>';
+    const lead = documentFragment.querySelector('.page-hero .lead');
+    if (lead) lead.textContent = 'Presenttación Digital: un sitio web útil, accesible y completo para tu negocio.';
+  }
+
+  if (page === 'preguntas.html') {
+    const menuQuestion = [...documentFragment.querySelectorAll('[data-faq]')].find((card) => card.textContent?.toLowerCase().includes('menú digital'));
+    if (menuQuestion) {
+      menuQuestion.setAttribute('data-question', '¿El precio incluye IVA?');
+      menuQuestion.setAttribute('data-answer', 'Sí. El valor de la Presenttación Digital es de $40.000 COP con IVA incluido.');
+      const title = menuQuestion.querySelector('h2');
+      if (title) title.textContent = '¿El precio incluye IVA?';
+    }
+  }
+
+  if (page === 'terminos.html') {
+    const infoBlock = documentFragment.querySelector('.info-block');
+    if (infoBlock) infoBlock.innerHTML = '<h2>La Presenttación Digital tiene un valor de $40.000 COP, IVA incluido, e integra la creación de un sitio web con la información, imágenes, datos y funcionalidades necesarias para el negocio.</h2><p>El alcance, los contenidos y las integraciones se definen con el cliente antes de publicar.</p>';
+  }
+
+  if (page === 'contacto.html') {
+    const form = documentFragment.querySelector<HTMLFormElement>('#contactForm');
+    if (form) {
+      form.action = 'https://formspree.io/f/xvkgarev';
+      form.innerHTML = '<label>¿Cómo te llamas?<input name="nombre" required autocomplete="name" placeholder="Tu nombre"></label><label>Nombre de tu negocio<input name="negocio" required autocomplete="organization" placeholder="Nombre del negocio"></label><label>Agendar reunión<input name="reunion" type="datetime-local" required></label><fieldset><legend>Objetivos digitales</legend><label class="checkbox-option"><input name="objetivos" type="checkbox" value="Vender más"> Vender más</label><label class="checkbox-option"><input name="objetivos" type="checkbox" value="Más profesionalismo"> Más profesionalismo</label><label class="checkbox-option"><input name="objetivos" type="checkbox" value="Llegar a nuevos clientes"> Llegar a nuevos clientes</label><label class="checkbox-option"><input name="objetivos" type="checkbox" value="Mostrar servicios o productos"> Mostrar servicios o productos</label></fieldset><label>Necesidades extra<textarea name="necesidades_extra" rows="5" placeholder="Cuéntanos peticiones puntuales o necesidades digitales"></textarea></label><button class="button primary" type="submit">Enviar solicitud <span>↗</span></button><a class="button payment-button" href="https://mpago.li/2j4gTPj" target="_blank" rel="noopener"><span class="payment-icon">$</span> Pagar $40.000 COP <span>↗</span></a><p class="form-note">El valor de $40.000 COP incluye IVA. Primero envía tu solicitud y luego realiza el pago.</p><p id="formStatus" role="status" aria-live="polite"></p>';
+    }
+  }
   document.title = documentFragment.title || 'Presentto Online';
   document.documentElement.lang = documentFragment.documentElement.lang || 'es';
   document.head.querySelectorAll('[data-react-page-head]').forEach((element) => element.remove());
