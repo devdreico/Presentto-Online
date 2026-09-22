@@ -522,7 +522,7 @@ footer { padding: 58px 0 24px; background: var(--cream); color: var(--ink); }
 }
 
 .reveal { opacity: 0; transform: translateY(30px) scale(.985); filter: blur(4px); transition: opacity .8s var(--ease-spring), transform .8s var(--ease-spring), filter .8s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+.reveal.visible { opacity: 1; transform: none; filter: none; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
