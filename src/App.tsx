@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import indexPage from './content/index.html?raw';
 import serviciosPage from './content/servicios.html?raw';
-import demosPage from './content/demos.html?raw';
 import portfolioPage from './content/portfolio.html?raw';
 import contactoPage from './content/contacto.html?raw';
 import nosotrosPage from './content/nosotros.html?raw';
@@ -14,7 +13,6 @@ import mapaPage from './content/mapa.html?raw';
 const rootPages = new Set([
   'index.html',
   'servicios.html',
-  'demos.html',
   'portfolio.html',
   'contacto.html',
   'nosotros.html',
@@ -23,12 +21,85 @@ const rootPages = new Set([
   'terminos.html',
   'cookies.html',
   'mapa.html',
+  'funza.html',
+  'mosquera.html',
+  'madrid.html',
+  'facatativa.html',
 ]);
+
+function buildCityPage(city: string, municipality: string, focus: string) {
+  const title = `Páginas web para ${city} | Presentto Online`;
+  const description = `Presentto crea presencia online profesional para ${city} con SEO local, diseño moderno y estrategia digital por $40.000 COP en la Sabana Occidental.`;
+  return `<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${title}</title>
+  <meta name="description" content="${description}">
+  <link rel="canonical" href="https://presentto.online/?page=${municipality}.html">
+  <meta property="og:title" content="${title}">
+  <meta property="og:description" content="${description}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://presentto.online/?page=${municipality}.html">
+  <meta property="og:image" content="https://presentto.online/assets/img/Presentto-Icono-Fondo-Transparente.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title}">
+  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:image" content="https://presentto.online/assets/img/Presentto-Icono-Fondo-Transparente.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header"><div class="wrap nav-wrap"><a class="brand" href="index.html"><img src="assets/img/Presentto-Icono-Fondo-Transparente.png" alt="Presentto Online"></a><nav aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="servicios.html">Servicios</a><a href="portfolio.html">Portafolio</a><a class="nav-cta" href="contacto.html">Comprar <b>↗</b></a></nav></div></header>
+  <main>
+    <section class="section wrap page-hero">
+      <p class="eyebrow">SEO LOCAL • ${city.toUpperCase()}</p>
+      <h1>Tu negocio en ${city}<br><em>visible en Google.</em></h1>
+      <p class="lead">Diseñamos una presencia online profesional para ${city}, con estrategia de SEO local y contenido orientado a captar clientes reales en la Sabana Occidental.</p>
+      <div class="actions"><a class="button primary" href="contacto.html">Comprar ahora <span>↗</span></a><a class="button ghost" href="servicios.html">Ver servicio <span>↓</span></a></div>
+    </section>
+    <section class="section wrap">
+      <div class="section-heading">
+        <p class="eyebrow">BENEFICIO REAL</p>
+        <h2>Una web para ${city}<br><em>que trabaja por ti.</em></h2>
+        <p>Si tu negocio está en ${city}, la presencia digital debe ser clara, útil y fácil de encontrar en búsquedas locales y búsquedas por servicio.</p>
+      </div>
+      <div class="feature-grid feature-grid-four">
+        <article><b>01</b><h3>SEO local</h3><p>Organizamos contenido, estructura y palabras clave para que aparezcas mejor en búsquedas de ${focus}.</p></article>
+        <article><b>02</b><h3>Dominio y presencia</h3><p>Incluye identidad digital, dominio propio, perfil de negocio y una navegación hecha para convertir visitas en clientes.</p></article>
+        <article><b>03</b><h3>Diseño profesional</h3><p>Representas tu marca con una web moderna, clara y fácil de usar desde móvil, tablet o PC.</p></article>
+        <article><b>04</b><h3>Compra directa</h3><p>Usas el mismo flujo de compra coordinado con formulario + pago para iniciar el proyecto sin fricción.</p></article>
+      </div>
+    </section>
+    <section class="section offer-section">
+      <div class="wrap offer-card">
+        <div>
+          <p class="eyebrow">PRESENTACIÓN DIGITAL</p>
+          <h2>Tu negocio listo<br><em>para crecer online.</em></h2>
+          <p>Pagas $40.000 COP por una presencia digital completa con diseño, contenido, dominio, correo profesional, SEO local y ajustes hasta dejarla lista para tu negocio.</p>
+        </div>
+        <div class="offer-price"><strong>$40.000</strong><span>COP · IVA incluido</span><small>Diseño personalizado · SEO local · Dominio y presencia digital</small><a class="button primary" href="contacto.html">Comprar plan <span>↗</span></a></div>
+      </div>
+    </section>
+    <section class="final-cta"><div class="wrap"><p class="eyebrow">¿LISTO PARA EMPEZAR?</p><h2>Hagamos visible<br><em>tu negocio en ${city}.</em></h2><a class="button light" href="contacto.html">Comprar ahora <span>↗</span></a></div></section>
+  </main>
+  <footer>... </footer>
+</body>
+</html>`;
+}
+
+const cityPages: Record<string, string> = {
+  'funza.html': buildCityPage('Funza', 'funza.html', 'empresas y negocios en Funza'),
+  'mosquera.html': buildCityPage('Mosquera', 'mosquera.html', 'servicios y negocios en Mosquera'),
+  'madrid.html': buildCityPage('Madrid', 'madrid.html', 'comercios y emprendimientos en Madrid'),
+  'facatativa.html': buildCityPage('Facatativá', 'facatativa.html', 'empresas y negocios en Facatativá'),
+};
 
 const pageSources: Record<string, string> = {
   'index.html': indexPage,
   'servicios.html': serviciosPage,
-  'demos.html': demosPage,
   'portfolio.html': portfolioPage,
   'contacto.html': contactoPage,
   'nosotros.html': nosotrosPage,
@@ -37,6 +108,7 @@ const pageSources: Record<string, string> = {
   'terminos.html': terminosPage,
   'cookies.html': cookiesPage,
   'mapa.html': mapaPage,
+  ...cityPages,
 };
 
 function pageFromUrl() {
@@ -59,7 +131,26 @@ function pageMarkup(html: string) {
     .replaceAll('menú interactivo', 'sitio web completo')
     .replaceAll('servicio a mesa', 'presencia digital')
     .replaceAll('pedidos a domicilio', 'solicitudes de clientes')
-    .replaceAll('comandas', 'solicitudes');
+    .replaceAll('comandas', 'solicitudes')
+    .replaceAll('Contacto', 'Comprar')
+    .replaceAll('contacto', 'comprar')
+    .replaceAll('Conocer más', 'Comprar')
+    .replaceAll('Conocer la oferta', 'Comprar')
+    .replaceAll('Habla por WhatsApp', 'Comprar ahora')
+    .replaceAll('Páginas web desde $25.000 COP en la Sabana Occidental', 'Presencia online profesional desde $40.000 COP con SEO local en la Sabana Occidental')
+    .replaceAll('Presentto crea y administra páginas web profesionales desde $25.000 COP mensuales para negocios, emprendimientos y empresas de la Sabana Occidental.', 'Presentto diseña y publica una presencia online profesional por $40.000 COP, con SEO local pensado para negocios y empresas de la Sabana Occidental.')
+    .replaceAll('Páginas web profesionales desde $25.000 COP | Presentto Online', 'Presencia online profesional desde $40.000 COP | Presentto Online')
+    .replaceAll('Creamos, alojamos y administramos tu web en la Sabana Occidental.', 'Diseñamos, publicamos y posicionamos tu presencia online en la Sabana Occidental con estrategia SEO local y presentación profesional.')
+    .replaceAll('Web profesional administrada desde $25.000 COP mensuales.', 'Presencia online profesional por $40.000 COP con SEO local y estructura pensada para captar clientes en la Sabana Occidental.')
+    .replaceAll('Tu negocio presente online.', 'Tu negocio, visible y posicionado en la Sabana Occidental.')
+    .replaceAll('Creamos, alojamos y administramos una web hecha para mostrar lo que haces y ayudarte a llegar a más clientes.', 'Diseñamos una presencia online clara, elegante y posicionada para que tu negocio se encuentre, se conozca y convierta más clientes en la Sabana Occidental.')
+    .replaceAll('sin cobros ocultos', 'con estrategia SEO local incluida')
+    .replaceAll('Pagas $25.000 COP mensuales y nosotros creamos, alojamos y mantenemos tu sitio según las indicaciones de tu negocio.', 'Pagas $40.000 COP por una presencia online profesional con dominio propio, contenido estratégico, diseño y SEO local para la Sabana Occidental.')
+    .replaceAll('Configuración para que negocios de Funza, Mosquera, Madrid, Facatativá y la Sabana te encuentren.', 'Estructura SEO local para que negocios de Funza, Mosquera, Madrid, Facatativá y la Sabana Occidental te encuentren mejor en Google.')
+    .replaceAll('QR y demos', 'SEO local y Google Business')
+    .replaceAll('Comprobantes de uso real, códigos QR y ejemplos para compartir tu presencia digital.', 'Estrategia de posicionamiento, perfil de negocio y estructura para fortalecer tu presencia en Google y la Sabana Occidental.')
+    .replaceAll('SEO local', 'SEO local profesional')
+    .replaceAll('Todo lo necesario\npara <em>estar en internet.</em>', 'Todo lo necesario\npara <em>ganar visibilidad.</em>');
   documentFragment.body.innerHTML = replaceText(documentFragment.body.innerHTML);
   documentFragment.head.innerHTML = replaceText(documentFragment.head.innerHTML);
 
@@ -84,6 +175,9 @@ function pageMarkup(html: string) {
       featureActions.innerHTML = '<a class="button primary" href="contacto.html">Comprar Presenttación Digital <span>↗</span></a>';
       featureGrid.insertAdjacentElement('afterend', featureActions);
 
+      const demoReferences = documentFragment.querySelectorAll('a[href="demos.html"], [data-demo], .demo-card, .demo-filters');
+      demoReferences.forEach((element) => element.remove());
+
       const trustSection = documentFragment.createElement('section');
       trustSection.className = 'section trust-section';
       trustSection.innerHTML = '<div class="wrap"><p class="eyebrow">RESULTADOS DE REFERENCIA</p><div class="section-heading"><h2>Una web que se siente<br><em>hecha para tu negocio.</em></h2><p>Escenarios habituales que una Presenttación Digital bien construida ayuda a resolver desde el primer día.</p></div><div class="trust-grid"><article class="trust-card"><span class="trust-icon">01</span><h3>Más confianza</h3><p>Una presencia clara para que nuevos clientes entiendan quién eres, qué ofreces y cómo contactarte.</p><small>Resultado esperado · No es una reseña publicada</small></article><article class="trust-card"><span class="trust-icon">02</span><h3>Más oportunidades</h3><p>Información ordenada, llamadas a la acción visibles y una experiencia pensada para convertir visitas en conversaciones.</p><small>Resultado esperado · Se adapta a tus objetivos</small></article><article class="trust-card"><span class="trust-icon">03</span><h3>Más autonomía</h3><p>Un sitio propio con dominio, correo profesional y una base digital lista para acompañar el crecimiento del negocio.</p><small>Resultado esperado · Alcance acordado contigo</small></article></div></div></section>';
@@ -95,7 +189,7 @@ function pageMarkup(html: string) {
       trustSection.insertAdjacentElement('afterend', stackSection);
     }
     const heroCta = documentFragment.querySelector('.hero .button.primary');
-    if (heroCta) heroCta.innerHTML = 'Comprar plan <span>↗</span>';
+    if (heroCta) heroCta.innerHTML = 'Comprar ahora <span>↗</span>';
     const finalCta = documentFragment.querySelector('.final-cta .button');
     if (finalCta) finalCta.innerHTML = 'Comprar Presenttación Digital <span>↗</span>';
   }
@@ -112,7 +206,7 @@ function pageMarkup(html: string) {
       if (title) title.innerHTML = 'Presenttación<br><em>Digital</em>';
       if (description) description.textContent = 'Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la información, imágenes, datos y funcionalidades necesarias. Hacemos las implementaciones tecnológicas necesarias y ajustamos la solución hasta que quedes satisfecho con la versión digitalizada de tu negocio.';
       const features = mainService.querySelector('ul');
-      if (features) features.innerHTML = '<li>Creación personalizada con imágenes, estilo y contenido de tu empresa.</li><li>Dominio propio incluido: <strong>tuempresa.online</strong>.</li><li>1 correo profesional: <strong>@tuempresa.online</strong>.</li><li>Implementaciones tecnológicas y ajustes necesarios hasta tu satisfacción.</li><li>SEO y estructura preparada para búsquedas locales.</li><li>Códigos QR, demos y comprobante de uso real.</li><li>La renovación es flexible: puedes dejar de pagar cuando quieras.</li>';
+      if (features) features.innerHTML = '<li>Creación personalizada con imágenes, estilo y contenido de tu empresa.</li><li>Dominio propio incluido: <strong>tuempresa.online</strong>.</li><li>1 correo profesional: <strong>@tuempresa.online</strong>.</li><li>Implementaciones tecnológicas y ajustes necesarios hasta tu satisfacción.</li><li>SEO y estructura preparada para búsquedas locales.</li><li>Códigos QR y comprobante de uso real.</li><li>La renovación es flexible: puedes dejar de pagar cuando quieras.</li>';
       if (price) price.textContent = '$40.000';
       if (period) period.textContent = 'COP · IVA incluido';
       if (action) action.innerHTML = 'Comprar plan <span>↗</span>';
@@ -157,6 +251,29 @@ function pageMarkup(html: string) {
   }
   document.title = documentFragment.title || 'Presentto Online';
   document.documentElement.lang = documentFragment.documentElement.lang || 'es';
+  if (!document.head.querySelector('link[rel="icon"]')) {
+    const favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.type = 'image/png';
+    favicon.href = 'https://presentto.online/assets/img/Presentto-Icono-Fondo-Transparente.png';
+    document.head.appendChild(favicon);
+  }
+  if (!document.head.querySelector('link[rel="apple-touch-icon"]')) {
+    const appleTouch = document.createElement('link');
+    appleTouch.rel = 'apple-touch-icon';
+    appleTouch.href = 'https://presentto.online/assets/img/Presentto-Icono-Fondo-Transparente.png';
+    document.head.appendChild(appleTouch);
+  }
+  const metaTheme = document.head.querySelector('meta[name="theme-color"]') || document.createElement('meta');
+  if (!metaTheme.hasAttribute('name')) {
+    metaTheme.setAttribute('name', 'theme-color');
+  }
+  metaTheme.setAttribute('content', '#0b1020');
+  if (!metaTheme.parentNode) document.head.appendChild(metaTheme);
+  const robotsMeta = document.head.querySelector('meta[name="robots"]') || document.createElement('meta');
+  if (!robotsMeta.hasAttribute('name')) robotsMeta.setAttribute('name', 'robots');
+  robotsMeta.setAttribute('content', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+  if (!robotsMeta.parentNode) document.head.appendChild(robotsMeta);
   document.head.querySelectorAll('[data-react-page-head]').forEach((element) => element.remove());
   documentFragment.head.querySelectorAll('meta, link[rel="canonical"], script[type="application/ld+json"]').forEach((element) => {
     const clonedElement = element.cloneNode(true) as HTMLElement;
@@ -164,17 +281,34 @@ function pageMarkup(html: string) {
     document.head.appendChild(clonedElement);
   });
   documentFragment.querySelectorAll('script').forEach((script) => script.remove());
+  documentFragment.body.querySelectorAll('a[href="demos.html"]').forEach((link) => link.remove());
+  documentFragment.body.querySelectorAll('[data-demo], .demo-card, .demo-filters').forEach((element) => element.remove());
   const navigation = documentFragment.querySelector('.site-header nav');
+  navigation?.querySelectorAll('a[href="demos.html"]').forEach((link) => link.remove());
+  navigation?.querySelectorAll('a[href="contacto.html"]').forEach((link) => {
+    link.textContent = 'Comprar';
+    link.innerHTML = 'Comprar <b>↗</b>';
+  });
   if (navigation && !navigation.querySelector('a[href="mapa.html"]')) {
     const mapLink = documentFragment.createElement('a');
     mapLink.href = 'mapa.html';
     mapLink.textContent = 'Sitios';
     navigation.insertBefore(mapLink, navigation.querySelector('.nav-cta'));
   }
+  if (navigation && !navigation.querySelector('a[href="funza.html"]')) {
+    const cityLinks = ['funza.html', 'mosquera.html', 'madrid.html', 'facatativa.html'];
+    cityLinks.forEach((cityPage) => {
+      const cityLink = documentFragment.createElement('a');
+      cityLink.href = cityPage;
+      cityLink.textContent = cityPage.replace('.html', '').charAt(0).toUpperCase() + cityPage.replace('.html', '').slice(1);
+      navigation.insertBefore(cityLink, navigation.querySelector('.nav-cta'));
+    });
+  }
   navigation?.querySelectorAll('a').forEach((link) => {
     link.classList.toggle('active', link.getAttribute('href') === pageFromUrl());
   });
   const footer = documentFragment.querySelector('footer');
+  footer?.querySelectorAll('a[href="demos.html"]').forEach((link) => link.remove());
   if (footer && !footer.querySelector('.managed-by')) {
     const managedBy = documentFragment.createElement('p');
     managedBy.className = 'managed-by';
