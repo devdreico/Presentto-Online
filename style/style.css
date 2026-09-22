@@ -366,6 +366,12 @@ footer { padding: 58px 0 24px; background: var(--cream); color: var(--ink); }
 .cookie-settings-panel .button { margin-top: 16px; }
 .map-section { background: var(--cream); }
 .map-layout { display: grid; grid-template-columns: 1.25fr .75fr; align-items: start; gap: 44px; }
+.published-sites { display: flex; justify-content: center; }
+.published-sites .map-directory { width: min(850px, 100%); padding: 0; }
+.published-sites .business-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.published-sites .business-list li { border: 1px solid var(--glass-line); border-radius: 20px; background: var(--glass); box-shadow: 0 14px 35px rgba(67, 47, 27, .06); backdrop-filter: blur(14px); transition: transform .4s var(--ease-spring), box-shadow .4s ease, border-color .4s ease; }
+.published-sites .business-list li:hover { border-color: rgba(241, 90, 36, .42); box-shadow: 0 22px 45px rgba(67, 47, 27, .13); transform: translateY(-6px); }
+.published-sites .business-list a { min-height: 170px; grid-template-columns: 34px 1fr 20px; padding: 22px; }
 .map-frame { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); box-shadow: var(--shadow); }
 .map-frame iframe { display: block; width: 100%; height: 500px; border: 0; }
 .map-caption { margin: 0; padding: 12px 16px; color: var(--muted); font-size: .72rem; }
@@ -447,6 +453,7 @@ footer { padding: 58px 0 24px; background: var(--cream); color: var(--ink); }
   .split-section, .process-cards { grid-template-columns: 1fr; gap: 30px; }
   .map-layout { grid-template-columns: 1fr; gap: 32px; }
   .map-frame iframe { height: 360px; }
+  .published-sites .business-list { grid-template-columns: 1fr; }
   .demo-disclaimer .wrap { display: block; padding: 20px 0; }
   .demo-disclaimer .eyebrow { margin-bottom: 10px; }
   .split-section h2 { font-size: 2.25rem; }

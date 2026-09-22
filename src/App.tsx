@@ -51,7 +51,9 @@ function pageMarkup(html: string) {
     .replaceAll('$25.000', '$40.000')
     .replaceAll('$120.000', '$40.000')
     .replaceAll('25.000 COP', '40.000 COP')
-    .replaceAll('120.000 COP', '40.000 COP');
+    .replaceAll('120.000 COP', '40.000 COP')
+    .replaceAll('presentthost.online', 'tuempresa.online')
+    .replaceAll('subdominio', 'dominio propio');
   documentFragment.body.innerHTML = replaceText(documentFragment.body.innerHTML);
   documentFragment.head.innerHTML = replaceText(documentFragment.head.innerHTML);
 
@@ -62,8 +64,24 @@ function pageMarkup(html: string) {
     if (proofPrice) proofPrice.innerHTML = '<strong>$40.000</strong><span>IVA incluido</span>';
     const offer = documentFragment.querySelector('.offer-section');
     if (offer) {
-      offer.innerHTML = '<div class="wrap offer-card"><div><p class="eyebrow">PACK PRESENTTACIÓN DIGITAL</p><h2>Tu negocio listo<br><em>para crecer online.</em></h2><p>Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la información, imágenes, datos y funcionalidades necesarias.</p></div><div class="offer-price"><strong>$40.000</strong><span>COP · IVA incluido</span><small>Creación personalizada · Hosting · SEO local<br>Contenido e identidad de tu negocio</small><a class="button primary" href="contacto.html">Solicitar servicio <span>↗</span></a></div></div>';
+      offer.innerHTML = '<div class="wrap offer-card"><div><p class="eyebrow">PACK PRESENTTACIÓN DIGITAL</p><h2>Tu negocio listo<br><em>para crecer online.</em></h2><p>Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la información, imágenes, datos y funcionalidades necesarias. Hacemos las implementaciones tecnológicas necesarias y ajustamos la solución hasta que quedes satisfecho con la versión digitalizada de tu negocio.</p></div><div class="offer-price"><strong>$40.000</strong><span>COP · IVA incluido</span><small>Creación personalizada · Hosting · SEO local<br>Contenido e identidad de tu negocio</small><a class="button primary" href="contacto.html">Comprar plan <span>↗</span></a></div></div>';
     }
+    const windowAddress = documentFragment.querySelector('.window-bar span');
+    if (windowAddress) windowAddress.textContent = 'tuempresa.online';
+    const hostingFeature = documentFragment.querySelector('.feature-grid article:nth-child(2)');
+    if (hostingFeature) hostingFeature.innerHTML = '<b>02</b><h3>Dominio y correo profesional</h3><p>Recibe tu dominio propio <strong>tuempresa.online</strong> y 1 correo profesional <strong>@tuempresa.online</strong>.</p>';
+    const featureSection = documentFragment.querySelector('#como-funciona');
+    const featureGrid = featureSection?.querySelector('.feature-grid');
+    if (featureSection && featureGrid) {
+      const featureActions = documentFragment.createElement('div');
+      featureActions.className = 'actions plan-cta';
+      featureActions.innerHTML = '<a class="button primary" href="contacto.html">Comprar Presenttación Digital <span>↗</span></a>';
+      featureGrid.insertAdjacentElement('afterend', featureActions);
+    }
+    const heroCta = documentFragment.querySelector('.hero .button.primary');
+    if (heroCta) heroCta.innerHTML = 'Comprar plan <span>↗</span>';
+    const finalCta = documentFragment.querySelector('.final-cta .button');
+    if (finalCta) finalCta.innerHTML = 'Comprar Presenttación Digital <span>↗</span>';
   }
 
   if (page === 'servicios.html') {
@@ -76,10 +94,12 @@ function pageMarkup(html: string) {
       const period = mainService.querySelector('.service-price span');
       const action = mainService.querySelector('.service-price .button');
       if (title) title.innerHTML = 'Presenttación<br><em>Digital</em>';
-      if (description) description.textContent = 'Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la información, imágenes, datos y funcionalidades necesarias.';
+      if (description) description.textContent = 'Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la información, imágenes, datos y funcionalidades necesarias. Hacemos las implementaciones tecnológicas necesarias y ajustamos la solución hasta que quedes satisfecho con la versión digitalizada de tu negocio.';
+      const features = mainService.querySelector('ul');
+      if (features) features.innerHTML = '<li>Creación personalizada con imágenes, estilo y contenido de tu empresa.</li><li>Dominio propio incluido: <strong>tuempresa.online</strong>.</li><li>1 correo profesional: <strong>@tuempresa.online</strong>.</li><li>Implementaciones tecnológicas y ajustes necesarios hasta tu satisfacción.</li><li>SEO y estructura preparada para búsquedas locales.</li><li>Códigos QR, demos y comprobante de uso real.</li><li>La renovación es flexible: puedes dejar de pagar cuando quieras.</li>';
       if (price) price.textContent = '$40.000';
       if (period) period.textContent = 'COP · IVA incluido';
-      if (action) action.innerHTML = 'Solicitar servicio <span>↗</span>';
+      if (action) action.innerHTML = 'Comprar plan <span>↗</span>';
     }
     const heading = documentFragment.querySelector('.page-hero h1');
     if (heading) heading.innerHTML = 'Una solución.<br><em>Una presencia real.</em>';
@@ -88,12 +108,20 @@ function pageMarkup(html: string) {
   }
 
   if (page === 'preguntas.html') {
-    const menuQuestion = [...documentFragment.querySelectorAll('[data-faq]')].find((card) => card.textContent?.toLowerCase().includes('menú digital'));
+    const questions = [...documentFragment.querySelectorAll('[data-faq]')];
+    const menuQuestion = questions.find((card) => card.textContent?.toLowerCase().includes('menú digital'));
     if (menuQuestion) {
       menuQuestion.setAttribute('data-question', '¿El precio incluye IVA?');
       menuQuestion.setAttribute('data-answer', 'Sí. El valor de la Presenttación Digital es de $40.000 COP con IVA incluido.');
       const title = menuQuestion.querySelector('h2');
       if (title) title.textContent = '¿El precio incluye IVA?';
+    }
+    const hostingQuestion = questions.find((card) => card.textContent?.toLowerCase().includes('tuempresa.online'));
+    if (hostingQuestion) {
+      hostingQuestion.setAttribute('data-question', '¿Qué incluye el dominio y correo profesional?');
+      hostingQuestion.setAttribute('data-answer', 'La Presenttación Digital incluye el dominio propio tuempresa.online y 1 correo profesional @tuempresa.online.');
+      const title = hostingQuestion.querySelector('h2');
+      if (title) title.textContent = '¿Qué incluye el dominio y correo profesional?';
     }
   }
 
@@ -122,7 +150,7 @@ function pageMarkup(html: string) {
   if (navigation && !navigation.querySelector('a[href="mapa.html"]')) {
     const mapLink = documentFragment.createElement('a');
     mapLink.href = 'mapa.html';
-    mapLink.textContent = 'Mapa';
+    mapLink.textContent = 'Sitios';
     navigation.insertBefore(mapLink, navigation.querySelector('.nav-cta'));
   }
   navigation?.querySelectorAll('a').forEach((link) => {
