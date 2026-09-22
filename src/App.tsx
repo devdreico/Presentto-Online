@@ -132,8 +132,6 @@ function pageMarkup(html: string) {
     .replaceAll('servicio a mesa', 'presencia digital')
     .replaceAll('pedidos a domicilio', 'solicitudes de clientes')
     .replaceAll('comandas', 'solicitudes')
-    .replaceAll('Contacto', 'Comprar')
-    .replaceAll('contacto', 'comprar')
     .replaceAll('Conocer más', 'Comprar')
     .replaceAll('Conocer la oferta', 'Comprar')
     .replaceAll('Habla por WhatsApp', 'Comprar ahora')
@@ -286,8 +284,13 @@ function pageMarkup(html: string) {
   const navigation = documentFragment.querySelector('.site-header nav');
   navigation?.querySelectorAll('a[href="demos.html"]').forEach((link) => link.remove());
   navigation?.querySelectorAll('a[href="contacto.html"]').forEach((link) => {
-    link.textContent = 'Comprar';
-    link.innerHTML = 'Comprar <b>↗</b>';
+    const text = documentFragment.createElement('span');
+    text.textContent = 'Comprar';
+    link.textContent = '';
+    link.appendChild(text);
+    const arrow = documentFragment.createElement('b');
+    arrow.textContent = '↗';
+    link.appendChild(arrow);
   });
   if (navigation && !navigation.querySelector('a[href="mapa.html"]')) {
     const mapLink = documentFragment.createElement('a');
