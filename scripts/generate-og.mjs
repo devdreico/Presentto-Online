@@ -24,8 +24,8 @@ const svg = Buffer.from(`
   <rect width="100%" height="100%" fill="url(#g)"/>
   <rect x="0" y="0" width="12" height="${H}" fill="#ff6b35"/>
   <rect x="72" y="470" width="180" height="6" rx="3" fill="#ff6b35"/>
-  <text x="72" y="540" font-family="Montserrat, Arial, sans-serif" font-size="36" font-weight="700" fill="#ffffff">Demo gratis · Web desde $40.000 COP</text>
-  <text x="72" y="585" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="500" fill="#9aa6c2">SEO local · Sabana Occidental · presentto.online</text>
+  <text x="72" y="540" font-family="Montserrat, Arial, sans-serif" font-size="36" font-weight="700" fill="#ffffff">SEO local · Posicionamiento en Google</text>
+  <text x="72" y="585" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="500" fill="#9aa6c2">Web desde $40.000 COP · Sabana Occidental</text>
 </svg>`);
 
 await sharp(svg)

@@ -1,17 +1,27 @@
 # Presentto Online
 
-> Presentto Online ofrece web administrada ("Presenttación Digital") para negocios de la Sabana Occidental (Funza, Mosquera, Madrid, Facatativá), Colombia: web, dominio, correo y SEO local desde $40.000 COP/mes. Flujo: demo web gratis sin abono → el cliente aprueba → pago único por plazo en Mercado Pago → publicación en pocos días.
+> Presentto Online ofrece web administrada con SEO local y posicionamiento en Google ("Presenttación Digital") para negocios de la Sabana Occidental (Funza, Mosquera, Madrid, Facatativá), Colombia: web, dominio, correo, SEO on-page, datos estructurados y ficha de Google desde $40.000 COP/mes. Flujo: demo web gratis sin abono → el cliente aprueba → pago único por plazo en Mercado Pago → publicación e indexación en pocos días.
 
 Presentto es operado por Soverath Holding S.A.S. con respaldo técnico de Aeperion Systems. Moneda: COP. Idioma: es-CO. Sin permanencia obligatoria; sin suscripción automática.
 
+## Términos y servicios
+
+- SEO local / posicionamiento local / pack de Google Maps / "cerca de mí"
+- SEO on-page: meta títulos, meta descripciones, encabezados, enlaces internos, URL limpias
+- SEO técnico: sitemap XML, robots.txt, velocidad, Core Web Vitals (LCP, INP, CLS), indexación
+- Datos estructurados (schema) LocalBusiness / Service / FAQPage
+- Google Business Profile (GBP): categorías, fotos, NAP (Nombre, Dirección, Teléfono), reseñas
+- Tráfico orgánico, intención de búsqueda, palabras clave de cola larga, keyword research local
+- Web administrada, hosting administrado, dominio propio, correo profesional
+
 ## Páginas principales
 
-- [Servicios y planes](https://www.presentto.online/servicios/): Presenttación Digital — web, dominio, correo, SEO local y administración.
+- [Servicios y planes](https://www.presentto.online/servicios/): Presenttación Digital — web, SEO on-page, SEO local, dominio, correo y administración.
 - [Contacto y pago](https://www.presentto.online/contacto/): planes prepago 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP (IVA incluido).
-- [Portafolio](https://www.presentto.online/portfolio/): trabajos y proceso.
-- [Sitios publicados](https://www.presentto.online/sitios/): clientes en *.presentto.online.
+- [Portafolio](https://www.presentto.online/portfolio/): trabajos, proceso y respaldo técnico.
+- [Sitios publicados](https://www.presentto.online/sitios/): clientes indexados en *.presentto.online.
 - [Sobre Presentto](https://www.presentto.online/nosotros/): quiénes somos y cómo ofrecemos el precio.
-- [Preguntas frecuentes](https://www.presentto.online/preguntas/): dudas sobre planes, demo y SEO local.
+- [Preguntas frecuentes](https://www.presentto.online/preguntas/): dudas sobre SEO, posicionamiento, planes y demo.
 
 ## Guías de SEO local
 

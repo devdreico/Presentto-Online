@@ -21,16 +21,19 @@ const {
 } = Astro.props;
 
 const path = `/${slug}/`;
-const title = `Web y SEO local en ${city} | Presentto Online`;
-const description = `Demo gratis de web y SEO local en ${city} desde $40.000 COP/mes: dominio, correo profesional y Google para tu negocio. Sin abono.`;
+const title = `SEO local y posicionamiento en Google en ${city} | Presentto`;
+const description = `Web con SEO local y posicionamiento en Google en ${city} desde $40.000 COP/mes: schema, ficha de Google, dominio y correo. Demo gratis.`;
+const DEMO_URL = `https://wa.me/573236487336?text=${encodeURIComponent(
+  `Hola Presentto, quiero solicitar una demo web gratis de mi negocio en ${city}`
+)}`;
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: `Páginas web y SEO local en ${city}`,
+  name: `Páginas web con SEO local y posicionamiento en ${city}`,
   provider: { '@id': 'https://www.presentto.online/#organization' },
   areaServed: { '@type': 'Place', name: `${city}, Cundinamarca, Colombia` },
-  serviceType: 'Diseño de páginas web y SEO local',
+  serviceType: 'Diseño web, SEO on-page y posicionamiento local',
   offers: {
     '@type': 'Offer',
     price: '40000',
@@ -41,16 +44,16 @@ const schema = {
 
 const faqs = [
   {
-    q: `¿Cuánto cuesta una página web en ${city}?`,
-    a: `En Presentto la Presenttación Digital cuesta desde $40.000 COP/mes (IVA incluido; prepago de 1, 3, 6 meses o 1 año) e incluye diseño, dominio propio, correo profesional y SEO local orientado a ${city} y la Sabana Occidental. Antes de pagar puedes pedir una demo gratis de tu negocio.`,
+    q: `¿Cuánto cuesta una página web con SEO local en ${city}?`,
+    a: `En Presentto la Presenttación Digital cuesta desde $40.000 COP/mes (IVA incluido; prepago de 1, 3, 6 meses o 1 año) e incluye diseño, dominio propio, correo profesional, SEO on-page y SEO local orientado a ${city} y la Sabana Occidental. Antes de pagar puedes pedir una demo gratis de tu negocio.`,
   },
   {
-    q: `¿Cómo aparece mi negocio de ${city} en Google?`,
-    a: `Con una web estructurada para SEO local (títulos, datos de contacto, contenido municipal) y una ficha de Google Business Profile bien configurada con categorías, fotos y reseñas reales. Nosotros preparamos la base; la constancia en reseñas y ficha la decides tú.`,
+    q: `¿Cómo posiciono mi negocio de ${city} en Google y en el pack de Maps?`,
+    a: `Con las tres patas del SEO local: (1) web optimizada con metas, schema LocalBusiness y contenido municipal; (2) Google Business Profile con categorías, fotos y NAP coherente (Nombre, Dirección, Teléfono); (3) reseñas reales y constantes. Nosotros preparamos 1 y 2; la constancia en reseñas la decides tú. No prometemos ranking garantizado.`,
   },
   {
-    q: `¿Cuánto tarda un sitio web para un negocio en ${city}?`,
-    a: `Primero nos pasas la información del negocio (textos, fotos y objetivos) y te enviamos la demo. Tras tu aprobación y el pago, la entrega habitual es de pocos días hábiles, con rondas de ajustes hasta dejarlo listo.`,
+    q: `¿Cuánto tarda en indexarse y posicionarse un sitio web en ${city}?`,
+    a: `La indexación (aparecer en el rastreador de Google) suele ocurrir en días o semanas tras publicar, con sitemap y Search Console. El posicionamiento orgánico en búsquedas competitivas de ${city} toma meses de autoridad, contenido y reseñas. Tras tu aprobación de la demo, la entrega técnica es de pocos días hábiles.`,
   },
 ];
 
@@ -66,19 +69,15 @@ const relatedCities = [
   <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: city }]} />
 
   <section class="section wrap page-hero">
-    <p class="eyebrow">SEO LOCAL · {city.toUpperCase()}</p>
-    <h1>Tu negocio en {city}, <em>visible en Google.</em></h1>
+    <p class="eyebrow">SEO LOCAL · POSICIONAMIENTO · {city.toUpperCase()}</p>
+    <h1>Tu negocio en {city}, <em>posicionado en Google.</em></h1>
     <p class="lead">
-      Creamos la web de tu negocio con estrategia de SEO local y contenido pensado para captar clientes reales
-      en {city}. Primero la ves gratis; pagas solo si te gusta.
+      Presentamos tu negocio online con SEO on-page, datos estructurados y contenido geolocalizado para
+      aparecer en búsquedas locales de {city}, en el pack de Google Maps y en “cerca de mí”. Primero la ves
+      gratis; pagas solo si te gusta.
     </p>
     <div class="actions">
-      <a
-        class="button primary"
-        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio%20en%20{city}"
-        target="_blank"
-        rel="noopener"
-      >
+      <a class="button primary" href={DEMO_URL} target="_blank" rel="noopener">
         Pedir mi demo gratis <span>↗</span>
       </a>
       <a class="button ghost" href="/servicios/">Ver servicio <span>↓</span></a>
@@ -86,64 +85,65 @@ const relatedCities = [
   </section>
 
   <section class="section wrap guide-layout">
-    <h2>Presencia digital para {focus}</h2>
+    <h2>Visibilidad orgánica para {focus}</h2>
     <p class="snippet">
-      {city} concentra {sectors}. Una página web clara, rápida y optimizada para SEO local ayuda a que esos
-      negocios aparezcan cuando un cliente busca “cerca de mí” o “en {city}” en Google y Google Maps.
+      {city} concentra {sectors}. Una página web rápida, indexable y optimizada para SEO local ayuda a que
+      esos negocios aparezcan en los resultados orgánicos de Google, en el pack local de Maps y cuando el
+      cliente busca “cerca de mí” o “en {city}” con intención de compra.
     </p>
     <p>
       {highlight}
     </p>
     <p>
       {landmarks} Trabajamos con la identidad real de tu empresa: tus fotos, tus servicios y la forma en que
-      atiendes a tus clientes. Una base técnica estandarizada nos permite mantener el precio accesible sin
-      regalar calidad.
+      atiendes a tus clientes. La arquitectura del sitio (URLs limpias, enlaces internos, jerarquía de
+      encabezados) queda lista para que Google rastree e indexe sin fricción.
     </p>
 
-    <h2>Qué incluye la web para negocios en {city}</h2>
+    <h2>Qué incluye la web con SEO local para {city}</h2>
     <ul>
-      <li>Diseño personalizado alineado con tu marca y tu {focus}.</li>
+      <li>Diseño personalizado alineado con tu marca y con {focus}.</li>
       <li>Dominio propio y correo profesional (por ejemplo, <strong>tuempresa.online</strong>).</li>
-      <li>Estructura SEO local: títulos, meta descripciones, datos de contacto y contenido municipal.</li>
-      <li>Guía de configuración de Google Business Profile para {city}.</li>
-      <li>Códigos QR para compartir tu web en tarjetas, menús o escaparates.</li>
+      <li>SEO on-page: meta títulos, meta descripciones, H1–H3, enlaces internos y URL limpias.</li>
+      <li>Datos estructurados schema LocalBusiness/Service para rich results locales.</li>
+      <li>Contenido geolocalizado y palabras clave de cola larga de {city}.</li>
+      <li>Orientación de Google Business Profile: categorías, fotos y coherencia NAP.</li>
+      <li>Velocidad y Core Web Vitals para móvil (factor de ranking y conversión).</li>
+      <li>Sitemap XML y robots.txt listos para el rastreo de Google.</li>
+      <li>Códigos QR para llevar tráfico del punto de venta a tu web.</li>
       <li>Administración del hosting por Presentto y ajustes durante el plan.</li>
     </ul>
 
-    <h2>¿Cuánto cuesta una página web en {city}?</h2>
+    <h2>¿Cuánto cuesta una página web con SEO en {city}?</h2>
     <p class="snippet">
       La Presenttación Digital de Presentto cuesta desde $40.000 COP/mes, IVA incluido: creación, dominio,
-      correo, SEO local y administración incluidos. Prepago de 1, 3, 6 meses o 1 año, sin permanencia. Pide
-      tu demo gratis antes de decidir.
+      correo, SEO on-page, SEO local, schema y administración incluidos. Prepago de 1, 3, 6 meses o 1 año,
+      sin permanencia. Pide tu demo gratis antes de decidir.
     </p>
     <table class="compare-table">
       <thead>
         <tr><th>Opción</th><th>Inversión típica</th><th>Ideal para</th></tr>
       </thead>
       <tbody>
-        <tr><td>Presentto ({city}) — 1 mes</td><td>$40.000 COP (IVA incl.)</td><td>Negocios locales que quieren empezar ya</td></tr>
-        <tr><td>Presentto ({city}) — 1 año</td><td>$350.000 COP (IVA incl.)</td><td>Quien prefiere el mejor precio por mes</td></tr>
-        <tr><td>Agencia web genérica</td><td>$800.000 – $3.000.000 COP</td><td>Proyectos grandes con CMS y blog</td></tr>
-        <tr><td>Plantilla DIY (Wix, etc.)</td><td>Desde ~20 USD/mes</td><td>Quien quiere administrarlo todo solo</td></tr>
+        <tr><td>Presentto ({city}) — 1 mes</td><td>$40.000 COP (IVA incl.)</td><td>Negocios locales que quieren posicionar ya</td></tr>
+        <tr><td>Presentto ({city}) — 1 año</td><td>$350.000 COP (IVA incl.)</td><td>Quien busca el mejor coste por mes</td></tr>
+        <tr><td>Agencia web + SEO local</td><td>$800.000 – $3.000.000 COP + mant.</td><td>Proyectos grandes con CMS y blog</td></tr>
+        <tr><td>Plantilla DIY (Wix, etc.)</td><td>Desde ~20 USD/mes</td><td>Quien quiere hacer SEO y web solo</td></tr>
       </tbody>
     </table>
 
-    <h2>Cómo trabajamos el SEO local en {city}</h2>
+    <h2>Cómo trabajamos el posicionamiento SEO en {city}</h2>
     <ol>
-      <li>Definimos las búsquedas reales de tus clientes en {city} y municipios vecinos.</li>
-      <li>Estructuramos la web con páginas y contenido geolocalizado útil (no relleno).</li>
-      <li>Configuramos datos estructurados (Schema LocalBusiness/Service) y la ficha de Google.</li>
-      <li>Medimos consultas en Google Search Console y ajustamos según resultados.</li>
+      <li>Keyword research local: búsquedas reales con intención en {city} y municipios vecinos.</li>
+      <li>SEO on-page: arquitectura de contenidos, enlaces internos y metas por URL.</li>
+      <li>SEO técnico: schema LocalBusiness/Service, sitemap, velocidad y indexación.</li>
+      <li>SEO local: ficha de Google, NAP, categorías y orientación de reseñas.</li>
+      <li>Medición en Google Search Console y ajuste continuo según tráfico orgánico.</li>
     </ol>
 
     <div class="guide-cta">
-      <p><strong>¿Quieres ver cómo quedaría la web de tu negocio en {city}?</strong></p>
-      <a
-        class="button primary"
-        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio%20en%20{city}"
-        target="_blank"
-        rel="noopener"
-      >
+      <p><strong>¿Quieres posicionar tu negocio en {city}?</strong></p>
+      <a class="button primary" href={DEMO_URL} target="_blank" rel="noopener">
         Pedir mi demo gratis <span>↗</span>
       </a>
       &nbsp;
@@ -173,12 +173,7 @@ const relatedCities = [
       <p class="eyebrow">EMPIEZA SIN RIESGO</p>
       <h2>Ve tu web gratis. <em>Decide después.</em></h2>
       <div class="actions">
-        <a
-          class="button light"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio%20en%20{city}"
-          target="_blank"
-          rel="noopener"
-        >
+        <a class="button light" href={DEMO_URL} target="_blank" rel="noopener">
           Pedir mi demo gratis <span>↗</span>
         </a>
         <a class="button ghost light-ghost" href="/contacto/#planes">Ver planes <span>↗</span></a>

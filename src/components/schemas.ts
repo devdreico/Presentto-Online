@@ -13,7 +13,7 @@ export const organizationSchema = {
   },
   email: 'inbox@presentto.online',
   telephone: '+57-323-648-7336',
-  slogan: 'Web administrada y SEO local desde $40.000 COP/mes — demo gratis',
+  slogan: 'Web administrada con SEO local y posicionamiento en Google desde $40.000 COP/mes — demo gratis',
   knowsLanguage: 'es-CO',
   contactPoint: {
     '@type': 'ContactPoint',
@@ -75,7 +75,7 @@ export const localBusinessSchema = {
       itemOffered: {
         '@type': 'Service',
         name: 'Presenttación Digital',
-        description: 'Sitio web con dominio, correo y SEO local — plan de 1 mes.',
+        description: 'Sitio web con SEO on-page, SEO local, schema y dominio — plan de 1 mes.',
       },
       price: '40000',
       priceCurrency: 'COP',

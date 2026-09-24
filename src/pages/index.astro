@@ -3,15 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PlansGrid from '../components/PlansGrid.astro';
 import { localBusinessSchema } from '../components/schemas';
 
-const title = 'Demo gratis de web y SEO local desde $40.000 COP/mes | Presentto Online';
+const title = 'SEO local y posicionamiento en Google desde $40.000 COP/mes | Presentto';
 const description =
-  'Pide tu demo web gratis, sin abono: web, dominio, correo y SEO local en Funza, Mosquera, Madrid y Facatativá desde $40.000 COP/mes. Sin permanencia.';
+  'Web con SEO local y posicionamiento en Google para Funza, Mosquera, Madrid y Facatativá. Dominio, correo y ficha de Google. Demo gratis, sin abono.';
 const homeService = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Presenttación Digital',
   description:
-    'Sitio web profesional con dominio propio, correo, SEO local y administración para negocios de la Sabana Occidental.',
+    'Sitio web profesional con SEO on-page, posicionamiento local, dominio propio, correo y administración para negocios de la Sabana Occidental.',
   provider: { '@id': 'https://www.presentto.online/#organization' },
   areaServed: [
     { '@type': 'Place', name: 'Funza' },
@@ -78,11 +78,12 @@ const homeService = {
         fetchpriority="high"
         decoding="async"
       />
-      <p class="eyebrow">WEB ADMINISTRADA · SABANA OCCIDENTAL</p>
-      <h1>Tu negocio, <em>visible en Google y en la Sabana Occidental.</em></h1>
+      <p class="eyebrow">SEO LOCAL · POSICIONAMIENTO EN GOOGLE</p>
+      <h1>Tu negocio, <em>posicionado en Google y en la Sabana Occidental.</em></h1>
       <p class="lead">
-        Creamos, publicamos y mantenemos tu web con dominio, correo y SEO local. Primero la ves gratis;
-        pagas solo si te convence.
+        Presentamos tu negocio online con una web optimizada para SEO on-page, SEO técnico y búsquedas
+        locales: dominio, correo y ficha de Google Business Profile incluidos. Primero la ves gratis; pagas
+        solo si te convence.
       </p>
       <div class="hero-price">
         <strong>desde $40.000</strong>
@@ -125,49 +126,52 @@ const homeService = {
   <section class="proof">
     <div class="wrap proof-grid">
       <div><strong>Demo</strong><span>gratis, sin abono</span></div>
-      <div><strong>desde $40.000</strong><span>COP / mes · IVA incl.</span></div>
-      <div><strong>Sin</strong><span>permanencia obligatoria</span></div>
+      <div><strong>SEO</strong><span>local + posicionamiento</span></div>
+      <div><strong>desde $40.000</strong><span>COP/mes · IVA incl.</span></div>
     </div>
   </section>
 
   <PlansGrid id="planes" heading={true} />
 
   <section class="section wrap" id="como-funciona">
-    <p class="eyebrow">TODO INCLUIDO EN UN SOLO PLAN</p>
+    <p class="eyebrow">POSICIONAMIENTO WEB · TODO INCLUIDO</p>
     <div class="section-heading">
-      <h2>Un solo plan. <em>Todo lo que tu negocio necesita online.</em></h2>
+      <h2>Un solo plan. <em>Visibilidad orgánica de punta a punta.</em></h2>
       <p>
-        Sin contratos largos ni sorpresas: dominio propio, contenido con tu identidad, diseño y SEO local
-        para que te encuentren en la Sabana Occidental.
+        Diseño, SEO on-page, SEO técnico, datos estructurados y contenido geolocalizado para que tu negocio
+        aparezca en búsquedas locales de Funza, Mosquera, Madrid, Facatativá y en el pack local de Google Maps.
       </p>
     </div>
     <div class="feature-grid feature-grid-four">
       <article>
         <b>01</b>
         <h3>Nosotros lo hacemos todo</h3>
-        <p>Tú apruebas; nosotros diseñamos, publicamos y ajustamos tu web con tus fotos, textos y servicios reales.</p>
+        <p>Tú apruebas; nosotros diseñamos, publicamos y optimizamos tu web con tus fotos, textos y servicios reales.</p>
       </article>
       <article>
         <b>02</b>
         <h3>Dominio y correo profesionales</h3>
         <p>
-          Deja el correo de gmail: dominio propio <strong>tuempresa.online</strong> y correo
-          <strong>@tuempresa.online</strong> incluidos.
+          Dominio propio <strong>tuempresa.online</strong> (autoridad de dominio propia, sin subdominios
+          gratis) y correo <strong>@tuempresa.online</strong> incluidos.
         </p>
       </article>
       <article>
         <b>03</b>
-        <h3>SEO local en tu ciudad</h3>
+        <h3>SEO local y pack de Maps</h3>
         <p>
-          Estructura SEO para que te encuentren en
+          SEO on-page, meta títulos, schema LocalBusiness y contenido por municipio para posicionar en
           <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a>,
-          <a href="/facatativa/">Facatativá</a> y la Sabana Occidental.
+          <a href="/facatativa/">Facatativá</a> y búsquedas “cerca de mí”.
         </p>
       </article>
       <article>
         <b>04</b>
-        <h3>Ajustes sin costo extra</h3>
-        <p>Cambias textos, fotos o servicios durante el plan, sin pelear con herramientas ni pagar extras.</p>
+        <h3>Contenido indexable y conversión</h3>
+        <p>
+          Arquitectura de enlaces internos, encabezados H1–H3, imágenes optimizadas y CTAs claros para
+          convertir tráfico orgánico en clientes por WhatsApp.
+        </p>
       </article>
     </div>
     <div class="actions plan-cta">
@@ -241,35 +245,35 @@ const homeService = {
 
   <section class="section stack-section">
     <div class="wrap">
-      <p class="eyebrow">RESPALDO TÉCNICO</p>
+      <p class="eyebrow">SEO TÉCNICO · CORE WEB VITALS</p>
       <div class="section-heading">
-        <h2>Rápida, accesible <em>y lista para posicionar.</em></h2>
+        <h2>Indexable, veloz <em>y listo para posicionar.</em></h2>
         <p>
-          Trabajamos con estándares web actuales para que tu sitio cargue rápido en el celular, sea fácil de
-          usar y esté preparado para SEO local.
+          Rastreo limpio, HTML semántico, sitemap XML, datos estructurados y Core Web Vitals (LCP, INP, CLS)
+          optimizados: la base técnica que Google necesita para indexarte y mostrarte en resultados locales.
         </p>
       </div>
       <div class="stack-grid">
         <article class="stack-card">
           <img src="/assets/img/icons/html5.svg" alt="Icono HTML5" width="42" height="42" loading="lazy" />
-          <strong>HTML5</strong><span>Estructura semántica</span>
+          <strong>HTML5</strong><span>Semántica e indexación</span>
         </article>
         <article class="stack-card">
           <img src="/assets/img/icons/css3.svg" alt="Icono CSS3" width="42" height="42" loading="lazy" />
-          <strong>CSS3</strong><span>Diseño responsive</span>
+          <strong>CSS3</strong><span>Mobile-first responsive</span>
         </article>
         <article class="stack-card">
           <img src="/assets/img/icons/javascript.svg" alt="Icono JavaScript" width="42" height="42" loading="lazy" />
-          <strong>JavaScript</strong><span>Interacciones útiles</span>
+          <strong>JavaScript</strong><span>Interacción sin bloquear rastreo</span>
         </article>
         <article class="stack-card">
-          <span class="stack-badge">SEO</span><strong>SEO local</strong><span>Encontrabilidad técnica</span>
+          <span class="stack-badge">SEO</span><strong>SEO on-page</strong><span>Metas, schema y enlaces internos</span>
         </article>
         <article class="stack-card">
-          <span class="stack-badge">A11Y</span><strong>Accesibilidad</strong><span>Experiencia inclusiva</span>
+          <span class="stack-badge">GBP</span><strong>Google Business</strong><span>Ficha, NAP y pack local</span>
         </article>
         <article class="stack-card">
-          <span class="stack-badge">CWV</span><strong>Core Web Vitals</strong><span>Velocidad y experiencia</span>
+          <span class="stack-badge">CWV</span><strong>Core Web Vitals</strong><span>LCP · INP · CLS</span>
         </article>
       </div>
       <p class="stack-note">Tecnologías y estándares de trabajo. No representa certificaciones oficiales de terceros.</p>
