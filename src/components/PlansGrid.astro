@@ -104,6 +104,10 @@ const plansSchema = {
             href={plan.url}
             target="_blank"
             rel="noopener noreferrer"
+            data-plan-checkout
+            data-pay={plan.url}
+            data-plan={plan.name}
+            data-price={plan.price}
           >
             Pagar {plan.name} <span>↗</span>
           </a>
@@ -126,3 +130,189 @@ const plansSchema = {
   </div>
 </section>
 <script type="application/ld+json" set:html={JSON.stringify(plansSchema)} />
+
+<dialog class="plan-checkout" id="planCheckout" aria-labelledby="planCheckoutTitle">
+  <div class="plan-checkout-head">
+    <p class="eyebrow">DATOS ANTES DE PAGAR</p>
+    <h2 id="planCheckoutTitle">Completa tus datos <em>y continúa al pago.</em></h2>
+    <p class="plan-checkout-summary">
+      Plan: <strong data-checkout-plan>—</strong>
+      · <strong data-checkout-price>—</strong>
+    </p>
+  </div>
+  <form id="planCheckoutForm" class="plan-checkout-form" novalidate>
+    <label>
+      Tu nombre
+      <input name="nombre" type="text" required autocomplete="name" placeholder="Cómo te llamas" />
+    </label>
+    <label>
+      WhatsApp
+      <input
+        name="whatsapp"
+        type="tel"
+        required
+        autocomplete="tel"
+        inputmode="tel"
+        pattern="[0-9+\s()-]{7,}"
+        placeholder="+57 300 000 0000"
+      />
+    </label>
+    <input type="hidden" name="plan" data-field="plan" />
+    <input type="hidden" name="precio" data-field="precio" />
+    <input type="hidden" name="hora" data-field="hora" />
+    <input type="hidden" name="zona_horaria" data-field="zona_horaria" />
+    <input type="hidden" name="pagina" data-field="pagina" />
+    <input type="hidden" name="referrer" data-field="referrer" />
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
+    <button class="button primary plan-checkout-submit" type="submit">
+      Enviar y pagar <span>↗</span>
+    </button>
+    <p class="form-note">
+      Usamos tu nombre y WhatsApp solo para identificar tu compra antes del pago.
+      <a href="/privacidad/" target="_blank" rel="noopener">Política de privacidad</a>.
+    </p>
+    <p id="planCheckoutStatus" class="plan-checkout-status" role="status" aria-live="polite"></p>
+    <button type="button" class="plan-checkout-cancel" data-checkout-cancel>Cancelar</button>
+  </form>
+</dialog>
+
+<script is:inline>
+  (function () {
+    var FORMSPREE = 'https://formspree.io/f/xeaokwly';
+    var dialog = document.getElementById('planCheckout');
+    var form = document.getElementById('planCheckoutForm');
+    var statusEl = document.getElementById('planCheckoutStatus');
+    if (!dialog || !form || !statusEl) return;
+
+    var planLabel = dialog.querySelector('[data-checkout-plan]');
+    var priceLabel = dialog.querySelector('[data-checkout-price]');
+    var fPlan = form.querySelector('[data-field="plan"]');
+    var fPrecio = form.querySelector('[data-field="precio"]');
+    var fHora = form.querySelector('[data-field="hora"]');
+    var fTz = form.querySelector('[data-field="zona_horaria"]');
+    var fPagina = form.querySelector('[data-field="pagina"]');
+    var fRef = form.querySelector('[data-field="referrer"]');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var payUrl = '';
+    var busy = false;
+
+    function setStatus(msg, isError) {
+      statusEl.textContent = msg || '';
+      statusEl.className = 'plan-checkout-status' + (msg ? (isError ? ' form-error' : ' form-status') : '');
+    }
+
+    function localHora() {
+      try {
+        return new Date().toLocaleString('es-CO', {
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+          hour12: false,
+          timeZoneName: 'short',
+        });
+      } catch (e) {
+        return new Date().toString();
+      }
+    }
+
+    function timezone() {
+      try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ''; }
+      catch (e) { return ''; }
+    }
+
+    function closeDialog() {
+      if (typeof dialog.close === 'function' && dialog.open) dialog.close();
+      document.body.classList.remove('modal-open');
+    }
+
+    function openCheckout(btn) {
+      payUrl = btn.getAttribute('data-pay') || '';
+      var plan = btn.getAttribute('data-plan') || '';
+      var price = btn.getAttribute('data-price') || '';
+      if (planLabel) planLabel.textContent = plan;
+      if (priceLabel) priceLabel.textContent = price;
+      if (fPlan) fPlan.value = plan;
+      if (fPrecio) fPrecio.value = price;
+      form.reset();
+      if (fPlan) fPlan.value = plan;
+      if (fPrecio) fPrecio.value = price;
+      setStatus('', false);
+      document.body.classList.add('modal-open');
+      if (typeof dialog.showModal === 'function') {
+        dialog.showModal();
+        var first = form.querySelector('input[name="nombre"]');
+        if (first) first.focus();
+      } else {
+        location.href = payUrl;
+      }
+    }
+
+    document.querySelectorAll('[data-plan-checkout]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        if (typeof dialog.showModal !== 'function') return;
+        e.preventDefault();
+        openCheckout(btn);
+      });
+    });
+
+    dialog.addEventListener('close', function () {
+      document.body.classList.remove('modal-open');
+    });
+    dialog.addEventListener('click', function (e) {
+      if (e.target === dialog) closeDialog();
+    });
+    var cancelBtn = dialog.querySelector('[data-checkout-cancel]');
+    if (cancelBtn) cancelBtn.addEventListener('click', closeDialog);
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (busy) return;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      if (!payUrl) {
+        setStatus('No encontramos el enlace de pago. Cierra e intenta de nuevo.', true);
+        return;
+      }
+
+      busy = true;
+      if (submitBtn) submitBtn.disabled = true;
+      setStatus('Enviando tus datos…', false);
+
+      if (fHora) fHora.value = new Date().toISOString() + ' | ' + localHora();
+      if (fTz) fTz.value = timezone();
+      if (fPagina) fPagina.value = location.href;
+      if (fRef) fRef.value = document.referrer || '';
+
+      var data = {
+        nombre: (form.nombre && form.nombre.value || '').trim(),
+        whatsapp: (form.whatsapp && form.whatsapp.value || '').trim(),
+        plan: fPlan ? fPlan.value : '',
+        precio: fPrecio ? fPrecio.value : '',
+        hora: fHora ? fHora.value : '',
+        zona_horaria: fTz ? fTz.value : '',
+        pagina: fPagina ? fPagina.value : '',
+        referrer: fRef ? fRef.value : '',
+        _subject: 'Pago plan ' + (fPlan ? fPlan.value : '') + ' — Presentto',
+        _gotcha: (form._gotcha && form._gotcha.value) || '',
+      };
+
+      try {
+        var res = await fetch(FORMSPREE, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error('send');
+        setStatus('¡Listo! Te llevamos al pago seguro de Mercado Pago…', false);
+        setTimeout(function () {
+          location.href = payUrl;
+        }, 400);
+      } catch (err) {
+        setStatus('No pudimos enviar tus datos. Revisa tu conexión e inténtalo de nuevo.', true);
+        busy = false;
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  })();
+</script>
