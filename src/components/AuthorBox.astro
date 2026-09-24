@@ -1,0 +1,20 @@
+---
+interface Props {
+  name: string;
+  role?: string;
+}
+const { name, role = 'Equipo editorial · Presentto Online' } = Astro.props;
+---
+
+<aside class="author-box">
+  <div>
+    <strong>{name}</strong>
+    <p>{role}</p>
+    <p>
+      Especialistas en presencia digital y SEO local para negocios de la Sabana Occidental.
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener author">LinkedIn</a>
+      ·
+      <a href="/nosotros/">Sobre Presentto</a>
+    </p>
+  </div>
+</aside>

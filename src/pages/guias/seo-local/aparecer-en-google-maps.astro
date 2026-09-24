@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AuthorBox from '../../../components/AuthorBox.astro';
+
+const title = 'Aparecer en Google Maps para tu negocio';
+const description =
+  'Pasos para aparecer en Google Maps: ficha verificada, categorías, reseñas y web con schema local.';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: '2026-09-23',
+  dateModified: '2026-09-24',
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Google Maps' },
+  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://presentto.online/nosotros/' },
+  publisher: { '@id': 'https://presentto.online/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://presentto.online/guias/seo-local/aparecer-en-google-maps/' },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/guias/seo-local/aparecer-en-google-maps/"
+  jsonld={[articleSchema]}
+>
+  <Breadcrumbs
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Guías', href: '/guias/' },
+      { label: 'SEO local', href: '/guias/seo-local/' },
+      { label: 'Google Maps' },
+    ]}
+  />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">SEO LOCAL · MAPS</p>
+    <h1>Cómo aparecer en Google Maps con tu negocio</h1>
+    <p class="lead">Del pin azul a la primera posición del listado local — factores y orden de ejecución.</p>
+    <p class="guide-meta">Serie: Guía de SEO local · Presentto Online · septiembre 2026</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>¿Por qué el pack de mapas es tan valioso?</h2>
+    <p class="snippet">
+      El pack local de Google Maps aparece arriba en búsquedas móviles con intención de visita o llamada. Estar
+      en los 3 primeros resultados multiplica clics, llamadas y direcciones respecto a la página 2 de resultados
+      orgánicos.
+    </p>
+
+    <h2>Orden de factores que debes controlar</h2>
+    <ol>
+      <li>Ficha de Google Business verificada y completa (ver guía de perfil).</li>
+      <li>Proximidad real o área de servicio bien declarada (si eres negocio de servicio sin local).</li>
+      <li>Reseñas: volumen, velocidad y respuesta.</li>
+      <li>Categorías y atributos correctos.</li>
+      <li>Web con la misma NAP, schema y contenido municipal.</li>
+      <li>Menciones y citaciones locales consistentes.</li>
+    </ol>
+
+    <h2>Errores que bloquean el pack local</h2>
+    <ul>
+      <li>Ficha sin verificar o suspendida por datos inconsistentes.</li>
+      <li>Categoría incorrecta (“Consultor” para una clínica, etc.).</li>
+      <li>Sitio sin HTTPS o lento (mala experiencia = menor prominencia percibida).</li>
+      <li>Páginas de ciudad doorway (contenido 100% duplicado).</li>
+    </ul>
+
+    <h2>Relación web ↔ Maps</h2>
+    <p class="snippet">
+      Google cruza tu ficha con tu web. Si la web menciona los mismos servicios, horarios y zona, la confianza
+      aumenta; si discrepan, el sistema duda y tu ranking local se estanca.
+    </p>
+
+    <div class="guide-cta">
+      <p><strong>Construye la base técnica de tu presencia local.</strong></p>
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+      &nbsp;
+      <a class="button ghost" href="/guias/seo-local/resenas-google/">Siguiente: reseñas de Google <span>↗</span></a>
+    </div>
+
+    <AuthorBox name="Equipo SEO · Presentto Online" />
+
+    <nav class="silo-related" aria-label="Silo SEO local">
+      <h2>Silo SEO local</h2>
+      <ul>
+        <li><a href="/guias/seo-local/">Guía completa de SEO local</a></li>
+        <li><a href="/guias/seo-local/que-es-seo-local/">Qué es el SEO local</a></li>
+        <li><a href="/guias/seo-local/google-business-profile/">Google Business Profile</a></li>
+        <li><a href="/guias/seo-local/resenas-google/">Reseñas de Google</a></li>
+        <li><a href="/guias/seo-local/seo-vs-anuncios-google/">SEO vs anuncios de Google</a></li>
+      </ul>
+    </nav>
+  </section>
+</BaseLayout>

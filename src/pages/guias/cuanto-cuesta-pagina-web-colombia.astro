@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FaqList from '../../components/FaqList.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = 'Precio de página web en Colombia 2026';
+const description =
+  'Precios de páginas web en Colombia 2026: landing, corporativo y e-commerce. Tabla de costes y qué suele quedar fuera.';
+
+const faqs = [
+  {
+    q: '¿Cuánto cuesta una página web básica en Colombia?',
+    a: 'Una landing page profesional ronda $800.000 – $2.500.000 COP; un sitio corporativo de 3–7 páginas, $1.700.000 – $6.000.000 COP según agencia y alcance (referencias de mercado 2026).',
+  },
+  {
+    q: '¿Hay opciones más económicas para un negocio local?',
+    a: 'Sí. Modelos administrados como la Presenttación Digital de Presentto cuestan $40.000 COP (IVA incluido) e incluyen web, dominio, correo y SEO local, pensados para negocios que necesitan empezar sin inversión de miles de pesos.',
+  },
+  {
+    q: 'Qué suele quedar fuera de una cotización de web?',
+    a: 'Dominio y hosting anual, mantenimiento, contenido/fotografía, SEO continuo y correos corporativos a menudo se cobran aparte. Pídelo desglosado antes de firmar.',
+  },
+  {
+    q: 'Cuánto tarda un proyecto web en Colombia?',
+    a: 'Una landing: 5–15 días hábiles; un sitio institucional: 2–6 semanas; un e-commerce: 3–8 semanas según catálogo y contenido del cliente.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: '2026-09-23',
+  dateModified: '2026-09-24',
+  inLanguage: 'es-CO',
+  about: {
+    '@type': 'Thing',
+    name: 'Diseño web',
+    sameAs: 'https://es.wikipedia.org/wiki/Dise%C3%B1o_web',
+  },
+  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://presentto.online/nosotros/' },
+  publisher: { '@id': 'https://presentto.online/#organization' },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://presentto.online/guias/cuanto-cuesta-pagina-web-colombia/',
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/guias/cuanto-cuesta-pagina-web-colombia/"
+  jsonld={[articleSchema]}
+>
+  <Breadcrumbs
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Guías', href: '/guias/' },
+      { label: 'Cuánto cuesta una web' },
+    ]}
+  />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">GUÍA · PRECIOS WEB COLOMBIA</p>
+    <h1>¿Cuánto cuesta una página web en Colombia en 2026?</h1>
+    <p class="lead">Precios reales de mercado, qué incluye cada rango y dónde encaja una opción administrada desde $40.000 COP.</p>
+    <p class="guide-meta">Actualizado: septiembre 2026 · Presentto Online</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>Respuesta rápida</h2>
+    <p class="snippet">
+      En Colombia 2026, una landing profesional cuesta ≈ $800.000–$2.500.000 COP, un sitio corporativo
+      $1.700.000–$6.000.000 COP y un e-commerce desde $2.650.000 COP. Los modelos administrados de bajo
+      costo (como Presentto, $40.000 COP con todo incluido) cubren el caso de negocio local que solo necesita
+      presencia y captación por WhatsApp.
+    </p>
+
+    <h2>Tabla de precios por tipo de sitio (2026)</h2>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Tipo</th><th>Rango típico (COP)</th><th>Entrega</th><th>Ideal para</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Web administrada (Presentto)</td><td><strong>$40.000</strong> · IVA incl.</td><td>Días</td><td>Negocio local que quiere empezar ya</td></tr>
+        <tr><td>Landing page</td><td>$800.000 – $2.500.000</td><td>5–15 días</td><td>Campañas, un solo servicio</td></tr>
+        <tr><td>Sitio corporativo (3–7 págs.)</td><td>$1.700.000 – $6.000.000</td><td>2–6 semanas</td><td>Pymes con varios servicios</td></tr>
+        <tr><td>E-commerce</td><td>$2.650.000 – $12.000.000+</td><td>3–8 semanas</td><td>Catálogo y pagos online</td></tr>
+        <tr><td>Plantilla DIY (Wix, Hostinger)</td><td>≈ 250.000 – 700.000 / año</td><td>Autogestión</td><td>Quien administra solo</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Qué suele quedar fuera de la cotización</h2>
+    <ul>
+      <li>Dominio (.com/.co): ~$60.000–$150.000 COP/año.</li>
+      <li>Hosting: ~$200.000–$800.000 COP/año según plan.</li>
+      <li>Mantenimiento: $150.000–$500.000 COP/mes en agencias.</li>
+      <li>Contenido y fotos: se cotizan aparte si no los aportas.</li>
+      <li>SEO continuo: campañas locales suelen partir de $1.500.000+ COP/mes en agencias grandes.</li>
+    </ul>
+
+    <h2>Qué influye en el precio</h2>
+    <ol>
+      <li>Número de páginas y complejidad (CMS, pagos, reservas).</li>
+      <li>Diseño a medida vs plantilla.</li>
+      <li>Alcance de SEO incluido (on-page básico vs estrategia continua).</li>
+      <li>Quién es dueño del dominio y el hosting a futuro.</li>
+      <li>Soporte y actualizaciones post-lanzamiento.</li>
+    </ol>
+
+    <h2>Señales de alerta en una cotización</h2>
+    <ul>
+      <li>Precio muy por debajo del mercado sin explicación clara.</li>
+      <li>Dominio y hosting “incluidos” sin decir a cuyo nombre quedan.</li>
+      <li>Sin portafolio ni referencias verificables.</li>
+      <li>Promesas de “posición #1 garantizada” en Google.</li>
+    </ul>
+
+    <div class="guide-cta">
+      <p><strong>¿Solo necesitas presencia y captación local?</strong></p>
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital · $40.000 COP <span>↗</span></a>
+      &nbsp;
+      <a class="button ghost" href="/comparativas/web-administrada-vs-agencia/">Comparar opciones <span>↗</span></a>
+    </div>
+
+    <section class="silo-related" aria-label="Enlaces del silo de precios">
+      <h2>Sigue investigando (mismo silo)</h2>
+      <ul>
+        <li><a href="/comparativas/web-administrada-vs-agencia/">Web administrada vs agencia tradicional vs DIY</a></li>
+        <li><a href="/comparativas/">Todas las comparativas</a></li>
+      </ul>
+    </section>
+
+    <AuthorBox name="Equipo SEO · Presentto Online" />
+  </section>
+
+  <section class="section wrap">
+    <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+    <h2>Dudas sobre <em>precios de web</em></h2>
+    <FaqList faqs={faqs} />
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <p class="eyebrow">OPCIÓN ADMINISTRADA</p>
+      <h2>Presencia completa <em>desde $40.000 COP.</em></h2>
+      <a class="button light" href="/contacto/">Comprar ahora <span>↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

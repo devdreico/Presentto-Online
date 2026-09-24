@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = 'Sitios publicados | Presentto Online';
+const description =
+  'Sitios publicados que usan la infraestructura de Presentto Online y Aeperion.';
+
+const listSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Sitios publicados Presentto',
+  url: 'https://presentto.online/sitios/',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Uspkh Brands', url: 'https://uspkh.presentto.online/' },
+    { '@type': 'ListItem', position: 2, name: 'Aeperion Systems', url: 'https://aeperion.presentto.online' },
+    { '@type': 'ListItem', position: 3, name: 'KSPR AI', url: 'https://kspr.presentto.online' },
+  ],
+};
+
+const sites = [
+  { name: 'Uspkh Brands', url: 'https://uspkh.presentto.online/', host: 'uspkh.presentto.online' },
+  { name: 'Aeperion Systems', url: 'https://aeperion.presentto.online', host: 'aeperion.presentto.online' },
+  { name: 'KSPR AI', url: 'https://kspr.presentto.online', host: 'kspr.presentto.online' },
+];
+---
+
+<BaseLayout title={title} description={description} path="/sitios/" jsonld={[listSchema]}>
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Sitios' }]} />
+
+  <section class="section wrap page-hero map-hero">
+    <p class="eyebrow">SITIOS PUBLICADOS · AEPERION</p>
+    <img
+      class="page-logo"
+      src="/assets/img/Presentto-Nombre-Fondo-Transparente.webp"
+      alt="Presentto Online"
+      width="240"
+      height="81"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <h1>Proyectos que ya están <em>presentes online.</em></h1>
+    <p class="lead">Visita los sitios que ya utilizan la infraestructura digital de Presentto y Aeperion.</p>
+  </section>
+
+  <section class="section map-section">
+    <div class="wrap published-sites">
+      <div class="map-directory">
+        <p class="eyebrow">REDIRECCIONES</p>
+        <h2>Explora los sitios publicados.</h2>
+        <ol class="business-list">
+          {sites.map((site, i) => (
+            <li>
+              <a href={site.url} target="_blank" rel="noopener">
+                <span class="business-index">{String(i + 1).padStart(2, '0')}</span>
+                <span>
+                  <strong>{site.name}</strong>
+                  <small>{site.host}</small>
+                </span>
+                <b>↗</b>
+              </a>
+            </li>
+          ))}
+        </ol>
+        <p class="map-note">
+          Cada sitio conserva su propia identidad y muestra una aplicación diferente de la presencia digital
+          publicada con Aeperion.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section map-principles">
+    <div class="wrap">
+      <p class="eyebrow">UN SITIO QUE SE ADAPTA</p>
+      <h2>Una presencia clara para <em>cada negocio.</em></h2>
+      <div class="feature-grid feature-grid-three">
+        <article><b>01</b><h3>Identidad propia</h3><p>Cada proyecto parte del negocio real, su tono, sus imágenes y la forma en que atiende a sus clientes.</p></article>
+        <article><b>02</b><h3>Acceso directo</h3><p>Un enlace fácil de compartir por WhatsApp, redes sociales, QR o tarjeta de presentación.</p></article>
+        <article><b>03</b><h3>Acompañamiento</h3><p>Presentto administra y mantiene la presencia digital según el alcance acordado.</p></article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqList from '../components/FaqList.astro';
+import { localBusinessSchema } from '../components/schemas';
+
+const title = 'Servicios web y SEO local | Presentto Online';
+const description =
+  'Presenttación Digital $40.000 COP: web profesional, dominio, correo, SEO local y administración para tu negocio.';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Presenttación Digital',
+  provider: { '@id': 'https://presentto.online/#organization' },
+  areaServed: [
+    { '@type': 'Place', name: 'Funza' },
+    { '@type': 'Place', name: 'Mosquera' },
+    { '@type': 'Place', name: 'Madrid' },
+    { '@type': 'Place', name: 'Facatativá' },
+  ],
+  serviceType: 'Diseño y administración de páginas web con SEO local',
+  offers: {
+    '@type': 'Offer',
+    price: '40000',
+    priceCurrency: 'COP',
+    description: 'IVA incluido',
+  },
+};
+
+const faqs = [
+  {
+    q: '¿Qué incluye la Presenttación Digital?',
+    a: 'Incluye un sitio web completo, dominio propio, correo profesional, implementaciones tecnológicas, ajustes hasta tu satisfacción, SEO local, imágenes y funcionalidades necesarias para tu negocio. Precio: $40.000 COP, IVA incluido.',
+  },
+  {
+    q: '¿Qué incluye el dominio y correo profesional?',
+    a: 'La Presenttación Digital incluye el dominio propio tuempresa.online y 1 correo profesional @tuempresa.online. Si ya tienes un dominio, puedes aportarlo sin costo adicional.',
+  },
+  {
+    q: '¿Cómo se configura el SEO local?',
+    a: 'Se estructura el contenido, títulos, descripciones, datos locales y elementos técnicos para ayudar a que el negocio sea encontrado en Funza, Mosquera, Madrid, Facatativá y la Sabana Occidental.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} path="/servicios/" jsonld={[serviceSchema, localBusinessSchema]}>
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Servicios' }]} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">SERVICIOS PRESENTTO</p>
+    <img
+      class="page-logo"
+      src="/assets/img/Presentto-Slogan-Fondo-Transparente.webp"
+      alt="Tu negocio en internet. Sin complicaciones."
+      width="280"
+      height="108"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <h1>Una solución. <em>Una presencia real.</em></h1>
+    <p class="lead">Presenttación Digital: un sitio web útil, accesible y completo para tu negocio.</p>
+  </section>
+
+  <section class="section services-section">
+    <div class="wrap service-list">
+      <article class="service-card service-main">
+        <div class="service-number">01</div>
+        <div>
+          <p class="eyebrow">SERVICIO PRINCIPAL</p>
+          <h2>Presenttación <em>Digital</em></h2>
+          <p>
+            Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la
+            información, imágenes, datos y funcionalidades necesarias. Hacemos las implementaciones tecnológicas
+            necesarias y ajustamos la solución hasta que quedes satisfecho con la versión digitalizada de tu
+            negocio.
+          </p>
+          <ul>
+            <li>Creación personalizada con imágenes, estilo y contenido de tu empresa.</li>
+            <li>Dominio propio incluido: <strong>tuempresa.online</strong>.</li>
+            <li>1 correo profesional: <strong>@tuempresa.online</strong>.</li>
+            <li>Implementaciones tecnológicas y ajustes necesarios hasta tu satisfacción.</li>
+            <li>SEO local y estructura preparada para búsquedas en la Sabana Occidental.</li>
+            <li>Códigos QR y comprobante de uso real.</li>
+            <li>La renovación es flexible: puedes dejar de pagar cuando quieras.</li>
+          </ul>
+        </div>
+        <div class="service-price">
+          <strong>$40.000</strong>
+          <span>COP · IVA incluido</span>
+          <a class="button primary" href="/contacto/">Comprar plan <span>↗</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <p class="eyebrow">DUDAS FRECUENTES DEL SERVICIO</p>
+    <h2>Lo esencial, <em>sin letra pequeña.</em></h2>
+    <FaqList faqs={faqs} />
+    <div class="guide-cta" style="text-align:center;margin-top:1.5rem;">
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+      &nbsp;
+      <a class="button ghost" href="/preguntas/">Ver todas las preguntas <span>↗</span></a>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <p class="eyebrow">¿LISTO PARA EMPEZAR?</p>
+      <h2>Lleva tu negocio <em>a internet hoy.</em></h2>
+      <a class="button light" href="/contacto/">Comprar plan <span>↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

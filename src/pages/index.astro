@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { organizationSchema, websiteSchema, localBusinessSchema } from '../components/schemas';
+
+const title = 'Web y SEO local desde $40.000 COP | Presentto Online';
+const description =
+  'Presencia online profesional desde $40.000 COP con SEO local en Funza, Mosquera, Madrid y Facatativá. Web, dominio y correo incluidos.';
+const homeService = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Presenttación Digital',
+  description:
+    'Sitio web profesional con dominio propio, correo, SEO local y administración para negocios de la Sabana Occidental.',
+  provider: { '@id': 'https://presentto.online/#organization' },
+  areaServed: [
+    { '@type': 'Place', name: 'Funza' },
+    { '@type': 'Place', name: 'Mosquera' },
+    { '@type': 'Place', name: 'Madrid' },
+    { '@type': 'Place', name: 'Facatativá' },
+    { '@type': 'Place', name: 'Sabana Occidental, Colombia' },
+  ],
+  offers: {
+    '@type': 'Offer',
+    price: '40000',
+    priceCurrency: 'COP',
+    description: 'Presenttación Digital — IVA incluido',
+    availability: 'https://schema.org/InStock',
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/"
+  jsonld={[organizationSchema, websiteSchema, localBusinessSchema, homeService]}
+>
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <img
+        class="hero-logo"
+        src="/assets/img/Presentto-Nombre-Fondo-Transparente.webp"
+        alt="Presentto Online"
+        width="340"
+        height="116"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <p class="eyebrow">WEB PROFESIONAL · SABANA OCCIDENTAL</p>
+      <h1>Tu negocio, <em>visible y posicionado en la Sabana Occidental.</em></h1>
+      <p class="lead">
+        Diseñamos una presencia online clara, elegante y posicionada para que tu negocio se encuentre, se conozca
+        y convierta más clientes en la Sabana Occidental.
+      </p>
+      <div class="hero-price">
+        <strong>$40.000</strong>
+        <span>COP<br />IVA incluido</span>
+      </div>
+      <div class="actions">
+        <a
+          class="button primary"
+          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20la%20Presenttaci%C3%B3n%20Digital"
+          target="_blank"
+          rel="noopener"
+        >
+          Comprar ahora <span>↗</span>
+        </a>
+        <a class="button ghost" href="#como-funciona">Ver cómo funciona <span>↓</span></a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="visual-window">
+        <div class="window-bar">
+          <i></i><i></i><i></i><span>tuempresa.online</span>
+        </div>
+        <div class="window-content">
+          <span class="visual-tag">TU NEGOCIO</span>
+          <strong>Una web clara<br />que trabaja<br /><em>por ti.</em></strong>
+          <div class="visual-qr">
+            <span>▦</span>
+            <small>Escanea<br />y conócela</small>
+          </div>
+        </div>
+      </div>
+      <div class="visual-note">Diseño · SEO local · Dominio<br /><b>Administrado por Presentto</b></div>
+    </div>
+  </section>
+
+  <section class="proof">
+    <div class="wrap proof-grid">
+      <div><strong>$40.000</strong><span>IVA incluido</span></div>
+      <div><strong>24/7</strong><span>tu web disponible</span></div>
+      <div><strong>SEO</strong><span>local incluido</span></div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="como-funciona">
+    <p class="eyebrow">WEB ADMINISTRADA PRESENTTO</p>
+    <div class="section-heading">
+      <h2>Todo lo necesario para <em>ganar visibilidad.</em></h2>
+      <p>
+        Pagas $40.000 COP por una presencia online profesional con dominio propio, contenido estratégico, diseño
+        y SEO local para la Sabana Occidental.
+      </p>
+    </div>
+    <div class="feature-grid feature-grid-four">
+      <article>
+        <b>01</b>
+        <h3>Creación personalizada</h3>
+        <p>Imagen, estilo, textos y fotos alineados con la identidad real de tu empresa.</p>
+      </article>
+      <article>
+        <b>02</b>
+        <h3>Dominio y correo profesional</h3>
+        <p>Recibe tu dominio propio <strong>tuempresa.online</strong> y 1 correo profesional <strong>@tuempresa.online</strong>.</p>
+      </article>
+      <article>
+        <b>03</b>
+        <h3>SEO local profesional</h3>
+        <p>
+          Estructura SEO local para que negocios de
+          <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a>,
+          <a href="/facatativa/">Facatativá</a> y la Sabana Occidental te encuentren mejor en Google.
+        </p>
+      </article>
+      <article>
+        <b>04</b>
+        <h3>SEO local y Google Business</h3>
+        <p>
+          Estrategia de posicionamiento, perfil de negocio y estructura para fortalecer tu presencia en Google y
+          la Sabana Occidental.
+        </p>
+      </article>
+    </div>
+    <div class="actions plan-cta">
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+    </div>
+  </section>
+
+  <section class="section industries-section">
+    <div class="wrap">
+      <p class="eyebrow">UNA WEB PARA CADA IDEA</p>
+      <h2>Presencia digital <em>sin complicaciones.</em></h2>
+      <div class="industry-grid">
+        <span>Negocios locales</span>
+        <span>Portafolios profesionales</span>
+        <span>Emprendimientos</span>
+        <span>Empresas</span>
+        <span>Blogs personales</span>
+        <span>Encuestas temporales</span>
+        <span>Sitios de acceso temporal</span>
+        <span>Promociones y campañas</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section offer-section">
+    <div class="wrap offer-card">
+      <div>
+        <p class="eyebrow">PACK PRESENTTACIÓN DIGITAL</p>
+        <h2>Tu negocio listo <em>para crecer online.</em></h2>
+        <p>
+          Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la
+          información, imágenes, datos y funcionalidades necesarias. Hacemos las implementaciones tecnológicas
+          necesarias y ajustamos la solución hasta que quedes satisfecho con la versión digitalizada de tu
+          negocio.
+        </p>
+      </div>
+      <div class="offer-price">
+        <strong>$40.000</strong>
+        <span>COP · IVA incluido</span>
+        <small>Creación personalizada · Dominio · SEO local<br />Contenido e identidad de tu negocio</small>
+        <a class="button primary" href="/contacto/">Comprar plan <span>↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section trust-section">
+    <div class="wrap">
+      <p class="eyebrow">RESULTADOS DE REFERENCIA</p>
+      <div class="section-heading">
+        <h2>Una web que se siente <em>hecha para tu negocio.</em></h2>
+        <p>Escenarios habituales que una Presenttación Digital bien construida ayuda a resolver desde el primer día.</p>
+      </div>
+      <div class="trust-grid">
+        <article class="trust-card">
+          <span class="trust-icon">01</span>
+          <h3>Más confianza</h3>
+          <p>Una presencia clara para que nuevos clientes entiendan quién eres, qué ofreces y cómo contactarte.</p>
+          <small>Resultado esperado · No es una reseña publicada</small>
+        </article>
+        <article class="trust-card">
+          <span class="trust-icon">02</span>
+          <h3>Más oportunidades</h3>
+          <p>Información ordenada, llamadas a la acción visibles y una experiencia pensada para convertir visitas en conversaciones.</p>
+          <small>Resultado esperado · Se adapta a tus objetivos</small>
+        </article>
+        <article class="trust-card">
+          <span class="trust-icon">03</span>
+          <h3>Más autonomía</h3>
+          <p>Un sitio propio con dominio, correo profesional y una base digital lista para acompañar el crecimiento del negocio.</p>
+          <small>Resultado esperado · Alcance acordado contigo</small>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stack-section">
+    <div class="wrap">
+      <p class="eyebrow">RESPALDO TÉCNICO</p>
+      <div class="section-heading">
+        <h2>Tecnología útil, <em>sin complicaciones.</em></h2>
+        <p>Trabajamos con tecnologías y estándares profesionales para construir una presencia rápida, accesible y preparada para crecer.</p>
+      </div>
+      <div class="stack-grid">
+        <article class="stack-card">
+          <img src="https://cdn.simpleicons.org/html5/E34F26" alt="Icono HTML5" width="32" height="32" loading="lazy" />
+          <strong>HTML5</strong><span>Estructura semántica</span>
+        </article>
+        <article class="stack-card">
+          <img src="https://cdn.simpleicons.org/css3/1572B6" alt="Icono CSS3" width="32" height="32" loading="lazy" />
+          <strong>CSS3</strong><span>Diseño responsive</span>
+        </article>
+        <article class="stack-card">
+          <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="Icono JavaScript" width="32" height="32" loading="lazy" />
+          <strong>JavaScript</strong><span>Interacciones útiles</span>
+        </article>
+        <article class="stack-card">
+          <span class="stack-badge">SEO</span><strong>SEO local</strong><span>Encontrabilidad técnica</span>
+        </article>
+        <article class="stack-card">
+          <span class="stack-badge">A11Y</span><strong>Accesibilidad</strong><span>Experiencia inclusiva</span>
+        </article>
+        <article class="stack-card">
+          <span class="stack-badge">CWV</span><strong>Core Web Vitals</strong><span>Velocidad y experiencia</span>
+        </article>
+      </div>
+      <p class="stack-note">Tecnologías y estándares de trabajo. No representa certificaciones oficiales de terceros.</p>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <p class="eyebrow">¿LISTO PARA MOSTRAR LO QUE HACES?</p>
+      <h2>Conoce más sobre <em>Presentto Online.</em></h2>
+      <a class="button light" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

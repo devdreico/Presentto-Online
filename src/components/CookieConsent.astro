@@ -1,0 +1,42 @@
+---
+// Cookie consent: necessary cookie always; analytics only with explicit grant.
+---
+
+<aside class="cookie-box" id="cookieBox" role="dialog" aria-label="Preferencias de cookies" hidden>
+  <div>
+    <strong>Tu privacidad importa</strong>
+    <p>
+      Usamos cookies necesarias para que Presentto funcione y, solo con tu permiso, cookies opcionales para medir
+      mejoras de navegación. <a href="/cookies/">Ver política.</a>
+    </p>
+  </div>
+  <div class="cookie-actions">
+    <button type="button" data-consent="necessary">Solo necesarias</button>
+    <button type="button" data-consent="all">Aceptar todas</button>
+  </div>
+</aside>
+
+<script is:inline>
+  (function () {
+    function readCookie(name) {
+      return document.cookie
+        .split('; ')
+        .find(function (c) { return c.indexOf(name + '=') === 0; })
+        ?.split('=')[1] || null;
+    }
+    function writeCookie(name, value) {
+      document.cookie = name + '=' + value + '; Max-Age=31536000; Path=/; SameSite=Lax';
+    }
+    var box = document.getElementById('cookieBox');
+    if (!box || readCookie('presentto-consent')) return;
+    box.hidden = false;
+    box.querySelectorAll('[data-consent]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var level = btn.getAttribute('data-consent');
+        writeCookie('presentto-consent', level);
+        writeCookie('presentto-analytics', level === 'all' ? 'granted' : 'denied');
+        box.hidden = true;
+      });
+    });
+  })();
+</script>

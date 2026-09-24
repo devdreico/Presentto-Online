@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { localBusinessSchema, organizationSchema } from '../components/schemas';
+
+const title = 'Contacto y compra | Presentto Online';
+const description =
+  'Contacta a Presentto: Presenttación Digital por $40.000 COP con web, dominio y SEO local en la Sabana Occidental.';
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contacto Presentto Online',
+  url: 'https://presentto.online/contacto/',
+  inLanguage: 'es-CO',
+  about: { '@id': 'https://presentto.online/#organization' },
+  mainEntity: {
+    '@type': 'Organization',
+    '@id': 'https://presentto.online/#organization',
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/contacto/"
+  jsonld={[contactSchema, localBusinessSchema, organizationSchema]}
+>
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Contacto' }]} />
+
+  <section class="section wrap contact-page">
+    <p class="eyebrow">HABLEMOS</p>
+    <h1>Tu presencia online <em>empieza aquí.</em></h1>
+    <div class="contact-layout">
+      <form
+        id="contactForm"
+        class="contact-form"
+        action="https://formspree.io/f/xvkgarev"
+        method="POST"
+      >
+        <label>¿Cómo te llamas?
+          <input name="nombre" required autocomplete="name" placeholder="Tu nombre" />
+        </label>
+        <label>Nombre de tu negocio
+          <input name="negocio" required autocomplete="organization" placeholder="Nombre del negocio" />
+        </label>
+        <label>Medio de contacto
+          <input name="medio_contacto" required placeholder="Número, correo o el medio que prefieras" />
+        </label>
+        <fieldset>
+          <legend>Objetivos digitales</legend>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Vender más" /> Vender más</label>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Más profesionalismo" /> Más profesionalismo</label>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Llegar a nuevos clientes" /> Llegar a nuevos clientes</label>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Mostrar servicios o productos" /> Mostrar servicios o productos</label>
+        </fieldset>
+        <label>Necesidades extra
+          <textarea name="necesidades_extra" rows="5" placeholder="Cuéntanos peticiones puntuales o necesidades digitales"></textarea>
+        </label>
+        <button class="button primary" type="submit">Enviar solicitud <span>↗</span></button>
+        <a class="button payment-button" href="https://mpago.li/2j4gTPj" target="_blank" rel="noopener">
+          <span class="payment-icon">$</span> Pagar $40.000 COP <span>↗</span>
+        </a>
+        <p class="form-note">El valor de $40.000 COP incluye IVA. Primero envía tu solicitud y luego realiza el pago.</p>
+        <p id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+      <aside class="contact-aside">
+        <p class="eyebrow">CONTACTO DIRECTO</p>
+        <h2>Hablemos claro.</h2>
+        <p>Cuéntanos qué quieres lograr y convertimos tu idea en una presencia digital clara, útil y lista para crecer.</p>
+        <a class="button ghost" href="https://wa.me/573236487336" target="_blank" rel="noopener">WhatsApp <span>↗</span></a>
+        <p class="muted">
+          Sabana Occidental, Colombia<br />
+          <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

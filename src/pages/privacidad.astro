@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = 'Política de privacidad | Presentto Online';
+const description =
+  'Información sobre el tratamiento de datos personales enviados a Presentto Online (Soverath Holding S.A.S.).';
+---
+
+<BaseLayout title={title} description={description} path="/privacidad/">
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Privacidad' }]} />
+
+  <section class="section wrap info-page">
+    <p class="eyebrow">PRIVACIDAD</p>
+    <h1>Tus datos, tratados con claridad.</h1>
+    <div class="info-content">
+      <article class="info-block">
+        <h2>Presentto solo solicita los datos necesarios para responder consultas comerciales.</h2>
+        <p>
+          Cuando envías el formulario de contacto de este sitio (nombre, negocio, medio de contacto, objetivos y
+          necesidades), usamos esos datos únicamente para comunicarnos contigo sobre los servicios solicitados.
+          No vendemos ni publicamos información personal.
+        </p>
+      </article>
+      <h2>Qué datos recopilamos</h2>
+      <ul>
+        <li>Nombre completo y nombre del negocio.</li>
+        <li>Medio de contacto (teléfono, correo u otro que indiques).</li>
+        <li>Objetivos digitales y necesidades que compartas voluntariamente.</li>
+        <li>Fecha y hora de reunión, si la agendas en el formulario.</li>
+      </ul>
+      <h2>Con quién se comparte</h2>
+      <p>
+        El formulario se procesa a través de Formspree (proveedor de formularios). Los pagos se procesan por
+        Mercado Pago bajo sus propios términos. No compartimos tus datos con terceros con fines de marketing.
+      </p>
+      <h2>Cookies</h2>
+      <p>
+        Usamos una cookie necesaria para guardar tu preferencia de consentimiento y, solo si lo autorizas, cookies
+        opcionales de medición. Consulta la <a href="/cookies/">política de cookies</a>.
+      </p>
+      <h2>Tus derechos</h2>
+      <p>
+        Puedes solicitar aclaración, acceso o eliminación de tus datos escribiendo a
+        <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>. Responsable del tratamiento:
+        Soverath Holding S.A.S. (Presentto Online), Sabana Occidental, Colombia.
+      </p>
+      <p class="guide-meta">Última actualización: septiembre de 2026.</p>
+    </div>
+  </section>
+</BaseLayout>

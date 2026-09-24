@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqList from '../components/FaqList.astro';
+
+const title = 'FAQ web y SEO local | Presentto Online';
+const description =
+  'Dudas sobre Presenttación Digital ($40.000 COP): dominio, correo, SEO local, hosting administrado y renovación sin permanencia.';
+
+const faqs = [
+  {
+    q: '¿Qué incluye la Presenttación Digital?',
+    a: 'Incluye un sitio web completo, dominio propio, correo profesional, implementaciones tecnológicas, ajustes hasta tu satisfacción, SEO local, imágenes y funcionalidades necesarias para tu negocio. Precio: $40.000 COP, IVA incluido.',
+  },
+  {
+    q: '¿Qué significa hosting administrado?',
+    a: 'Presentto aloja la web y administra la configuración técnica según las indicaciones de uso del cliente. Tú defines el contenido y nosotros mantenemos la presencia publicada.',
+  },
+  {
+    q: '¿Qué incluye el dominio y correo profesional?',
+    a: 'La Presenttación Digital incluye el dominio propio tuempresa.online y 1 correo profesional @tuempresa.online. Si ya tienes un dominio, puedes aportarlo sin costo adicional.',
+  },
+  {
+    q: '¿Puedo usar mi propio dominio?',
+    a: 'Sí. Si el cliente ya tiene un dominio y lo ofrece, puede incorporarlo sin costo adicional. Si se necesita buscar y gestionar uno nuevo, se paga únicamente el excedente.',
+  },
+  {
+    q: '¿Cómo se configura el SEO local?',
+    a: 'Se estructura el contenido, títulos, descripciones, datos locales y elementos técnicos para ayudar a que el negocio sea encontrado en Funza, Mosquera, Madrid, Facatativá y la Sabana Occidental. También orientamos la ficha de Google Business Profile.',
+  },
+  {
+    q: '¿Qué pasa si dejo de renovar?',
+    a: 'Puedes dejar de renovar cuando quieras. No hay una permanencia obligatoria.',
+  },
+  {
+    q: '¿Qué diferencia hay con contratar una agencia tradicional?',
+    a: 'Las agencias suelen cotizar sitios desde $800.000 a $3.000.000 COP más mantenimiento mensual. Presentto entrega una presencia digital completa por $40.000 COP (IVA incluido) con administración incluida, pensada para negocios locales que necesitan empezar rápido.',
+  },
+  {
+    q: '¿Qué tecnologías utiliza Presentto?',
+    a: 'Trabajamos con HTML, CSS, JavaScript, Astro, APIs, automatización e integraciones según las necesidades del proyecto. Priorizamos sitios estáticos rápidos para SEO y Core Web Vitals.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} path="/preguntas/">
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Preguntas frecuentes' }]} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">RESPUESTAS RÁPIDAS</p>
+    <img
+      class="page-logo"
+      src="/assets/img/Presentto-Nombre-Fondo-Transparente.webp"
+      alt="Presentto Online"
+      width="240"
+      height="81"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <h1>Lo importante, <em>sin vueltas.</em></h1>
+    <p class="lead">Respuestas claras sobre la Presenttación Digital, el SEO local y la contratación.</p>
+  </section>
+
+  <section class="section faq-section">
+    <div class="wrap">
+      <FaqList faqs={faqs} />
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <p class="eyebrow">¿AÚN TIENES DUDAS?</p>
+      <h2>Hablemos de tu <em>proyecto.</em></h2>
+      <a class="button light" href="/contacto/">Contactar a Presentto <span>↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

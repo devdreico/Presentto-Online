@@ -1,0 +1,33 @@
+# 301 redirects (Netlify / Cloudflare Pages / Vercel _redirects)
+
+# Path-based legacy SPA routes
+/servicios.html          /servicios/                 301
+/portfolio.html          /portfolio/                 301
+/contacto.html           /contacto/                  301
+/nosotros.html           /nosotros/                  301
+/preguntas.html          /preguntas/                 301
+/privacidad.html         /privacidad/                301
+/terminos.html           /terminos/                  301
+/cookies.html            /cookies/                   301
+/mapa.html               /sitios/                    301
+/funza.html              /funza/                     301
+/mosquera.html           /mosquera/                  301
+/madrid.html             /madrid/                    301
+/facatativa.html         /facatativa/                301
+/demos.html              /portfolio/                 301
+
+# Query-string SPA legacy: /?page=servicios.html → /servicios/
+/  /servicios/          301  Query=page:servicios.html
+/  /portfolio/          301  Query=page:portfolio.html
+/  /contacto/           301  Query=page:contacto.html
+/  /nosotros/           301  Query=page:nosotros.html
+/  /preguntas/          301  Query=page:preguntas.html
+/  /privacidad/         301  Query=page:privacidad.html
+/  /terminos/           301  Query=page:terminos.html
+/  /cookies/            301  Query=page:cookies.html
+/  /sitios/             301  Query=page:mapa.html
+/  /funza/              301  Query=page:funza.html
+/  /mosquera/           301  Query=page:mosquera.html
+/  /madrid/             301  Query=page:madrid.html
+/  /facatativa/         301  Query=page:facatativa.html
+/  /portfolio/          301  Query=page:demos.html

@@ -1,0 +1,172 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  noindex?: boolean;
+  jsonld?: Array<Record<string, unknown>>;
+}
+
+const {
+  title,
+  description,
+  path = '/',
+  noindex = false,
+  jsonld = [],
+} = Astro.props;
+
+const canonical = new URL(path, Astro.site).href;
+const ogImage = new URL('/assets/img/og-presentto.webp', Astro.site).href;
+const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto Online`;
+---
+
+<!doctype html>
+<html lang="es-CO">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={
+        noindex
+          ? 'noindex, follow'
+          : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+      }
+    />
+    <meta name="theme-color" content="#0b1020" />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/webp" href="/assets/img/Presentto-Icono-Fondo-Transparente.webp" />
+    <link rel="apple-touch-icon" href="/assets/img/Presentto-Icono-Fondo-Transparente.webp" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Presentto Online" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Presentto Online — presencia online desde $40.000 COP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Presentto Online — presencia online desde $40.000 COP" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script is:inline>
+      document.documentElement.classList.add('has-reveal');
+      // Redirect legacy query-string SPA URLs: /?page=servicios.html → /servicios/
+      (function () {
+        var page = new URLSearchParams(location.search).get('page');
+        if (!page) return;
+        var map = {
+          'index.html': '/',
+          'servicios.html': '/servicios/',
+          'portfolio.html': '/portfolio/',
+          'contacto.html': '/contacto/',
+          'nosotros.html': '/nosotros/',
+          'preguntas.html': '/preguntas/',
+          'privacidad.html': '/privacidad/',
+          'terminos.html': '/terminos/',
+          'cookies.html': '/cookies/',
+          'mapa.html': '/sitios/',
+          'funza.html': '/funza/',
+          'mosquera.html': '/mosquera/',
+          'madrid.html': '/madrid/',
+          'facatativa.html': '/facatativa/',
+          'demos.html': '/portfolio/'
+        };
+        var target = map[page];
+        if (target) location.replace(target);
+      })();
+    </script>
+
+    {jsonld.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+  </head>
+  <body>
+    <Header path={path} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <CookieConsent />
+    <script is:inline>
+      (function () {
+        var animated = document.querySelectorAll(
+          '.section, .proof, .final-cta, .work-card, .service-card, .faq-card, .process-card, .trust-card, .stack-card, .guide-layout .section'
+        );
+        animated.forEach(function (el, i) {
+          el.classList.add('reveal');
+          el.style.transitionDelay = Math.min(i * 45, 300) + 'ms';
+        });
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.12 });
+          animated.forEach(function (el) { io.observe(el); });
+        } else {
+          animated.forEach(function (el) { el.classList.add('visible'); });
+        }
+
+        document.querySelectorAll('img').forEach(function (img) {
+          img.addEventListener('error', function () {
+            img.classList.add('image-fallback');
+            img.alt = (img.alt || 'Imagen') + ' no disponible';
+          }, { once: true });
+        });
+
+        var form = document.getElementById('contactForm');
+        var status = document.getElementById('formStatus');
+        if (form && status) {
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('button[type="submit"]');
+            if (btn) btn.disabled = true;
+            status.className = '';
+            status.textContent = 'Enviando…';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { Accept: 'application/json' },
+              });
+              if (!res.ok) throw new Error('send');
+              form.reset();
+              status.className = 'form-status';
+              status.textContent =
+                'En breve uno de nuestros asesores te va a contactar para solucionar tus dudas o entender más sobre Presentto.';
+            } catch {
+              status.className = 'form-status form-error';
+              status.textContent = 'No pudimos enviar tus datos. Revisa tu conexión e inténtalo de nuevo.';
+            } finally {
+              if (btn) btn.disabled = false;
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

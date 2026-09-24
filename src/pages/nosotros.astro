@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = 'Sobre Presentto | Presencia digital local';
+const description =
+  'Quiénes somos: presencia digital y SEO local para la Sabana Occidental. Operado por Soverath Holding S.A.S. con respaldo de Aeperion Systems.';
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'Sobre Presentto Online',
+  url: 'https://presentto.online/nosotros/',
+  mainEntity: { '@id': 'https://presentto.online/#organization' },
+  description,
+};
+---
+
+<BaseLayout title={title} description={description} path="/nosotros/" jsonld={[aboutSchema]}>
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Nosotros' }]} />
+
+  <section class="section wrap info-page">
+    <p class="eyebrow">SOBRE PRESENTTO</p>
+    <img
+      class="page-logo"
+      src="/assets/img/Presentto-Nombre-Fondo-Transparente.webp"
+      alt="Presentto Online"
+      width="240"
+      height="81"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <h1>Presentto Online</h1>
+    <div class="info-content">
+      <article class="info-block">
+        <h2>Creamos presencia digital útil para negocios reales.</h2>
+        <p>
+          Presentto ayuda a comercios, emprendimientos, profesionales y restaurantes a presentarse en internet
+          con una web clara, accesible y alineada con su identidad. Operamos en Funza, Mosquera, Madrid,
+          Facatativá y toda la Sabana Occidental (Cundinamarca, Colombia).
+        </p>
+      </article>
+      <p>
+        Nuestra propuesta combina creación web, dominio, correo profesional, SEO local, códigos QR y
+        acompañamiento. El objetivo es que cada cliente tenga una presencia que pueda compartir y usar desde el
+        primer día.
+      </p>
+      <h2>Quiénes somos</h2>
+      <p>
+        Presentto Online es operado por <strong>Soverath Holding S.A.S.</strong>, con respaldo técnico en
+        desarrollo de software de <strong>Aeperion Systems</strong>. Trabajamos con un modelo de entrega
+        administrada: nosotros construimos, publicamos y mantenemos la presencia digital según el alcance
+        acordado contigo.
+      </p>
+      <h2>Nuestra política editorial</h2>
+      <p>
+        El contenido de este sitio (guías de SEO local, precios y comparativas) se redacta con información
+        pública actualizable y se revisa cuando cambian las condiciones del servicio o del mercado. No
+        publicamos reseñas inventadas ni promesas de posicionamiento garantizado: el SEO local depende de
+        factores externos (competencia, reseñas, consistencia de fichas) además de la calidad del sitio.
+      </p>
+      <h2>Cómo contactarnos</h2>
+      <p>
+        WhatsApp: <a href="https://wa.me/573236487336" target="_blank" rel="noopener">+57 323 648 7336</a>
+        · Correo: <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>
+        · Cobertura: Sabana Occidental, Colombia.
+      </p>
+      <p>
+        <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

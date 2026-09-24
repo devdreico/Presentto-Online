@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AuthorBox from '../../../components/AuthorBox.astro';
+
+const title = 'Optimizar Google Business Profile';
+const description =
+  'Cómo optimizar Google Business Profile: categorías, servicios, fotos, horarios y coherencia NAP con tu web local.';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: '2026-09-23',
+  dateModified: '2026-09-24',
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Google Business Profile' },
+  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://presentto.online/nosotros/' },
+  publisher: { '@id': 'https://presentto.online/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://presentto.online/guias/seo-local/google-business-profile/' },
+};
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Cómo optimizar Google Business Profile',
+  description,
+  totalTime: 'PT45M',
+  estimatedCost: { '@type': 'MonetaryAmount', currency: 'COP', value: '0' },
+  step: [
+    { '@type': 'HowToStep', name: 'Verificar la ficha', text: 'Verifica Google Business por postal, teléfono o video.' },
+    { '@type': 'HowToStep', name: 'Categoría principal', text: 'Elige la categoría exacta del negocio y secundarias solo si aplican.' },
+    { '@type': 'HowToStep', name: 'Descripción y servicios', text: 'Escribe ciudad + servicio + diferencial y alinea servicios con la web.' },
+    { '@type': 'HowToStep', name: 'Fotos y horarios', text: 'Sube fotos reales y mantén horarios y festivos actualizados.' },
+    { '@type': 'HowToStep', name: 'NAP y enlace web', text: 'Usa el mismo nombre, dirección y teléfono que en tu web y enlaza la URL canónica.' },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/guias/seo-local/google-business-profile/"
+  jsonld={[articleSchema, howToSchema]}
+>
+  <Breadcrumbs
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Guías', href: '/guias/' },
+      { label: 'SEO local', href: '/guias/seo-local/' },
+      { label: 'Google Business Profile' },
+    ]}
+  />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">SEO LOCAL · GOOGLE BUSINESS</p>
+    <h1>Google Business Profile: optimización paso a paso</h1>
+    <p class="lead">La ficha que alimenta el pack de Maps — cómo configurarla bien desde el día uno.</p>
+    <p class="guide-meta">Serie: Guía de SEO local · Presentto Online · septiembre 2026</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>¿Qué es Google Business Profile?</h2>
+    <p class="snippet">
+      Google Business Profile (antes Google My Business) es el panel gratuito donde defines nombre, categoría,
+      dirección, horarios, fotos y reseñas de tu negocio. Es la fuente principal del pack local de Google Maps.
+    </p>
+
+    <h2>Pasos de optimización</h2>
+    <ol>
+      <li><strong>Verifica</strong> la ficha (postal, teléfono o video según el caso).</li>
+      <li><strong>Categoría principal</strong> exacta (ej. “Peluquería”, no “Servicios generales”).</li>
+      <li><strong>Secundarias</strong> solo si realmente ofreces esos servicios.</li>
+      <li><strong>Descripción</strong> con ciudad + servicio + diferencial, sin relleno.</li>
+      <li><strong>Servicios y precios</strong> alineados con los de tu web.</li>
+      <li><strong>Fotos reales</strong> del local, equipo y trabajos (actualiza cada mes).</li>
+      <li><strong>Horarios</strong> con festivos especiales actualizados.</li>
+      <li><strong>Preguntas y respuestas</strong>: publica las típicas tú mismo y responde siempre.</li>
+      <li><strong>Enlace a la web</strong> con URL canónica limpia (ej. <code>/servicios/</code>).</li>
+    </ol>
+
+    <h2>Coherencia NAP con tu web</h2>
+    <p class="snippet">
+      Nombre, dirección y teléfono (NAP) deben ser idénticos en Google Business, tu web y directorios. La menor
+      variación (“Cra.” vs “Carrera”) diluye la confianza de Google en la entidad de tu negocio.
+    </p>
+    <p>
+      En Presentto incluimos los datos de contacto consistentes en el pie, la página de contacto y los datos
+      estructurados <code>Organization</code>/<code>Service</code>.
+    </p>
+
+    <div class="guide-cta">
+      <p><strong>¿Necesitas una web que complemente la ficha?</strong></p>
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+      &nbsp;
+      <a class="button ghost" href="/guias/seo-local/aparecer-en-google-maps/">Siguiente: Google Maps <span>↗</span></a>
+    </div>
+
+    <AuthorBox name="Equipo SEO · Presentto Online" />
+
+    <nav class="silo-related" aria-label="Silo SEO local">
+      <h2>Silo SEO local</h2>
+      <ul>
+        <li><a href="/guias/seo-local/">Guía completa de SEO local</a></li>
+        <li><a href="/guias/seo-local/que-es-seo-local/">Qué es el SEO local</a></li>
+        <li><a href="/guias/seo-local/aparecer-en-google-maps/">Aparecer en Google Maps</a></li>
+        <li><a href="/guias/seo-local/resenas-google/">Reseñas de Google</a></li>
+        <li><a href="/guias/seo-local/seo-vs-anuncios-google/">SEO vs anuncios de Google</a></li>
+      </ul>
+    </nav>
+  </section>
+</BaseLayout>

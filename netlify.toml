@@ -1,0 +1,136 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Path-based legacy 301s (also in public/_redirects)
+[[redirects]]
+  from = "/servicios.html"
+  to = "/servicios/"
+  status = 301
+[[redirects]]
+  from = "/portfolio.html"
+  to = "/portfolio/"
+  status = 301
+[[redirects]]
+  from = "/contacto.html"
+  to = "/contacto/"
+  status = 301
+[[redirects]]
+  from = "/nosotros.html"
+  to = "/nosotros/"
+  status = 301
+[[redirects]]
+  from = "/preguntas.html"
+  to = "/preguntas/"
+  status = 301
+[[redirects]]
+  from = "/privacidad.html"
+  to = "/privacidad/"
+  status = 301
+[[redirects]]
+  from = "/terminos.html"
+  to = "/terminos/"
+  status = 301
+[[redirects]]
+  from = "/cookies.html"
+  to = "/cookies/"
+  status = 301
+[[redirects]]
+  from = "/mapa.html"
+  to = "/sitios/"
+  status = 301
+[[redirects]]
+  from = "/funza.html"
+  to = "/funza/"
+  status = 301
+[[redirects]]
+  from = "/mosquera.html"
+  to = "/mosquera/"
+  status = 301
+[[redirects]]
+  from = "/madrid.html"
+  to = "/madrid/"
+  status = 301
+[[redirects]]
+  from = "/facatativa.html"
+  to = "/facatativa/"
+  status = 301
+[[redirects]]
+  from = "/demos.html"
+  to = "/portfolio/"
+  status = 301
+
+# Query-string SPA legacy: /?page=servicios.html → /servicios/
+[[redirects]]
+  from = "/"
+  query = { page = "servicios.html" }
+  to = "/servicios/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "portfolio.html" }
+  to = "/portfolio/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "contacto.html" }
+  to = "/contacto/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "nosotros.html" }
+  to = "/nosotros/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "preguntas.html" }
+  to = "/preguntas/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "privacidad.html" }
+  to = "/privacidad/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "terminos.html" }
+  to = "/terminos/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "cookies.html" }
+  to = "/cookies/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "mapa.html" }
+  to = "/sitios/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "funza.html" }
+  to = "/funza/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "mosquera.html" }
+  to = "/mosquera/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "madrid.html" }
+  to = "/madrid/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "facatativa.html" }
+  to = "/facatativa/"
+  status = 301
+[[redirects]]
+  from = "/"
+  query = { page = "demos.html" }
+  to = "/portfolio/"
+  status = 301

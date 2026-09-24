@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AuthorBox from '../../../components/AuthorBox.astro';
+
+const title = 'SEO local vs Google Ads para negocios';
+const description =
+  'SEO local frente a Google Ads: coste, velocidad y cuándo usar cada canal para captar clientes locales.';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: '2026-09-23',
+  dateModified: '2026-09-24',
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Marketing de buscadores' },
+  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://presentto.online/nosotros/' },
+  publisher: { '@id': 'https://presentto.online/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://presentto.online/guias/seo-local/seo-vs-anuncios-google/' },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/guias/seo-local/seo-vs-anuncios-google/"
+  jsonld={[articleSchema]}
+>
+  <Breadcrumbs
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Guías', href: '/guias/' },
+      { label: 'SEO local', href: '/guias/seo-local/' },
+      { label: 'SEO vs anuncios' },
+    ]}
+  />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">SEO LOCAL · COMPARATIVA</p>
+    <h1>SEO local vs anuncios de Google</h1>
+    <p class="lead">Dos canales, objetivos distintos — y cómo combinarlos sin quemar presupuesto.</p>
+    <p class="guide-meta">Serie: Guía de SEO local · Presentto Online · septiembre 2026</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>La respuesta corta</h2>
+    <p class="snippet">
+      Los anuncios de Google dan tráfico inmediato mientras pagas; el SEO local construye un activo que sigue
+      generando visitas cuando detienes la pauta. Para un negocio local con presupuesto ajustado, conviene
+      empezar por una web + ficha sólidas (SEO) y usar pauta solo en campañas puntuales.
+    </p>
+
+    <h2>Tabla comparativa</h2>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Criterio</th><th>SEO local</th><th>Google Ads</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Resultados desde</td><td>2–6 meses</td><td>Días (si la cuenta está sana)</td></tr>
+        <tr><td>Coste por lead a 12 meses</td><td>Bajo (web administrada)</td><td>Variable y recurrente</td></tr>
+        <tr><td>Cuando dejas de pagar</td><td>El tráfico puede sostenerse</td><td>Desaparece casi por completo</td></tr>
+        <tr><td>Control creativo</td><td>Alto (contenido propio)</td><td>Medio (políticas de Google)</td></tr>
+        <tr><td>Riesgo</td><td>Dependencia de algoritmo y competencia</td><td>Subasta y CPC al alza</td></tr>
+        <tr><td>Ideal para</td><td>Presencia sostenida y barrio/zona</td><td>Lanzamientos, stock, urgencias</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Errores comunes</h2>
+    <ul>
+      <li>Comprar Ads sin web rápida ni conversiones claras → dinero quemado.</li>
+      <li>Esperar resultados de SEO en 2 semanas.</li>
+      <li>Medir solo “impresiones” sin llamadas o formularios reales.</li>
+    </ul>
+
+    <h2>Recomendación práctica para la Sabana Occidental</h2>
+    <p class="snippet">
+      Empieza con Presencia (web + SEO local + ficha) por $40.000 COP de inversión inicial en el sitio, acumula
+      reseñas 90 días y evalúa Ads solo para servicios de ticket alto o temporadas altas.
+    </p>
+
+    <div class="guide-cta">
+      <p><strong>Construye primero el activo: tu web local.</strong></p>
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+    </div>
+
+    <AuthorBox name="Equipo SEO · Presentto Online" />
+
+    <nav class="silo-related" aria-label="Silo SEO local">
+      <h2>Silo SEO local</h2>
+      <ul>
+        <li><a href="/guias/seo-local/">Guía completa de SEO local</a></li>
+        <li><a href="/guias/seo-local/que-es-seo-local/">Qué es el SEO local</a></li>
+        <li><a href="/guias/seo-local/google-business-profile/">Google Business Profile</a></li>
+        <li><a href="/guias/seo-local/aparecer-en-google-maps/">Aparecer en Google Maps</a></li>
+        <li><a href="/guias/seo-local/resenas-google/">Reseñas de Google</a></li>
+      </ul>
+    </nav>
+  </section>
+</BaseLayout>

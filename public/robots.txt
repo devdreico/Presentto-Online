@@ -1,7 +1,11 @@
 User-agent: *
 Allow: /
-Disallow: /Templates/
-Disallow: /private/
-Disallow: /admin/
+
+# Bloquear demos/plantillas de clientes (contenido thin/duplicado)
+Disallow: /Templates%20-%20Sitios%20de%20Clientes/
+Disallow: /demos-templates/
+Disallow: /*?page=
+Disallow: /*?utm_
+
 Host: presentto.online
-Sitemap: https://presentto.online/sitemap.xml
+Sitemap: https://presentto.online/sitemap-index.xml

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = 'Página no encontrada | Presentto Online';
+const description =
+  'La página que buscas no existe. Vuelve al inicio o explora las guías de SEO local de Presentto Online.';
+---
+
+<BaseLayout title={title} description={description} path="/404/" noindex={true}>
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: '404' }]} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">ERROR 404</p>
+    <h1>Esta página <em>no existe.</em></h1>
+    <p class="lead">
+      Puede que el enlace haya cambiado. Prueba con el inicio, las guías o el contacto.
+    </p>
+    <div class="actions">
+      <a class="button primary" href="/">Ir al inicio <span>↗</span></a>
+      <a class="button ghost" href="/guias/">Ver guías <span>↗</span></a>
+      <a class="button ghost" href="/contacto/">Contacto <span>↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

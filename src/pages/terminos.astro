@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = 'Términos del servicio | Presentto Online';
+const description =
+  'Condiciones generales de la Presenttación Digital ($40.000 COP, IVA incluido) y del servicio web administrado de Presentto Online.';
+---
+
+<BaseLayout title={title} description={description} path="/terminos/">
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Términos' }]} />
+
+  <section class="section wrap info-page">
+    <p class="eyebrow">TÉRMINOS DEL SERVICIO</p>
+    <h1>Un acuerdo claro para cada proyecto.</h1>
+    <div class="info-content">
+      <article class="info-block">
+        <h2>
+          La Presenttación Digital tiene un valor de $40.000 COP, IVA incluido, e integra la creación de un
+          sitio web con la información, imágenes, datos y funcionalidades necesarias para el negocio.
+        </h2>
+        <p>
+          El alcance, los contenidos y las integraciones se definen con el cliente antes de publicar. Se entrega
+          con dominio propio, correo profesional, SEO local básico y administración del hosting por Presentto.
+        </p>
+      </article>
+      <h2>Renovación y permanencia</h2>
+      <p>
+        La renovación es flexible: no hay permanencia obligatoria. Puedes dejar de continuar el servicio cuando
+        quieras, según las condiciones acordadas en el momento de la compra.
+      </p>
+      <h2>Dominio</h2>
+      <p>
+        Si aportas tu dominio propio, se incorpora sin costo adicional del servicio. Si se necesita buscar y
+        gestionar un dominio nuevo, se cobra únicamente el excedente del registro.
+      </p>
+      <h2>Ajustes</h2>
+      <p>
+        Los tiempos, contenidos, imágenes y ajustes se coordinan con cada cliente antes de publicar. Se realizan
+        implementaciones tecnológicas necesarias y ajustes hasta dejar la versión digital del negocio lista.
+      </p>
+      <h2>Pagos</h2>
+      <p>
+        Los pagos se procesan a través de Mercado Pago. El valor publicado ($40.000 COP) incluye IVA. Primero
+        envía tu solicitud de contacto y luego realiza el pago.
+      </p>
+      <h2>Contacto</h2>
+      <p>
+        Dudas sobre estos términos: <a href="mailto:inbox@presentto.online">inbox@presentto.online</a> ·
+        <a href="https://wa.me/573236487336" target="_blank" rel="noopener">WhatsApp +57 323 648 7336</a>.
+      </p>
+      <p class="guide-meta">Última actualización: septiembre de 2026.</p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,105 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/servicios.html", "destination": "/servicios/", "permanent": true },
+    { "source": "/portfolio.html", "destination": "/portfolio/", "permanent": true },
+    { "source": "/contacto.html", "destination": "/contacto/", "permanent": true },
+    { "source": "/nosotros.html", "destination": "/nosotros/", "permanent": true },
+    { "source": "/preguntas.html", "destination": "/preguntas/", "permanent": true },
+    { "source": "/privacidad.html", "destination": "/privacidad/", "permanent": true },
+    { "source": "/terminos.html", "destination": "/terminos/", "permanent": true },
+    { "source": "/cookies.html", "destination": "/cookies/", "permanent": true },
+    { "source": "/mapa.html", "destination": "/sitios/", "permanent": true },
+    { "source": "/funza.html", "destination": "/funza/", "permanent": true },
+    { "source": "/mosquera.html", "destination": "/mosquera/", "permanent": true },
+    { "source": "/madrid.html", "destination": "/madrid/", "permanent": true },
+    { "source": "/facatativa.html", "destination": "/facatativa/", "permanent": true },
+    { "source": "/demos.html", "destination": "/portfolio/", "permanent": true },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "servicios.html" }],
+      "destination": "/servicios/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "portfolio.html" }],
+      "destination": "/portfolio/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "contacto.html" }],
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "nosotros.html" }],
+      "destination": "/nosotros/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "preguntas.html" }],
+      "destination": "/preguntas/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "privacidad.html" }],
+      "destination": "/privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "terminos.html" }],
+      "destination": "/terminos/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "cookies.html" }],
+      "destination": "/cookies/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "mapa.html" }],
+      "destination": "/sitios/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "funza.html" }],
+      "destination": "/funza/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "mosquera.html" }],
+      "destination": "/mosquera/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "madrid.html" }],
+      "destination": "/madrid/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "facatativa.html" }],
+      "destination": "/facatativa/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page", "value": "demos.html" }],
+      "destination": "/portfolio/",
+      "permanent": true
+    }
+  ]
+}

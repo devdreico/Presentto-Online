@@ -1,0 +1,35 @@
+---
+// BreadcrumbList schema + visible breadcrumb nav
+interface Crumb {
+  label: string;
+  href?: string;
+}
+interface Props {
+  items: Crumb[];
+}
+const { items } = Astro.props;
+const site = Astro.site!;
+const absolute = (href?: string) => (href ? new URL(href, site).href : undefined);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.label,
+    ...(item.href ? { item: absolute(item.href) } : {}),
+  })),
+};
+---
+
+<nav class="breadcrumbs" aria-label="Migas de pan">
+  <ol>
+    {items.map((item) => (
+      <li>
+        {item.href ? <a href={item.href}>{item.label}</a> : <span aria-current="page">{item.label}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

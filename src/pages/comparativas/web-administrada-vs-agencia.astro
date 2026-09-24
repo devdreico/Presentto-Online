@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = 'Web administrada vs agencia vs DIY';
+const description =
+  'Comparativa: web administrada ($40.000 COP) vs agencia vs DIY. Costes, control, tiempos y a quién conviene cada opción.';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: '2026-09-23',
+  dateModified: '2026-09-24',
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Desarrollo de páginas web' },
+  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://presentto.online/nosotros/' },
+  publisher: { '@id': 'https://presentto.online/#organization' },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://presentto.online/comparativas/web-administrada-vs-agencia/',
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/comparativas/web-administrada-vs-agencia/"
+  jsonld={[articleSchema]}
+>
+  <Breadcrumbs
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Comparativas', href: '/comparativas/' },
+      { label: 'Web administrada vs agencia' },
+    ]}
+  />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">COMPARATIVA · DECISIÓN DE COMPRA</p>
+    <h1>Web administrada vs agencia tradicional vs hacerlo tú mismo</h1>
+    <p class="lead">Tres caminos para tener web en Colombia — costes, riesgos y encaje real.</p>
+    <p class="guide-meta">Actualizado: septiembre 2026 · Presentto Online</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>Resumen en 30 segundos</h2>
+    <p class="snippet">
+      Si quieres resultados sin aprender herramientas ni gestionar proveedores, una web administrada como la de
+      Presentto ($40.000 COP, IVA incluido) ofrece el mejor tiempo/valor para un negocio local. La agencia
+      tradicional brilla en proyectos grandes con CMS y campañas. El DIY es viable solo si te gusta mantener
+      tecnología tú mismo.
+    </p>
+
+    <h2>Tabla comparativa</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Criterio</th>
+          <th>Web administrada (Presentto)</th>
+          <th>Agencia tradicional</th>
+          <th>Hacerlo tú (Wix/WordPress)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Inversión inicial</td>
+          <td>$40.000 COP (IVA incl.)</td>
+          <td>$800.000 – $6.000.000+ COP</td>
+          <td>≈ $20.000–$60.000 COP/mes + tu tiempo</td>
+        </tr>
+        <tr>
+          <td>Mantenimiento</td>
+          <td>Incluido en el servicio</td>
+          <td>$150.000–$500.000 COP/mes</td>
+          <td>Tú (actualizaciones, backups, seguridad)</td>
+        </tr>
+        <tr>
+          <td>Tiempo hasta publicar</td>
+          <td>Días</td>
+          <td>2–8 semanas</td>
+          <td>Semanas/meses aprendiendo</td>
+        </tr>
+        <tr>
+          <td>SEO local</td>
+          <td>Estructura y configuración incluidas</td>
+          <td>Suele cotizarse aparte</td>
+          <td>Depende de plugins y tu criterio</td>
+        </tr>
+        <tr>
+          <td>Control del código</td>
+          <td>Bajo (lo administra Presentto)</td>
+          <td>Medio/alto (según contrato)</td>
+          <td>Alto (pero también la carga)</td>
+        </tr>
+        <tr>
+          <td>Riesgo principal</td>
+          <td>Menor flexibilidad de features raras</td>
+          <td>Sobrecosto y plazos</td>
+          <td>Site lento, inseguro o abandonado</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Cuándo elegir cada opción</h2>
+    <h3>Elige web administrada si…</h3>
+    <ul>
+      <li>Eres un negocio local (Funza, Mosquera, Madrid, Facatativá) que necesita aparecer ya.</li>
+      <li>No quieres gestionar hosting, actualizaciones ni plugins.</li>
+      <li>Presupuesto de lanzamiento muy ajustado.</li>
+      <li>Priorizas WhatsApp, catálogo y SEO local sobre tiendas complejas.</li>
+    </ul>
+    <h3>Elige agencia tradicional si…</h3>
+    <ul>
+      <li>Necesitas e-commerce grande, integraciones ERP o multilingüe.</li>
+      <li>Marca corporativa con diseño a medida y equipo interno de marketing.</li>
+      <li>Presupuesto y plazos de proyecto formal lo permiten.</li>
+    </ul>
+    <h3>Elige DIY si…</h3>
+    <ul>
+      <li>Disfrutas la autogestión y aceptas el tiempo de mantenimiento.</li>
+      <li>Tienes un sitio muy simple y tráfico irrelevante.</li>
+    </ul>
+
+    <h2>Cómo llegamos al precio de $40.000 COP</h2>
+    <p class="snippet">
+      Presentto opera con plantillas base y procesos estandarizados sobre infraestructura compartida
+      administrada: reducimos costes de desarrollo a medida y de soporte, y entregamos una presencia completa
+      (web, dominio, correo, SEO local) a precio de entrada para la Sabana Occidental.
+    </p>
+
+    <div class="guide-cta">
+      <p><strong>¿Encaja contigo la opción administrada?</strong></p>
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+      &nbsp;
+      <a class="button ghost" href="/guias/cuanto-cuesta-pagina-web-colombia/">Ver todos los precios 2026 <span>↗</span></a>
+    </div>
+
+    <section class="silo-related" aria-label="Mismo silo: precios y decisión">
+      <h2>Mismo silo: precios y decisión</h2>
+      <ul>
+        <li><a href="/guias/cuanto-cuesta-pagina-web-colombia/">¿Cuánto cuesta una web en Colombia?</a></li>
+        <li><a href="/servicios/">Qué incluye la Presenttación Digital</a></li>
+        <li><a href="/preguntas/">Preguntas frecuentes</a></li>
+      </ul>
+    </section>
+
+    <AuthorBox name="Equipo SEO · Presentto Online" />
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <p class="eyebrow">DECISIÓN RÁPIDA</p>
+      <h2>Empieza con lo esencial <em>sin sobrecosto.</em></h2>
+      <a class="button light" href="/contacto/">Comprar ahora <span>↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

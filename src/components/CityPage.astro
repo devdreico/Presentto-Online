@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqList from '../components/FaqList.astro';
+
+interface Props {
+  city: string;
+  slug: string;
+  focus: string;
+  sectors: string;
+  highlight: string;
+  landmarks: string;
+}
+const {
+  city,
+  slug,
+  focus,
+  sectors,
+  highlight,
+  landmarks,
+} = Astro.props;
+
+const path = `/${slug}/`;
+const title = `Web y SEO local en ${city} | Presentto Online`;
+const description = `Web y SEO local en ${city} desde $40.000 COP: dominio, correo y Google para tu negocio.`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `Páginas web y SEO local en ${city}`,
+  provider: { '@id': 'https://presentto.online/#organization' },
+  areaServed: { '@type': 'Place', name: `${city}, Cundinamarca, Colombia` },
+  serviceType: 'Diseño de páginas web y SEO local',
+  offers: {
+    '@type': 'Offer',
+    price: '40000',
+    priceCurrency: 'COP',
+    description: 'Presenttación Digital — IVA incluido',
+  },
+};
+
+const faqs = [
+  {
+    q: `¿Cuánto cuesta una página web en ${city}?`,
+    a: `En Presentto la Presenttación Digital cuesta $40.000 COP (IVA incluido) e incluye diseño, dominio propio, correo profesional y SEO local orientado a ${city} y la Sabana Occidental.`,
+  },
+  {
+    q: `¿Cómo aparece mi negocio de ${city} en Google?`,
+    a: `Con una web estructurada para SEO local (títulos, datos de contacto, contenido municipal) y una ficha de Google Business Profile bien configurada con categorías, fotos y reseñas reales.`,
+  },
+  {
+    q: `¿Cuánto tarda un sitio web para un negocio en ${city}?`,
+    a: `Tras recibir la información del negocio (textos, fotos y objetivos), la entrega habitual es de pocos días hábiles, con rondas de ajustes hasta dejarlo listo.`,
+  },
+];
+
+const relatedCities = [
+  { slug: 'funza', label: 'Páginas web en Funza' },
+  { slug: 'mosquera', label: 'Páginas web en Mosquera' },
+  { slug: 'madrid', label: 'Páginas web en Madrid' },
+  { slug: 'facatativa', label: 'Páginas web en Facatativá' },
+].filter((c) => c.slug !== slug);
+---
+
+<BaseLayout title={title} description={description} path={path} jsonld={[schema]}>
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: city }]} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">SEO LOCAL · {city.toUpperCase()}</p>
+    <h1>Tu negocio en {city}, <em>visible en Google.</em></h1>
+    <p class="lead">
+      Diseñamos una presencia online profesional para {city}, con estrategia de SEO local y contenido orientado
+      a captar clientes reales en la Sabana Occidental.
+    </p>
+    <div class="actions">
+      <a class="button primary" href="/contacto/">Comprar ahora <span>↗</span></a>
+      <a class="button ghost" href="/servicios/">Ver servicio <span>↓</span></a>
+    </div>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>Presencia digital para {focus}</h2>
+    <p class="snippet">
+      {city} concentra {sectors}. Una página web clara, rápida y optimizada para SEO local ayuda a que esos
+      negocios aparezcan cuando un cliente busca “cerca de mí” o “en {city}” en Google y Google Maps.
+    </p>
+    <p>
+      {highlight}
+    </p>
+    <p>
+      {landmarks} Trabajamos con la identidad real de tu empresa: tus fotos, tus servicios y la forma en que
+      atiendes a tus clientes, no con plantillas genéricas difíciles de mantener.
+    </p>
+
+    <h2>Qué incluye la web para negocios en {city}</h2>
+    <ul>
+      <li>Diseño personalizado alineado con tu marca y tu {focus}.</li>
+      <li>Dominio propio y correo profesional (por ejemplo, <strong>tuempresa.online</strong>).</li>
+      <li>Estructura SEO local: títulos, meta descripciones, datos de contacto y contenido municipal.</li>
+      <li>Guía de configuración de Google Business Profile para {city}.</li>
+      <li>Códigos QR para compartir tu web en tarjetas, menus o escaparates.</li>
+      <li>Administración del hosting por Presentto.</li>
+    </ul>
+
+    <h2>¿Cuánto cuesta una página web en {city}?</h2>
+    <p class="snippet">
+      La Presenttación Digital de Presentto cuesta $40.000 COP, IVA incluido: creación, dominio, correo,
+      SEO local y administración incluidos. Sin permanencia obligatoria.
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Opción</th><th>Inversión típica</th><th>Ideal para</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Presentto ({city})</td><td>$40.000 COP (IVA incl.)</td><td>Negocios locales que quieren empezar ya</td></tr>
+        <tr><td>Agencia web genérica</td><td>$800.000 – $3.000.000 COP</td><td>Proyectos grandes con CMS y blog</td></tr>
+        <tr><td>Plantilla DIY (Wix, etc.)</td><td>Desde ~20 USD/mes</td><td>Quien quiere administrarlo todo solo</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Cómo trabajamos el SEO local en {city}</h2>
+    <ol>
+      <li>Definimos las búsquedas reales de tus clientes en {city} y municipios vecinos.</li>
+      <li>Estructuramos la web con páginas y contenido geolocalizado útil (no relleno).</li>
+      <li>Configuramos datos estructurados (Schema LocalBusiness/Service) y la ficha de Google.</li>
+      <li>Medimos consultas en Google Search Console y ajustamos según resultados.</li>
+    </ol>
+
+    <div class="guide-cta">
+      <p><strong>¿Quieres tu negocio visible en {city}?</strong></p>
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+    </div>
+
+    <section class="silo-related" aria-label="Municipios relacionados">
+      <h2>También en la Sabana Occidental</h2>
+      <ul>
+        {relatedCities.map((c) => (
+          <li><a href={`/${c.slug}/`}>{c.label}</a></li>
+        ))}
+      </ul>
+    </section>
+  </section>
+
+  <section class="section wrap">
+    <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+    <h2>Dudas sobre <em>presencia web en {city}</em></h2>
+    <FaqList faqs={faqs} />
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <p class="eyebrow">¿LISTO PARA EMPEZAR?</p>
+      <h2>Hagamos visible <em>tu negocio en {city}.</em></h2>
+      <a class="button light" href="/contacto/">Comprar ahora <span>↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

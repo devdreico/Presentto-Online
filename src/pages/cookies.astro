@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = 'Política de cookies | Presentto Online';
+const description =
+  'Información sobre las cookies técnicas y de medición utilizadas por Presentto Online y cómo gestionar tu consentimiento.';
+---
+
+<BaseLayout title={title} description={description} path="/cookies/">
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Cookies' }]} />
+
+  <section class="section wrap info-page">
+    <p class="eyebrow">COOKIES</p>
+    <h1>Una navegación más simple.</h1>
+    <div class="info-content">
+      <article class="info-block">
+        <h2>Presentto utiliza una cookie necesaria para guardar tu decisión de consentimiento.</h2>
+        <p>
+          La cookie necesaria (<code>presentto-consent</code>) mantiene la navegación y tus preferencias básicas.
+          Las cookies opcionales de analítica solo se activan si las autorizas. Puedes cambiar o retirar tu
+          decisión borrando las cookies del dominio desde tu navegador.
+        </p>
+      </article>
+      <h2>Qué cookies usamos</h2>
+      <ul>
+        <li><strong>presentto-consent</strong> — necesaria. Guarda si aceptaste solo las necesarias o todas.</li>
+        <li><strong>presentto-analytics</strong> — opcional. Solo se activa con tu permiso expreso.</li>
+      </ul>
+      <h2>Cómo gestionarlas</h2>
+      <p>
+        Puedes borrar las cookies de este dominio en la configuración de tu navegador (Chrome, Firefox, Safari o
+        Edge). Al hacerlo, volveremos a pedirte tu preferencia en la próxima visita.
+      </p>
+      <p class="guide-meta">Última actualización: septiembre de 2026.</p>
+    </div>
+  </section>
+</BaseLayout>

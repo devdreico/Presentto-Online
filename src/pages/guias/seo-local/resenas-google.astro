@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import AuthorBox from '../../../components/AuthorBox.astro';
+
+const title = 'Reseñas Google: cómo pedirlas y responder';
+const description =
+  'Cómo pedir y responder reseñas de Google sin riesgos: plantillas, reseñas negativas y errores que penalizan tu reputación.';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: '2026-09-23',
+  dateModified: '2026-09-24',
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Gestión de reputación online' },
+  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://presentto.online/nosotros/' },
+  publisher: { '@id': 'https://presentto.online/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://presentto.online/guias/seo-local/resenas-google/' },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/guias/seo-local/resenas-google/"
+  jsonld={[articleSchema]}
+>
+  <Breadcrumbs
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Guías', href: '/guias/' },
+      { label: 'SEO local', href: '/guias/seo-local/' },
+      { label: 'Reseñas de Google' },
+    ]}
+  />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">SEO LOCAL · REPUTACIÓN</p>
+    <h1>Reseñas de Google: cómo pedirlas y responderlas</h1>
+    <p class="lead">Un sistema sostenible de reseñas reales — sin comprar ni fabricar opinión.</p>
+    <p class="guide-meta">Serie: Guía de SEO local · Presentto Online · septiembre 2026</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>¿Las reseñas afectan el SEO local?</h2>
+    <p class="snippet">
+      Sí: el volumen, la frescura y la calidad de las reseñas influyen en la prominencia local y en el CTR
+      desde el pack de mapas. También ayudan a que Google entienda de qué trata tu negocio a través del
+      lenguaje de los clientes.
+    </p>
+
+    <h2>Cómo pedir reseñas (plantilla)</h2>
+    <p class="snippet">
+      Pide solo a clientes satisfechos, en el momento de mayor satisfacción, con un enlace directo a dejar
+      reseña. Nunca ofrezcas incentivos a cambio de estrellas (política de Google).
+    </p>
+    <ol>
+      <li>Termina el servicio y confirma que quedaron conformes.</li>
+      <li>Envía por WhatsApp: “Si te fue útil, ¿nos dejas una reseña en Google? Toma 1 minuto: [enlace].”</li>
+      <li>Haz seguimiento una sola vez a los 48 h si no respondió.</li>
+      <li>Registra quién pidió para no saturar a los mismos clientes.</li>
+    </ol>
+
+    <h2>Cómo responder reseñas</h2>
+    <ul>
+      <li><strong>Positiva</strong>: agradece, nombra el servicio, invita a volver.</li>
+      <li><strong>Negativa</strong>: responde en 24–48 h, sin discutir; ofrece canal privado (WhatsApp/email).</li>
+      <li>Usa la ciudad de forma natural si es relevante (“gracias por confiar en nosotros en Mosquera”).</li>
+      <li>Nunca publiques datos personales del cliente en la respuesta pública.</li>
+    </ul>
+
+    <h2>Qué NO hacer</h2>
+    <ul>
+      <li>Comprar reseñas o usar paneles de “5 estrellas garantizadas”.</li>
+      <li>Crear reseñas desde cuentas falsas o la misma IP/geo del negocio.</li>
+      <li>Ignorar reseñas negativas (Google valora que respondas).</li>
+    </ul>
+
+    <div class="guide-cta">
+      <p><strong>Una web profesional hace más creíble cada reseña.</strong></p>
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+      &nbsp;
+      <a class="button ghost" href="/guias/seo-local/seo-vs-anuncios-google/">Siguiente: SEO vs anuncios <span>↗</span></a>
+    </div>
+
+    <AuthorBox name="Equipo SEO · Presentto Online" />
+
+    <nav class="silo-related" aria-label="Silo SEO local">
+      <h2>Silo SEO local</h2>
+      <ul>
+        <li><a href="/guias/seo-local/">Guía completa de SEO local</a></li>
+        <li><a href="/guias/seo-local/que-es-seo-local/">Qué es el SEO local</a></li>
+        <li><a href="/guias/seo-local/google-business-profile/">Google Business Profile</a></li>
+        <li><a href="/guias/seo-local/aparecer-en-google-maps/">Aparecer en Google Maps</a></li>
+        <li><a href="/guias/seo-local/seo-vs-anuncios-google/">SEO vs anuncios de Google</a></li>
+      </ul>
+    </nav>
+  </section>
+</BaseLayout>

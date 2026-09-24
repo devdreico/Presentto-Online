@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const title = 'Guías SEO local y precios web | Presentto';
+const description =
+  'Guías de SEO local, Google Business, reseñas y precios de páginas web en Colombia.';
+
+const guides = [
+  {
+    href: '/guias/seo-local/',
+    title: 'Guía completa de SEO local',
+    desc: 'Pilar: definición, factores, checklist y estrategia para negocios locales.',
+    tag: 'Pilar',
+  },
+  {
+    href: '/guias/seo-local/que-es-seo-local/',
+    title: '¿Qué es el SEO local?',
+    desc: 'Definición operativa, ejemplos de búsqueda y los 3 pilares del ranking local.',
+    tag: 'SEO local',
+  },
+  {
+    href: '/guias/seo-local/google-business-profile/',
+    title: 'Google Business Profile paso a paso',
+    desc: 'Categorías, fotos, servicios y coherencia NAP con tu web.',
+    tag: 'SEO local',
+  },
+  {
+    href: '/guias/seo-local/aparecer-en-google-maps/',
+    title: 'Cómo aparecer en Google Maps',
+    desc: 'Orden de factores para entrar al pack local y errores que lo bloquean.',
+    tag: 'SEO local',
+  },
+  {
+    href: '/guias/seo-local/resenas-google/',
+    title: 'Reseñas de Google sin riesgos',
+    desc: 'Cómo pedirlas, responderlas y evitar penalizaciones.',
+    tag: 'SEO local',
+  },
+  {
+    href: '/guias/seo-local/seo-vs-anuncios-google/',
+    title: 'SEO local vs anuncios de Google',
+    desc: 'Comparativa de coste, velocidad y cuándo usar cada canal.',
+    tag: 'SEO local',
+  },
+  {
+    href: '/guias/cuanto-cuesta-pagina-web-colombia/',
+    title: '¿Cuánto cuesta una web en Colombia 2026?',
+    desc: 'Precios reales por tipo de sitio y qué suele quedar fuera de la cotización.',
+    tag: 'Precios',
+  },
+  {
+    href: '/comparativas/web-administrada-vs-agencia/',
+    title: 'Web administrada vs agencia vs DIY',
+    desc: 'Tabla comparativa para decidir con claridad.',
+    tag: 'Comparativa',
+  },
+];
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Guías de SEO local y precios web',
+  url: 'https://presentto.online/guias/',
+  inLanguage: 'es-CO',
+  isPartOf: { '@id': 'https://presentto.online/#website' },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: guides.map((g, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: g.title,
+      url: `https://presentto.online${g.href}`,
+    })),
+  },
+};
+---
+
+<BaseLayout title={title} description={description} path="/guias/" jsonld={[collectionSchema]}>
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Guías' }]} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">RECURSOS</p>
+    <h1>Guías de SEO local y precios web</h1>
+    <p class="lead">Contenido práctico para posicionar tu negocio y decidir con datos.</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <ul style="list-style:none;padding:0;display:grid;gap:1rem;">
+      {guides.map((g) => (
+        <li style="border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;background:var(--paper);">
+          <p class="eyebrow" style="margin:0 0 .35rem;">{g.tag}</p>
+          <h2 style="margin:0 0 .4rem;font-size:1.15rem;">
+            <a href={g.href} style="text-decoration:underline;text-underline-offset:3px;">{g.title}</a>
+          </h2>
+          <p style="margin:0;color:var(--muted);">{g.desc}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

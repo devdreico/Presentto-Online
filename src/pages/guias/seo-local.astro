@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FaqList from '../../components/FaqList.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+
+const title = 'Guía de SEO local para negocios (2026)';
+const description =
+  'Guía de SEO local 2026: pack local, Google Maps, reseñas y checklist para negocios en tu ciudad. Pasos y errores que evitar.';
+
+const faqs = [
+  {
+    q: '¿Qué es el SEO local?',
+    a: 'El SEO local es la optimización de un sitio web y de fichas de negocio para aparecer en búsquedas geolocalizadas, como “peluquería en Funza” o “dentista cerca de mí”, incluyendo el pack de Google Maps.',
+  },
+  {
+    q: '¿Cuánto tarda en verse resultados de SEO local?',
+    a: 'En sitios nuevos suelen verse movimientos en 2 a 4 meses para palabras clave de cola larga y competencia baja; los términos más disputados pueden llevar de 4 a 8 meses según competencia y reseñas.',
+  },
+  {
+    q: '¿Necesito página web si ya tengo Google Business Profile?',
+    a: 'Sí. La ficha de Google te da visibilidad en Maps, pero la web es el activo que controlas: contenido, ofertas, SEO y conversiones. Google también valora la coherencia entre ficha y web.',
+  },
+  {
+    q: '¿El SEO local funciona para cualquier municipio?',
+    a: 'Funciona donde haya búsquedas con intención local: Funza, Mosquera, Madrid, Facatativá o cualquier ciudad. La clave es contenido geográficamente relevante y datos de contacto consistentes.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: '2026-09-23',
+  dateModified: '2026-09-24',
+  inLanguage: 'es-CO',
+  about: {
+    '@type': 'Thing',
+    name: 'Posicionamiento local en buscadores',
+    sameAs: 'https://es.wikipedia.org/wiki/Posicionamiento_en_motores_de_b%C%BAsqueda',
+  },
+  author: {
+    '@type': 'Organization',
+    name: 'Presentto Online',
+    url: 'https://presentto.online/nosotros/',
+    sameAs: ['https://www.linkedin.com/'],
+  },
+  publisher: { '@id': 'https://presentto.online/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://presentto.online/guias/seo-local/' },
+};
+---
+
+<BaseLayout title={title} description={description} path="/guias/seo-local/" jsonld={[articleSchema]}>
+  <Breadcrumbs
+    items={[
+      { label: 'Inicio', href: '/' },
+      { label: 'Guías', href: '/guias/' },
+      { label: 'SEO local' },
+    ]}
+  />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">GUÍA · SEO LOCAL</p>
+    <h1>SEO local: la guía completa para que tu negocio aparezca en Google</h1>
+    <p class="lead">
+      Todo lo que necesitas para posicionar tu negocio en búsquedas de tu ciudad y en Google Maps — sin jerga
+      innecesaria y con pasos aplicables desde hoy.
+    </p>
+    <p class="guide-meta">Actualizado: septiembre 2026 · Lectura: 12 min · Presentto Online</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>¿Qué es el SEO local?</h2>
+    <p class="snippet">
+      El SEO local es el conjunto de técnicas para que tu negocio aparezca en los resultados geolocalizados de
+      Google (orgánicos y Maps) cuando alguien busca un producto o servicio “en mi ciudad” o “cerca de mí”.
+      Combina una web bien estructurada, una ficha de Google Business Profile optimizada y reseñas reales.
+    </p>
+    <p>
+      A diferencia del SEO nacional, la relevancia se mide por <strong>proximidad, relevancia y prominencia</strong>:
+      qué tan cerca estás del buscador, qué tan bien tu contenido coincide con la búsqueda, y cuánta autoridad
+      (reseñas, menciones, enlaces) has acumulado.
+    </p>
+
+    <h2>¿Por qué importa el SEO local en la Sabana Occidental?</h2>
+    <p>
+      En municipios de la Sabana Occidental, la mayoría de búsquedas comerciales
+      son móviles e hiperlocales. Si tu competencia no tiene web propia —o tiene una lenta y desactualizada—
+      aparecer primero es una ventaja estructural, no suerte.
+    </p>
+
+    <h2>Cómo funciona el SEO local (3 motores)</h2>
+    <ol>
+      <li><strong>Tu web</strong>: contenido geolocalizado, velocidad, datos estructurados y enlazado interno.</li>
+      <li><strong>Google Business Profile</strong>: categoría, servicios, fotos, horarios, preguntas y reseñas.</li>
+      <li><strong>Señales externas</strong>: citaciones NAP consistentes, prensa local y menciones de autoridad.</li>
+    </ol>
+
+    <h2>Checklist de SEO local (empieza hoy)</h2>
+    <ul>
+      <li>Título y H1 con la ciudad + servicio principal (sin keyword stuffing).</li>
+      <li>Meta descripción única con CTA y precio o diferencial si aplica.</li>
+      <li>Dirección, teléfono y horarios idénticos en web, ficha y directorios.</li>
+      <li>Schema.org <code>LocalBusiness</code> o <code>Service</code> con <code>areaServed</code>.</li>
+      <li>Google Business Profile verificado, con fotos reales y respuesta a reseñas.</li>
+      <li>Página por municipio o zona con contenido único (no plantilla copiada).</li>
+      <li>Core Web Vitals en verde (LCP, INP, CLS) y HTTPS activo.</li>
+      <li>Enlaces internos con anclas descriptivas dentro del mismo silo temático.</li>
+    </ul>
+
+    <h2>Errores comunes que frenan el SEO local</h2>
+    <ul>
+      <li><strong>Puertas de entradas</strong>: 20 páginas de ciudad idénticas con solo cambiar el nombre.</li>
+      <li><strong>NAP inconsistente</strong>: “Cra 1 #2-3” en un sitio y “Carrera 1 #2-3” en otro.</li>
+      <li><strong>JS-only rendering</strong>: si Google solo ve un <code>&lt;div&gt;</code> vacío, no indexa contenido.</li>
+      <li><strong>Ignorar reseñas</strong>: responder importa tanto como pedirlas.</li>
+      <li><strong>Promesas falsas</strong>: nadie puede garantizar la posición #1; el proceso es medible, no mágico.</li>
+    </ul>
+
+    <h2>SEO local vs SEO nacional vs Google Ads</h2>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Criterio</th><th>SEO local</th><th>SEO nacional</th><th>Google Ads</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Alcance</td><td>Ciudad / comarca</td><td>País</td><td>El que configures</td></tr>
+        <tr><td>Velocidad</td><td>2–6 meses</td><td>6–12+ meses</td><td>Inmediato (al pagar)</td></tr>
+        <tr><td>Coste continuo</td><td>Bajo con web administrada</td><td>Medio/alto</td><td>Alto por clic</td></tr>
+        <tr><td>Control</td><td>Alto (tu web + ficha)</td><td>Alto</td><td>Bajo (para cuando pagas)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Cómo empezar con $40.000 COP</h2>
+    <p class="snippet">
+      La Presenttación Digital de Presentto incluye web, dominio, correo y estructura SEO local por
+      $40.000 COP (IVA incluido). Tú aportas fotos y textos del negocio; nosotros construimos, publicamos y
+      configuramos los cimientos técnicos.
+    </p>
+    <p>
+      Complementa con una ficha de Google Business Profile bien diligenciada y pide reseñas a clientes
+      satisfechos (siempre reales). El resto es iterar con datos de Search Console.
+    </p>
+
+    <div class="guide-cta">
+      <p><strong>¿Listo para posicionar tu negocio local?</strong></p>
+      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+    </div>
+
+    <AuthorBox name="Equipo SEO · Presentto Online" />
+
+    <section class="silo-related" aria-label="Guías relacionadas de SEO local">
+      <h2>Sigue en esta guía de SEO local</h2>
+      <ul>
+        <li><a href="/guias/seo-local/que-es-seo-local/">¿Qué es el SEO local? Definición y ejemplos</a></li>
+        <li><a href="/guias/seo-local/google-business-profile/">Cómo optimizar Google Business Profile</a></li>
+        <li><a href="/guias/seo-local/aparecer-en-google-maps/">Cómo aparecer en Google Maps</a></li>
+        <li><a href="/guias/seo-local/resenas-google/">Reseñas de Google: cómo pedirlas y responderlas</a></li>
+        <li><a href="/guias/seo-local/seo-vs-anuncios-google/">SEO local vs anuncios de Google</a></li>
+      </ul>
+    </section>
+  </section>
+
+  <section class="section wrap">
+    <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+    <h2>Dudas sobre <em>SEO local</em></h2>
+    <FaqList faqs={faqs} />
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <p class="eyebrow">¿QUIERES APLICARLO A TU NEGOCIO?</p>
+      <h2>Tu web local, <em>lista para posicionar.</em></h2>
+      <a class="button light" href="/contacto/">Comprar ahora <span>↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

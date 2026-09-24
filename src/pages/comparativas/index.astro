@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const title = 'Comparativas web y SEO | Presentto Online';
+const description =
+  'Compara web administrada, agencia tradicional y plantillas DIY con costes reales en COP.';
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Comparativas de servicios web y SEO',
+  url: 'https://presentto.online/comparativas/',
+  inLanguage: 'es-CO',
+  isPartOf: { '@id': 'https://presentto.online/#website' },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Web administrada vs agencia tradicional vs DIY',
+        url: 'https://presentto.online/comparativas/web-administrada-vs-agencia/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Precios de páginas web en Colombia 2026',
+        url: 'https://presentto.online/guias/cuanto-cuesta-pagina-web-colombia/',
+      },
+    ],
+  },
+};
+---
+
+<BaseLayout title={title} description={description} path="/comparativas/" jsonld={[collectionSchema]}>
+  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Comparativas' }]} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">COMPARATIVAS</p>
+    <h1>Compara antes de contratar</h1>
+    <p class="lead">Análisis lado a lado con precios de mercado en Colombia.</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <ul style="list-style:none;padding:0;display:grid;gap:1rem;">
+      <li style="border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;background:var(--paper);">
+        <h2 style="margin:0 0 .4rem;font-size:1.15rem;">
+          <a href="/comparativas/web-administrada-vs-agencia/" style="text-decoration:underline;text-underline-offset:3px;">
+            Web administrada vs agencia tradicional vs DIY
+          </a>
+        </h2>
+        <p style="margin:0;color:var(--muted);">
+          Costes, tiempos, control y a quién le conviene cada opción — con la Presenttación Digital a $40.000 COP
+          como referencia de entrada.
+        </p>
+      </li>
+      <li style="border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;background:var(--paper);">
+        <h2 style="margin:0 0 .4rem;font-size:1.15rem;">
+          <a href="/guias/cuanto-cuesta-pagina-web-colombia/" style="text-decoration:underline;text-underline-offset:3px;">
+            Precios de páginas web en Colombia 2026
+          </a>
+        </h2>
+        <p style="margin:0;color:var(--muted);">
+          Tabla de rangos por tipo de proyecto y qué suele quedar fuera de la cotización.
+        </p>
+      </li>
+    </ul>
+  </section>
+</BaseLayout>
