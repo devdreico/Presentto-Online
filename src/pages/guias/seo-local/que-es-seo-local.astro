@@ -22,7 +22,13 @@ const articleSchema = {
   },
   author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://www.presentto.online/nosotros/' },
   publisher: { '@id': 'https://www.presentto.online/#organization' },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.presentto.online/guias/seo-local/que-es-seo-local/' },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://www.presentto.online/guias/seo-local/que-es-seo-local/#webpage',
+  },
+  breadcrumb: {
+    '@id': 'https://www.presentto.online/guias/seo-local/que-es-seo-local/#breadcrumb',
+  },
 };
 ---
 
@@ -31,6 +37,7 @@ const articleSchema = {
   description={description}
   path="/guias/seo-local/que-es-seo-local/"
   jsonld={[articleSchema]}
+  article={{ publishedTime: '2026-09-23', modifiedTime: '2026-09-24' }}
 >
   <Breadcrumbs
     items={[

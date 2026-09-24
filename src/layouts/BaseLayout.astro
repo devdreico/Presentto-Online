@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import { organizationSchema, websiteSchema } from '../components/schemas';
 
 interface Props {
   title: string;
@@ -10,6 +11,7 @@ interface Props {
   path?: string;
   noindex?: boolean;
   jsonld?: Array<Record<string, unknown>>;
+  article?: { publishedTime: string; modifiedTime: string };
 }
 
 const {
@@ -18,11 +20,43 @@ const {
   path = '/',
   noindex = false,
   jsonld = [],
+  article,
 } = Astro.props;
 
 const canonical = new URL(path, Astro.site).href;
 const ogImage = new URL('/assets/img/og-presentto.webp', Astro.site).href;
 const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto Online`;
+const gsc = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+
+const isArticle = Boolean(article);
+const ogType = isArticle ? 'article' : 'website';
+
+// Grafo JSON-LD: Organization + WebSite + WebPage en todas las páginas indexables
+const webpageSchema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${canonical}#webpage`,
+  url: canonical,
+  name: fullTitle,
+  description,
+  inLanguage: 'es-CO',
+  isPartOf: { '@id': `${new URL('/', Astro.site).href}#website` },
+  ...(path !== '/' && !noindex
+    ? { breadcrumb: { '@id': `${canonical}#breadcrumb` } }
+    : {}),
+  ...(article
+    ? { datePublished: article.publishedTime, dateModified: article.modifiedTime }
+    : {}),
+};
+
+const pageSchemas = jsonld.filter((s) => {
+  const t = s['@type'];
+  return t !== 'Organization' && t !== 'WebSite' && t !== 'WebPage';
+});
+
+const allSchemas = noindex
+  ? pageSchemas
+  : [organizationSchema, websiteSchema, webpageSchema, ...pageSchemas];
 ---
 
 <!doctype html>
@@ -41,12 +75,17 @@ const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto On
       }
     />
     <meta name="theme-color" content="#fffdf9" />
+    {gsc && <meta name="google-site-verification" content={gsc} />}
     {!noindex && <link rel="canonical" href={canonical} />}
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/webp" href="/assets/img/Presentto-Icono-Fondo-Transparente.webp" />
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
     <link rel="mask-icon" href="/assets/img/Presentto-Icono-Fondo-Transparente.webp" color="#f15a24" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Presentto Online — Guías" href="/rss.xml" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="es_CO" />
     <meta property="og:site_name" content="Presentto Online" />
     <meta property="og:title" content={fullTitle} />
@@ -56,17 +95,26 @@ const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto On
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Presentto Online — presencia online desde $40.000 COP" />
+    {article && (
+      <>
+        <meta property="article:published_time" content={article.publishedTime} />
+        <meta property="article:modified_time" content={article.modifiedTime} />
+        <meta property="article:author" content="https://www.presentto.online/nosotros/" />
+        <meta property="article:section" content="SEO local" />
+      </>
+    )}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content="Presentto Online — presencia online desde $40.000 COP" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/assets/fonts/montserrat-latin-500.woff2"
+      crossorigin
     />
 
     <script is:inline>
@@ -97,7 +145,41 @@ const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto On
       })();
     </script>
 
-    {jsonld.map((schema) => (
+    <!-- Google Tag Manager — Consent Mode v2 defaults denied; loads only after grant -->
+    <script is:inline>
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          wait_for_update: 500
+        });
+        function readCookie(name) {
+          return document.cookie
+            .split('; ')
+            .find(function (c) { return c.indexOf(name + '=') === 0; })
+            ?.split('=')[1] || null;
+        }
+        window.__presenttoLoadGtm = function () {
+          if (window.__gtmLoaded) return;
+          window.__gtmLoaded = true;
+          gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-538NSMPT';
+          document.head.appendChild(s);
+        };
+        if (readCookie('presentto-analytics') === 'granted') {
+          window.__presenttoLoadGtm();
+        }
+      })();
+    </script>
+
+    {allSchemas.map((schema) => (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     ))}
   </head>

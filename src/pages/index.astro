@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PlansGrid from '../components/PlansGrid.astro';
-import { organizationSchema, websiteSchema, localBusinessSchema } from '../components/schemas';
+import { localBusinessSchema } from '../components/schemas';
 
 const title = 'Web y SEO local desde $40.000 COP/mes | Presentto Online';
 const description =
@@ -65,7 +65,7 @@ const homeService = {
   title={title}
   description={description}
   path="/"
-  jsonld={[organizationSchema, websiteSchema, localBusinessSchema, homeService]}
+  jsonld={[localBusinessSchema, homeService]}
 >
   <section class="hero wrap">
     <div class="hero-copy">
@@ -123,7 +123,6 @@ const homeService = {
           </div>
         </div>
       </div>
-      <div class="visual-note">Diseño · SEO local · Dominio<br /><b>Administrado por Presentto</b></div>
     </div>
   </section>
 

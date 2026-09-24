@@ -20,7 +20,10 @@ const articleSchema = {
   publisher: { '@id': 'https://www.presentto.online/#organization' },
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://www.presentto.online/comparativas/web-administrada-vs-agencia/',
+    '@id': 'https://www.presentto.online/comparativas/web-administrada-vs-agencia/#webpage',
+  },
+  breadcrumb: {
+    '@id': 'https://www.presentto.online/comparativas/web-administrada-vs-agencia/#breadcrumb',
   },
 };
 ---
@@ -30,6 +33,7 @@ const articleSchema = {
   description={description}
   path="/comparativas/web-administrada-vs-agencia/"
   jsonld={[articleSchema]}
+  article={{ publishedTime: '2026-09-23', modifiedTime: '2026-09-24' }}
 >
   <Breadcrumbs
     items={[

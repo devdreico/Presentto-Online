@@ -8,5 +8,7 @@ Disallow: /*?page=
 Disallow: /*?utm_
 
 Host: www.presentto.online
+# Sitemap principal (urlset completo con todas las URLs canónicas)
 Sitemap: https://www.presentto.online/sitemap.xml
+# Índice del sitemap (compatibilidad)
 Sitemap: https://www.presentto.online/sitemap-index.xml

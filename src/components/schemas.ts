@@ -13,6 +13,16 @@ export const organizationSchema = {
   },
   email: 'inbox@presentto.online',
   telephone: '+57-323-648-7336',
+  slogan: 'Presencia online profesional desde $40.000 COP/mes',
+  knowsLanguage: 'es-CO',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: 'inbox@presentto.online',
+    telephone: '+57-323-648-7336',
+    areaServed: 'CO',
+    availableLanguage: 'Spanish',
+  },
   areaServed: [
     { '@type': 'Place', name: 'Funza, Cundinamarca, Colombia' },
     { '@type': 'Place', name: 'Mosquera, Cundinamarca, Colombia' },

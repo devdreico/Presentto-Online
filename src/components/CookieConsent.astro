@@ -35,6 +35,9 @@
         var level = btn.getAttribute('data-consent');
         writeCookie('presentto-consent', level);
         writeCookie('presentto-analytics', level === 'all' ? 'granted' : 'denied');
+        if (level === 'all' && typeof window.__presenttoLoadGtm === 'function') {
+          window.__presenttoLoadGtm();
+        }
         box.hidden = true;
       });
     });

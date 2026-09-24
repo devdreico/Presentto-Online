@@ -24,7 +24,6 @@ const plans = [
     name: '3 meses',
     price: '$100.000',
     unit: 'COP / 3 meses',
-    per: 'Equivale a $33.333/mes',
     url: 'https://mpago.li/17JYVwX',
     badge: 'Ahorro',
     featured: false,
@@ -34,7 +33,6 @@ const plans = [
     name: '6 meses',
     price: '$210.000',
     unit: 'COP / 6 meses',
-    per: 'Equivale a $35.000/mes',
     url: 'https://mpago.li/1j4eF1j',
     badge: 'Popular',
     featured: true,
@@ -44,7 +42,6 @@ const plans = [
     name: '1 año',
     price: '$389.000',
     unit: 'COP / año',
-    per: 'Equivale a $32.417/mes',
     url: 'https://mpago.li/344eu17',
     badge: 'Mejor valor',
     featured: false,
@@ -95,7 +92,7 @@ const plansSchema = {
             <strong>{plan.price}</strong>
             <span>{plan.unit}</span>
           </div>
-          <p class="plan-per">{plan.per}</p>
+          {plan.per && <p class="plan-per">{plan.per}</p>}
           <ul class="plan-perks">
             <li>Web, dominio y correo incluidos</li>
             <li>SEO local en la Sabana Occidental</li>

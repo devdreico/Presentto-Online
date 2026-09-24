@@ -44,14 +44,23 @@ const articleSchema = {
     '@type': 'Organization',
     name: 'Presentto Online',
     url: 'https://www.presentto.online/nosotros/',
-    sameAs: ['https://www.linkedin.com/'],
   },
   publisher: { '@id': 'https://www.presentto.online/#organization' },
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.presentto.online/guias/seo-local/' },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://www.presentto.online/guias/seo-local/#webpage',
+  },
+  breadcrumb: { '@id': 'https://www.presentto.online/guias/seo-local/#breadcrumb' },
 };
 ---
 
-<BaseLayout title={title} description={description} path="/guias/seo-local/" jsonld={[articleSchema]}>
+<BaseLayout
+  title={title}
+  description={description}
+  path="/guias/seo-local/"
+  jsonld={[articleSchema]}
+  article={{ publishedTime: '2026-09-23', modifiedTime: '2026-09-24' }}
+>
   <Breadcrumbs
     items={[
       { label: 'Inicio', href: '/' },

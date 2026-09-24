@@ -10,10 +10,12 @@ interface Props {
 const { items } = Astro.props;
 const site = Astro.site!;
 const absolute = (href?: string) => (href ? new URL(href, site).href : undefined);
+const pageUrl = new URL(Astro.url.pathname, site).href;
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
+  '@id': `${pageUrl}#breadcrumb`,
   itemListElement: items.map((item, i) => ({
     '@type': 'ListItem',
     position: i + 1,
