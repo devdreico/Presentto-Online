@@ -1,17 +1,17 @@
 # Presentto Online
 
-> Presentto Online vende presencia digital administrada ("Presenttación Digital") desde $40.000 COP/mes para negocios de la Sabana Occidental (Funza, Mosquera, Madrid, Facatativá), Colombia. Incluye web, dominio, correo y SEO local.
+> Presentto Online ofrece web administrada ("Presenttación Digital") para negocios de la Sabana Occidental (Funza, Mosquera, Madrid, Facatativá), Colombia: web, dominio, correo y SEO local desde $40.000 COP/mes. Flujo: demo web gratis sin abono → el cliente aprueba → pago único por plazo en Mercado Pago → publicación en pocos días.
 
-Presentto es operado por Soverath Holding S.A.S. con respaldo técnico de Aeperion Systems. Moneda: COP. Idioma: es-CO.
+Presentto es operado por Soverath Holding S.A.S. con respaldo técnico de Aeperion Systems. Moneda: COP. Idioma: es-CO. Sin permanencia obligatoria; sin suscripción automática.
 
 ## Páginas principales
 
 - [Servicios y planes](https://www.presentto.online/servicios/): Presenttación Digital — web, dominio, correo, SEO local y administración.
-- [Contacto y pago](https://www.presentto.online/contacto/): planes 1 mes $40.000 · 3 meses $100.000 · 6 meses $210.000 · 1 año $389.000 COP (IVA incluido).
+- [Contacto y pago](https://www.presentto.online/contacto/): planes prepago 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP (IVA incluido).
 - [Portafolio](https://www.presentto.online/portfolio/): trabajos y proceso.
 - [Sitios publicados](https://www.presentto.online/sitios/): clientes en *.presentto.online.
-- [Sobre Presentto](https://www.presentto.online/nosotros/): quiénes somos.
-- [Preguntas frecuentes](https://www.presentto.online/preguntas/): dudas sobre planes y SEO local.
+- [Sobre Presentto](https://www.presentto.online/nosotros/): quiénes somos y cómo ofrecemos el precio.
+- [Preguntas frecuentes](https://www.presentto.online/preguntas/): dudas sobre planes, demo y SEO local.
 
 ## Guías de SEO local
 

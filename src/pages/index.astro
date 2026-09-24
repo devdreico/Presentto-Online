@@ -3,9 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PlansGrid from '../components/PlansGrid.astro';
 import { localBusinessSchema } from '../components/schemas';
 
-const title = 'Web y SEO local desde $40.000 COP/mes | Presentto Online';
+const title = 'Demo gratis de web y SEO local desde $40.000 COP/mes | Presentto Online';
 const description =
-  'Presencia online profesional desde $40.000 COP/mes con SEO local en Funza, Mosquera, Madrid y Facatativá. Web, dominio y correo incluidos. Demo gratis.';
+  'Pide tu demo web gratis, sin abono: web, dominio, correo y SEO local en Funza, Mosquera, Madrid y Facatativá desde $40.000 COP/mes. Sin permanencia.';
 const homeService = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -78,11 +78,11 @@ const homeService = {
         fetchpriority="high"
         decoding="async"
       />
-      <p class="eyebrow">WEB PROFESIONAL · SABANA OCCIDENTAL</p>
-      <h1>Tu negocio, <em>visible y posicionado en la Sabana Occidental.</em></h1>
+      <p class="eyebrow">WEB ADMINISTRADA · SABANA OCCIDENTAL</p>
+      <h1>Tu negocio, <em>visible en Google y en la Sabana Occidental.</em></h1>
       <p class="lead">
-        Una web clara, rápida y lista para convertir visitas en clientes. Con dominio, correo y SEO local
-        incluidos.
+        Creamos, publicamos y mantenemos tu web con dominio, correo y SEO local. Primero la ves gratis;
+        pagas solo si te convence.
       </p>
       <div class="hero-price">
         <strong>desde $40.000</strong>
@@ -91,21 +91,17 @@ const homeService = {
       <div class="actions">
         <a
           class="button primary"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20la%20Presenttaci%C3%B3n%20Digital"
-          target="_blank"
-          rel="noopener"
-        >
-          Comprar Presenttación Digital <span>↗</span>
-        </a>
-        <a class="button ghost" href="#planes">Ver planes <span>↓</span></a>
-      </div>
-      <p class="hero-demo">
-        <a
           href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
           target="_blank"
           rel="noopener"
         >
-          ¿Prefieres verlo primero? Solicita una demo web gratis, sin abono ↗
+          Pedir mi demo gratis <span>↗</span>
+        </a>
+        <a class="button ghost" href="#planes">Ver planes <span>↓</span></a>
+      </div>
+      <p class="hero-demo">
+        <a href="#planes">
+          ¿Listo para comprar? Planes desde $40.000 COP · pago seguro con Mercado Pago ↓
         </a>
       </p>
     </div>
@@ -128,33 +124,36 @@ const homeService = {
 
   <section class="proof">
     <div class="wrap proof-grid">
-      <div><strong>desde $40.000</strong><span>COP / mes · IVA incl.</span></div>
       <div><strong>Demo</strong><span>gratis, sin abono</span></div>
-      <div><strong>SEO</strong><span>local incluido</span></div>
+      <div><strong>desde $40.000</strong><span>COP / mes · IVA incl.</span></div>
+      <div><strong>Sin</strong><span>permanencia obligatoria</span></div>
     </div>
   </section>
 
   <PlansGrid id="planes" heading={true} />
 
   <section class="section wrap" id="como-funciona">
-    <p class="eyebrow">WEB ADMINISTRADA PRESENTTO</p>
+    <p class="eyebrow">TODO INCLUIDO EN UN SOLO PLAN</p>
     <div class="section-heading">
-      <h2>Todo lo necesario para <em>ganar visibilidad.</em></h2>
+      <h2>Un solo plan. <em>Todo lo que tu negocio necesita online.</em></h2>
       <p>
-        Un solo plan te da presencia online profesional: dominio propio, contenido estratégico, diseño y SEO
-        local para la Sabana Occidental.
+        Sin contratos largos ni sorpresas: dominio propio, contenido con tu identidad, diseño y SEO local
+        para que te encuentren en la Sabana Occidental.
       </p>
     </div>
     <div class="feature-grid feature-grid-four">
       <article>
         <b>01</b>
-        <h3>Creación personalizada</h3>
-        <p>Imagen, estilo, textos y fotos alineados con la identidad real de tu empresa.</p>
+        <h3>Nosotros lo hacemos todo</h3>
+        <p>Tú apruebas; nosotros diseñamos, publicamos y ajustamos tu web con tus fotos, textos y servicios reales.</p>
       </article>
       <article>
         <b>02</b>
-        <h3>Dominio y correo profesional</h3>
-        <p>Dominio propio <strong>tuempresa.online</strong> y correo <strong>@tuempresa.online</strong> incluidos.</p>
+        <h3>Dominio y correo profesionales</h3>
+        <p>
+          Deja el correo de gmail: dominio propio <strong>tuempresa.online</strong> y correo
+          <strong>@tuempresa.online</strong> incluidos.
+        </p>
       </article>
       <article>
         <b>03</b>
@@ -167,65 +166,74 @@ const homeService = {
       </article>
       <article>
         <b>04</b>
-        <h3>Contenido e identidad</h3>
-        <p>Textos, fotos y llamadas a la acción de tu negocio, listos para crecer contigo.</p>
+        <h3>Ajustes sin costo extra</h3>
+        <p>Cambias textos, fotos o servicios durante el plan, sin pelear con herramientas ni pagar extras.</p>
       </article>
     </div>
     <div class="actions plan-cta">
-      <a class="button primary" href="#planes">Comprar Presenttación Digital <span>↗</span></a>
       <a
-        class="button ghost"
+        class="button primary"
         href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
         target="_blank"
         rel="noopener"
       >
-        Pedir demo gratis <span>↗</span>
+        Pedir mi demo gratis <span>↗</span>
       </a>
+      <a class="button ghost" href="#planes">Ver planes <span>↓</span></a>
     </div>
   </section>
 
   <section class="section industries-section">
     <div class="wrap">
-      <p class="eyebrow">UNA WEB PARA CADA IDEA</p>
-      <h2 class="center">Presencia digital <em>sin complicaciones.</em></h2>
+      <p class="eyebrow">UNA WEB PARA CADA NEGOCIO</p>
+      <h2 class="center">Presencia digital <em>a la medida de tu rubro.</em></h2>
       <div class="industry-grid">
-        <span>Negocios locales</span>
-        <span>Portafolios profesionales</span>
+        <span>Restaurantes y cafés</span>
+        <span>Tiendas y comercios</span>
+        <span>Clínicas y consultorios</span>
+        <span>Talleres y servicios</span>
+        <span>Peluquerías y estética</span>
+        <span>Profesionales independientes</span>
         <span>Emprendimientos</span>
-        <span>Empresas</span>
-        <span>Blogs personales</span>
-        <span>Campañas y promociones</span>
-        <span>Sitios de acceso temporal</span>
-        <span>Encuestas temporales</span>
+        <span>Portafolios profesionales</span>
       </div>
     </div>
   </section>
 
   <section class="section trust-section">
     <div class="wrap">
-      <p class="eyebrow center">RESULTADOS DE REFERENCIA</p>
+      <p class="eyebrow center">CÓMO FUNCIONA</p>
       <div class="section-heading">
-        <h2>Una web que se siente <em>hecha para tu negocio.</em></h2>
-        <p>Escenarios habituales que una Presenttación Digital bien construida ayuda a resolver desde el primer día.</p>
+        <h2>Tres pasos. <em>Cero riesgo.</em></h2>
+        <p>Ves la web de tu negocio antes de comprometer un peso. Así de simple.</p>
       </div>
       <div class="trust-grid">
         <article class="trust-card">
           <span class="trust-icon">01</span>
-          <h3>Más confianza</h3>
-          <p>Una presencia clara para que nuevos clientes entiendan quién eres, qué ofreces y cómo contactarte.</p>
-          <small>Resultado esperado · No es una reseña publicada</small>
+          <h3>Cuéntanos de tu negocio</h3>
+          <p>
+            Nos escribes por WhatsApp: qué haces, tus fotos y a qué clientes quieres llegar. Sin formularios
+            eternos ni reuniones obligatorias.
+          </p>
+          <small>Sin abono · Sin compromiso</small>
         </article>
         <article class="trust-card">
           <span class="trust-icon">02</span>
-          <h3>Más oportunidades</h3>
-          <p>Información ordenada, llamadas a la acción visibles y una experiencia pensada para convertir visitas en conversaciones.</p>
-          <small>Resultado esperado · Se adapta a tus objetivos</small>
+          <h3>Te mostramos tu demo</h3>
+          <p>
+            Construimos una demo web con la identidad de tu negocio. La ves, pides cambios y decides con calma
+            si te convence.
+          </p>
+          <small>Demo gratis · Tú apruebas</small>
         </article>
         <article class="trust-card">
           <span class="trust-icon">03</span>
-          <h3>Más autonomía</h3>
-          <p>Un sitio propio con dominio, correo profesional y una base digital lista para acompañar el crecimiento del negocio.</p>
-          <small>Resultado esperado · Alcance acordado contigo</small>
+          <h3>Publicamos y la mantenemos</h3>
+          <p>
+            Pagas el plan que elijas en Mercado Pago y publicamos en pocos días. Ajustes y administración
+            incluidos durante todo el plan.
+          </p>
+          <small>Entrega en días · Sin permanencia</small>
         </article>
       </div>
     </div>
@@ -235,8 +243,11 @@ const homeService = {
     <div class="wrap">
       <p class="eyebrow">RESPALDO TÉCNICO</p>
       <div class="section-heading">
-        <h2>Tecnología útil, <em>sin complicaciones.</em></h2>
-        <p>Trabajamos con tecnologías y estándares profesionales para construir una presencia rápida, accesible y preparada para crecer.</p>
+        <h2>Rápida, accesible <em>y lista para posicionar.</em></h2>
+        <p>
+          Trabajamos con estándares web actuales para que tu sitio cargue rápido en el celular, sea fácil de
+          usar y esté preparado para SEO local.
+        </p>
       </div>
       <div class="stack-grid">
         <article class="stack-card">
@@ -267,18 +278,18 @@ const homeService = {
 
   <section class="final-cta">
     <div class="wrap">
-      <p class="eyebrow">¿LISTO PARA MOSTRAR LO QUE HACES?</p>
-      <h2>Tu web puede estar lista <em>en pocos días.</em></h2>
+      <p class="eyebrow">EMPEZA SIN RIESGO</p>
+      <h2>Primero ves tu web. <em>Pagas solo si te gusta.</em></h2>
       <div class="actions">
-        <a class="button light" href="#planes">Ver planes <span>↗</span></a>
         <a
-          class="button ghost light-ghost"
+          class="button light"
           href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
           target="_blank"
           rel="noopener"
         >
-          Demo gratis <span>↗</span>
+          Pedir mi demo gratis <span>↗</span>
         </a>
+        <a class="button ghost light-ghost" href="#planes">Ver planes <span>↓</span></a>
       </div>
     </div>
   </section>

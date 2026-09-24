@@ -6,7 +6,7 @@ import { localBusinessSchema } from '../components/schemas';
 
 const title = 'Contacto y planes | Presentto Online';
 const description =
-  'Contacta a Presentto: planes Presenttación Digital desde $40.000 COP/mes con web, dominio y SEO local. Demo gratis.';
+  'Pide tu demo gratis o asesoría sobre los planes Presenttación Digital desde $40.000 COP/mes con web, dominio y SEO local.';
 
 const contactSchema = {
   '@context': 'https://schema.org',
@@ -34,8 +34,8 @@ const contactSchema = {
     <p class="eyebrow">HABLEMOS</p>
     <h1>Tu presencia online <em>empieza aquí.</em></h1>
     <p class="lead">
-      Cuéntanos de tu negocio y te asesoramos sobre el plan ideal. También puedes pagar directo con Mercado
-      Pago o pedir una demo gratis.
+      Cuéntanos de tu negocio y te enviamos una demo gratis o te asesoramos sobre el plan ideal. También
+      puedes elegir y pagar tu plan directo con Mercado Pago.
     </p>
     <div class="contact-layout">
       <form
@@ -57,14 +57,14 @@ const contactSchema = {
           <input name="telefono" type="tel" required autocomplete="tel" placeholder="+57 300 000 0000" />
         </label>
         <fieldset>
-          <legend>Objetivos digitales</legend>
+          <legend>¿Qué quieres lograr?</legend>
           <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Vender más" /> Vender más</label>
-          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Más profesionalismo" /> Más profesionalismo</label>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Verse más profesional" /> Verse más profesional</label>
           <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Llegar a nuevos clientes" /> Llegar a nuevos clientes</label>
           <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Mostrar servicios o productos" /> Mostrar servicios o productos</label>
         </fieldset>
-        <label>Necesidades extra
-          <textarea name="necesidades_extra" rows="5" placeholder="Cuéntanos peticiones puntuales o necesidades digitales"></textarea>
+        <label>¿Algo más que debamos saber?
+          <textarea name="necesidades_extra" rows="5" placeholder="Textos, fotos, horarios, si ya tienes dominio… lo que nos sirva para tu demo"></textarea>
         </label>
         <label class="checkbox-option privacy-option">
           <input name="privacidad" type="checkbox" required value="aceptada" />
@@ -72,19 +72,19 @@ const contactSchema = {
           <a href="/privacidad/" target="_blank">política de privacidad</a>.
         </label>
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
-        <button class="button primary" type="submit">Enviar solicitud <span>↗</span></button>
-        <p class="form-note">Te respondemos por WhatsApp o correo. Primero envía tu solicitud y luego realiza el pago del plan que elijas.</p>
+        <button class="button primary" type="submit">Quiero mi demo o asesoría <span>↗</span></button>
+        <p class="form-note">Respondemos por WhatsApp o correo en horario hábil. Puedes pedir la demo sin abono o elegir un plan y pagarlo cuando quieras.</p>
         <p id="formStatus" role="status" aria-live="polite"></p>
       </form>
       <aside class="contact-aside">
         <p class="eyebrow">CONTACTO DIRECTO</p>
         <h2>Hablemos claro.</h2>
         <ol class="contact-steps">
-          <li><b>01</b> Solicita tu asesoría o demo</li>
-          <li><b>02</b> Elige y paga tu plan</li>
-          <li><b>03</b> Publicamos tu web</li>
+          <li><b>01</b> Nos cuentas de tu negocio</li>
+          <li><b>02</b> Te enviamos tu demo gratis</li>
+          <li><b>03</b> Apruebas, pagas y publicamos</li>
         </ol>
-        <p>Cuéntanos qué quieres lograr y convertimos tu idea en una presencia digital clara, útil y lista para crecer.</p>
+        <p>Sin formularios eternos ni reuniones obligatorias. Nos escribes, entendemos qué necesitas y te mostramos cómo se vería tu web.</p>
         <div class="contact-aside-actions">
           <a
             class="button ghost"

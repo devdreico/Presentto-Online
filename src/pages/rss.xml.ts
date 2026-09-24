@@ -59,7 +59,7 @@ export function GET() {
   <channel>
     <title>Presentto Online — Guías</title>
     <link>${site}/guias/</link>
-    <description>Guías de SEO local, Google Business y precios de páginas web en Colombia.</description>
+    <description>Guías de SEO local, Google Business y precios reales de páginas web en Colombia — de Presentto, web administrada desde $40.000 COP.</description>
     <language>es-CO</language>
     <lastBuildDate>Wed, 24 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="${site}/rss.xml" rel="self" type="application/rss+xml"/>

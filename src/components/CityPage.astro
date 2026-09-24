@@ -22,7 +22,7 @@ const {
 
 const path = `/${slug}/`;
 const title = `Web y SEO local en ${city} | Presentto Online`;
-const description = `Web y SEO local en ${city} desde $40.000 COP/mes: dominio, correo profesional y Google para tu negocio de la Sabana Occidental. Demo gratis.`;
+const description = `Demo gratis de web y SEO local en ${city} desde $40.000 COP/mes: dominio, correo profesional y Google para tu negocio. Sin abono.`;
 
 const schema = {
   '@context': 'https://schema.org',
@@ -42,15 +42,15 @@ const schema = {
 const faqs = [
   {
     q: `¿Cuánto cuesta una página web en ${city}?`,
-    a: `En Presentto la Presenttación Digital cuesta desde $40.000 COP/mes (IVA incluido; planes de 1, 3, 6 meses o 1 año) e incluye diseño, dominio propio, correo profesional y SEO local orientado a ${city} y la Sabana Occidental.`,
+    a: `En Presentto la Presenttación Digital cuesta desde $40.000 COP/mes (IVA incluido; prepago de 1, 3, 6 meses o 1 año) e incluye diseño, dominio propio, correo profesional y SEO local orientado a ${city} y la Sabana Occidental. Antes de pagar puedes pedir una demo gratis de tu negocio.`,
   },
   {
     q: `¿Cómo aparece mi negocio de ${city} en Google?`,
-    a: `Con una web estructurada para SEO local (títulos, datos de contacto, contenido municipal) y una ficha de Google Business Profile bien configurada con categorías, fotos y reseñas reales.`,
+    a: `Con una web estructurada para SEO local (títulos, datos de contacto, contenido municipal) y una ficha de Google Business Profile bien configurada con categorías, fotos y reseñas reales. Nosotros preparamos la base; la constancia en reseñas y ficha la decides tú.`,
   },
   {
     q: `¿Cuánto tarda un sitio web para un negocio en ${city}?`,
-    a: `Tras recibir la información del negocio (textos, fotos y objetivos), la entrega habitual es de pocos días hábiles, con rondas de ajustes hasta dejarlo listo.`,
+    a: `Primero nos pasas la información del negocio (textos, fotos y objetivos) y te enviamos la demo. Tras tu aprobación y el pago, la entrega habitual es de pocos días hábiles, con rondas de ajustes hasta dejarlo listo.`,
   },
 ];
 
@@ -69,11 +69,18 @@ const relatedCities = [
     <p class="eyebrow">SEO LOCAL · {city.toUpperCase()}</p>
     <h1>Tu negocio en {city}, <em>visible en Google.</em></h1>
     <p class="lead">
-      Diseñamos una presencia online profesional para {city}, con estrategia de SEO local y contenido orientado
-      a captar clientes reales en la Sabana Occidental.
+      Creamos la web de tu negocio con estrategia de SEO local y contenido pensado para captar clientes reales
+      en {city}. Primero la ves gratis; pagas solo si te gusta.
     </p>
     <div class="actions">
-      <a class="button primary" href="/contacto/">Comprar ahora <span>↗</span></a>
+      <a
+        class="button primary"
+        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio%20en%20{city}"
+        target="_blank"
+        rel="noopener"
+      >
+        Pedir mi demo gratis <span>↗</span>
+      </a>
       <a class="button ghost" href="/servicios/">Ver servicio <span>↓</span></a>
     </div>
   </section>
@@ -89,7 +96,8 @@ const relatedCities = [
     </p>
     <p>
       {landmarks} Trabajamos con la identidad real de tu empresa: tus fotos, tus servicios y la forma en que
-      atiendes a tus clientes, no con plantillas genéricas difíciles de mantener.
+      atiendes a tus clientes. Una base técnica estandarizada nos permite mantener el precio accesible sin
+      regalar calidad.
     </p>
 
     <h2>Qué incluye la web para negocios en {city}</h2>
@@ -99,13 +107,14 @@ const relatedCities = [
       <li>Estructura SEO local: títulos, meta descripciones, datos de contacto y contenido municipal.</li>
       <li>Guía de configuración de Google Business Profile para {city}.</li>
       <li>Códigos QR para compartir tu web en tarjetas, menús o escaparates.</li>
-      <li>Administración del hosting por Presentto.</li>
+      <li>Administración del hosting por Presentto y ajustes durante el plan.</li>
     </ul>
 
     <h2>¿Cuánto cuesta una página web en {city}?</h2>
     <p class="snippet">
       La Presenttación Digital de Presentto cuesta desde $40.000 COP/mes, IVA incluido: creación, dominio,
-      correo, SEO local y administración incluidos. Planes de 1, 3, 6 meses o 1 año. Sin permanencia obligatoria.
+      correo, SEO local y administración incluidos. Prepago de 1, 3, 6 meses o 1 año, sin permanencia. Pide
+      tu demo gratis antes de decidir.
     </p>
     <table class="compare-table">
       <thead>
@@ -128,8 +137,17 @@ const relatedCities = [
     </ol>
 
     <div class="guide-cta">
-      <p><strong>¿Quieres tu negocio visible en {city}?</strong></p>
-      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+      <p><strong>¿Quieres ver cómo quedaría la web de tu negocio en {city}?</strong></p>
+      <a
+        class="button primary"
+        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio%20en%20{city}"
+        target="_blank"
+        rel="noopener"
+      >
+        Pedir mi demo gratis <span>↗</span>
+      </a>
+      &nbsp;
+      <a class="button ghost" href="/contacto/#planes">Ver planes <span>↗</span></a>
     </div>
 
     <section class="silo-related" aria-label="Municipios relacionados">
@@ -152,18 +170,18 @@ const relatedCities = [
 
   <section class="final-cta">
     <div class="wrap">
-      <p class="eyebrow">¿LISTO PARA EMPEZAR?</p>
-      <h2>Hagamos visible <em>tu negocio en {city}.</em></h2>
+      <p class="eyebrow">EMPIEZA SIN RIESGO</p>
+      <h2>Ve tu web gratis. <em>Decide después.</em></h2>
       <div class="actions">
-        <a class="button light" href="/contacto/#planes">Ver planes <span>↗</span></a>
         <a
-          class="button ghost light-ghost"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
+          class="button light"
+          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio%20en%20{city}"
           target="_blank"
           rel="noopener"
         >
-          Demo gratis <span>↗</span>
+          Pedir mi demo gratis <span>↗</span>
         </a>
+        <a class="button ghost light-ghost" href="/contacto/#planes">Ver planes <span>↗</span></a>
       </div>
     </div>
   </section>

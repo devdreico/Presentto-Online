@@ -13,7 +13,7 @@ export const organizationSchema = {
   },
   email: 'inbox@presentto.online',
   telephone: '+57-323-648-7336',
-  slogan: 'Presencia online profesional desde $40.000 COP/mes',
+  slogan: 'Web administrada y SEO local desde $40.000 COP/mes — demo gratis',
   knowsLanguage: 'es-CO',
   contactPoint: {
     '@type': 'ContactPoint',

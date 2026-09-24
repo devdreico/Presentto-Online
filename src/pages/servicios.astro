@@ -7,7 +7,7 @@ import { localBusinessSchema } from '../components/schemas';
 
 const title = 'Servicios web y SEO local | Presentto Online';
 const description =
-  'Presenttación Digital desde $40.000 COP/mes: web profesional, dominio, correo, SEO local y administración. Demo gratis.';
+  'Presenttación Digital desde $40.000 COP/mes: web profesional, dominio, correo, SEO local y administración. Pide tu demo gratis, sin abono.';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -57,7 +57,11 @@ const clientsSchema = {
 const faqs = [
   {
     q: '¿Qué incluye la Presenttación Digital?',
-    a: 'Incluye un sitio web completo, dominio propio, correo profesional, implementaciones tecnológicas, ajustes durante el plan, SEO local, imágenes y funcionalidades necesarias para tu negocio. Desde $40.000 COP/mes, IVA incluido.',
+    a: 'Todo lo esencial para existir en internet y verte profesional: web con tu contenido, dominio propio, correo profesional, SEO local, códigos QR, ajustes durante el plan y administración por Presentto. Desde $40.000 COP/mes, IVA incluido.',
+  },
+  {
+    q: '¿Cuánto cuesta y cómo se paga?',
+    a: 'Planes de prepago: 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP, todos con IVA incluido. Es un pago único por el plazo elegido vía Mercado Pago, sin suscripción automática. Puedes pedir tu demo gratis antes de pagar.',
   },
   {
     q: '¿Qué incluye el dominio y correo profesional?',
@@ -65,15 +69,15 @@ const faqs = [
   },
   {
     q: '¿Cómo se configura el SEO local?',
-    a: 'Se estructura el contenido, títulos, descripciones, datos locales y elementos técnicos para ayudar a que el negocio sea encontrado en Funza, Mosquera, Madrid, Facatativá y la Sabana Occidental.',
+    a: 'Se estructura el contenido, títulos, descripciones, datos locales y elementos técnicos para ayudar a que el negocio sea encontrado en Funza, Mosquera, Madrid, Facatativá y la Sabana Occidental. También orientamos tu ficha de Google Business Profile.',
   },
   {
     q: '¿Quiénes ya tienen un sitio con Presentto?',
-    a: 'Negocios y proyectos como Botane, KSPR, Esturel, LYL, Viking Dogs, YA, Knifopics, Aeperion y USPKH ya publicaron sus sitios en *.presentto.online. Puedes verlos en esta página o en la lista de sitios publicados.',
+    a: 'Negocios y proyectos como Botane, KSPR, Esturel, LYL, Viking Dogs, YA, Knifopics, Aeperion y USPKH ya publicaron sus sitios en *.presentto.online. Puedes visitarlos en esta página o en la lista de sitios publicados.',
   },
   {
     q: '¿Puedo ver una demo antes de pagar?',
-    a: 'Sí. Puedes solicitar una demo web de tu negocio sin abono y sin compromiso. Solo pagas cuando confirmas el plan que prefieras en Mercado Pago.',
+    a: 'Sí, y es lo recomendado. Solicitas la demo web de tu negocio sin abono y sin compromiso; la ves, pides cambios y solo pagas cuando decides contratar el plan que prefieras.',
   },
 ];
 ---
@@ -93,17 +97,20 @@ const faqs = [
       decoding="async"
     />
     <h1>Una solución. <em>Una presencia real.</em></h1>
-    <p class="lead">Presenttación Digital: un sitio web útil, accesible y completo para tu negocio. Entrega en pocos días hábiles.</p>
+    <p class="lead">
+      Presenttación Digital: creamos, publicamos y mantenemos la web de tu negocio. Tú te dedicas a atender;
+      nosotros a que te encuentren. Entrega en pocos días hábiles.
+    </p>
     <div class="actions">
-      <a class="button primary" href="#planes">Ver planes <span>↓</span></a>
       <a
-        class="button ghost"
+        class="button primary"
         href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
         target="_blank"
         rel="noopener"
       >
-        Demo gratis <span>↗</span>
+        Pedir mi demo gratis <span>↗</span>
       </a>
+      <a class="button ghost" href="#planes">Ver planes <span>↓</span></a>
     </div>
   </section>
 
@@ -115,23 +122,31 @@ const faqs = [
           <p class="eyebrow">SERVICIO PRINCIPAL</p>
           <h2>Presenttación <em>Digital</em></h2>
           <p>
-            Recibes una web lista para tu negocio: información, fotos, datos y funciones esenciales. Nosotros
-            construimos, publicamos y ajustamos contigo hasta dejarla lista.
+            Recibes una web lista para tu negocio: información, fotos, datos de contacto y lo esencial para
+            vender. Nosotros construimos, publicamos y ajustamos contigo hasta dejarla lista. Sin instalar
+            nada y sin pelear con herramientas.
           </p>
           <ul>
-            <li>Creación personalizada con imágenes, estilo y contenido de tu empresa.</li>
+            <li>Creación personalizada con tus imágenes, tu estilo y tu contenido real.</li>
             <li>Dominio propio incluido: <strong>tuempresa.online</strong>.</li>
             <li>1 correo profesional: <strong>@tuempresa.online</strong>.</li>
-            <li>Ajustes durante el plan hasta dejar la versión digital de tu negocio lista.</li>
-            <li>SEO local y estructura preparada para búsquedas en la Sabana Occidental.</li>
-            <li>Códigos QR para compartir tu web en tarjetas y escaparates.</li>
-            <li>Sin permanencia obligatoria: eliges el plan que prefieras.</li>
+            <li>Ajustes durante todo el plan, sin costo extra.</li>
+            <li>SEO local para que aparezcan en búsquedas de la Sabana Occidental.</li>
+            <li>Códigos QR para compartir tu web en tarjetas, menús y escaparates.</li>
+            <li>Sin permanencia: eliges el plan y decides si renuevas al finalizarlo.</li>
           </ul>
         </div>
         <div class="service-price">
           <strong>desde $40.000</strong>
           <span>COP / mes · IVA incluido</span>
-          <a class="button primary" href="#planes">Ver planes <span>↗</span></a>
+          <a
+            class="button primary"
+            href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
+            target="_blank"
+            rel="noopener"
+          >
+            Demo gratis <span>↗</span>
+          </a>
         </div>
       </article>
     </div>
@@ -141,11 +156,11 @@ const faqs = [
 
   <section class="section clients-section">
     <div class="wrap">
-      <p class="eyebrow">SITIOS QUE YA ADQUIRIRON PRESENTTO</p>
+      <p class="eyebrow">SITIOS PUBLICADOS CON PRESENTTO</p>
       <h2>Negocios y proyectos <em>ya publicados.</em></h2>
       <p class="clients-intro">
-        Ejemplos reales de presencia digital construida y publicada en <strong>*.presentto.online</strong>.
-        Cada sitio conserva su propia identidad.
+        Sitios reales, construidos y publicados en <strong>*.presentto.online</strong>. Cada uno con su
+        identidad, su rubro y sus clientes. Tócalos y compáralos con lo que hoy tienes tú.
       </p>
       <div class="client-grid">
         {clientSites.map((site, i) => (
@@ -168,7 +183,14 @@ const faqs = [
     <h2>Lo esencial, <em>sin letra pequeña.</em></h2>
     <FaqList faqs={faqs} />
     <div class="guide-cta">
-      <a class="button primary" href="#planes">Comprar Presenttación Digital <span>↗</span></a>
+      <a
+        class="button primary"
+        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
+        target="_blank"
+        rel="noopener"
+      >
+        Pedir mi demo gratis <span>↗</span>
+      </a>
       &nbsp;
       <a class="button ghost" href="/preguntas/">Ver todas las preguntas <span>↗</span></a>
     </div>
@@ -176,18 +198,18 @@ const faqs = [
 
   <section class="final-cta">
     <div class="wrap">
-      <p class="eyebrow">¿LISTO PARA EMPEZAR?</p>
-      <h2>Lleva tu negocio <em>a internet hoy.</em></h2>
+      <p class="eyebrow">EMPIEZA SIN RIESGO</p>
+      <h2>Ve tu web gratis. <em>Decide después.</em></h2>
       <div class="actions">
-        <a class="button light" href="#planes">Ver planes <span>↗</span></a>
         <a
-          class="button ghost light-ghost"
+          class="button light"
           href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
           target="_blank"
           rel="noopener"
         >
-          Demo gratis <span>↗</span>
+          Pedir mi demo gratis <span>↗</span>
         </a>
+        <a class="button ghost light-ghost" href="#planes">Ver planes <span>↓</span></a>
       </div>
     </div>
   </section>

@@ -14,7 +14,7 @@ const plans = [
     name: '1 mes',
     price: '$40.000',
     unit: 'COP / mes',
-    per: 'Pago único del mes',
+    per: 'Pago único del mes · sin suscripción',
     url: 'https://mpago.li/2j4gTPj',
     badge: '',
     featured: false,
@@ -24,8 +24,9 @@ const plans = [
     name: '3 meses',
     price: '$100.000',
     unit: 'COP / 3 meses',
+    per: 'Pago único · equivale a $33.333/mes',
     url: 'https://mpago.li/17JYVwX',
-    badge: 'Ahorro',
+    badge: 'Ahorras $20.000',
     featured: false,
   },
   {
@@ -33,8 +34,9 @@ const plans = [
     name: '6 meses',
     price: '$190.000',
     unit: 'COP / 6 meses',
+    per: 'Pago único · equivale a $31.667/mes',
     url: 'https://mpago.li/1j4eF1j',
-    badge: 'Popular',
+    badge: 'Popular · Ahorras $50.000',
     featured: true,
   },
   {
@@ -42,8 +44,9 @@ const plans = [
     name: '1 año',
     price: '$350.000',
     unit: 'COP / año',
+    per: 'Pago único · equivale a $29.167/mes',
     url: 'https://mpago.li/344eu17',
-    badge: 'Mejor valor',
+    badge: 'Mejor valor · Ahorras $130.000',
     featured: false,
   },
 ];
@@ -74,12 +77,12 @@ const plansSchema = {
     {heading && (
       <div class="section-heading plans-heading">
         <div>
-          <p class="eyebrow">PLANES PRESENTTACIÓN DIGITAL</p>
-          <h2 id={`${id}-title`}>Elige tu plan <em>y empieza hoy.</em></h2>
+          <p class="eyebrow">PLANES · PREPAGO POR PLAZO</p>
+          <h2 id={`${id}-title`}>Elige tu plan. <em>Empieza con la demo.</em></h2>
         </div>
         <p>
-          Pago seguro con Mercado Pago. Confirmas el plan, ves la web de tu negocio y pagas solo cuando estés
-          conforme. Sin abono para solicitar tu demo.
+          Paga solo cuando veas la web de tu negocio y estés conforme. Sin abono para pedir tu demo, sin
+          suscripción automática y sin permanencia. Pago seguro con Mercado Pago.
         </p>
       </div>
     )}
@@ -94,10 +97,10 @@ const plansSchema = {
           </div>
           {plan.per && <p class="plan-per">{plan.per}</p>}
           <ul class="plan-perks">
-            <li>Web, dominio y correo incluidos</li>
+            <li>Web lista con tu contenido, fotos y servicios</li>
+            <li>Dominio y correo profesionales incluidos</li>
             <li>SEO local en la Sabana Occidental</li>
-            <li>Administración por Presentto</li>
-            <li>Ajustes durante el plan</li>
+            <li>Ajustes y administración durante el plan</li>
           </ul>
           <a
             class:list={['button', 'plan-cta', { primary: plan.featured, ghost: !plan.featured }]}
@@ -116,16 +119,16 @@ const plansSchema = {
     </div>
     <div class="plans-demo">
       <div class="plans-demo-copy">
-        <strong>¿Prefieres verlo primero?</strong>
-        <p>Solicita una demo web de tu negocio, sin abono y sin compromiso.</p>
+        <strong>¿Prefieres verlo antes de pagar?</strong>
+        <p>Pide la demo web de tu negocio: sin abono y sin compromiso. Pagas solo si te gusta.</p>
       </div>
       <a class="button ghost" href={DEMO_URL} target="_blank" rel="noopener">
         Pedir demo gratis <span>↗</span>
       </a>
     </div>
     <p class="plans-note">
-      Todos los precios incluyen IVA. La entrega se agenda tras la confirmación del plan y el pago revisado en
-      Mercado Pago.
+      Todos los precios incluyen IVA. Es un pago único por el plazo elegido, no una mensualidad recurrente.
+      La entrega se agenda tras confirmar el plan y el pago revisado en Mercado Pago.
     </p>
   </div>
 </section>
@@ -143,7 +146,7 @@ const plansSchema = {
   <form id="planCheckoutForm" class="plan-checkout-form" novalidate>
     <label>
       Tu nombre
-      <input name="nombre" type="text" required autocomplete="name" placeholder="Cómo te llamas" />
+      <input name="nombre" type="text" required autocomplete="name" placeholder="Tu nombre completo" />
     </label>
     <label>
       WhatsApp
@@ -168,7 +171,7 @@ const plansSchema = {
       Enviar y pagar <span>↗</span>
     </button>
     <p class="form-note">
-      Usamos tu nombre y WhatsApp solo para identificar tu compra antes del pago.
+      Solo usamos tu nombre y WhatsApp para identificar tu compra y coordinar la entrega de tu web.
       <a href="/privacidad/" target="_blank" rel="noopener">Política de privacidad</a>.
     </p>
     <p id="planCheckoutStatus" class="plan-checkout-status" role="status" aria-live="polite"></p>

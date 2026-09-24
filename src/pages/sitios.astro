@@ -4,7 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 const title = 'Sitios publicados | Presentto Online';
 const description =
-  'Sitios publicados que usan la infraestructura de Presentto Online y Aeperion.';
+  'Sitios reales construidos y publicados con Presenttación Digital en la Sabana Occidental. Visítalos y compara.';
 
 const listSchema = {
   '@context': 'https://schema.org',
@@ -41,7 +41,7 @@ const sites = [
   <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Sitios' }]} />
 
   <section class="section wrap page-hero map-hero">
-    <p class="eyebrow">SITIOS PUBLICADOS · AEPERION</p>
+    <p class="eyebrow">SITIOS PUBLICADOS · PRESENTTO</p>
     <img
       class="page-logo"
       src="/assets/img/Presentto-Nombre-Fondo-Transparente.webp"
@@ -52,13 +52,16 @@ const sites = [
       decoding="async"
     />
     <h1>Proyectos que ya están <em>presentes online.</em></h1>
-    <p class="lead">Visita los sitios que ya utilizan la infraestructura digital de Presentto y Aeperion.</p>
+    <p class="lead">
+      Visita los sitios que ya construimos y publicamos. Cada uno con su rubro y su identidad — así se ve el
+      trabajo de Presentto en producción.
+    </p>
   </section>
 
   <section class="section map-section">
     <div class="wrap published-sites">
       <div class="map-directory">
-        <p class="eyebrow">REDIRECCIONES</p>
+        <p class="eyebrow">SITIOS PUBLICADOS</p>
         <h2>Explora los sitios publicados.</h2>
         <ol class="business-list">
           {sites.map((site, i) => (
@@ -75,8 +78,8 @@ const sites = [
           ))}
         </ol>
         <p class="map-note">
-          Cada sitio conserva su propia identidad y muestra una aplicación diferente de la presencia digital
-          publicada con Aeperion.
+          Todos se publican en la infraestructura administrada de Presentto. Cada sitio conserva su identidad
+          y muestra una aplicación distinta de la misma base técnica.
         </p>
       </div>
     </div>
@@ -84,12 +87,22 @@ const sites = [
 
   <section class="section map-principles">
     <div class="wrap">
-      <p class="eyebrow">UN SITIO QUE SE ADAPTA</p>
+      <p class="eyebrow">UNA WEB QUE SE ADAPTA A TI</p>
       <h2>Una presencia clara para <em>cada negocio.</em></h2>
       <div class="feature-grid feature-grid-three">
-        <article><b>01</b><h3>Identidad propia</h3><p>Cada proyecto parte del negocio real, su tono, sus imágenes y la forma en que atiende a sus clientes.</p></article>
-        <article><b>02</b><h3>Acceso directo</h3><p>Un enlace fácil de compartir por WhatsApp, redes sociales, QR o tarjeta de presentación.</p></article>
-        <article><b>03</b><h3>Acompañamiento</h3><p>Presentto administra y mantiene la presencia digital según el alcance acordado.</p></article>
+        <article><b>01</b><h3>Identidad propia</h3><p>Cada sitio parte de tu negocio real: tu tono, tus fotos y la forma en que atiendes a tus clientes.</p></article>
+        <article><b>02</b><h3>Fácil de compartir</h3><p>Un enlace limpio para mandar por WhatsApp, redes, QR o tarjeta de presentación.</p></article>
+        <article><b>03</b><h3>Administrada por Presentto</h3><p>Nosotros la mantenemos publicada y operando según el alcance acordado. Tú no tocas el servidor.</p></article>
+      </div>
+      <div class="guide-cta guide-cta-tight">
+        <a
+          class="button primary"
+          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
+          target="_blank"
+          rel="noopener"
+        >
+          Quiero un sitio así para mi negocio <span>↗</span>
+        </a>
       </div>
     </div>
   </section>

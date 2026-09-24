@@ -14,6 +14,9 @@ const links = [
 
 const isActive = (href: string) =>
   href === '/' ? path === '/' : path.startsWith(href);
+
+const demoUrl =
+  'https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio';
 ---
 
 <header class="site-header">
@@ -31,7 +34,7 @@ const isActive = (href: string) =>
       {links.map((link) => (
         <a href={link.href} class={isActive(link.href) ? 'active' : undefined}>{link.label}</a>
       ))}
-      <a class="nav-cta" href="/contacto/"><span>Comprar</span> <b>↗</b></a>
+      <a class="nav-cta" href={demoUrl} target="_blank" rel="noopener"><span>Demo gratis</span> <b>↗</b></a>
     </nav>
   </div>
 </header>

@@ -1,20 +1,28 @@
 ---
 const year = new Date().getFullYear();
+const demoUrl =
+  'https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio';
 ---
 
 <footer aria-label="Pie de página">
-  <p class="managed-by wrap">Servicio administrado por Soverath Holding S.A.S. · Desarrollo respaldado por Aeperion Systems.</p>
+  <p class="managed-by wrap">
+    Web administrada y SEO local para la Sabana Occidental · Demo gratis desde $40.000 COP/mes · Servicio
+    operado por Soverath Holding S.A.S. con respaldo de Aeperion Systems.
+  </p>
   <div class="wrap footer-grid">
-    <a class="brand" href="/" aria-label="Presentto Online">
-      <img
-        src="/assets/img/Presentto-Nombre-Fondo-Transparente.webp"
-        alt="Presentto Online"
-        width="160"
-        height="54"
-        loading="lazy"
-        decoding="async"
-      />
-    </a>
+    <div class="footer-brand">
+      <a class="brand" href="/" aria-label="Presentto Online">
+        <img
+          src="/assets/img/Presentto-Nombre-Fondo-Transparente.webp"
+          alt="Presentto Online"
+          width="160"
+          height="54"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <a class="footer-demo" href={demoUrl} target="_blank" rel="noopener">Pedir demo gratis ↗</a>
+    </div>
     <div>
       <small>EXPLORA</small>
       <a href="/servicios/">Servicios</a>
