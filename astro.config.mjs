@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 function priorityFor(url) {
-  if (url.endsWith('https://presentto.online/')) return 1.0;
+  if (url.endsWith('https://www.presentto.online/')) return 1.0;
   if (url.includes('/servicios/')) return 0.9;
   if (url.includes('/guias/seo-local/') && url.endsWith('/guias/seo-local/')) return 0.9;
   if (url.includes('/contacto/')) return 0.8;
@@ -14,7 +14,7 @@ function priorityFor(url) {
 }
 
 export default defineConfig({
-  site: 'https://presentto.online',
+  site: 'https://www.presentto.online',
   trailingSlash: 'always',
   build: { format: 'directory' },
   integrations: [
@@ -30,7 +30,7 @@ export default defineConfig({
         return {
           ...item,
           priority: priorityFor(item.url),
-          changefreq: item.url.endsWith('https://presentto.online/') ? 'daily' : 'weekly',
+          changefreq: item.url.endsWith('https://www.presentto.online/') ? 'daily' : 'weekly',
         };
       },
     }),

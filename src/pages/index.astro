@@ -11,7 +11,7 @@ const homeService = {
   name: 'Presenttación Digital',
   description:
     'Sitio web profesional con dominio propio, correo, SEO local y administración para negocios de la Sabana Occidental.',
-  provider: { '@id': 'https://presentto.online/#organization' },
+  provider: { '@id': 'https://www.presentto.online/#organization' },
   areaServed: [
     { '@type': 'Place', name: 'Funza' },
     { '@type': 'Place', name: 'Mosquera' },
@@ -77,7 +77,15 @@ const homeService = {
           <span class="visual-tag">TU NEGOCIO</span>
           <strong>Una web clara<br />que trabaja<br /><em>por ti.</em></strong>
           <div class="visual-qr">
-            <span>▦</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true" fill="none">
+              <rect x="4" y="4" width="22" height="22" rx="3" stroke="currentColor" stroke-width="3"/>
+              <rect x="10" y="10" width="10" height="10" fill="currentColor"/>
+              <rect x="38" y="4" width="22" height="22" rx="3" stroke="currentColor" stroke-width="3"/>
+              <rect x="44" y="10" width="10" height="10" fill="currentColor"/>
+              <rect x="4" y="38" width="22" height="22" rx="3" stroke="currentColor" stroke-width="3"/>
+              <rect x="10" y="44" width="10" height="10" fill="currentColor"/>
+              <path d="M38 38h8v8h-8zM50 38h10v6H38v-6zM38 50h6v10h-6zM48 48h12v12H48z" fill="currentColor"/>
+            </svg>
             <small>Escanea<br />y conócela</small>
           </div>
         </div>
@@ -116,7 +124,7 @@ const homeService = {
       </article>
       <article>
         <b>03</b>
-        <h3>SEO local profesional</h3>
+        <h3>SEO local en tu ciudad</h3>
         <p>
           Estructura SEO local para que negocios de
           <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a>,
@@ -125,10 +133,10 @@ const homeService = {
       </article>
       <article>
         <b>04</b>
-        <h3>SEO local y Google Business</h3>
+        <h3>Contenido e identidad</h3>
         <p>
-          Estrategia de posicionamiento, perfil de negocio y estructura para fortalecer tu presencia en Google y
-          la Sabana Occidental.
+          Textos, fotos y llamadas a la acción alineados con tu negocio, con estructura preparada para
+          crecer cuando lo necesites.
         </p>
       </article>
     </div>

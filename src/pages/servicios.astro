@@ -12,7 +12,7 @@ const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Presenttación Digital',
-  provider: { '@id': 'https://presentto.online/#organization' },
+  provider: { '@id': 'https://www.presentto.online/#organization' },
   areaServed: [
     { '@type': 'Place', name: 'Funza' },
     { '@type': 'Place', name: 'Mosquera' },
@@ -28,6 +28,31 @@ const serviceSchema = {
   },
 };
 
+const clientSites = [
+  { name: 'Botane', host: 'botane.presentto.online', url: 'https://botane.presentto.online/' },
+  { name: 'KSPR', host: 'kspr.presentto.online', url: 'https://kspr.presentto.online/' },
+  { name: 'Esturel', host: 'esturel.presentto.online', url: 'https://esturel.presentto.online/' },
+  { name: 'LYL', host: 'lyl.presentto.online', url: 'https://lyl.presentto.online/' },
+  { name: 'Viking Dogs', host: 'vikingdogs.presentto.online', url: 'https://vikingdogs.presentto.online/' },
+  { name: 'YA', host: 'ya.presentto.online', url: 'https://ya.presentto.online/' },
+  { name: 'Knifopics', host: 'knifopics.presentto.online', url: 'https://knifopics.presentto.online/' },
+  { name: 'Aeperion', host: 'aeperion.presentto.online', url: 'https://aeperion.presentto.online/' },
+  { name: 'USPKH', host: 'uspkh.presentto.online', url: 'https://uspkh.presentto.online/' },
+];
+
+const clientsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Sitios publicados con Presenttación Digital',
+  url: 'https://www.presentto.online/servicios/',
+  itemListElement: clientSites.map((site, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: site.name,
+    url: site.url,
+  })),
+};
+
 const faqs = [
   {
     q: '¿Qué incluye la Presenttación Digital?',
@@ -41,10 +66,14 @@ const faqs = [
     q: '¿Cómo se configura el SEO local?',
     a: 'Se estructura el contenido, títulos, descripciones, datos locales y elementos técnicos para ayudar a que el negocio sea encontrado en Funza, Mosquera, Madrid, Facatativá y la Sabana Occidental.',
   },
+  {
+    q: '¿Quiénes ya tienen un sitio con Presentto?',
+    a: 'Negocios y proyectos como Botane, KSPR, Esturel, LYL, Viking Dogs, YA, Knifopics, Aeperion y USPKH ya publicaron sus sitios en *.presentto.online. Puedes verlos en esta página o en la lista de sitios publicados.',
+  },
 ];
 ---
 
-<BaseLayout title={title} description={description} path="/servicios/" jsonld={[serviceSchema, localBusinessSchema]}>
+<BaseLayout title={title} description={description} path="/servicios/"   jsonld={[serviceSchema, localBusinessSchema, clientsSchema]}>
   <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Servicios' }]} />
 
   <section class="section wrap page-hero">
@@ -94,11 +123,35 @@ const faqs = [
     </div>
   </section>
 
-  <section class="section wrap">
+  <section class="section clients-section">
+    <div class="wrap">
+      <p class="eyebrow">SITIOS QUE YA ADQUIRIRON PRESENTTO</p>
+      <h2>Negocios y proyectos <em>ya publicados.</em></h2>
+      <p class="clients-intro">
+        Ejemplos reales de presencia digital construida y publicada en <strong>*.presentto.online</strong>.
+        Cada sitio conserva su propia identidad.
+      </p>
+      <div class="client-grid">
+        {clientSites.map((site, i) => (
+          <a class="client-card" href={site.url} target="_blank" rel="noopener noreferrer">
+            <span class="client-index">{String(i + 1).padStart(2, '0')} · CLIENTE</span>
+            <strong>{site.name}</strong>
+            <code>{site.host}</code>
+            <span class="client-go">Visitar sitio <span>↗</span></span>
+          </a>
+        ))}
+      </div>
+      <div class="guide-cta guide-cta-tight">
+        <a class="button ghost" href="/sitios/">Ver todos los sitios publicados <span>↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap faq-section-page">
     <p class="eyebrow">DUDAS FRECUENTES DEL SERVICIO</p>
     <h2>Lo esencial, <em>sin letra pequeña.</em></h2>
     <FaqList faqs={faqs} />
-    <div class="guide-cta" style="text-align:center;margin-top:1.5rem;">
+    <div class="guide-cta">
       <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
       &nbsp;
       <a class="button ghost" href="/preguntas/">Ver todas las preguntas <span>↗</span></a>

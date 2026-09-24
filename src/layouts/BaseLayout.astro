@@ -40,10 +40,11 @@ const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto On
           : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
       }
     />
-    <meta name="theme-color" content="#0b1020" />
+    <meta name="theme-color" content="#fffdf9" />
     {!noindex && <link rel="canonical" href={canonical} />}
     <link rel="icon" type="image/webp" href="/assets/img/Presentto-Icono-Fondo-Transparente.webp" />
-    <link rel="apple-touch-icon" href="/assets/img/Presentto-Icono-Fondo-Transparente.webp" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/assets/img/Presentto-Icono-Fondo-Transparente.webp" color="#f15a24" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CO" />
@@ -111,12 +112,18 @@ const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto On
     <script is:inline>
       (function () {
         var animated = document.querySelectorAll(
-          '.section, .proof, .final-cta, .work-card, .service-card, .faq-card, .process-card, .trust-card, .stack-card, .guide-layout .section'
+          '.section:not(.page-hero), .proof, .final-cta, .work-card, .service-card, .faq-card, .process-card, .trust-card, .stack-card, .client-card, .collection-list > li'
         );
         animated.forEach(function (el, i) {
           el.classList.add('reveal');
           el.style.transitionDelay = Math.min(i * 45, 300) + 'ms';
         });
+        var onScroll = function () {
+          document.documentElement.classList.toggle('scrolled', window.scrollY > 8);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
         if ('IntersectionObserver' in window) {
           var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {

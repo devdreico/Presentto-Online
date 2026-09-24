@@ -7,5 +7,6 @@ Disallow: /demos-templates/
 Disallow: /*?page=
 Disallow: /*?utm_
 
-Host: presentto.online
-Sitemap: https://presentto.online/sitemap-index.xml
+Host: www.presentto.online
+Sitemap: https://www.presentto.online/sitemap.xml
+Sitemap: https://www.presentto.online/sitemap-index.xml

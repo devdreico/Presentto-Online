@@ -61,16 +61,16 @@ const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Guías de SEO local y precios web',
-  url: 'https://presentto.online/guias/',
+  url: 'https://www.presentto.online/guias/',
   inLanguage: 'es-CO',
-  isPartOf: { '@id': 'https://presentto.online/#website' },
+  isPartOf: { '@id': 'https://www.presentto.online/#website' },
   mainEntity: {
     '@type': 'ItemList',
     itemListElement: guides.map((g, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: g.title,
-      url: `https://presentto.online${g.href}`,
+      url: `https://www.presentto.online${g.href}`,
     })),
   },
 };
@@ -86,14 +86,14 @@ const collectionSchema = {
   </section>
 
   <section class="section wrap guide-layout">
-    <ul style="list-style:none;padding:0;display:grid;gap:1rem;">
+    <ul class="collection-list">
       {guides.map((g) => (
-        <li style="border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem;background:var(--paper);">
-          <p class="eyebrow" style="margin:0 0 .35rem;">{g.tag}</p>
-          <h2 style="margin:0 0 .4rem;font-size:1.15rem;">
-            <a href={g.href} style="text-decoration:underline;text-underline-offset:3px;">{g.title}</a>
+        <li>
+          <p class="eyebrow">{g.tag}</p>
+          <h2>
+            <a href={g.href}>{g.title}</a>
           </h2>
-          <p style="margin:0;color:var(--muted);">{g.desc}</p>
+          <p>{g.desc}</p>
         </li>
       ))}
     </ul>

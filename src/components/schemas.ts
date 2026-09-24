@@ -1,5 +1,5 @@
 // Organization + WebSite schema shared by all pages (stable @id anchors)
-const site = 'https://presentto.online/';
+const site = 'https://www.presentto.online/';
 
 export const organizationSchema = {
   '@context': 'https://schema.org',
