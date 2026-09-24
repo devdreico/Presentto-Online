@@ -96,7 +96,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
 /* ===== HERO ===== */
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
 .hero__bg { position: absolute; inset: 0; z-index: 0; }
-.hero__img { width: 100%; height: 100%; object-fit: cover; }
+.hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .hero__overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,20,16,0.8) 0%, rgba(26,20,16,0.4) 50%, rgba(26,20,16,0.85) 100%); }
 .hero__grit { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; opacity: 0.3; }
 .hero__content { position: relative; z-index: 2; text-align: center; max-width: 640px; margin: 0 auto; padding: 100px 20px 60px; }
@@ -112,7 +112,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
 .about__texts { }
 .about__text { color: var(--color-text-muted); margin-bottom: 14px; line-height: 1.8; font-size: 0.95rem; }
 .about__img { border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-.about__img img { width: 100%; height: 300px; object-fit: cover; transition: transform 0.6s ease; }
+.about__img img { width: 100%; height: 300px; object-fit: cover; object-position: center; transition: transform 0.6s ease; }
 .about__img:hover img { transform: scale(1.03); }
 .about__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
 .stat { text-align: center; padding: 16px 8px; background: var(--color-surface); border: 1px solid rgba(212,115,42,0.04); border-radius: 4px; }
@@ -185,7 +185,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
 .gallery-filter--active { background: var(--color-primary); color: var(--color-bg); border-color: var(--color-primary); font-weight: 500; }
 .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
 .gallery-item { position: relative; border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; aspect-ratio: 4/3; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: var(--transition); }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s ease; }
 .gallery-item:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
 .gallery-item:hover img { transform: scale(1.06); }
 .gallery-item__overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 14px; background: linear-gradient(transparent, rgba(26,20,16,0.7)); opacity: 0; transition: opacity 0.3s ease; }

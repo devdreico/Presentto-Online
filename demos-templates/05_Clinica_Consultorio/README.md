@@ -12,7 +12,7 @@
 - **Estilo:** Blob Morphing + Suave + Limpio
 - **Animación Firma:** Formas orgánicas animadas (blobs) en el fondo, tarjetas con slide 3D
 - **Paleta:** Blanco puro, Azul médico (`#1976d2`), Celeste suave, Verde menta
-- **Tipografía:** Lora (títulos serif), Source Sans Pro (cuerpo)
+- **Tipografía:** Montserrat (títulos y cuerpo, 400–900)
 - **Sensación:** Limpio, profesional, calmado, confiable
 
 ## Secciones

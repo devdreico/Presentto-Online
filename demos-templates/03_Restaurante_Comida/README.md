@@ -13,7 +13,7 @@
 - **Estilo:** Floating 3D + Cálido + Glassmorphism crema
 - **Animación Firma:** Platos flotan con paralaje 3D en scroll (`translateY` + `rotateY` + `translateZ` con perspectiva), menú aparece flotando desde abajo
 - **Paleta:** Rojo tomate (`#e53935`), Crema (`#fff8f0`), Marrón tierra (`#5d4037`), Verde oliva (`#558b2f`), Dorado (`#ffd54f`)
-- **Tipografía:** Abril Fatface (títulos display), Playfair Display (subtítulos itálicos), Nunito (cuerpo)
+- **Tipografía:** Montserrat (títulos display, subtítulos y cuerpo, 400–900)
 - **Sensación:** Cálido, acogedor, artesanal, apetitoso, tradicional
 
 ## Páginas

@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PlansGrid from '../components/PlansGrid.astro';
 import { localBusinessSchema, organizationSchema } from '../components/schemas';
 
-const title = 'Contacto y compra | Presentto Online';
+const title = 'Contacto y planes | Presentto Online';
 const description =
-  'Contacta a Presentto: Presenttación Digital por $40.000 COP con web, dominio y SEO local en la Sabana Occidental.';
+  'Contacta a Presentto: planes Presenttación Digital desde $40.000 COP/mes con web, dominio y SEO local. Demo gratis.';
 
 const contactSchema = {
   '@context': 'https://schema.org',
@@ -32,21 +33,28 @@ const contactSchema = {
   <section class="section wrap contact-page">
     <p class="eyebrow">HABLEMOS</p>
     <h1>Tu presencia online <em>empieza aquí.</em></h1>
+    <p class="lead">
+      Cuéntanos de tu negocio y te asesoramos sobre el plan ideal. También puedes pagar directo con Mercado
+      Pago o pedir una demo gratis.
+    </p>
     <div class="contact-layout">
       <form
         id="contactForm"
         class="contact-form"
-        action="https://formspree.io/f/xvkgarev"
+        action="https://formspree.io/f/maeydzwd"
         method="POST"
       >
         <label>¿Cómo te llamas?
-          <input name="nombre" required autocomplete="name" placeholder="Tu nombre" />
+          <input name="nombre" type="text" required autocomplete="name" placeholder="Tu nombre" />
         </label>
         <label>Nombre de tu negocio
-          <input name="negocio" required autocomplete="organization" placeholder="Nombre del negocio" />
+          <input name="negocio" type="text" required autocomplete="organization" placeholder="Nombre del negocio" />
         </label>
-        <label>Medio de contacto
-          <input name="medio_contacto" required placeholder="Número, correo o el medio que prefieras" />
+        <label>Correo electrónico
+          <input name="email" type="email" required autocomplete="email" placeholder="tu@correo.com" />
+        </label>
+        <label>WhatsApp o teléfono
+          <input name="telefono" type="tel" required autocomplete="tel" placeholder="+57 300 000 0000" />
         </label>
         <fieldset>
           <legend>Objetivos digitales</legend>
@@ -58,23 +66,43 @@ const contactSchema = {
         <label>Necesidades extra
           <textarea name="necesidades_extra" rows="5" placeholder="Cuéntanos peticiones puntuales o necesidades digitales"></textarea>
         </label>
+        <label class="checkbox-option privacy-option">
+          <input name="privacidad" type="checkbox" required value="aceptada" />
+          Acepto el tratamiento de mis datos según la
+          <a href="/privacidad/" target="_blank">política de privacidad</a>.
+        </label>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
         <button class="button primary" type="submit">Enviar solicitud <span>↗</span></button>
-        <a class="button payment-button" href="https://mpago.li/2j4gTPj" target="_blank" rel="noopener">
-          <span class="payment-icon">$</span> Pagar $40.000 COP <span>↗</span>
-        </a>
-        <p class="form-note">El valor de $40.000 COP incluye IVA. Primero envía tu solicitud y luego realiza el pago.</p>
+        <p class="form-note">Te respondemos por WhatsApp o correo. Primero envía tu solicitud y luego realiza el pago del plan que elijas.</p>
         <p id="formStatus" role="status" aria-live="polite"></p>
       </form>
       <aside class="contact-aside">
         <p class="eyebrow">CONTACTO DIRECTO</p>
         <h2>Hablemos claro.</h2>
         <ol class="contact-steps">
-          <li><b>01</b> Envías tu solicitud</li>
-          <li><b>02</b> Pagas $40.000 COP</li>
+          <li><b>01</b> Solicita tu asesoría o demo</li>
+          <li><b>02</b> Elige y paga tu plan</li>
           <li><b>03</b> Publicamos tu web</li>
         </ol>
         <p>Cuéntanos qué quieres lograr y convertimos tu idea en una presencia digital clara, útil y lista para crecer.</p>
-        <a class="button ghost" href="https://wa.me/573236487336" target="_blank" rel="noopener">WhatsApp <span>↗</span></a>
+        <div class="contact-aside-actions">
+          <a
+            class="button ghost"
+            href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20asesor%C3%ADa%20sobre%20los%20planes"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp <span>↗</span>
+          </a>
+          <a
+            class="button ghost"
+            href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
+            target="_blank"
+            rel="noopener"
+          >
+            Demo gratis <span>↗</span>
+          </a>
+        </div>
         <p class="muted">
           Sabana Occidental, Colombia<br />
           <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>
@@ -82,4 +110,6 @@ const contactSchema = {
       </aside>
     </div>
   </section>
+
+  <PlansGrid id="planes" heading={true} />
 </BaseLayout>

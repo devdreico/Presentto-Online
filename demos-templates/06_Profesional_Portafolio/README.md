@@ -12,7 +12,7 @@
 - **Estilo:** Perspectiva Scroll + Horizontal + Minimal
 - **Animación Firma:** Cada sección gira en 3D con scroll, proyectos en scroll horizontal con tilt mouse
 - **Paleta:** Blanco hueso, Gris pizarra (`#1c1917`), Terracota, Gris medio
-- **Tipografía:** Unica One (títulos), DM Sans (cuerpo)
+- **Tipografía:** Montserrat (títulos y cuerpo, 400–900)
 - **Sensación:** Moderno, elegante, minimalista, sofisticado
 
 ## Secciones

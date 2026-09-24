@@ -13,7 +13,7 @@
 - **Estilo:** Industrial Cyberpunk + Isométrico 3D + Neón Cyan
 - **Animación Firma:** Isométrico 3D — Cards con rotación en perspectiva 3D al hover (tilt por mouse tracking en ISO cards + metric cards)
 - **Paleta:** Fondo negro `#0a0e17`, Cian eléctrico `#00d4ff`, Ámbar `#ffb300`, Acero oscuro `#121827`
-- **Tipografía:** Orbitron (títulos display, 700/900), Rajdhani (subtítulos), Inter (cuerpo)
+- **Tipografía:** Montserrat (títulos display 700/900, subtítulos y cuerpo, 400–900)
 - **Sensación:** Industrial, tecnológico, robusto, mecánico, cyberpunk
 - **Gimmick visual:** Grid background tipo rejilla técnica, scanline animado en hero, glow pulse central, etiquetas con borde neón
 

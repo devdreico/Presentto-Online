@@ -12,7 +12,7 @@
 - **Estilo:** Glassmorphism + Neón + Galería 3D
 - **Animación Firma:** Testimonios en carrusel 3D (rotan en elipse)
 - **Paleta:** Negro carbón (`#0d0d0d`), Dorado (`#d4a853`), Neón naranja
-- **Tipografía:** Playfair Display (títulos), Inter (cuerpo)
+- **Tipografía:** Montserrat (títulos y cuerpo, 400–900)
 - **Sensación:** Premium, urbana, moderna, masculina
 
 ## Secciones

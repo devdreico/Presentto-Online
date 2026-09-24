@@ -12,7 +12,7 @@
 - **Estilo:** Zen + Partículas Ambientales + Suave
 - **Animación Firma:** Círculos translúcidos flotando (ambient particles), ondas zen entre secciones
 - **Paleta:** Verde salvia (`#7cb342`), Lavanda suave, Blanco puro, Rosa cuarzo
-- **Tipografía:** Quicksand (todo — uniforme y suave)
+- **Tipografía:** Montserrat (todo — uniforme y suave, 400–900)
 - **Sensación:** Calmante, zen, relajante, premium
 
 ## Secciones

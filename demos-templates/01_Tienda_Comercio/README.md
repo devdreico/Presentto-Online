@@ -21,7 +21,7 @@
   - `--color-text-light: #777` (textos secundarios)
 - **Tipografía (variables CSS):**
   - `--font-heading: 'Montserrat', system-ui, -apple-system, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji'` (títulos 800/900)
-  - `--font-body: 'Inter', system-ui, -apple-system, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji'` (cuerpo 400/600)
+  - `--font-body: 'Montserrat', system-ui, -apple-system, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji'` (cuerpo 400/600)
 - **Sensación:** Energético comercial, cálido, limpio, profesional
 
 ## Páginas

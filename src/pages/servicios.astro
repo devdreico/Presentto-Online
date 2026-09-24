@@ -2,11 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
+import PlansGrid from '../components/PlansGrid.astro';
 import { localBusinessSchema } from '../components/schemas';
 
 const title = 'Servicios web y SEO local | Presentto Online';
 const description =
-  'Presenttación Digital $40.000 COP: web profesional, dominio, correo, SEO local y administración para tu negocio.';
+  'Presenttación Digital desde $40.000 COP/mes: web profesional, dominio, correo, SEO local y administración. Demo gratis.';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -20,12 +21,12 @@ const serviceSchema = {
     { '@type': 'Place', name: 'Facatativá' },
   ],
   serviceType: 'Diseño y administración de páginas web con SEO local',
-  offers: {
-    '@type': 'Offer',
-    price: '40000',
-    priceCurrency: 'COP',
-    description: 'IVA incluido',
-  },
+  offers: [
+    { '@type': 'Offer', name: '1 mes', price: '40000', priceCurrency: 'COP', url: 'https://mpago.li/2j4gTPj' },
+    { '@type': 'Offer', name: '3 meses', price: '100000', priceCurrency: 'COP', url: 'https://mpago.li/17JYVwX' },
+    { '@type': 'Offer', name: '6 meses', price: '210000', priceCurrency: 'COP', url: 'https://mpago.li/1j4eF1j' },
+    { '@type': 'Offer', name: '1 año', price: '389000', priceCurrency: 'COP', url: 'https://mpago.li/344eu17' },
+  ],
 };
 
 const clientSites = [
@@ -56,7 +57,7 @@ const clientsSchema = {
 const faqs = [
   {
     q: '¿Qué incluye la Presenttación Digital?',
-    a: 'Incluye un sitio web completo, dominio propio, correo profesional, implementaciones tecnológicas, ajustes hasta tu satisfacción, SEO local, imágenes y funcionalidades necesarias para tu negocio. Precio: $40.000 COP, IVA incluido.',
+    a: 'Incluye un sitio web completo, dominio propio, correo profesional, implementaciones tecnológicas, ajustes durante el plan, SEO local, imágenes y funcionalidades necesarias para tu negocio. Desde $40.000 COP/mes, IVA incluido.',
   },
   {
     q: '¿Qué incluye el dominio y correo profesional?',
@@ -70,10 +71,14 @@ const faqs = [
     q: '¿Quiénes ya tienen un sitio con Presentto?',
     a: 'Negocios y proyectos como Botane, KSPR, Esturel, LYL, Viking Dogs, YA, Knifopics, Aeperion y USPKH ya publicaron sus sitios en *.presentto.online. Puedes verlos en esta página o en la lista de sitios publicados.',
   },
+  {
+    q: '¿Puedo ver una demo antes de pagar?',
+    a: 'Sí. Puedes solicitar una demo web de tu negocio sin abono y sin compromiso. Solo pagas cuando confirmas el plan que prefieras en Mercado Pago.',
+  },
 ];
 ---
 
-<BaseLayout title={title} description={description} path="/servicios/"   jsonld={[serviceSchema, localBusinessSchema, clientsSchema]}>
+<BaseLayout title={title} description={description} path="/servicios/" jsonld={[serviceSchema, localBusinessSchema, clientsSchema]}>
   <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Servicios' }]} />
 
   <section class="section wrap page-hero">
@@ -88,7 +93,18 @@ const faqs = [
       decoding="async"
     />
     <h1>Una solución. <em>Una presencia real.</em></h1>
-    <p class="lead">Presenttación Digital: un sitio web útil, accesible y completo para tu negocio.</p>
+    <p class="lead">Presenttación Digital: un sitio web útil, accesible y completo para tu negocio. Entrega en pocos días hábiles.</p>
+    <div class="actions">
+      <a class="button primary" href="#planes">Ver planes <span>↓</span></a>
+      <a
+        class="button ghost"
+        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
+        target="_blank"
+        rel="noopener"
+      >
+        Demo gratis <span>↗</span>
+      </a>
+    </div>
   </section>
 
   <section class="section services-section">
@@ -99,29 +115,29 @@ const faqs = [
           <p class="eyebrow">SERVICIO PRINCIPAL</p>
           <h2>Presenttación <em>Digital</em></h2>
           <p>
-            Recibes un sitio web que suple completamente las necesidades digitales de tu negocio, con la
-            información, imágenes, datos y funcionalidades necesarias. Hacemos las implementaciones tecnológicas
-            necesarias y ajustamos la solución hasta que quedes satisfecho con la versión digitalizada de tu
-            negocio.
+            Recibes una web lista para tu negocio: información, fotos, datos y funciones esenciales. Nosotros
+            construimos, publicamos y ajustamos contigo hasta dejarla lista.
           </p>
           <ul>
             <li>Creación personalizada con imágenes, estilo y contenido de tu empresa.</li>
             <li>Dominio propio incluido: <strong>tuempresa.online</strong>.</li>
             <li>1 correo profesional: <strong>@tuempresa.online</strong>.</li>
-            <li>Implementaciones tecnológicas y ajustes necesarios hasta tu satisfacción.</li>
+            <li>Ajustes durante el plan hasta dejar la versión digital de tu negocio lista.</li>
             <li>SEO local y estructura preparada para búsquedas en la Sabana Occidental.</li>
-            <li>Códigos QR y comprobante de uso real.</li>
-            <li>La renovación es flexible: puedes dejar de pagar cuando quieras.</li>
+            <li>Códigos QR para compartir tu web en tarjetas y escaparates.</li>
+            <li>Sin permanencia obligatoria: eliges el plan que prefieras.</li>
           </ul>
         </div>
         <div class="service-price">
-          <strong>$40.000</strong>
-          <span>COP · IVA incluido</span>
-          <a class="button primary" href="/contacto/">Comprar plan <span>↗</span></a>
+          <strong>desde $40.000</strong>
+          <span>COP / mes · IVA incluido</span>
+          <a class="button primary" href="#planes">Ver planes <span>↗</span></a>
         </div>
       </article>
     </div>
   </section>
+
+  <PlansGrid id="planes" heading={true} />
 
   <section class="section clients-section">
     <div class="wrap">
@@ -152,7 +168,7 @@ const faqs = [
     <h2>Lo esencial, <em>sin letra pequeña.</em></h2>
     <FaqList faqs={faqs} />
     <div class="guide-cta">
-      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
+      <a class="button primary" href="#planes">Comprar Presenttación Digital <span>↗</span></a>
       &nbsp;
       <a class="button ghost" href="/preguntas/">Ver todas las preguntas <span>↗</span></a>
     </div>
@@ -162,7 +178,17 @@ const faqs = [
     <div class="wrap">
       <p class="eyebrow">¿LISTO PARA EMPEZAR?</p>
       <h2>Lleva tu negocio <em>a internet hoy.</em></h2>
-      <a class="button light" href="/contacto/">Comprar plan <span>↗</span></a>
+      <div class="actions">
+        <a class="button light" href="#planes">Ver planes <span>↗</span></a>
+        <a
+          class="button ghost light-ghost"
+          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
+          target="_blank"
+          rel="noopener"
+        >
+          Demo gratis <span>↗</span>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

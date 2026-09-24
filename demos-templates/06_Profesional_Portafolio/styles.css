@@ -109,7 +109,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
   transform-origin: center center;
   transition: transform 0.1s ease-out;
 }
-.hero__img { width: 100%; height: 100%; object-fit: cover; }
+.hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .hero__overlay {
   position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(13,13,23,0.75) 0%, rgba(13,13,23,0.45) 50%, rgba(13,13,23,0.85) 100%);
@@ -137,7 +137,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
 /* ===== ABOUT ===== */
 .about { display: grid; gap: 40px; align-items: center; }
 .about__img { border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-.about__img img { width: 100%; height: 320px; object-fit: cover; transition: transform 0.6s ease; filter: grayscale(0.3); }
+.about__img img { width: 100%; height: 320px; object-fit: cover; object-position: center; transition: transform 0.6s ease; filter: grayscale(0.3); }
 .about__img:hover img { transform: scale(1.03); filter: grayscale(0); }
 .about__texts { }
 .about__text { color: var(--color-text-muted); margin-bottom: 14px; line-height: 1.8; font-size: 0.95rem; }
@@ -200,7 +200,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
 .gallery-filter--active { background: var(--color-primary); color: var(--color-bg); border-color: var(--color-primary); font-weight: 500; }
 .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
 .gallery-item { position: relative; border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; aspect-ratio: 4 / 3; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: var(--transition); }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: grayscale(0.5); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; filter: grayscale(0.5); }
 .gallery-item:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
 .gallery-item:hover img { transform: scale(1.08); filter: grayscale(0); }
 .gallery-item__overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(transparent, rgba(13,13,23,0.7)); opacity: 0; transition: opacity 0.3s ease; }

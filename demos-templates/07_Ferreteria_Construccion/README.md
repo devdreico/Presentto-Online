@@ -12,7 +12,7 @@
 - **Estilo:** Masonry 3D Tilt + Industrial Bold
 - **Animación Firma:** Grid masonry con tilt 3D al hover, borde con glow industrial
 - **Paleta:** Gris cemento (`#424242`), Naranja obras (`#ef6c00`), Azul acero, Amarillo seguridad
-- **Tipografía:** Barlow Condensed (títulos), Barlow (cuerpo)
+- **Tipografía:** Montserrat (títulos y cuerpo, 400–900)
 - **Sensación:** Robusto, práctico, profesional, de confianza
 
 ## Secciones

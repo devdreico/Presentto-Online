@@ -1,0 +1,131 @@
+---
+interface Props {
+  id?: string;
+  heading?: boolean;
+}
+const { id = 'planes', heading = true } = Astro.props;
+
+const DEMO_URL =
+  'https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio';
+
+const plans = [
+  {
+    id: 'plan-1-mes',
+    name: '1 mes',
+    price: '$40.000',
+    unit: 'COP / mes',
+    per: 'Pago único del mes',
+    url: 'https://mpago.li/2j4gTPj',
+    badge: '',
+    featured: false,
+  },
+  {
+    id: 'plan-3-meses',
+    name: '3 meses',
+    price: '$100.000',
+    unit: 'COP / 3 meses',
+    per: 'Equivale a $33.333/mes',
+    url: 'https://mpago.li/17JYVwX',
+    badge: 'Ahorro',
+    featured: false,
+  },
+  {
+    id: 'plan-6-meses',
+    name: '6 meses',
+    price: '$210.000',
+    unit: 'COP / 6 meses',
+    per: 'Equivale a $35.000/mes',
+    url: 'https://mpago.li/1j4eF1j',
+    badge: 'Popular',
+    featured: true,
+  },
+  {
+    id: 'plan-1-anio',
+    name: '1 año',
+    price: '$389.000',
+    unit: 'COP / año',
+    per: 'Equivale a $32.417/mes',
+    url: 'https://mpago.li/344eu17',
+    badge: 'Mejor valor',
+    featured: false,
+  },
+];
+
+const plansSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Planes Presenttación Digital',
+  url: 'https://www.presentto.online/contacto/',
+  itemListElement: plans.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Offer',
+      name: `Presenttación Digital — ${p.name}`,
+      url: p.url,
+      priceCurrency: 'COP',
+      price: p.price.replace(/[^\d]/g, ''),
+      availability: 'https://schema.org/InStock',
+      seller: { '@id': 'https://www.presentto.online/#organization' },
+    },
+  })),
+};
+---
+
+<section class="section plans-section" id={id} aria-labelledby={`${id}-title`}>
+  <div class="wrap">
+    {heading && (
+      <div class="section-heading plans-heading">
+        <div>
+          <p class="eyebrow">PLANES PRESENTTACIÓN DIGITAL</p>
+          <h2 id={`${id}-title`}>Elige tu plan <em>y empieza hoy.</em></h2>
+        </div>
+        <p>
+          Pago seguro con Mercado Pago. Confirmas el plan, ves la web de tu negocio y pagas solo cuando estés
+          conforme. Sin abono para solicitar tu demo.
+        </p>
+      </div>
+    )}
+    <div class="plans-grid">
+      {plans.map((plan) => (
+        <article class:list={['plan-card', { 'plan-featured': plan.featured }]}>
+          {plan.badge && <span class="plan-badge">{plan.badge}</span>}
+          <h3 class="plan-name">{plan.name}</h3>
+          <div class="plan-price">
+            <strong>{plan.price}</strong>
+            <span>{plan.unit}</span>
+          </div>
+          <p class="plan-per">{plan.per}</p>
+          <ul class="plan-perks">
+            <li>Web, dominio y correo incluidos</li>
+            <li>SEO local en la Sabana Occidental</li>
+            <li>Administración por Presentto</li>
+            <li>Ajustes durante el plan</li>
+          </ul>
+          <a
+            class:list={['button', 'plan-cta', { primary: plan.featured, ghost: !plan.featured }]}
+            href={plan.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pagar {plan.name} <span>↗</span>
+          </a>
+        </article>
+      ))}
+    </div>
+    <div class="plans-demo">
+      <div class="plans-demo-copy">
+        <strong>¿Prefieres verlo primero?</strong>
+        <p>Solicita una demo web de tu negocio, sin abono y sin compromiso.</p>
+      </div>
+      <a class="button ghost" href={DEMO_URL} target="_blank" rel="noopener">
+        Pedir demo gratis <span>↗</span>
+      </a>
+    </div>
+    <p class="plans-note">
+      Todos los precios incluyen IVA. La entrega se agenda tras la confirmación del plan y el pago revisado en
+      Mercado Pago.
+    </p>
+  </div>
+</section>
+<script type="application/ld+json" set:html={JSON.stringify(plansSchema)} />

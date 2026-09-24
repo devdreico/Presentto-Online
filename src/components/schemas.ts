@@ -47,7 +47,7 @@ export const localBusinessSchema = {
   image: `${site}assets/img/og-presentto.webp`,
   email: 'inbox@presentto.online',
   telephone: '+57-323-648-7336',
-  priceRange: '$40000 COP',
+  priceRange: '$40000-$389000 COP',
   currencyAccepted: 'COP',
   paymentAccepted: 'Mercado Pago, transferencia',
   areaServed: [
@@ -58,14 +58,42 @@ export const localBusinessSchema = {
     { '@type': 'Place', name: 'Sabana Occidental, Colombia' },
   ],
   parentOrganization: { '@id': `${site}#organization` },
-  makesOffer: {
-    '@type': 'Offer',
-    itemOffered: {
-      '@type': 'Service',
-      name: 'Presenttación Digital',
-      description: 'Sitio web con dominio, correo y SEO local por $40.000 COP IVA incluido.',
+  makesOffer: [
+    {
+      '@type': 'Offer',
+      name: 'Presenttación Digital — 1 mes',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Presenttación Digital',
+        description: 'Sitio web con dominio, correo y SEO local — plan de 1 mes.',
+      },
+      price: '40000',
+      priceCurrency: 'COP',
+      url: 'https://mpago.li/2j4gTPj',
     },
-    price: '40000',
-    priceCurrency: 'COP',
-  },
+    {
+      '@type': 'Offer',
+      name: 'Presenttación Digital — 3 meses',
+      itemOffered: { '@type': 'Service', name: 'Presenttación Digital' },
+      price: '100000',
+      priceCurrency: 'COP',
+      url: 'https://mpago.li/17JYVwX',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Presenttación Digital — 6 meses',
+      itemOffered: { '@type': 'Service', name: 'Presenttación Digital' },
+      price: '210000',
+      priceCurrency: 'COP',
+      url: 'https://mpago.li/1j4eF1j',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Presenttación Digital — 1 año',
+      itemOffered: { '@type': 'Service', name: 'Presenttación Digital' },
+      price: '389000',
+      priceCurrency: 'COP',
+      url: 'https://mpago.li/344eu17',
+    },
+  ],
 };

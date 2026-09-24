@@ -64,9 +64,8 @@ const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto On
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -103,8 +102,9 @@ const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto On
     ))}
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
     <Header path={path} />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />
@@ -112,11 +112,18 @@ const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto On
     <script is:inline>
       (function () {
         var animated = document.querySelectorAll(
-          '.section:not(.page-hero), .proof, .final-cta, .work-card, .service-card, .faq-card, .process-card, .trust-card, .stack-card, .client-card, .collection-list > li'
+          '.section:not(.page-hero), .proof, .final-cta, .work-card, .service-card, .faq-card, .process-card, .trust-card, .stack-card, .client-card, .collection-list > li, .plan-card'
         );
-        animated.forEach(function (el, i) {
+        animated.forEach(function (el) {
           el.classList.add('reveal');
-          el.style.transitionDelay = Math.min(i * 45, 300) + 'ms';
+          var parent = el.parentElement;
+          var siblings = parent
+            ? Array.prototype.filter.call(parent.children, function (child) {
+                return child.classList && child.classList.contains('reveal');
+              })
+            : [];
+          var idx = Math.max(0, siblings.indexOf(el));
+          el.style.transitionDelay = Math.min(idx * 70, 350) + 'ms';
         });
         var onScroll = function () {
           document.documentElement.classList.toggle('scrolled', window.scrollY > 8);

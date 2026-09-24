@@ -452,6 +452,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
   width: 100%;
   height: 300px;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.6s ease;
 }
 
@@ -781,6 +782,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.6s ease;
 }
 
@@ -839,7 +841,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
 
 .contact-card__title {
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 6px;
 }
 
@@ -977,7 +979,7 @@ a:hover .logo__icon { transform: scale(1.1) rotate(-5deg); }
 
 .footer__heading {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--color-accent);
