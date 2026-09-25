@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Guías' }];
 
 const title = 'Guías SEO local y precios web | Presentto Online';
 const description =
@@ -76,8 +77,8 @@ const collectionSchema = {
 };
 ---
 
-<BaseLayout title={title} description={description} path="/guias/" jsonld={[collectionSchema]}>
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Guías' }]} />
+<BaseLayout title={title} description={description} path="/guias/" breadcrumbs={crumbs} jsonld={[collectionSchema]}>
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero">
     <p class="eyebrow">RECURSOS</p>

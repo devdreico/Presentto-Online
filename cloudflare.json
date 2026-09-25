@@ -17,24 +17,41 @@
     { "source": "/mosquera.html", "destination": "/mosquera/", "status": 301 },
     { "source": "/madrid.html", "destination": "/madrid/", "status": 301 },
     { "source": "/facatativa.html", "destination": "/facatativa/", "status": 301 },
-    { "source": "/demos.html", "destination": "/portfolio/", "status": 301 }
+    { "source": "/demos.html", "destination": "/portfolio/", "status": 301 },
+    { "source": "/", "destination": "/servicios/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "servicios.html" }] },
+    { "source": "/", "destination": "/portfolio/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "portfolio.html" }] },
+    { "source": "/", "destination": "/contacto/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "contacto.html" }] },
+    { "source": "/", "destination": "/nosotros/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "nosotros.html" }] },
+    { "source": "/", "destination": "/preguntas/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "preguntas.html" }] },
+    { "source": "/", "destination": "/privacidad/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "privacidad.html" }] },
+    { "source": "/", "destination": "/terminos/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "terminos.html" }] },
+    { "source": "/", "destination": "/cookies/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "cookies.html" }] },
+    { "source": "/", "destination": "/sitios/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "mapa.html" }] },
+    { "source": "/", "destination": "/funza/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "funza.html" }] },
+    { "source": "/", "destination": "/mosquera/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "mosquera.html" }] },
+    { "source": "/", "destination": "/madrid/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "madrid.html" }] },
+    { "source": "/", "destination": "/facatativa/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "facatativa.html" }] },
+    { "source": "/", "destination": "/portfolio/", "status": 301, "has": [{ "type": "query", "key": "page", "value": "demos.html" }] }
   ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://formspree.io https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" }
+      ]
+    },
     {
       "source": "/_astro/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
       "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
     }
   ]
 }

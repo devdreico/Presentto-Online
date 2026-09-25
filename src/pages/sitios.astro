@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Sitios' }];
 
 const title = 'Sitios publicados con SEO local y posicionamiento | Presentto Online';
 const description =
@@ -37,8 +38,8 @@ const sites = [
 ];
 ---
 
-<BaseLayout title={title} description={description} path="/sitios/" jsonld={[listSchema]}>
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Sitios' }]} />
+<BaseLayout title={title} description={description} path="/sitios/" breadcrumbs={crumbs} jsonld={[listSchema]}>
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero map-hero">
     <p class="eyebrow">SITIOS PUBLICADOS · SEO Y POSICIONAMIENTO</p>

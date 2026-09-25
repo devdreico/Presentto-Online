@@ -1,22 +1,19 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { datesFor } from './src/data/content-dates';
 
 const SITE = 'https://www.presentto.online';
 
-// lastmod por familia de rutas (fechas de contenido / build)
+// lastmod real por ruta (fuente única: src/data/content-dates.ts)
 function lastmodFor(url) {
-  if (
-    url.includes('/guias/') ||
-    url.includes('/comparativas/web-administrada-vs-agencia/')
-  ) {
-    return '2026-09-24';
-  }
-  return '2026-09-24';
+  const path = url.startsWith(SITE) ? url.slice(SITE.length) || '/' : url;
+  return datesFor(path).modified;
 }
 
 function priorityFor(url) {
   if (url.endsWith(`${SITE}/`)) return 1.0;
   if (url.includes('/servicios/')) return 0.9;
+  if (url.includes('/precios/')) return 0.9;
   if (url.endsWith('/guias/seo-local/')) return 0.9;
   if (url.includes('/contacto/')) return 0.8;
   if (

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PlansGrid from '../components/PlansGrid.astro';
 import { localBusinessSchema } from '../components/schemas';
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Contacto' }];
 
 const title = 'Contacto, planes y SEO local | Presentto Online';
 const description =
@@ -26,9 +27,11 @@ const contactSchema = {
   title={title}
   description={description}
   path="/contacto/"
+  breadcrumbs={crumbs}
+  plansOffers={true}
   jsonld={[contactSchema, localBusinessSchema]}
 >
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Contacto' }]} />
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap contact-page">
     <p class="eyebrow">HABLEMOS · SEO LOCAL Y POSICIONAMIENTO</p>
@@ -70,7 +73,7 @@ const contactSchema = {
         <label class="checkbox-option privacy-option">
           <input name="privacidad" type="checkbox" required value="aceptada" />
           Acepto el tratamiento de mis datos según la
-          <a href="/privacidad/" target="_blank">política de privacidad</a>.
+          <a href="/privacidad/" target="_blank" rel="noopener">política de privacidad</a>.
         </label>
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
         <button class="button primary" type="submit">Quiero mi demo o asesoría <span>↗</span></button>

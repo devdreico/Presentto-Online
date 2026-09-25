@@ -4,6 +4,11 @@
 
 [build.environment]
   NODE_VERSION = "20"
+# Nota: definir PUBLIC_GOOGLE_SITE_VERIFICATION en el panel de Netlify
+# (Site configuration → Environment variables) — ver .env.example.
+
+# Los redirects viven en public/_redirects (se copia a dist/ y Netlify los aplica).
+# Este archivo los duplica a propósito como fuente explícita: mantener ambos en sync.
 
 # Path-based legacy 301s (also in public/_redirects)
 [[redirects]]

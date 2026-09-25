@@ -1,5 +1,71 @@
 // Organization + WebSite schema shared by all pages (stable @id anchors)
+import { plans } from '../data/plans';
+
 const site = 'https://www.presentto.online/';
+
+export interface Crumb {
+  label: string;
+  href?: string;
+}
+
+export interface Faq {
+  q: string;
+  a: string;
+}
+
+// BreadcrumbList — se inyecta en el <head> vía la prop `breadcrumbs` de BaseLayout
+export function breadcrumbSchema(items: Crumb[], path: string) {
+  const pageUrl = new URL(path, site).href;
+  const absolute = (href?: string) => (href ? new URL(href, site).href : undefined);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.label,
+      ...(item.href ? { item: absolute(item.href) } : {}),
+    })),
+  };
+}
+
+// FAQPage — se inyecta en el <head> vía la prop `faqs` de BaseLayout
+export function faqPageSchema(faqs: Faq[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+}
+
+// ItemList de ofertas — se inyecta en el <head> vía la prop `plansOffers` de BaseLayout
+export function plansItemListSchema(path: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Planes Presenttación Digital',
+    url: new URL(path, site).href,
+    itemListElement: plans.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Offer',
+        name: `Presenttación Digital — ${p.name}`,
+        url: p.url,
+        priceCurrency: 'COP',
+        price: p.price.replace(/[^\d]/g, ''),
+        availability: 'https://schema.org/InStock',
+        seller: { '@id': `${site}#organization` },
+      },
+    })),
+  };
+}
+
 
 export const organizationSchema = {
   '@context': 'https://schema.org',

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Nosotros' }];
 
 const title = 'Sobre Presentto | SEO local y posicionamiento web | Presentto';
 const description =
@@ -16,8 +17,8 @@ const aboutSchema = {
 };
 ---
 
-<BaseLayout title={title} description={description} path="/nosotros/" jsonld={[aboutSchema]}>
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Nosotros' }]} />
+<BaseLayout title={title} description={description} path="/nosotros/" breadcrumbs={crumbs} jsonld={[aboutSchema]}>
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap info-page">
     <p class="eyebrow">SOBRE PRESENTTO</p>

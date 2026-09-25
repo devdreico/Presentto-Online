@@ -1,14 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Privacidad' }];
 
 const title = 'Política de privacidad | Presentto Online';
 const description =
   'Información sobre el tratamiento de datos personales enviados a Presentto Online (Soverath Holding S.A.S.).';
 ---
 
-<BaseLayout title={title} description={description} path="/privacidad/">
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Privacidad' }]} />
+<BaseLayout title={title} description={description} path="/privacidad/" breadcrumbs={crumbs}>
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap info-page">
     <p class="eyebrow">PRIVACIDAD</p>

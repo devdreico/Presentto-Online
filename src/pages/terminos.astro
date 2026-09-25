@@ -1,14 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Términos' }];
 
 const title = 'Términos del servicio | Presentto Online';
 const description =
   'Condiciones de la Presenttación Digital (planes prepago desde $40.000 COP/mes, IVA incluido) y del servicio web administrado de Presentto Online.';
 ---
 
-<BaseLayout title={title} description={description} path="/terminos/">
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Términos' }]} />
+<BaseLayout title={title} description={description} path="/terminos/" breadcrumbs={crumbs}>
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap info-page">
     <p class="eyebrow">TÉRMINOS DEL SERVICIO</p>

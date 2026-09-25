@@ -1,5 +1,5 @@
 ---
-// FAQ helper: visible <details> + FAQPage JSON-LD kept in sync
+// FAQ visual <details> — el schema FAQPage va al <head> vía la prop `faqs` de BaseLayout
 interface Faq {
   q: string;
   a: string;
@@ -8,16 +8,6 @@ interface Props {
   faqs: Faq[];
 }
 const { faqs } = Astro.props;
-
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-};
 ---
 
 <div class="faq-native">
@@ -28,4 +18,3 @@ const schema = {
     </details>
   ))}
 </div>
-<script type="application/ld+json" set:html={JSON.stringify(schema)} />

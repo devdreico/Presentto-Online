@@ -1,4 +1,6 @@
 ---
+import { plans } from '../data/plans';
+
 interface Props {
   id?: string;
   heading?: boolean;
@@ -7,69 +9,6 @@ const { id = 'planes', heading = true } = Astro.props;
 
 const DEMO_URL =
   'https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio';
-
-const plans = [
-  {
-    id: 'plan-1-mes',
-    name: '1 mes',
-    price: '$40.000',
-    unit: 'COP / mes',
-    per: 'Pago único del mes · sin suscripción',
-    url: 'https://mpago.li/2j4gTPj',
-    badge: '',
-    featured: false,
-  },
-  {
-    id: 'plan-3-meses',
-    name: '3 meses',
-    price: '$100.000',
-    unit: 'COP / 3 meses',
-    per: 'Pago único · equivale a $33.333/mes',
-    url: 'https://mpago.li/17JYVwX',
-    badge: 'Ahorras $20.000',
-    featured: false,
-  },
-  {
-    id: 'plan-6-meses',
-    name: '6 meses',
-    price: '$190.000',
-    unit: 'COP / 6 meses',
-    per: 'Pago único · equivale a $31.667/mes',
-    url: 'https://mpago.li/1j4eF1j',
-    badge: 'Popular · Ahorras $50.000',
-    featured: true,
-  },
-  {
-    id: 'plan-1-anio',
-    name: '1 año',
-    price: '$350.000',
-    unit: 'COP / año',
-    per: 'Pago único · equivale a $29.167/mes',
-    url: 'https://mpago.li/344eu17',
-    badge: 'Mejor valor · Ahorras $130.000',
-    featured: false,
-  },
-];
-
-const plansSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Planes Presenttación Digital',
-  url: 'https://www.presentto.online/contacto/',
-  itemListElement: plans.map((p, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    item: {
-      '@type': 'Offer',
-      name: `Presenttación Digital — ${p.name}`,
-      url: p.url,
-      priceCurrency: 'COP',
-      price: p.price.replace(/[^\d]/g, ''),
-      availability: 'https://schema.org/InStock',
-      seller: { '@id': 'https://www.presentto.online/#organization' },
-    },
-  })),
-};
 ---
 
 <section class="section plans-section" id={id} aria-labelledby={`${id}-title`}>
@@ -129,10 +68,12 @@ const plansSchema = {
     <p class="plans-note">
       Todos los precios incluyen IVA. Es un pago único por el plazo elegido, no una mensualidad recurrente.
       La entrega se agenda tras confirmar el plan y el pago revisado en Mercado Pago.
+      {Astro.url.pathname !== '/precios/' && (
+        <> <a href="/precios/">Ver planes y precios en detalle</a>.</>
+      )}
     </p>
   </div>
 </section>
-<script type="application/ld+json" set:html={JSON.stringify(plansSchema)} />
 
 <dialog class="plan-checkout" id="planCheckout" aria-labelledby="planCheckoutTitle">
   <div class="plan-checkout-head">
@@ -204,6 +145,8 @@ const plansSchema = {
       statusEl.className = 'plan-checkout-status' + (msg ? (isError ? ' form-error' : ' form-status') : '');
     }
 
+    var track = window.__presenttoTrack || function () {};
+
     function localHora() {
       try {
         return new Date().toLocaleString('es-CO', {
@@ -240,6 +183,7 @@ const plansSchema = {
       if (fPrecio) fPrecio.value = price;
       setStatus('', false);
       document.body.classList.add('modal-open');
+      track('checkout_start', { plan: plan, price: price, page_path: location.pathname });
       if (typeof dialog.showModal === 'function') {
         dialog.showModal();
         var first = form.querySelector('input[name="nombre"]');
@@ -308,11 +252,17 @@ const plansSchema = {
         });
         if (!res.ok) throw new Error('send');
         setStatus('¡Listo! Te llevamos al pago seguro de Mercado Pago…', false);
+        track('checkout_lead_sent', {
+          plan: fPlan ? fPlan.value : '',
+          price: fPrecio ? fPrecio.value : '',
+          page_path: location.pathname,
+        });
         setTimeout(function () {
           location.href = payUrl;
         }, 400);
       } catch (err) {
         setStatus('No pudimos enviar tus datos. Revisa tu conexión e inténtalo de nuevo.', true);
+        track('checkout_error', { plan: fPlan ? fPlan.value : '', page_path: location.pathname });
         busy = false;
         if (submitBtn) submitBtn.disabled = false;
       }

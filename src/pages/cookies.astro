@@ -1,14 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Cookies' }];
 
 const title = 'Política de cookies | Presentto Online';
 const description =
   'Información sobre las cookies técnicas y de medición utilizadas por Presentto Online y cómo gestionar tu consentimiento.';
 ---
 
-<BaseLayout title={title} description={description} path="/cookies/">
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Cookies' }]} />
+<BaseLayout title={title} description={description} path="/cookies/" breadcrumbs={crumbs}>
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap info-page">
     <p class="eyebrow">COOKIES</p>

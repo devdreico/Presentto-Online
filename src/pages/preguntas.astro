@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Preguntas frecuentes' }];
 
 const title = 'FAQ SEO local, posicionamiento web y planes | Presentto';
 const description =
@@ -59,8 +60,8 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} path="/preguntas/">
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Preguntas frecuentes' }]} />
+<BaseLayout title={title} description={description} path="/preguntas/" breadcrumbs={crumbs} faqs={faqs}>
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero">
     <p class="eyebrow">RESPUESTAS RÁPIDAS</p>

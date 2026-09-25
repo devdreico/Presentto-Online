@@ -3,6 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FaqList from '../../components/FaqList.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
+import { datesFor } from '../../data/content-dates';
+const crumbs = [
+      { label: 'Inicio', href: '/' },
+      { label: 'Guías', href: '/guias/' },
+      { label: 'Cuánto cuesta una web' },
+    ];
+const dates = datesFor('/guias/cuanto-cuesta-pagina-web-colombia/');
 
 const title = 'Precio de página web en Colombia 2026';
 const description =
@@ -32,8 +39,8 @@ const articleSchema = {
   '@type': 'TechArticle',
   headline: title,
   description,
-  datePublished: '2026-09-23',
-  dateModified: '2026-09-24',
+  datePublished: dates.published,
+  dateModified: dates.modified,
   inLanguage: 'es-CO',
   about: {
     '@type': 'Thing',
@@ -56,16 +63,12 @@ const articleSchema = {
   title={title}
   description={description}
   path="/guias/cuanto-cuesta-pagina-web-colombia/"
+  breadcrumbs={crumbs}
+  faqs={faqs}
   jsonld={[articleSchema]}
-  article={{ publishedTime: '2026-09-23', modifiedTime: '2026-09-24' }}
+  article={{ publishedTime: dates.published, modifiedTime: dates.modified }}
 >
-  <Breadcrumbs
-    items={[
-      { label: 'Inicio', href: '/' },
-      { label: 'Guías', href: '/guias/' },
-      { label: 'Cuánto cuesta una web' },
-    ]}
-  />
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero">
     <p class="eyebrow">GUÍA · PRECIOS WEB COLOMBIA</p>

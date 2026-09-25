@@ -27,6 +27,8 @@ const DEMO_URL = `https://wa.me/573236487336?text=${encodeURIComponent(
   `Hola Presentto, quiero solicitar una demo web gratis de mi negocio en ${city}`
 )}`;
 
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: city }];
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -65,8 +67,15 @@ const relatedCities = [
 ].filter((c) => c.slug !== slug);
 ---
 
-<BaseLayout title={title} description={description} path={path} jsonld={[schema]}>
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: city }]} />
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  jsonld={[schema]}
+  breadcrumbs={crumbs}
+  faqs={faqs}
+>
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero">
     <p class="eyebrow">SEO LOCAL · POSICIONAMIENTO · {city.toUpperCase()}</p>

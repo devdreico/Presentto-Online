@@ -4,6 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
 import PlansGrid from '../components/PlansGrid.astro';
 import { localBusinessSchema } from '../components/schemas';
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Servicios' }];
 
 const title = 'Servicios de SEO local, posicionamiento web y diseño | Presentto';
 const description =
@@ -82,8 +83,8 @@ const faqs = [
 ];
 ---
 
-<BaseLayout title={title} description={description} path="/servicios/" jsonld={[serviceSchema, localBusinessSchema, clientsSchema]}>
-  <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Servicios' }]} />
+<BaseLayout title={title} description={description} path="/servicios/" breadcrumbs={crumbs} faqs={faqs} plansOffers={true} jsonld={[serviceSchema, localBusinessSchema, clientsSchema]}>
+  <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero">
     <p class="eyebrow">SERVICIOS PRESENTTO</p>
