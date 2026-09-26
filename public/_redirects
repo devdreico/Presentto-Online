@@ -31,3 +31,29 @@
 /  /madrid/             301  Query=page:madrid.html
 /  /facatativa/         301  Query=page:facatativa.html
 /  /portfolio/          301  Query=page:demos.html
+
+# Trailing slash: /servicios → /servicios/ (evita URLs duplicadas sin slash)
+/comparativas   /comparativas/   301
+/comparativas/web-administrada-vs-agencia   /comparativas/web-administrada-vs-agencia/   301
+/contacto   /contacto/   301
+/cookies   /cookies/   301
+/facatativa   /facatativa/   301
+/funza   /funza/   301
+/guias   /guias/   301
+/guias/cuanto-cuesta-pagina-web-colombia   /guias/cuanto-cuesta-pagina-web-colombia/   301
+/guias/seo-local   /guias/seo-local/   301
+/guias/seo-local/aparecer-en-google-maps   /guias/seo-local/aparecer-en-google-maps/   301
+/guias/seo-local/google-business-profile   /guias/seo-local/google-business-profile/   301
+/guias/seo-local/que-es-seo-local   /guias/seo-local/que-es-seo-local/   301
+/guias/seo-local/resenas-google   /guias/seo-local/resenas-google/   301
+/guias/seo-local/seo-vs-anuncios-google   /guias/seo-local/seo-vs-anuncios-google/   301
+/madrid   /madrid/   301
+/mosquera   /mosquera/   301
+/nosotros   /nosotros/   301
+/portfolio   /portfolio/   301
+/precios   /precios/   301
+/preguntas   /preguntas/   301
+/privacidad   /privacidad/   301
+/servicios   /servicios/   301
+/sitios   /sitios/   301
+/terminos   /terminos/   301

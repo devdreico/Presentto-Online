@@ -6,7 +6,7 @@
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://formspree.io https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
 
 /_astro/*
@@ -15,5 +15,55 @@
 /assets/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
-/index.html
+# HTML: nunca en caché (revalidar en cada visita) — rutas explícitas para no
+# chocar con Cache-Control de /_astro/* y /assets/* en Cloudflare (que fusiona headers)
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/comparativas/
+  Cache-Control: public, max-age=0, must-revalidate
+/comparativas/web-administrada-vs-agencia/
+  Cache-Control: public, max-age=0, must-revalidate
+/contacto/
+  Cache-Control: public, max-age=0, must-revalidate
+/cookies/
+  Cache-Control: public, max-age=0, must-revalidate
+/facatativa/
+  Cache-Control: public, max-age=0, must-revalidate
+/funza/
+  Cache-Control: public, max-age=0, must-revalidate
+/guias/
+  Cache-Control: public, max-age=0, must-revalidate
+/guias/cuanto-cuesta-pagina-web-colombia/
+  Cache-Control: public, max-age=0, must-revalidate
+/guias/seo-local/
+  Cache-Control: public, max-age=0, must-revalidate
+/guias/seo-local/aparecer-en-google-maps/
+  Cache-Control: public, max-age=0, must-revalidate
+/guias/seo-local/google-business-profile/
+  Cache-Control: public, max-age=0, must-revalidate
+/guias/seo-local/que-es-seo-local/
+  Cache-Control: public, max-age=0, must-revalidate
+/guias/seo-local/resenas-google/
+  Cache-Control: public, max-age=0, must-revalidate
+/guias/seo-local/seo-vs-anuncios-google/
+  Cache-Control: public, max-age=0, must-revalidate
+/madrid/
+  Cache-Control: public, max-age=0, must-revalidate
+/mosquera/
+  Cache-Control: public, max-age=0, must-revalidate
+/nosotros/
+  Cache-Control: public, max-age=0, must-revalidate
+/portfolio/
+  Cache-Control: public, max-age=0, must-revalidate
+/precios/
+  Cache-Control: public, max-age=0, must-revalidate
+/preguntas/
+  Cache-Control: public, max-age=0, must-revalidate
+/privacidad/
+  Cache-Control: public, max-age=0, must-revalidate
+/servicios/
+  Cache-Control: public, max-age=0, must-revalidate
+/sitios/
+  Cache-Control: public, max-age=0, must-revalidate
+/terminos/
   Cache-Control: public, max-age=0, must-revalidate

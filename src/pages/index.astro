@@ -1,11 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PlansGrid from '../components/PlansGrid.astro';
+import FaqList from '../components/FaqList.astro';
 import { localBusinessSchema } from '../components/schemas';
+import { usd } from '../data/business';
 
-const title = 'SEO local y posicionamiento en Google desde $40.000 COP/mes | Presentto';
+const title = 'SEO local y posicionamiento en Google | Presentto';
 const description =
-  'Web con SEO local y posicionamiento en Google para Funza, Mosquera, Madrid y Facatativá. Dominio, correo y ficha de Google. Demo gratis, sin abono.';
+  'Web con SEO local y posicionamiento en Google desde $40.000 COP/mes en Funza, Mosquera, Madrid y Facatativá. Dominio, correo y ficha de Google. Demo gratis.';
+const faqs = [
+  {
+    q: '¿Qué es el SEO local y cómo ayuda a mi negocio a aparecer en Google?',
+    a: 'El SEO local optimiza tu web, tu ficha de Google Business Profile y tus datos estructurados para aparecer en búsquedas con geolocalización ("cerca de mí", "en Funza") y en el pack de Maps. En Presentto lo incluimos en la web desde el primer día: metas, schema LocalBusiness, contenido por municipio y arquitectura de enlaces internos. Te lo explicamos paso a paso en la guía de SEO local.',
+  },
+  {
+    q: '¿Cuánto cuesta el posicionamiento en Google con Presentto?',
+    a: 'La Presenttación Digital arranca en $40.000 COP (IVA incluido) por plan prepago de 1 mes, con equivalente aproximado de US$10 al mes de ese plazo. El precio incluye diseño, dominio propio, correo profesional, SEO on-page, SEO local y administración. No hay mensualidad recurrente ni permanencia: pagas por el plazo que elijas.',
+  },
+  {
+    q: '¿En cuánto tiempo se ven resultados de SEO local?',
+    a: 'La indexación suele ocurrir en días o semanas tras publicar, con sitemap y Search Console. El posicionamiento orgánico en búsquedas locales competitivas toma meses de autoridad, contenido y reseñas coherentes: promedios publicados por especialistas apuntan a 3-6 meses según competencia y punto de partida. Tú decides cuándo arrancar.',
+  },
+  {
+    q: '¿Posicionan mi negocio en Funza, Mosquera, Madrid y Facatativá?',
+    a: 'Sí. Trabajamos la Sabana Occidental (Funza, Mosquera, Madrid, Facatativá) con contenido específico por municipio y municipios vecinos de Cundinamarca. Si tu negocio atiende también a Bogotá o a clientes de otros países, diseñamos la arquitectura de contenidos para esas búsquedas sin duplicar páginas.',
+  },
+  {
+    q: '¿Qué diferencia hay entre SEO local y anuncios de Google?',
+    a: 'Los anuncios de Google son pago por clic: aparecen primero mientras pagas y se detienen al cortar el presupuesto. El SEO local es orgánico: se construye con contenido, técnica y reseñas y sigue generando visitas sin costo por clic, aunque tarda más en crecer. Lo habitual es empezar por SEO y usar anuncios solo para lanzamientos puntuales.',
+  },
+  {
+    q: '¿La demo web es gratis y sin compromiso?',
+    a: 'Sí: construimos una demo con la identidad real de tu negocio y la ves completa antes de pagar. Sin abono, sin formulario eterno y sin permanencia. Si no te convence, no pasa nada; si te gusta, eliges plan en Mercado Pago y publicamos en pocos días hábiles.',
+  },
+];
+
 const homeService = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -66,6 +95,7 @@ const homeService = {
   description={description}
   path="/"
   plansOffers={true}
+  faqs={faqs}
   jsonld={[localBusinessSchema, homeService]}
 >
   <section class="hero wrap">
@@ -88,7 +118,7 @@ const homeService = {
       </p>
       <div class="hero-price">
         <strong>desde $40.000</strong>
-        <span>COP / mes<br />IVA incluido</span>
+        <span>COP / mes<br />IVA incluido<br />≈ {usd(40000)} (ref.)</span>
       </div>
       <div class="actions">
         <a
@@ -137,7 +167,7 @@ const homeService = {
   <section class="section wrap" id="como-funciona">
     <p class="eyebrow">POSICIONAMIENTO WEB · TODO INCLUIDO</p>
     <div class="section-heading">
-      <h2>Un solo plan. <em>Visibilidad orgánica de punta a punta.</em></h2>
+      <h2>SEO local y posicionamiento web: <em>un solo plan, todo incluido.</em></h2>
       <p>
         Diseño, SEO on-page, SEO técnico, datos estructurados y contenido geolocalizado para que tu negocio
         aparezca en búsquedas locales de Funza, Mosquera, Madrid, Facatativá y en el pack local de Google Maps.
@@ -147,7 +177,10 @@ const homeService = {
       <article>
         <b>01</b>
         <h3>Nosotros lo hacemos todo</h3>
-        <p>Tú apruebas; nosotros diseñamos, publicamos y optimizamos tu web con tus fotos, textos y servicios reales.</p>
+        <p>
+          Tú apruebas; nosotros <a href="/servicios/">diseñamos, publicamos y optimizamos tu web</a> con
+          tus fotos, textos y servicios reales.
+        </p>
       </article>
       <article>
         <b>02</b>
@@ -170,8 +203,8 @@ const homeService = {
         <b>04</b>
         <h3>Contenido indexable y conversión</h3>
         <p>
-          Arquitectura de enlaces internos, encabezados H1–H3, imágenes optimizadas y CTAs claros para
-          convertir tráfico orgánico en clientes por WhatsApp.
+          Arquitectura de <a href="/guias/">enlaces internos y contenidos indexables</a>, encabezados H1–H3,
+          imágenes optimizadas y CTAs claros para convertir tráfico orgánico en clientes por WhatsApp.
         </p>
       </article>
     </div>
@@ -191,7 +224,7 @@ const homeService = {
   <section class="section industries-section">
     <div class="wrap">
       <p class="eyebrow">UNA WEB PARA CADA NEGOCIO</p>
-      <h2 class="center">Presencia digital <em>a la medida de tu rubro.</em></h2>
+      <h2 class="center">Una web con SEO <em>a la medida de tu rubro.</em></h2>
       <div class="industry-grid">
         <span>Restaurantes y cafés</span>
         <span>Tiendas y comercios</span>
@@ -202,6 +235,11 @@ const homeService = {
         <span>Emprendimientos</span>
         <span>Portafolios profesionales</span>
       </div>
+      <p class="stack-note">
+        Cada rubro tiene búsquedas distintas: revisa cómo se traduce eso en
+        <a href="/portfolio/">proyectos publicados</a> y en las
+        <a href="/comparativas/">comparativas de opciones de web y SEO</a>.
+      </p>
     </div>
   </section>
 
@@ -277,8 +315,28 @@ const homeService = {
           <span class="stack-badge">CWV</span><strong>Core Web Vitals</strong><span>LCP · INP · CLS</span>
         </article>
       </div>
-      <p class="stack-note">Tecnologías y estándares de trabajo. No representa certificaciones oficiales de terceros.</p>
+      <p class="stack-note">
+        Tecnologías y estándares de trabajo (guía oficial de
+        <a
+          href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+          target="_blank"
+          rel="noopener">SEO de Google</a
+        >). No representa certificaciones oficiales de terceros.
+      </p>
     </div>
+  </section>
+
+  <section class="section wrap" id="preguntas-seo">
+    <p class="eyebrow">PREGUNTAS FRECUENTES · SEO LOCAL</p>
+    <div class="section-heading">
+      <h2>Dudas sobre <em>SEO local y posicionamiento en Google</em></h2>
+      <p>
+        Lo que más nos preguntan antes de pedir la demo. Más respuestas en
+        <a href="/preguntas/">preguntas frecuentes</a> y en la
+        <a href="/guias/seo-local/">guía completa de SEO local</a>.
+      </p>
+    </div>
+    <FaqList faqs={faqs} />
   </section>
 
   <section class="final-cta">

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { authorRef } from '../../../components/schemas';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AuthorBox from '../../../components/AuthorBox.astro';
 import { datesFor } from '../../../data/content-dates';
@@ -10,10 +11,16 @@ const crumbs = [
       { label: 'Google Maps' },
     ];
 const dates = datesFor('/guias/seo-local/aparecer-en-google-maps/');
+const fechaLarga = new Date(dates.modified).toLocaleDateString('es-CO', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
 
 const title = 'Aparecer en Google Maps para tu negocio';
 const description =
-  'Pasos para aparecer en Google Maps: ficha verificada, categorías, reseñas y web con schema local.';
+  'Cómo aparecer en Google Maps: ficha verificada de Google Business, categorías, fotos, reseñas y web con schema LocalBusiness para el pack local.';
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -24,7 +31,7 @@ const articleSchema = {
   dateModified: dates.modified,
   inLanguage: 'es-CO',
   about: { '@type': 'Thing', name: 'Google Maps' },
-  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://www.presentto.online/nosotros/' },
+  author: authorRef,
   publisher: { '@id': 'https://www.presentto.online/#organization' },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -50,7 +57,7 @@ const articleSchema = {
     <p class="eyebrow">SEO LOCAL · MAPS</p>
     <h1>Cómo aparecer en Google Maps con tu negocio</h1>
     <p class="lead">Del pin azul a la primera posición del listado local — factores y orden de ejecución.</p>
-    <p class="guide-meta">Serie: Guía de SEO local · Presentto Online · septiembre 2026</p>
+    <p class="guide-meta">Actualizado: {fechaLarga} · Presentto Online</p>
   </section>
 
   <section class="section wrap guide-layout">
@@ -60,30 +67,191 @@ const articleSchema = {
       en los 3 primeros resultados multiplica clics, llamadas y direcciones respecto a la página 2 de resultados
       orgánicos.
     </p>
+    <p>
+      El bloque local muestra tres fichas con botones de acción: llamar, pedir ruta o ir al sitio. Detrás viene
+      un enlace para ver más resultados. Ese diseño significa que la competencia real ocurre entre tres
+      negocios, no entre veinte. Y como el bloque se muestra antes que los enlaces azules, muchas búsquedas
+      terminan ahí sin llegar a la segunda mitad de la página.
+    </p>
+    <p>
+      También cambia el tipo de usuario. Quien escribe “cerca de mí” en el celular suele querer una decisión
+      rápida: horario, distancia y reseña. Por eso aparecer en Maps no es solo posicionamiento, es
+      información bien servida en el momento exacto.
+    </p>
 
-    <h2>Orden de factores que debes controlar</h2>
+    <h2>Orden real de factores y cómo optimizar cada uno</h2>
+    <p class="snippet">
+      Google resume el ranking local en tres factores: relevancia, distancia y prominencia, según la
+      <a href="https://support.google.com/business/answer/7091" target="_blank" rel="noopener">guía oficial
+      de mejora del ranking local</a>. En la práctica trabajas en un orden concreto, porque algunos factores
+      dependen de ti y otros no.
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Orden</th><th>Factor</th><th>Dónde se controla</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Ficha verificada y completa</td><td>Google Business Profile</td></tr>
+        <tr><td>2</td><td>Categorías y atributos</td><td>Google Business Profile</td></tr>
+        <tr><td>3</td><td>Distancia real o zona de servicio</td><td>Ubicación y zona declarada</td></tr>
+        <tr><td>4</td><td>Reseñas: volumen, frescura y respuesta</td><td>Ficha y clientes</td></tr>
+        <tr><td>5</td><td>Web coherente con la ficha</td><td>Sitio propio y schema</td></tr>
+        <tr><td>6</td><td>Menciones y enlaces locales</td><td>Directorios, prensa, socios</td></tr>
+      </tbody>
+    </table>
     <ol>
-      <li>Ficha de Google Business verificada y completa (ver guía de perfil).</li>
-      <li>Proximidad real o área de servicio bien declarada (si eres negocio de servicio sin local).</li>
-      <li>Reseñas: volumen, velocidad y respuesta.</li>
-      <li>Categorías y atributos correctos.</li>
-      <li>Web con la misma NAP, schema y contenido municipal.</li>
-      <li>Menciones y citaciones locales consistentes.</li>
+      <li><strong>Ficha completa.</strong> Empieza por lo que sí controlas al cien: categoría principal exacta, servicios, horarios, fotos y descripción. Una ficha a medias no compite, aunque la web sea perfecta. La configuración detallada está en <a href="/guias/seo-local/google-business-profile/">la guía de Google Business Profile</a>.</li>
+      <li><strong>Categorías y atributos.</strong> Elige la categoría que describe el negocio entero y suma secundarias solo si aplican. Después marca atributos verificables: parqueadero, accesible, terraza. Cada atributo correcto es una respuesta que Google ya no tiene que adivinar.</li>
+      <li><strong>Proximidad.</strong> No se optimiza con texto. Si tienes local, el pin debe caer exacto sobre la puerta. Si viajas al cliente, oculta la dirección y declara zonas de servicio reales: inventar una oficina para acercarte al centro de la ciudad es la vía más rápida a una suspensión.</li>
+      <li><strong>Reseñas.</strong> Cuentan cantidad, calificación, frescura y el texto de la valoración. Las reseñas recientes pesan más que las antiguas, y las que mencionan el servicio o la ciudad aportan relevancia además de prominencia.</li>
+      <li><strong>Web coherente.</strong> Misma NAP, mismos servicios, mismos horarios y datos estructurados LocalBusiness. La web sostiene la relevancia cuando la competencia tiene fichas parecidas.</li>
+      <li><strong>Menciones externas.</strong> Aparecer en directorios locales, asociaciones de comerciantes, prensa del municipio y páginas de proveedores refuerza la prominencia. La regla: mismo nombre, mismo teléfono, mismo formato.</li>
     </ol>
 
-    <h2>Errores que bloquean el pack local</h2>
+    <h2>Buscar “en tu ciudad” vs “cerca de mí”</h2>
+    <p>
+      Las dos consultas no son iguales. Cuando alguien escribe “peluquería en Funza”, declara la zona y
+      Google interpreta la ciudad como parte de la consulta: la relevancia geográfica se activa con el texto
+      y la proximidad se relativiza, porque el usuario puede estar en cualquier punto del municipio. En ese
+      caso ayuda tener el nombre de la ciudad en el título, en el H1 y en el contenido de la página de
+      servicio.
+    </p>
+    <p>
+      Cuando la consulta es “peluquería cerca de mí”, no hay ciudad escrita y manda la ubicación que Google
+      conoce del dispositivo. La distancia pesa más que cualquier optimización de texto. Un negocio con
+      menos reseñas pero a dos cuadras puede superar a uno con mejor ficha a diez minutos. Por eso conviene
+      medir las dos cosas por separado: si solo apareces en “en tu ciudad” y no en “cerca de mí”, casi
+      siempre el problema es la distancia o el pin mal ubicado, no el contenido.
+    </p>
+    <p>
+      Hay un tercer caso: consultas con barrio o zona (“cerca al aeropuerto”, “por el centro”). Ahí Google
+      cruza la mención con tu dirección y con las reseñas que citan esos lugares. Nombrar barrios y
+      referencias reales en la página de contacto funciona, siempre que sean verdaderas y usadas con
+      moderación.
+    </p>
+
+    <h2>Cómo entrar al mapa embebido y a las solicitudes de ruta</h2>
+    <p class="snippet">
+      Aparecer en el mapa de tu web y aparecer en la lista de rutas de Google son dos cosas distintas, y
+      cada una tiene su requisito.
+    </p>
+    <p>
+      Para el mapa embebido en tu página de contacto necesitas un iframe con la URL de tu negocio. Es útil
+      para que el visitante llegue sin buscar de nuevo, pero incrustar el mapa no es un factor de ranking
+      documentado por Google. Lo que sí influye es que la página de contacto cargue rápido, muestre la
+      dirección en texto visible y repita exactamente el NAP de la ficha. El mapa es ayuda al usuario; el
+      texto es lo que Google lee.
+    </p>
+    <p>
+      Para las solicitudes de ruta el camino es otro: ficha verificada, pin exacto, horarios correctos y
+      reseñas recientes. Cuando alguien toca “cómo llegar”, Google calcula el trayecto desde su posición;
+      si el pin está desplazado o la dirección está incompleta, la ruta llega a la puerta equivocada y la
+      experiencia se rompe. Revisa desde el panel de la ficha cuántas solicitudes de ruta genera cada mes y
+      compáralas con el trimestre anterior. Si suben las impresiones pero no las rutas, el problema está en
+      la ficha que se muestra: fotos, calificación o reseñas.
+    </p>
+    <p>
+      Un dato técnico que se pasa por alto: el teléfono y la URL del perfil deben ser los mismos que aparecen
+      en el sitio. Google lo exige para perfiles gestionados por terceros, y esa misma coherencia es lo que
+      permite cruzar la información sin ambigüedad.
+    </p>
+
+    <h2>Reseñas y su peso real</h2>
+    <p>
+      Las reseñas son el factor de prominencia más visible y el único que depende de tus clientes. Google lo
+      confirma: más reseñas y calificaciones positivas pueden mejorar el ranking local. Pero hay tres
+      matices que se suelen ignorar.
+    </p>
+    <p>
+      Primero, la frescura. Una reseña de esta semana demuestra actividad del negocio; una de hace dos años
+      habla de otro momento. Segundo, el texto. Una reseña que escribe “cambio de aceite rápido en Mosquera”
+      aporta relevancia para esa consulta; una estrella sin palabras no. Tercero, la política: ofrecer
+      descuentos o regalos a cambio de reseñas, o de cambiarlas, se considera contenido engañoso y puede
+      restringir tu ficha. Las reglas están en la
+      <a href="https://support.google.com/business/answer/3474122" target="_blank" rel="noopener">guía oficial
+      de Google para conseguir más reseñas</a>.
+    </p>
+    <p>
+      Responder también cuenta. Una respuesta profesional a una crítica baja demuestra a lectores humanos y a
+      Google que el negocio está atento. El sistema completo de peticiones, respuestas y denuncias está en
+      <a href="/guias/seo-local/resenas-google/">la guía de reseñas de Google</a>.
+    </p>
+
+    <h2>Errores que impiden aparecer</h2>
     <ul>
-      <li>Ficha sin verificar o suspendida por datos inconsistentes.</li>
-      <li>Categoría incorrecta (“Consultor” para una clínica, etc.).</li>
-      <li>Sitio sin HTTPS o lento (mala experiencia = menor prominencia percibida).</li>
-      <li>Páginas de ciudad doorway (contenido 100% duplicado).</li>
+      <li><strong>Ficha sin verificar o suspendida.</strong> Sin verificar no compites en el pack; una suspensión por datos inconsistentes borra todo el historial.</li>
+      <li><strong>Categoría incorrecta.</strong> “Consultor” para una clínica o “Tienda” para un taller cambia el conjunto de búsquedas donde puedes entrar.</li>
+      <li><strong>Pin desplazado.</strong> Un punto a dos manzanas del local hace que las rutas fallen y que la distancia se calcule mal.</li>
+      <li><strong>Sitio sin HTTPS o lento.</strong> La experiencia de la página influye en la confianza del sistema en tu entidad local.</li>
+      <li><strong>Páginas de ciudad doorway.</strong> Contenido 100% duplicado con solo cambiar el nombre del municipio se filtra en lugar de sumar.</li>
+      <li><strong>Dirección inventada o buzón.</strong> Oficinas virtuales y casillas de correo no son elegibles y suelen ser detectadas.</li>
+      <li><strong>Reseñas congeladas.</strong> Si dejaste de pedir valoraciones, la competencia avanza con contenido fresco y tú te quedas igual.</li>
     </ul>
 
-    <h2>Relación web ↔ Maps</h2>
-    <p class="snippet">
-      Google cruza tu ficha con tu web. Si la web menciona los mismos servicios, horarios y zona, la confianza
-      aumenta; si discrepan, el sistema duda y tu ranking local se estanca.
+    <h2>Varias sucursales: cómo posicionarlas sin que compitan entre sí</h2>
+    <p>
+      La regla es simple y sale de las directrices de Google: una ficha por ubicación real. Cada sucursal
+      necesita su propio perfil, con la dirección y el teléfono que le corresponden. Si las dos ofrecen el
+      mismo servicio, deben compartir nombre y categoría principal; si tienen horarios distintos, cada una
+      declara los suyos.
     </p>
+    <p>
+      Los errores típicos son usar el teléfono central en todas las sucursales, crear una ficha “matriz” sin
+      dirección real y apuntar todas las URLs a la home. Lo correcto es una página por sucursal — con foto
+      propia, equipo, reseñas locales y horarios — y enlazar cada ficha a su página, no a la misma. En
+      municipios vecinos de la Sabana funciona igual: <a href="/funza/">página para Funza</a>,
+      <a href="/mosquera/">página para Mosquera</a> y <a href="/madrid/">página para Madrid</a> con contenido
+      propio, cada una enlazada a su ficha correspondiente.
+    </p>
+    <p>
+      Si una sucursal cierra, márcala como cerrada en lugar de borrarla: las reseñas y la historia del
+      perfil se conservan y siguen contando para la marca.
+    </p>
+
+    <h2>Preguntas que aparecen siempre</h2>
+
+    <h3>¿Cuánto tarda en aparecer un negocio nuevo en Maps?</h3>
+    <p>
+      El hecho de existir en Maps depende de la ficha creada y verificada. Ya posicionarse en el pack de tres
+      es otra cosa: exige ficha completa, coherencia con la web y reseñas que lleguen de forma constante. En
+      municipios con poca competencia los primeros movimientos se ven pronto; en ciudades con muchos
+      resultados del mismo rubro toma más tiempo.
+    </p>
+
+    <h3>¿Puedo estar en el pack de otro municipio?</h3>
+    <p>
+      Sí, pero con una página que hable de ese municipio y una ficha cuya zona de servicio lo incluya. No se
+      logra repitiendo el nombre de la ciudad en la ficha ni creando un perfil extra. Cada zona necesita
+      contenido propio y específico: servicios, casos, fotos y referencias reales del lugar.
+    </p>
+
+    <h3>¿El mapa embebido ayuda a posicionar?</h3>
+    <p>
+      No es un factor de ranking documentado. Ayuda al usuario a ubicarte y por eso vale la pena en la página
+      de contacto, junto a la dirección en texto. Lo que mueve el ranking es la ficha verificada, la
+      distancia correcta y la actividad de reseñas.
+    </p>
+
+    <h3>¿Sirve si mi competencia tiene muchas más reseñas?</h3>
+    <p>
+      Sí, porque las reseñas no son el único factor. Un perfil mejor categorizado, una web con la zona bien
+      trabajada y una proximidad favorable compensan una calificación ajena más alta. El objetivo no es
+      copiar el número de la competencia, sino ser la mejor opción para quien busca a dos cuadras.
+    </p>
+
+    <h2>Checklist</h2>
+    <ol>
+      <li>Ficha verificada, con pin exacto sobre la entrada del local.</li>
+      <li>Categoría principal específica y secundarias que aplican.</li>
+      <li>Dirección oculta y zona de servicio declarada si viajas al cliente.</li>
+      <li>Horarios correctos y horarios especiales cargados.</li>
+      <li>Fotos reales actualizadas al menos una vez al mes.</li>
+      <li>Reseñas nuevas pedidas con constancia y respondidas siempre.</li>
+      <li>NAP idéntico en ficha, web, directorios y página de contacto.</li>
+      <li>Página de servicio con la ciudad en título, H1 y contenido.</li>
+      <li>Schema LocalBusiness validado y mapa embebido en contacto.</li>
+      <li>Una ficha por sucursal y revisión mensual de métricas.</li>
+    </ol>
 
     <div class="guide-cta">
       <p><strong>Construye la base técnica de tu presencia local.</strong></p>

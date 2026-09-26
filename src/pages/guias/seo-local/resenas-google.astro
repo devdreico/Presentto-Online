@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { authorRef } from '../../../components/schemas';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AuthorBox from '../../../components/AuthorBox.astro';
 import { datesFor } from '../../../data/content-dates';
@@ -11,7 +12,7 @@ const crumbs = [
     ];
 const dates = datesFor('/guias/seo-local/resenas-google/');
 
-const title = 'Reseñas Google: cómo pedirlas y responder';
+const title = 'Reseñas de Google: pedir y responder';
 const description =
   'Cómo pedir y responder reseñas de Google sin riesgos: plantillas, reseñas negativas y errores que penalizan tu reputación.';
 
@@ -24,7 +25,7 @@ const articleSchema = {
   dateModified: dates.modified,
   inLanguage: 'es-CO',
   about: { '@type': 'Thing', name: 'Gestión de reputación online' },
-  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://www.presentto.online/nosotros/' },
+  author: authorRef,
   publisher: { '@id': 'https://www.presentto.online/#organization' },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -50,7 +51,7 @@ const articleSchema = {
     <p class="eyebrow">SEO LOCAL · REPUTACIÓN</p>
     <h1>Reseñas de Google: cómo pedirlas y responderlas</h1>
     <p class="lead">Un sistema sostenible de reseñas reales — sin comprar ni fabricar opinión.</p>
-    <p class="guide-meta">Serie: Guía de SEO local · Presentto Online · septiembre 2026</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
   </section>
 
   <section class="section wrap guide-layout">
@@ -60,33 +61,225 @@ const articleSchema = {
       desde el pack de mapas. También ayudan a que Google entienda de qué trata tu negocio a través del
       lenguaje de los clientes.
     </p>
+    <p>
+      Google lo dice sin rodeos: entre más reseñas y valoraciones positivas tenga una empresa, mejor suele ser
+      su posicionamiento local, junto con relevancia y distancia
+      (<a href="https://support.google.com/business/answer/7091?hl=es" target="_blank" rel="noopener">consejos
+      para mejorar el posicionamiento local</a>). Las reseñas no sustituyen a una ficha bien configurada ni a
+      una web rápida: son la capa de confianza que va encima de ellas. Por eso conviene leer antes la
+      <a href="/guias/seo-local/google-business-profile/">guía de Google Business Profile</a> y después volver
+      aquí para montar el sistema de pedir y responder.
+    </p>
 
-    <h2>Cómo pedir reseñas (plantilla)</h2>
+    <h2>Qué permite Google y qué prohíbe</h2>
     <p class="snippet">
-      Pide solo a clientes satisfechos, en el momento de mayor satisfacción, con un enlace directo a dejar
-      reseña. Nunca ofrezcas incentivos a cambio de estrellas (política de Google).
+      Pedir reseñas está permitido. Condicionarlas con un incentivo no. Esa es la línea que separa una rutina
+      de reputación válida de una interacción falsa, que Google retira y que puede restringir tu ficha.
+    </p>
+    <p>
+      La política de contenido de Google prohíbe de forma explícita ofrecer pagos, descuentos, productos o
+      servicios gratuitos a cambio de publicar una opinión, cambiarla o eliminar una negativa. También prohíbe
+      desalentar las opiniones negativas, pedir solo las positivas de forma selectiva y presionar al cliente
+      para que califique o escriba un texto concreto mientras está en el local. Todo eso está en
+      <a href="https://support.google.com/contributionpolicy/answer/7400114?hl=es-419" target="_blank" rel="noopener">contenido
+      prohibido y restringido de Maps</a>.
+    </p>
+    <ul>
+      <li><strong>Sí puedes</strong>: pedir a cualquier cliente que comparta su experiencia auténtica, sin ofrecer nada a cambio ni intentar influir en la nota.</li>
+      <li><strong>Sí puedes</strong>: enviar el enlace por WhatsApp, correo o mostrar un código QR en el local o en el recibo.</li>
+      <li><strong>No puedes</strong>: dar descuento, regalo, sorteo o producto gratis a cambio de estrellas.</li>
+      <li><strong>No puedes</strong>: pedirle al personal una cuota de reseñas ni exigir que mencionen a un empleado.</li>
+      <li><strong>No puedes</strong>: crear reseñas desde cuentas propias, de amigos o de la misma red del negocio.</li>
+    </ul>
+    <p>
+      Google resume las prácticas válidas en
+      <a href="https://support.google.com/business/answer/3474122?hl=es" target="_blank" rel="noopener">consejos
+      para conseguir más reseñas</a>: recordar a los clientes que pueden dejarte reseñas, responder siempre y
+      valorar tanto las positivas como las negativas.
+    </p>
+
+    <h2>Cómo pedir reseñas sin violar políticas</h2>
+    <p class="snippet">
+      Pide solo a clientes con los que cerraste el trabajo, en el momento de mayor satisfacción, con un enlace
+      directo y sin condicionar nada a cambio. Un pedido honesto y breve funciona mejor que una campaña.
     </p>
     <ol>
-      <li>Termina el servicio y confirma que quedaron conformes.</li>
-      <li>Envía por WhatsApp: “Si te fue útil, ¿nos dejas una reseña en Google? Toma 1 minuto: [enlace].”</li>
-      <li>Haz seguimiento una sola vez a los 48 h si no respondió.</li>
-      <li>Registra quién pidió para no saturar a los mismos clientes.</li>
+      <li>Cierra el servicio y confirma de viva voz que quedaron conformes.</li>
+      <li>Envía el mensaje el mismo día, con el enlace de reseña listo para tocar.</li>
+      <li>Genera el enlace o el QR desde tu Perfil de Empresa: <strong>Leer reseñas → Consigue más reseñas</strong>. Google lo explica en <a href="https://support.google.com/business/answer/16816815?hl=es" target="_blank" rel="noopener">crear un enlace o código QR para solicitar reseñas</a>.</li>
+      <li>Haz un solo seguimiento a las 48 horas. Si no respondió, deja el tema ahí.</li>
+      <li>Registra quién pidió, cuándo y por qué canal, para no saturar dos veces al mismo cliente.</li>
+      <li>Repite el ciclo con cada cierre de trabajo: la frescura importa más que una racha puntual.</li>
     </ol>
 
-    <h2>Cómo responder reseñas</h2>
+    <h3>Plantilla de WhatsApp</h3>
+    <p>
+      Hola [Nombre], gracias por confiar en [Servicio] en [Ciudad]. Si el trabajo te sirvió, ¿nos dejas una
+      reseña en Google? Toma un minuto y nos ayuda a que más vecinos nos encuentren: [enlace]. Si algo no
+      quedó bien, cuéntamelo primero por aquí y lo resolvemos.
+    </p>
+
+    <h3>Plantilla de QR para recibo o local</h3>
+    <p>
+      Texto corto para la etiqueta o el pie del recibo: “Tu opinión nos cuenta a otros vecinos. Escanea y
+      deja tu reseña en un minuto.” Imprime el QR generado en tu perfil y colócalo donde el cliente ya tiene
+      el trabajo en la mano: caja, mesa, firma de entrega o correo de agradecimiento.
+    </p>
+
+    <h3>Plantilla de seguimiento a 48 horas</h3>
+    <p>
+      Hola [Nombre], solo para preguntarte si pudiste dejar la reseña. Sin prisa, y si prefieres no hacerlo,
+      también está bien. Gracias por haber confiado en nosotros.
+    </p>
+
+    <h2>Cómo responder reseñas positivas</h2>
+    <p class="snippet">
+      Responde en 24 a 48 horas, nombra el servicio, agradece sin ser genérico y firma con tu nombre. Google
+      aconseja respuestas breves, amables y sin convertir cada agradecimiento en una oferta.
+    </p>
     <ul>
-      <li><strong>Positiva</strong>: agradece, nombra el servicio, invita a volver.</li>
-      <li><strong>Negativa</strong>: responde en 24–48 h, sin discutir; ofrece canal privado (WhatsApp/email).</li>
-      <li>Usa la ciudad de forma natural si es relevante (“gracias por confiar en nosotros en Mosquera”).</li>
-      <li>Nunca publiques datos personales del cliente en la respuesta pública.</li>
+      <li><strong>5 estrellas con texto</strong>: “Gracias, Laura, por tomarte el tiempo. Me alegra que la instalación haya salido en el plazo acordado. Si necesitas ajustes, escríbeme por WhatsApp y lo vemos. — Andrés”.</li>
+      <li><strong>5 estrellas sin texto</strong>: “Gracias por las 5 estrellas. Si te queda alguna duda sobre [servicio], déjala en un comentario y te respondo.”</li>
+      <li><strong>Reseña que nombra un detalle</strong>: “Qué bueno que te haya servido la guía de fotos para tu ficha. La subimos nueva cada mes, así que avísame cuando quieras refrescarlas. — Equipo de [Ciudad]”.</li>
     </ul>
+    <p>
+      Usa la ciudad de forma natural si es relevante, sin meterla a la fuerza en cada respuesta. Evita copiar
+      y pegar el mismo texto: las respuestas idénticas se leen como automatizadas y aportan poco a quien está
+      comparando negocios en el pack de mapas.
+    </p>
+
+    <h2>Cómo responder reseñas negativas</h2>
+    <p class="snippet">
+      Responde en 24 a 48 horas, sin discutir y sin datos personales. Reconoce el error que sí fue tuyo,
+      explica lo que no depende de ti y pasa la conversación a un canal privado.
+    </p>
+    <ul>
+      <li><strong>Error propio</strong>: “Lamento que la entrega se haya retrasado. Fue un fallo de nuestra planificación, no una excusa. Ya ajustamos el proceso y me gustaría compensarte: te escribo por WhatsApp. — Ana”.</li>
+      <li><strong>Versión distinta de los hechos</strong>: “Gracias por avisar. Nuestro registro muestra otra fecha, pero no quiero discutirlo en público. Escríbeme a [correo] con el número de orden y lo aclaro hoy mismo.”</li>
+      <li><strong>Sin datos verificables</strong>: “No encontramos tu visita en nuestros registros. Escríbenos a [correo] con la fecha y el servicio para revisarlo. — Carlos”.</li>
+      <li><strong>Con insultos</strong>: responde con calma y sin replicar el tono. Si la reseña incumple la política (amenazas, lenguaje ofensivo, datos personales), denúnciala y deja constancia de tu respuesta corta.</li>
+    </ul>
+    <p>
+      Google recomienda proteger la privacidad del autor, evitar ataques personales, pedir disculpas cuando
+      corresponda y firmar con nombre o iniciales para que la respuesta parezca auténtica. Una respuesta útil
+      convence más a quien lee la ficha que la propia nota del cliente.
+    </p>
+
+    <h2>Tiempo de respuesta: qué plazo usar según el caso</h2>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Situación</th><th>Cuándo responder</th><th>Qué hacer</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Reseña positiva nueva</td><td>En 24–48 h</td><td>Agradece, nombra el servicio, firma</td></tr>
+        <tr><td>3 estrellas con dudas</td><td>Antes de 24 h</td><td>Responde lo público y pide detalles por privado</td></tr>
+        <tr><td>1–2 estrellas</td><td>El mismo día si es posible</td><td>Reconoce, explica y ofrece canal directo</td></tr>
+        <tr><td>Texto con datos personales o anuncios</td><td>Al detectarla</td><td>Denuncia y responde sin repetir la información</td></tr>
+        <tr><td>Patrón de cuentas falsas</td><td>Al detectarlo</td><td>Denuncia cada una y documenta el patrón</td></tr>
+        <tr><td>Reseñas sin texto</td><td>Al responder el resto</td><td>Mensaje corto de agradecimiento</td></tr>
+      </tbody>
+    </table>
+    <p>
+      El objetivo no es “ganar” la nota, sino que quien llega nuevo a tu ficha vea un negocio que responde.
+      Una media de estrellas con tres reseñas viejas pesa menos que una ficha con reseñas recientes y todas
+      contestadas.
+    </p>
+
+    <h2>Reseñas falsas: cómo detectarlas y denunciarlas</h2>
+    <p class="snippet">
+      Denunciar sirve cuando la reseña infringe las políticas de Google. No sirve cuando solo no te gusta la
+      opinión: Google no interviene en conflictos entre empresas y clientes.
+    </p>
+    <p>Señales típicas de reseña falsa o de manipulación:</p>
+    <ul>
+      <li>Patrón inusual: varias reseñas de 1 estrella en pocos días, con cuentas sin historial.</li>
+      <li>Texto genérico que encajaría con cualquier negocio de la zona.</li>
+      <li>Describe servicios que no ofreces o un local donde nunca estuvo el autor.</li>
+      <li>Se repiten frases idénticas en varias cuentas.</li>
+      <li>Hay intercambio con otro comercio: reseñas cruzadas del mismo grupo de personas.</li>
+      <li>Exigencia de descuento a cambio de cambiar la nota: posible intento de extorsión.</li>
+    </ul>
+    <p>
+      Para denunciar: abre tu Perfil de Empresa, entra en <strong>Leer reseñas</strong>, pulsa
+      <strong>Denunciar</strong>, elige el motivo y envía. La evaluación suele tardar varios días y puedes
+      consultar el estado en la herramienta de gestión de reseñas. Si la reseña no se retira, cabe una
+      apelación única. El procedimiento completo está en
+      <a href="https://support.google.com/business/answer/4596773?hl=es" target="_blank" rel="noopener">denunciar
+      reseñas inapropiadas en tu Perfil de Empresa</a>.
+    </p>
 
     <h2>Qué NO hacer</h2>
     <ul>
-      <li>Comprar reseñas o usar paneles de “5 estrellas garantizadas”.</li>
-      <li>Crear reseñas desde cuentas falsas o la misma IP/geo del negocio.</li>
-      <li>Ignorar reseñas negativas (Google valora que respondas).</li>
+      <li>Comprar reseñas o contratar paneles de “5 estrellas garantizadas”.</li>
+      <li>Reseñas intercambiadas con otro negocio: tú me puntúas, yo te puntúo.</li>
+      <li>Ofrecer descuento, producto gratis o sorteo a cambio de estrellas.</li>
+      <li>Pedir solo a clientes ya satisfechos o prohibir reseñas negativas.</li>
+      <li>Crear reseñas desde cuentas propias o desde la red wifi del local.</li>
+      <li>Publicar en la respuesta datos personales del cliente o discutir en público.</li>
+      <li>Ignorar las reseñas negativas: la falta de respuesta también se lee.</li>
     </ul>
+
+    <h2>Métricas de reputación que conviene mirar</h2>
+    <ul>
+      <li><strong>Número total de reseñas y media de estrellas</strong>: el contexto importa más que la nota suelta.</li>
+      <li><strong>Reseñas nuevas por mes</strong>: comprueba si la frecuencia sube o se detiene tras la campaña de pedidos.</li>
+      <li><strong>Porcentaje de reseñas respondidas</strong>: tu meta debe ser el 100 %, incluidas las incómodas.</li>
+      <li><strong>Tiempo medio de respuesta</strong>: fija como regla interna no pasar de 48 horas.</li>
+      <li><strong>Distribución de estrellas</strong>: cuántas 5, 4, 3, 2 y 1 hay; una media plana esconde picos.</li>
+      <li><strong>Palabras que usan tus clientes</strong>: si repiten “rápido”, “claro” o “buena atención”, úsalas en tu web y en la descripción de tu ficha.</li>
+      <li><strong>Tasa de pedidos que terminan en reseña</strong>: el mejor indicador de que tu rutina funciona.</li>
+    </ul>
+    <p>
+      Cruza estas métricas con lo que ya ves en la
+      <a href="/guias/seo-local/">guía completa de SEO local</a> y con lo que ya estés viendo en
+      <a href="/guias/seo-local/aparecer-en-google-maps/">aparecer en Google Maps</a>. Si la media sube pero
+      las llamadas no, el problema está en la ficha o en la web, no en las reseñas.
+    </p>
+
+    <h2>Preguntas que nos llegan a menudo</h2>
+    <h3>¿Puedo pedir reseñas a todos mis clientes?</h3>
+    <p>
+      Sí. Puedes recordar a cualquiera que deje su experiencia, siempre que no ofrezcas nada a cambio ni
+      intentes influir en la nota. Lo que no puedes es pedir solo a los clientes ya satisfechos ni seleccionar
+      quién puede opinar.
+    </p>
+    <h3>¿Puedo ofrecer un descuento a cambio de reseña?</h3>
+    <p>
+      No. Es considerado interacción falsa y está prohibido. Tampoco vale ofrecer el descuento por cambiar o
+      borrar una reseña negativa. Sí puedes agradecer con algo a quien ya es cliente sin vincularlo a la
+      publicación de la opinión.
+    </p>
+    <h3>¿Sirve de algo responder si el cliente no cambia su nota?</h3>
+    <p>
+      Sí. Tu respuesta no va dirigida al autor: la leen las personas que comparan tres negocios parecidos en
+      el mismo mapa. Una respuesta serena sobre una queja resuelta suele pesar más que media estrella.
+    </p>
+    <h3>¿Puedo pedir reseñas por WhatsApp?</h3>
+    <p>
+      Sí. Google lo contempla de forma explícita junto al correo y a las publicaciones en redes: puedes
+      enviar solicitudes de reseñas por mensaje de WhatsApp siempre que no vayan acompañadas de incentivo ni
+      de petición de texto o estrella concreta.
+    </p>
+    <h3>¿Cuántas reseñas necesito para aparecer primero?</h3>
+    <p>
+      No hay un número que garantice posiciones. Compara con los tres negocios que te preceden en el pack de
+      mapas: número de reseñas, frecuencia de las últimas y porcentaje de respuestas. Ahí está tu referencia
+      real de mercado, no una cifra universal.
+    </p>
+
+    <h2>Checklist de 10 puntos</h2>
+    <ol>
+      <li>Perfil de Empresa verificado, con categoría principal correcta y datos NAP idénticos a los de la web.</li>
+      <li>Enlace de reseña y QR generados desde “Consigue más reseñas”.</li>
+      <li>Plantilla de WhatsApp lista, sin incentivos ni petición de estrella.</li>
+      <li>Un solo seguimiento a las 48 horas, nunca más.</li>
+      <li>Registro de quién pidió reseña y por qué canal.</li>
+      <li>Respuesta a todas las reseñas dentro de 48 horas.</li>
+      <li>Tres respuestas modelo escritas: positiva, negativa leve e insulto.</li>
+      <li>Denuncia lista para reseñas con datos personales, anuncios o patrón de spam.</li>
+      <li>Revisión mensual de media, distribución y frescura de reseñas.</li>
+      <li>Revisión trimestral con tu web y tu ficha: si algo se repite en las quejas, corrige el servicio.</li>
+    </ol>
 
     <div class="guide-cta">
       <p><strong>Una web profesional hace más creíble cada reseña.</strong></p>

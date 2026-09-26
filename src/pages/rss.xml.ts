@@ -1,49 +1,13 @@
 import { datesFor } from '../data/content-dates';
+import { siteIndex } from '../data/site-index';
 
 const SITE = 'https://www.presentto.online';
 
-const items = [
-  {
-    title: 'Guía de SEO local para negocios (2026)',
-    path: '/guias/seo-local/',
-    desc: 'Pack local, Google Maps, reseñas y checklist para negocios en tu ciudad.',
-  },
-  {
-    title: 'Qué es el SEO local y cómo funciona',
-    path: '/guias/seo-local/que-es-seo-local/',
-    desc: 'Definición, pack de Google, factores de ranking y ejemplos locales.',
-  },
-  {
-    title: 'Optimizar Google Business Profile',
-    path: '/guias/seo-local/google-business-profile/',
-    desc: 'Categorías, servicios, fotos, horarios y coherencia NAP con tu web.',
-  },
-  {
-    title: 'Aparecer en Google Maps para tu negocio',
-    path: '/guias/seo-local/aparecer-en-google-maps/',
-    desc: 'Ficha verificada, categorías, reseñas y schema local.',
-  },
-  {
-    title: 'Reseñas Google: cómo pedirlas y responder',
-    path: '/guias/seo-local/resenas-google/',
-    desc: 'Plantillas, reseñas negativas y errores que penalizan tu reputación.',
-  },
-  {
-    title: 'SEO local vs Google Ads para negocios',
-    path: '/guias/seo-local/seo-vs-anuncios-google/',
-    desc: 'Coste, velocidad y cuándo usar cada canal local.',
-  },
-  {
-    title: 'Precio de página web en Colombia 2026',
-    path: '/guias/cuanto-cuesta-pagina-web-colombia/',
-    desc: 'Landing, corporativo y e-commerce: tabla de costes 2026.',
-  },
-  {
-    title: 'Web administrada vs agencia vs DIY',
-    path: '/comparativas/web-administrada-vs-agencia/',
-    desc: 'Costes reales en COP, control, tiempos y a quién conviene cada opción.',
-  },
-];
+const items = siteIndex.map((e) => ({
+  title: e.rssTitle ?? e.title,
+  path: e.href,
+  desc: e.desc,
+}));
 
 export function GET() {
   const escape = (s: string) =>

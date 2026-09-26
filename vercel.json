@@ -6,123 +6,521 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
-        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://formspree.io https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://formspree.io https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+        }
       ]
     },
     {
       "source": "/_astro/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     },
     {
       "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
     },
     {
       "source": "/index.html",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/comparativas/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/comparativas/web-administrada-vs-agencia/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/contacto/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/cookies/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/facatativa/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/funza/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/guias/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/guias/cuanto-cuesta-pagina-web-colombia/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/guias/seo-local/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/guias/seo-local/aparecer-en-google-maps/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/guias/seo-local/google-business-profile/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/guias/seo-local/que-es-seo-local/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/guias/seo-local/resenas-google/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/guias/seo-local/seo-vs-anuncios-google/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/madrid/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/mosquera/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/nosotros/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/portfolio/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/precios/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/preguntas/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/privacidad/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/servicios/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/sitios/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/terminos/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     }
   ],
   "redirects": [
-    { "source": "/servicios.html", "destination": "/servicios/", "permanent": true },
-    { "source": "/portfolio.html", "destination": "/portfolio/", "permanent": true },
-    { "source": "/contacto.html", "destination": "/contacto/", "permanent": true },
-    { "source": "/nosotros.html", "destination": "/nosotros/", "permanent": true },
-    { "source": "/preguntas.html", "destination": "/preguntas/", "permanent": true },
-    { "source": "/privacidad.html", "destination": "/privacidad/", "permanent": true },
-    { "source": "/terminos.html", "destination": "/terminos/", "permanent": true },
-    { "source": "/cookies.html", "destination": "/cookies/", "permanent": true },
-    { "source": "/mapa.html", "destination": "/sitios/", "permanent": true },
-    { "source": "/funza.html", "destination": "/funza/", "permanent": true },
-    { "source": "/mosquera.html", "destination": "/mosquera/", "permanent": true },
-    { "source": "/madrid.html", "destination": "/madrid/", "permanent": true },
-    { "source": "/facatativa.html", "destination": "/facatativa/", "permanent": true },
-    { "source": "/demos.html", "destination": "/portfolio/", "permanent": true },
     {
-      "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "servicios.html" }],
+      "source": "/servicios.html",
       "destination": "/servicios/",
       "permanent": true
     },
     {
-      "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "portfolio.html" }],
+      "source": "/portfolio.html",
+      "destination": "/portfolio/",
+      "permanent": true
+    },
+    {
+      "source": "/contacto.html",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/nosotros.html",
+      "destination": "/nosotros/",
+      "permanent": true
+    },
+    {
+      "source": "/preguntas.html",
+      "destination": "/preguntas/",
+      "permanent": true
+    },
+    {
+      "source": "/privacidad.html",
+      "destination": "/privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/terminos.html",
+      "destination": "/terminos/",
+      "permanent": true
+    },
+    {
+      "source": "/cookies.html",
+      "destination": "/cookies/",
+      "permanent": true
+    },
+    {
+      "source": "/mapa.html",
+      "destination": "/sitios/",
+      "permanent": true
+    },
+    {
+      "source": "/funza.html",
+      "destination": "/funza/",
+      "permanent": true
+    },
+    {
+      "source": "/mosquera.html",
+      "destination": "/mosquera/",
+      "permanent": true
+    },
+    {
+      "source": "/madrid.html",
+      "destination": "/madrid/",
+      "permanent": true
+    },
+    {
+      "source": "/facatativa.html",
+      "destination": "/facatativa/",
+      "permanent": true
+    },
+    {
+      "source": "/demos.html",
       "destination": "/portfolio/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "contacto.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "servicios.html"
+        }
+      ],
+      "destination": "/servicios/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "portfolio.html"
+        }
+      ],
+      "destination": "/portfolio/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "contacto.html"
+        }
+      ],
       "destination": "/contacto/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "nosotros.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "nosotros.html"
+        }
+      ],
       "destination": "/nosotros/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "preguntas.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "preguntas.html"
+        }
+      ],
       "destination": "/preguntas/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "privacidad.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "privacidad.html"
+        }
+      ],
       "destination": "/privacidad/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "terminos.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "terminos.html"
+        }
+      ],
       "destination": "/terminos/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "cookies.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "cookies.html"
+        }
+      ],
       "destination": "/cookies/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "mapa.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "mapa.html"
+        }
+      ],
       "destination": "/sitios/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "funza.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "funza.html"
+        }
+      ],
       "destination": "/funza/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "mosquera.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "mosquera.html"
+        }
+      ],
       "destination": "/mosquera/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "madrid.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "madrid.html"
+        }
+      ],
       "destination": "/madrid/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "facatativa.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "facatativa.html"
+        }
+      ],
       "destination": "/facatativa/",
       "permanent": true
     },
     {
       "source": "/",
-      "has": [{ "type": "query", "key": "page", "value": "demos.html" }],
+      "has": [
+        {
+          "type": "query",
+          "key": "page",
+          "value": "demos.html"
+        }
+      ],
       "destination": "/portfolio/",
       "permanent": true
     }

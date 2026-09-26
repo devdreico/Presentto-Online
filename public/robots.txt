@@ -1,14 +1,10 @@
 User-agent: *
 Allow: /
 
-# Bloquear demos/plantillas de clientes (contenido thin/duplicado)
-Disallow: /Templates%20-%20Sitios%20de%20Clientes/
-Disallow: /demos-templates/
+# URLs legadas con query de la antigua SPA (no indexar)
 Disallow: /*?page=
 Disallow: /*?utm_
 
 Host: www.presentto.online
 # Sitemap principal (urlset completo con todas las URLs canónicas)
 Sitemap: https://www.presentto.online/sitemap.xml
-# Índice del sitemap (compatibilidad)
-Sitemap: https://www.presentto.online/sitemap-index.xml

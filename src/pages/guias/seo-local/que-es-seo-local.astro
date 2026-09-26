@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { authorRef } from '../../../components/schemas';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AuthorBox from '../../../components/AuthorBox.astro';
 import { datesFor } from '../../../data/content-dates';
@@ -10,6 +11,12 @@ const crumbs = [
       { label: 'Qué es el SEO local' },
     ];
 const dates = datesFor('/guias/seo-local/que-es-seo-local/');
+const fechaLarga = new Date(dates.modified).toLocaleDateString('es-CO', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
 
 const title = 'Qué es el SEO local y cómo funciona';
 const description =
@@ -28,7 +35,7 @@ const articleSchema = {
     name: 'Posicionamiento local en buscadores',
     sameAs: 'https://es.wikipedia.org/wiki/Posicionamiento_en_motores_de_b%C3%BAsqueda',
   },
-  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://www.presentto.online/nosotros/' },
+  author: authorRef,
   publisher: { '@id': 'https://www.presentto.online/#organization' },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -54,7 +61,7 @@ const articleSchema = {
     <p class="eyebrow">SEO LOCAL · FUNDAMENTOS</p>
     <h1>¿Qué es el SEO local?</h1>
     <p class="lead">Definición operativa con ejemplos, no un glosario vacío.</p>
-    <p class="guide-meta">Serie: Guía de SEO local · Presentto Online · septiembre 2026</p>
+    <p class="guide-meta">Actualizado: {fechaLarga} · Presentto Online</p>
   </section>
 
   <section class="section wrap guide-layout">
@@ -64,29 +71,211 @@ const articleSchema = {
       geográfica — “café en Mosquera”, “mecánico cerca de mí” — tanto en los resultados orgánicos como en el
       pack de mapas de Google.
     </p>
+    <p>
+      Detrás de esa definición hay una idea simple: cuando alguien escribe “peluquería en Funza”, Google no
+      busca la mejor web del mundo, busca el mejor negocio para esa persona y para ese lugar. Por eso el SEO
+      local no reemplaza al SEO técnico, lo complementa. Necesitas una página rápida e indexable, una ficha
+      de Google Business Profile completa y señales externas que demuestren que tu negocio es real y está
+      activo. Si falta uno de los tres frentes, el trabajo en los otros dos rara vez alcanza.
+    </p>
+    <p>
+      También conviene separar la intención de compra de la simple curiosidad. Una búsqueda local casi siempre
+      termina en acción: llamada, mensaje, solicitud de ruta o visita. Eso cambia el objetivo. No se trata de
+      traer el mayor tráfico posible, sino de aparecer ante las pocas personas que están a minutos de comprar
+      en tu zona. Esta página es la pieza de fundamentos de
+      <a href="/guias/seo-local/">la guía completa de SEO local</a>, donde está el plan de ejecución paso a
+      paso.
+    </p>
 
-    <h2>Ejemplos de búsquedas locales</h2>
+    <h2>Cómo funciona el algoritmo local</h2>
+    <p class="snippet">
+      Google documenta tres factores para ordenar los resultados locales: relevancia, distancia y
+      prominencia. Ninguno funciona solo. El ranking es la combinación de los tres, recalculada para cada
+      búsqueda y para cada persona que busca.
+    </p>
+
+    <h3>Relevancia: qué tan bien coincides con lo que se pide</h3>
+    <p>
+      La relevancia mide cuánto coinciden tu ficha y tu página con la consulta. Si buscan “ortodoncista en
+      Madrid” y tu ficha tiene categoría de odontología, servicios de ortodoncia y una página que habla de
+      tratamientos dentales, coinciden. Si tu categoría es genérica y en ninguna parte aparece la palabra
+      ortodoncia, no. Google revisa la categoría principal, las categorías secundarias, los servicios
+      declarados, el nombre del negocio, el texto de tu web y hasta el contenido de las reseñas. También
+      lee datos estructurados del tipo
+      <a href="https://developers.google.com/search/docs/appearance/structured-data/local-business" target="_blank" rel="noopener">LocalBusiness</a>
+      para confirmar horarios, zona y tipo de negocio.
+    </p>
+
+    <h3>Proximidad: qué tan cerca estás</h3>
+    <p>
+      La proximidad es la distancia entre quien busca y tu ubicación. Es el factor que menos controlas: no se
+      compra y no se mejora escribiendo más texto. Google la calcula con la ubicación que conoce del usuario
+      (GPS, red o ciudad declarada). Si la persona no escribe ciudad, la distancia pesa todavía más. Por eso
+      un negocio pequeño bien ubicado puede superar a otro mejor optimizado. Para negocios que van a casa del
+      cliente, la respuesta no es inventar una dirección: es declarar zonas de servicio reales y compensar la
+      distancia con prominencia.
+    </p>
+
+    <h3>Prominencia: cuánto hablan de ti</h3>
+    <p>
+      La prominencia es cuán conocido es tu negocio dentro y fuera de Google. Incluye cantidad y calidad de
+      reseñas, velocidad de respuesta, menciones en directorios y prensa local, enlaces desde otros sitios y
+      tu desempeño en los resultados orgánicos. También cuenta la marca en el mundo real: si en tu municipio
+      hablan de ti, Google lo refleja. A diferencia de la proximidad, la prominencia sí se acumula con
+      trabajo constante, y es donde un mes de disciplina se nota en el ranking.
+    </p>
+    <p>
+      Google lo dice sin rodeos: no existe forma de solicitar ni pagar por una mejor posición local. Todo lo
+      demás depende de información completa y de señales reales, según la
+      <a href="https://support.google.com/business/answer/7091" target="_blank" rel="noopener">guía oficial de
+      factores de ranking local</a>.
+    </p>
+
+    <h2>Pack local vs resultados orgánicos</h2>
+    <p class="snippet">
+      El pack local (o mapa pack) es el bloque de tres fichas con mapa que Google muestra arriba en búsquedas
+      con intención geográfica. Los resultados orgánicos son los enlaces azules de siempre. Son dos
+      superficies distintas, con controles distintos.
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Criterio</th><th>Pack local (Maps)</th><th>Resultados orgánicos</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dónde aparece</td><td>Bloque con mapa, arriba de la página</td><td>Debajo del pack y en búsquedas sin mapa</td></tr>
+        <tr><td>Formato</td><td>3 fichas con botón de llamar, ruta o sitio</td><td>Enlaces con título y descripción</td></tr>
+        <tr><td>Señales más fuertes</td><td>Categoría, distancia, reseñas, ficha completa</td><td>Contenido, enlaces, autoridad de la página</td></tr>
+        <tr><td>Qué controlas directo</td><td>Google Business Profile</td><td>Tu web</td></tr>
+        <tr><td>Dónde se mide</td><td>Pestaña de rendimiento del perfil</td><td>Google Search Console</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Las dos se refuerzan. Una web con contenido municipal fuerte sostiene la relevancia de tu ficha, y una
+      ficha activa con reseñas mejora la confianza de Google en tu entidad. Trabajar solo el pack deja de
+      lado el tráfico que sigue llegando por búsquedas de marca y de cola larga.
+    </p>
+
+    <h2>Ejemplos reales de búsquedas por rubro</h2>
+    <p>
+      Cada rubro genera un patrón de búsqueda distinto. Estos ejemplos ayudan a entender qué pieza del SEO
+      local pesa más en cada caso:
+    </p>
     <ul>
-      <li>“peluquería Funza” → pack local + resultados orgánicos con geolocalización.</li>
-      <li>“página web para mi negocio Sabana Occidental” → intención comercial + geo.</li>
-      <li>“restaurante abierto ahora Facatativá” → intentos + horarios de Google Business.</li>
-      <li>“dentista cerca de mí” → IP y GPS del usuario sin ciudad explícita.</li>
+      <li><strong>“dentista cerca de mí”</strong> → manda la proximidad; no hay ciudad escrita, así que Google usa la ubicación del usuario.</li>
+      <li><strong>“restaurante abierto ahora Facatativá”</strong> → pesan los horarios especiales y el estado de la ficha ese día.</li>
+      <li><strong>“taller mecánico Mosquera”</strong> → pesa la categoría exacta y las reseñas con palabras clave dentro del texto.</li>
+      <li><strong>“abogado laboralista Funza”</strong> → pesa el contenido de la web: la ficha por sí sola no basta para un servicio especializado.</li>
+      <li><strong>“peluquería de mascotas Madrid Cundinamarca”</strong> → pesa la coherencia de NAP con directorios y la web.</li>
+      <li><strong>“página web para mi negocio Sabana Occidental”</strong> → intención comercial con zona: aquí compite el SEO orgánico, no tanto el pack.</li>
+      <li><strong>“clínica veterinaria con urgencias”</strong> → pesan atributos y servicios declarados más la respuesta rápida a reseñas.</li>
+    </ul>
+    <p>
+      La regla práctica es escribir la página como respondería el negocio: qué haces, para quién y en qué
+      zona. Si tu web responde eso con claridad, la relevancia se resuelve sola.
+    </p>
+
+    <h2>Cómo se mide el SEO local</h2>
+    <p>
+      Hay dos tableros y conviene no confundirlos. En <a href="https://search.google.com/search-console/about"
+      target="_blank" rel="noopener">Google Search Console</a> ves el rendimiento de tu web: impresiones,
+      clics, posición media y las consultas exactas que traen visitas. Filtra por páginas de servicios y por
+      municipio para saber qué zona te está dando resultados. Si aparecen consultas con “cerca de mí” o con
+      nombres de tu comarca, el SEO local está funcionando aunque el volumen sea bajo.
+    </p>
+    <p>
+      En el panel de Google Business Profile ves el rendimiento de la ficha: búsquedas en las que apareciste,
+      interacciones como llamadas, mensajes, solicitudes de ruta y clics al sitio, más el detalle de fotos y
+      de la procedencia de las consultas. Ese panel mide acciones, no posicionamiento. Un ranking estable con
+      pocas llamadas indica un problema de conversión o de reseñas, no de optimización técnica.
+    </p>
+    <p>
+      La medición útil combina ambas: Search Console te dice qué páginas atraen gente y el panel del perfil
+      te dice qué hicieron después. Revisadas juntas cada mes, revelan si el esfuerzo se traduce en contactos
+      reales.
+    </p>
+
+    <h2>Errores frecuentes</h2>
+    <ul>
+      <li><strong>Ficha incompleta.</strong> Solo una categoría, sin servicios, sin fotos y sin horarios especiales. Es la causa más común de ausencia en el pack.</li>
+      <li><strong>Varias fichas para el mismo negocio.</strong> Duplicados compiten entre sí y diluyen reseñas.</li>
+      <li><strong>Palabras clave en el nombre.</strong> “Plomería Urgente 24 Horas Barato” no es el nombre real y puede suspender la ficha.</li>
+      <li><strong>NAP inconsistente.</strong> “Cra.” en un sitio y “Carrera” en otro; el teléfono cambia de formato entre páginas.</li>
+      <li><strong>Páginas de ciudad copiadas.</strong> Quince municipios con el mismo texto y solo cambia el H1 se considera contenido puerta.</li>
+      <li><strong>Reseñas sin respuesta.</strong> Contar con reseñas sin contestarlas desperdicia el factor de prominencia más visible.</li>
+      <li><strong>Medir solo el ranking.</strong> Observar posiciones sin mirar llamadas y rutas lleva a decisiones equivocadas.</li>
     </ul>
 
-    <h2>Los 3 pilares del SEO local</h2>
+    <h2>Preguntas que aparecen siempre</h2>
+
+    <h3>¿El SEO local es lo mismo que aparecer en Google Maps?</h3>
+    <p>
+      No, aunque se solapan. Aparecer en Maps depende sobre todo de tu ficha de Google Business Profile
+      verificada y de la proximidad. El SEO local también incluye tu web: páginas de servicio, contenido
+      municipal, velocidad y datos estructurados. La ficha te da presencia en el mapa; la web te da el
+      control del mensaje y la conversión.
+    </p>
+
+    <h3>¿Cuánto tarda en verse?</h3>
+    <p>
+      Depende de la competencia del municipio y del punto de partida. Una ficha nueva y bien configurada
+      puede mostrar movimientos en pocas semanas en búsquedas de cola larga. Desplazar a competidores
+      establecidos en términos cortos y disputados toma varios meses de trabajo continuo en reseñas y
+      contenido. Desconfía de quien promete la posición número uno en días: el proceso se mide, no se
+      improvisa.
+    </p>
+
+    <h3>¿Necesito web si ya tengo la ficha de Google?</h3>
+    <p>
+      Sí. La ficha depende de Google: sus reglas cambian, su formato es limitado y no controlas el diseño ni
+      las llamadas a la acción. La web es el activo propio. Además, Google cruza la información de ambas
+      superficies: si coinciden, la confianza aumenta; si discrepan, el ranking se estanca. Puedes ver cómo
+      planteamos esa base en <a href="/guias/seo-local/google-business-profile/">la guía de Google Business
+      Profile</a>.
+    </p>
+
+    <h3>¿Sirve para negocios sin local visible?</h3>
+    <p>
+      Sí, con un matiz. Los negocios de servicio (plomeros, fotógrafos, asesores) pueden ocultar la dirección
+      y declarar zonas de servicio. En esos casos la proximidad deja de jugar a favor y la prominencia pesa
+      más: reseñas, menciones y una web con páginas por municipio. Si trabajas varios municipios de la
+      Sabana, cada uno necesita contenido propio, no una lista de ciudades repetida.
+    </p>
+
+    <h3>¿Las reseñas mueven el ranking local?</h3>
+    <p>
+      Sí, aunque no de forma directa ni inmediata. Las reseñas alimentan la prominencia y aportan palabras
+      que Google interpreta como relevancia. Cuentan la cantidad, la calificación, la frescura y el texto.
+      Por eso responder importa tanto como pedirlas. Para un sistema de peticiones que no infrinja las
+      políticas de Google, usa <a href="/guias/seo-local/resenas-google/">la guía de reseñas</a>.
+    </p>
+
+    <h2>Checklist final de 10 puntos</h2>
     <ol>
-      <li><strong>Relevancia</strong>: el contenido de tu web debe describir con precisión lo que ofreces.</li>
-      <li><strong>Proximidad</strong>: tan cerca como sea posible del punto de búsqueda (o de la zona que sirves).</li>
-      <li><strong>Prominencia</strong>: reseñas, menciones, enlaces y señales de marca que Google ya conoce.</li>
+      <li>Google Business Profile verificado y con una sola ficha por ubicación.</li>
+      <li>Categoría principal exacta y pocas secundarias que describan el negocio real.</li>
+      <li>Descripción con ciudad, servicio y diferencial, sin promesas ni enlaces.</li>
+      <li>Servicios, horarios y horarios especiales completos y al día.</li>
+      <li>Fotos reales del local, el equipo y los trabajos recientes.</li>
+      <li>NAP idéntico en web, ficha y directorios, con formato consistente.</li>
+      <li>Página de servicio con la ciudad en título, H1 y contenido natural.</li>
+      <li>Datos estructurados LocalBusiness validados en la web.</li>
+      <li>Reseñas nuevas con respuesta del negocio en menos de una semana.</li>
+      <li>Revisión mensual de Search Console y del panel del perfil.</li>
     </ol>
 
-    <h2>Qué NO es SEO local</h2>
-    <ul>
-      <li>Cambiar el nombre de la ciudad 40 veces en una página (keyword stuffing).</li>
-      <li>Copiar la misma plantilla para 15 municipios con solo reemplazar el H1.</li>
-      <li>Comprar reseñas o enlaces de baja calidad (riesgo de penalización).</li>
-      <li>Depender solo de Instagram: no controlas el canal ni la indexación.</li>
-    </ul>
+    <h2>Cuándo contratar ayuda</h2>
+    <p>
+      Tiene sentido pedir apoyo externo cuando no hay tiempo para mantener el ritmo. El SEO local necesita
+      publicación constante, respuesta a reseñas y revisión de datos; el mes que se abandona, la competencia
+      avanza. También conviene cuando hay problemas que ya no son de contenido: fichas suspendidas, perfiles
+      duplicados, mudanza de local o varias sucursales con datos mezclados.
+    </p>
+    <p>
+      La tercera señal es la falta de criterio: si no sabes qué mirar en Search Console o qué cambiar cuando
+      bajan las llamadas, más esfuerzo no resuelve. Revisa <a href="/servicios/">qué incluye el servicio de
+      web administrada</a> y <a href="/precios/">los planes con precio cerrado</a> para decidir si lo tuyo es
+      seguir solo o delegar el mantenimiento.
+    </p>
 
     <div class="guide-cta">
       <p><strong>Siguiente paso en la guía:</strong> configura tu ficha de negocio.</p>

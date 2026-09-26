@@ -1,7 +1,11 @@
 // Organization + WebSite schema shared by all pages (stable @id anchors)
 import { plans } from '../data/plans';
+import { business } from '../data/business';
 
 const site = 'https://www.presentto.online/';
+
+// Enlaces verificables (redes + ficha de GBP si existe)
+const sameAs = business.gbpUrl ? [...business.sameAs, business.gbpUrl] : business.sameAs;
 
 export interface Crumb {
   label: string;
@@ -71,35 +75,31 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@id': `${site}#organization`,
   '@type': 'Organization',
-  name: 'Presentto Online',
+  name: business.name,
   url: site,
   logo: {
     '@type': 'ImageObject',
     url: `${site}assets/img/Presentto-Icono-Fondo-Transparente.webp`,
   },
-  email: 'inbox@presentto.online',
-  telephone: '+57-323-648-7336',
-  slogan: 'Web administrada con SEO local y posicionamiento en Google desde $40.000 COP/mes — demo gratis',
+  email: business.email,
+  telephone: business.telephone,
+  slogan: business.slogan,
   knowsLanguage: 'es-CO',
+  ...(business.address ? { address: business.address } : {}),
+  ...(business.geo ? { location: { '@type': 'GeoCoordinates', ...business.geo } } : {}),
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',
-    email: 'inbox@presentto.online',
-    telephone: '+57-323-648-7336',
+    email: business.email,
+    telephone: business.telephone,
     areaServed: 'CO',
     availableLanguage: 'Spanish',
   },
-  areaServed: [
-    { '@type': 'Place', name: 'Funza, Cundinamarca, Colombia' },
-    { '@type': 'Place', name: 'Mosquera, Cundinamarca, Colombia' },
-    { '@type': 'Place', name: 'Madrid, Cundinamarca, Colombia' },
-    { '@type': 'Place', name: 'Facatativá, Cundinamarca, Colombia' },
-    { '@type': 'Place', name: 'Sabana Occidental, Colombia' },
-  ],
-  sameAs: ['https://wa.me/573236487336'],
+  areaServed: business.areaServed,
+  sameAs,
   parentOrganization: {
     '@type': 'Organization',
-    name: 'Soverath Holding S.A.S.',
+    name: business.parentOrganization,
   },
 };
 
@@ -118,21 +118,19 @@ export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   '@id': `${site}#localbusiness`,
-  name: 'Presentto Online',
+  name: business.name,
   url: site,
   image: `${site}assets/img/og-presentto.webp`,
-  email: 'inbox@presentto.online',
-  telephone: '+57-323-648-7336',
-  priceRange: '$40000-$350000 COP',
+  email: business.email,
+  telephone: business.telephone,
+  priceRange: business.priceRange,
   currencyAccepted: 'COP',
   paymentAccepted: 'Mercado Pago, transferencia',
-  areaServed: [
-    { '@type': 'Place', name: 'Funza, Cundinamarca, Colombia' },
-    { '@type': 'Place', name: 'Mosquera, Cundinamarca, Colombia' },
-    { '@type': 'Place', name: 'Madrid, Cundinamarca, Colombia' },
-    { '@type': 'Place', name: 'Facatativá, Cundinamarca, Colombia' },
-    { '@type': 'Place', name: 'Sabana Occidental, Colombia' },
-  ],
+  ...(business.address ? { address: business.address } : {}),
+  ...(business.geo ? { geo: { '@type': 'GeoCoordinates', ...business.geo } } : {}),
+  ...(business.gbpUrl ? { hasMap: business.gbpUrl } : {}),
+  sameAs,
+  areaServed: business.areaServed,
   parentOrganization: { '@id': `${site}#organization` },
   makesOffer: [
     {
@@ -173,3 +171,33 @@ export const localBusinessSchema = {
     },
   ],
 };
+
+// Person (E-E-A-T) — se activa al configurar `business.editor` en src/data/business.ts.
+// Mientras no haya persona real configurada, los artículos firman como Organization.
+export const authorRef = business.editor
+  ? {
+      '@type': 'Person',
+      '@id': `${site}#editor`,
+      name: business.editor.name,
+      jobTitle: business.editor.jobTitle,
+      url: business.editor.url ?? `${site}nosotros/`,
+      worksFor: { '@id': `${site}#organization` },
+    }
+  : {
+      '@type': 'Organization',
+      name: business.name,
+      url: `${site}nosotros/`,
+    };
+
+export function personSchema() {
+  if (!business.editor) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${site}#editor`,
+    name: business.editor.name,
+    jobTitle: business.editor.jobTitle,
+    worksFor: { '@id': `${site}#organization` },
+    ...(business.editor.url ? { url: business.editor.url } : {}),
+  };
+}

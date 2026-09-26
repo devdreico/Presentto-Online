@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { authorRef } from '../../components/schemas';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
 import { datesFor } from '../../data/content-dates';
@@ -23,7 +24,7 @@ const articleSchema = {
   dateModified: dates.modified,
   inLanguage: 'es-CO',
   about: { '@type': 'Thing', name: 'Desarrollo de páginas web' },
-  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://www.presentto.online/nosotros/' },
+  author: authorRef,
   publisher: { '@id': 'https://www.presentto.online/#organization' },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -49,7 +50,7 @@ const articleSchema = {
     <p class="eyebrow">COMPARATIVA · DECISIÓN DE COMPRA</p>
     <h1>Web administrada vs agencia tradicional vs hacerlo tú mismo</h1>
     <p class="lead">Tres caminos para tener web en Colombia — costes, riesgos y encaje real.</p>
-    <p class="guide-meta">Actualizado: septiembre 2026 · Presentto Online</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
   </section>
 
   <section class="section wrap guide-layout">
@@ -137,6 +138,81 @@ const articleSchema = {
       administrada: reducimos costes de desarrollo a medida y de soporte, y entregamos una presencia completa
       (web, dominio, correo, SEO local) a precio de entrada para la Sabana Occidental.
     </p>
+    <p>
+      La contraparte de esa estandarización es honesta: no hacemos portales a medida ni integraciones raras.
+      Google documenta que el SEO básico lo puede hacer cualquiera con su
+      <a
+        href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es"
+        target="_blank"
+        rel="noopener">guía de inicio de SEO</a
+      >, pero esa misma guía ocupa horas de trabajo continuo: la diferencia entre las tres opciones no es solo
+      precio, es quién paga esas horas.
+    </p>
+
+    <h2>Coste real del primer año (ejemplo cerrado)</h2>
+    <p class="snippet">
+      El precio de etiqueta engaña: lo que importa es lo que gastas en los primeros 12 meses, incluido tu
+      tiempo y el mantenimiento que nadie cotiza al principio.
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Concepto</th>
+          <th>Web administrada</th>
+          <th>Agencia tradicional</th>
+          <th>DIY (Wix/WordPress)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Creación (1ª vez)</td>
+          <td>$40.000 COP (plan 1 mes)</td>
+          <td>$800.000 – $6.000.000 COP</td>
+          <td>$0 – $120.000 COP (plantilla)</td>
+        </tr>
+        <tr>
+          <td>Alojamiento y dominio</td>
+          <td>Incluidos</td>
+          <td>Suele facturarse aparte</td>
+          <td>≈ $120.000 – $600.000 COP/año</td>
+        </tr>
+        <tr>
+          <td>Mantenimiento 12 meses</td>
+          <td>Incluido</td>
+          <td>$1.800.000 – $6.000.000 COP</td>
+          <td>Tu tiempo (2–6 h/mes)</td>
+        </tr>
+        <tr>
+          <td>Tu tiempo dedicado</td>
+          <td>Mínimo (apuebas y envías material)</td>
+          <td>Medio (reuniones y validaciones)</td>
+          <td>Alto (aprender, arreglar, actualizar)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="stack-note">
+      Rangos de referencia para Colombia basados en
+      <a
+        href="https://muselab.com.co/cuanto-cuesta-una-pagina-web-en-colombia-2025/"
+        target="_blank"
+        rel="noopener">estudios locales de precio de web</a
+      >
+      y en las
+      <a href="https://wordpress.com/pricing" target="_blank" rel="noopener">tarifas públicas de WordPress.com</a>.
+      No son una cotización: sirve para comparar órdenes de magnitud.
+    </p>
+
+    <h2>Qué preguntar antes de firmar con cualquiera</h2>
+    <ol>
+      <li>¿El dominio queda a nombre de quién y qué pasa si me voy?</li>
+      <li>¿Quién paga hosting y correo después del primer año?</li>
+      <li>¿El SEO local está incluido o se cotiza aparte?</li>
+      <li>¿Hay permanencia, cuota mensual automática o penalización por cancelar?</li>
+      <li>¿Quién actualiza el contenido: yo, un CMS, o ustedes?</li>
+      <li>¿Cómo se mide el resultado: Search Console, Analytics, informe mensual?</li>
+      <li>¿Qué pasa con mis fotos, textos y datos si termino el contrato?</li>
+      <li>¿Hay demo o prueba antes de pagar?</li>
+    </ol>
 
     <div class="guide-cta">
       <p><strong>¿Encaja contigo la opción administrada?</strong></p>

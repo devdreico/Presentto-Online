@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { comparisonIndex } from '../../data/site-index';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Comparativas' }];
 
 const title = 'Comparativas web y SEO | Presentto Online';
 const description =
-  'Compara web administrada, agencia tradicional y plantillas DIY con costes reales en COP.';
+  'Compara web administrada vs agencia tradicional vs plantillas DIY: costes reales en COP, tiempos de entrega, control y qué conviene según tu negocio.';
 
 const collectionSchema = {
   '@context': 'https://schema.org',
@@ -16,20 +17,12 @@ const collectionSchema = {
   isPartOf: { '@id': 'https://www.presentto.online/#website' },
   mainEntity: {
     '@type': 'ItemList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Web administrada vs agencia tradicional vs DIY',
-        url: 'https://www.presentto.online/comparativas/web-administrada-vs-agencia/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Precios de páginas web en Colombia 2026',
-        url: 'https://www.presentto.online/guias/cuanto-cuesta-pagina-web-colombia/',
-      },
-    ],
+    itemListElement: comparisonIndex.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.title,
+      url: `https://www.presentto.online${c.href}`,
+    })),
   },
 };
 ---
@@ -44,30 +37,162 @@ const collectionSchema = {
   </section>
 
   <section class="section wrap guide-layout">
+    <h2>Qué es una comparativa aquí</h2>
+    <p class="snippet">
+      Una comparativa enfrenta dos o tres formas de resolver el mismo problema usando los mismos criterios,
+      los mismos supuestos y precios que se pueden verificar. No es una ficha publicitaria con otra ropa.
+    </p>
+    <p>
+      En este sitio comparamos cómo se comporta una web administrada como la de Presentto frente a una
+      agencia tradicional y frente a una plantilla que montas tú. Cada fila sale de una pregunta real que hace
+      un comercio antes de firmar: cuánto cuesta el primer año, cuánto tarda en publicarse, quién mantiene la
+      web cuando algo se cae y qué pasa si quieres irte.
+    </p>
+    <p>
+      Cómo usar esta página: primero ubica tu caso en la
+      <a href="/guias/cuanto-cuesta-pagina-web-colombia/">guía de precios de una web en Colombia</a>; después
+      ordena los criterios de la lista siguiente por lo que más te importe (plazo, control o presupuesto); al
+      final abre la comparativa completa de esa opción. Si lo tuyo es un negocio local que necesita aparecer
+      ya y no quieres gestionar servidores, el resumen está en <a href="/precios/">los planes</a> y en la
+      comparativa <a href="/comparativas/web-administrada-vs-agencia/">web administrada vs agencia vs DIY</a>.
+    </p>
+
+    <h2>Criterios que usamos para comparar</h2>
+    <ol>
+      <li>
+        <strong>Coste total del primer año.</strong> No solo el precio de lanzamiento: dominio, hospedaje,
+        certificado, correos, mantenimiento, cambios y SEO sumados. Dos cotizaciones iguales pueden terminar
+        en cifras muy distintas.
+      </li>
+      <li>
+        <strong>Tiempo hasta publicar.</strong> Días o semanas entre la primera conversación y la web viva,
+        con HTTPS y lista para rastreo.
+      </li>
+      <li>
+        <strong>Quién mantiene la web.</strong> Actualizaciones, copias de seguridad, parches de seguridad y
+        arreglo cuando algo falla: lo hace el proveedor o lo haces tú.
+      </li>
+      <li>
+        <strong>Control del contenido.</strong> Quién edita textos, fotos y precios, con qué demora y con qué
+        costo cada cambio posterior.
+      </li>
+      <li>
+        <strong>Soporte.</strong> Canal de entrada (WhatsApp, correo, ticket), horario, idioma y qué ocurre
+        después de la entrega.
+      </li>
+      <li>
+        <strong>Riesgo de bloqueo.</strong> De quién es el dominio, si el contenido se puede exportar, si hay
+        permanencia y si existe penalización por cancelar.
+      </li>
+      <li>
+        <strong>Escalabilidad.</strong> Qué pasa cuando el negocio crece: más páginas, catálogo de productos,
+        campañas en otra ciudad o varias sedes.
+      </li>
+    </ol>
+
+    <h2>Tabla resumen de las tres opciones</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Criterio</th>
+          <th>Web administrada con Presentto</th>
+          <th>Agencia tradicional</th>
+          <th>Plantilla DIY (Wix/WordPress)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Inversión del primer año</td>
+          <td>Desde $40.000 COP/mes de prepago; un año cuesta $350.000 COP con IVA incluido</td>
+          <td>Típicamente desde $800.000 COP de entrada; un sitio corporativo llega a $3.000.000 COP según alcance</td>
+          <td>Típicamente $0 a $500.000 COP/año en herramientas; WordPress.com arranca en US$9/mes</td>
+        </tr>
+        <tr>
+          <td>Mantenimiento</td>
+          <td>Incluido dentro del alcance del plan: publicada y operando</td>
+          <td>Casi siempre aparte: típicamente $150.000 a $500.000 COP/mes</td>
+          <td>Lo haces tú: actualizaciones, copias, seguridad y plugins</td>
+        </tr>
+        <tr>
+          <td>Tiempo hasta publicar</td>
+          <td>Días, sobre tu demo aprobada</td>
+          <td>Semanas: entre 4 y 15 días con proveedores de proceso optimizado y hasta 45 días con freelancer o proyecto a medida</td>
+          <td>Tiempo indefinido: depende de tu aprendizaje y tu agenda</td>
+        </tr>
+        <tr>
+          <td>Control del contenido</td>
+          <td>Editamos por ti dentro del alcance; tú apruebas cada texto</td>
+          <td>Según contrato y horas facturadas por cambio</td>
+          <td>Total, junto con la carga técnica</td>
+        </tr>
+        <tr>
+          <td>Soporte</td>
+          <td>WhatsApp y correo en español, con el equipo que publicó</td>
+          <td>Según el plan de soporte contratado</td>
+          <td>Documentación y comunidad de la plataforma</td>
+        </tr>
+        <tr>
+          <td>Riesgo de bloqueo</td>
+          <td>Pago por plazo, sin permanencia ni renovación automática; dominio y correo incluidos</td>
+          <td>Depende del equipo y de qué código te entreguen</td>
+          <td>Las plataformas cerradas suelen atarte a una mensualidad de por vida</td>
+        </tr>
+        <tr>
+          <td>Escalabilidad</td>
+          <td>Alcance acordado por escrito; cambios puntuales a pedido</td>
+          <td>Alta, siempre que apruebes horas y presupuesto extra</td>
+          <td>Libre sobre el papel, limitada por tu tiempo</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="stack-note">
+      Rangos de mercado: nuestra <a href="/guias/cuanto-cuesta-pagina-web-colombia/">guía de precios 2026</a>,
+      datos publicados por <a href="https://muselab.com.co/cuanto-cuesta-una-pagina-web-en-colombia-2025/" target="_blank" rel="noopener">Muselab</a>
+      y planes públicos de <a href="https://wordpress.com/pricing" target="_blank" rel="noopener">WordPress.com</a>.
+      Los valores de Presentto están en <a href="/precios/">/precios/</a>. Son rangos típicos, no una tarifa oficial del mercado.
+    </p>
+
+    <h2>8 preguntas antes de contratar</h2>
+    <ol>
+      <li>¿Qué incluye exactamente el precio y qué queda expresamente fuera del alcance?</li>
+      <li>¿Quién es el dueño del dominio, dónde queda registrado y a nombre de quién?</li>
+      <li>¿Quién mantiene la web después de publicarla y cuánto cobra cada mantenimiento?</li>
+      <li>¿Por qué canal responde el soporte, en qué horario y con qué tiempo de respuesta?</li>
+      <li>¿Puedo exportar mis textos, fotos y datos si decido cambiar de proveedor?</li>
+      <li>¿Hay permanencia, penalización por cancelar o renovación automática?</li>
+      <li>¿Quién edita los contenidos después de la entrega y cuánto vale cada cambio?</li>
+      <li>¿Cómo se mide el resultado y quién me da acceso a Search Console y a las analíticas?</li>
+    </ol>
+
+    <p>
+      Una última nota sobre promesas: ninguna de estas tres opciones compra una posición en el primer
+      resultado de Google. La propia guía de Google recuerda que no existe un secreto para posicionar
+      automáticamente un sitio, y que aparecer en los resultados depende de que el sitio se pueda rastrear,
+      indexar y entender. Lo que sí se puede comparar es quién hace ese trabajo bien y a qué precio: lee la
+      <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es" target="_blank" rel="noopener">guía de SEO para principiantes de Google</a>
+      y decide con la misma información que usamos nosotros.
+    </p>
+
+    <p class="eyebrow">COMPARATIVAS PUBLICADAS</p>
     <ul class="collection-list">
-      <li>
-        <p class="eyebrow">COMPARATIVA</p>
-        <h2>
-          <a href="/comparativas/web-administrada-vs-agencia/">
-            Web administrada vs agencia tradicional vs DIY
-          </a>
-        </h2>
-        <p>
-          Costes, tiempos, control y a quién le conviene cada opción — con la Presenttación Digital desde $40.000 COP/mes
-          como referencia de entrada.
-        </p>
-      </li>
-      <li>
-        <p class="eyebrow">PRECIOS</p>
-        <h2>
-          <a href="/guias/cuanto-cuesta-pagina-web-colombia/">
-            Precios de páginas web en Colombia 2026
-          </a>
-        </h2>
-        <p>
-          Tabla de rangos por tipo de proyecto y qué suele quedar fuera de la cotización.
-        </p>
-      </li>
+      {comparisonIndex.map((c) => (
+        <li>
+          <p class="eyebrow">{c.tag.toUpperCase()}</p>
+          <h2>
+            <a href={c.href}>{c.title}</a>
+          </h2>
+          <p>{c.desc}</p>
+        </li>
+      ))}
     </ul>
+
+    <div class="guide-cta">
+      <p><strong>Siguiente paso</strong></p>
+      <a class="button primary" href="/guias/cuanto-cuesta-pagina-web-colombia/">Ver precios de mercado en Colombia <span>↗</span></a>
+      &nbsp;
+      <a class="button ghost" href="/precios/">Ver planes de Presentto <span>↗</span></a>
+      &nbsp;
+      <a class="button ghost" href="/contacto/">Escribirnos <span>↗</span></a>
+    </div>
   </section>
 </BaseLayout>

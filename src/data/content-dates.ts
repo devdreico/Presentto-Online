@@ -10,11 +10,11 @@ export interface ContentDates {
 
 export const contentDates: Record<string, ContentDates> = {
   '/guias/seo-local/': { published: '2026-09-23', modified: '2026-09-24' },
-  '/guias/seo-local/que-es-seo-local/': { published: '2026-09-23', modified: '2026-09-24' },
-  '/guias/seo-local/google-business-profile/': { published: '2026-09-23', modified: '2026-09-24' },
-  '/guias/seo-local/aparecer-en-google-maps/': { published: '2026-09-23', modified: '2026-09-24' },
-  '/guias/seo-local/resenas-google/': { published: '2026-09-23', modified: '2026-09-24' },
-  '/guias/seo-local/seo-vs-anuncios-google/': { published: '2026-09-23', modified: '2026-09-24' },
+  '/guias/seo-local/que-es-seo-local/': { published: '2026-09-23', modified: '2026-09-25' },
+  '/guias/seo-local/google-business-profile/': { published: '2026-09-23', modified: '2026-09-25' },
+  '/guias/seo-local/aparecer-en-google-maps/': { published: '2026-09-23', modified: '2026-09-25' },
+  '/guias/seo-local/resenas-google/': { published: '2026-09-23', modified: '2026-09-25' },
+  '/guias/seo-local/seo-vs-anuncios-google/': { published: '2026-09-23', modified: '2026-09-25' },
   '/guias/cuanto-cuesta-pagina-web-colombia/': { published: '2026-09-23', modified: '2026-09-24' },
   '/comparativas/web-administrada-vs-agencia/': { published: '2026-09-23', modified: '2026-09-24' },
 };

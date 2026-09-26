@@ -6,7 +6,7 @@ import PlansGrid from '../components/PlansGrid.astro';
 import { localBusinessSchema } from '../components/schemas';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Servicios' }];
 
-const title = 'Servicios de SEO local, posicionamiento web y diseño | Presentto';
+const title = 'Servicios de SEO local y posicionamiento web | Presentto';
 const description =
   'SEO on-page, SEO local, posicionamiento en Google y web administrada desde $40.000 COP/mes. Dominio, correo, schema y ficha de Google. Demo gratis.';
 
@@ -81,9 +81,17 @@ const faqs = [
     a: 'Sí, y es lo recomendado. Solicitas la demo web de tu negocio sin abono y sin compromiso; la ves, pides cambios y solo pagas cuando decides contratar el plan que prefieras.',
   },
 ];
+// FAQPage: solo las preguntas exclusivas de esta página (las compartidas con
+// /preguntas/ tienen el schema canónico ahí para no duplicar FAQPage en el sitio)
+const sharedWithFaqHub = new Set([
+  '¿Qué incluye la Presenttación Digital?',
+  '¿Qué incluye el dominio y correo profesional?',
+  '¿Puedo ver una demo antes de pagar?',
+]);
+const faqSchema = faqs.filter((f) => !sharedWithFaqHub.has(f.q));
 ---
 
-<BaseLayout title={title} description={description} path="/servicios/" breadcrumbs={crumbs} faqs={faqs} plansOffers={true} jsonld={[serviceSchema, localBusinessSchema, clientsSchema]}>
+<BaseLayout title={title} description={description} path="/servicios/" breadcrumbs={crumbs} faqs={faqSchema} plansOffers={true} jsonld={[serviceSchema, localBusinessSchema, clientsSchema]}>
   <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero">
@@ -188,6 +196,10 @@ const faqs = [
     <p class="eyebrow">DUDAS FRECUENTES DEL SERVICIO</p>
     <h2>Lo esencial, <em>sin letra pequeña.</em></h2>
     <FaqList faqs={faqs} />
+    <p class="stack-note">
+      ¿Otra duda? Ver <a href="/preguntas/">todas las preguntas frecuentes</a> o pídenos la
+      <a href="/contacto/">demo gratis</a>.
+    </p>
     <div class="guide-cta">
       <a
         class="button primary"

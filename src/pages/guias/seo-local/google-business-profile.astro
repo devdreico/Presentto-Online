@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { authorRef } from '../../../components/schemas';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AuthorBox from '../../../components/AuthorBox.astro';
 import { datesFor } from '../../../data/content-dates';
@@ -10,6 +11,12 @@ const crumbs = [
       { label: 'Google Business Profile' },
     ];
 const dates = datesFor('/guias/seo-local/google-business-profile/');
+const fechaLarga = new Date(dates.modified).toLocaleDateString('es-CO', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
 
 const title = 'Optimizar Google Business Profile';
 const description =
@@ -24,7 +31,7 @@ const articleSchema = {
   dateModified: dates.modified,
   inLanguage: 'es-CO',
   about: { '@type': 'Thing', name: 'Google Business Profile' },
-  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://www.presentto.online/nosotros/' },
+  author: authorRef,
   publisher: { '@id': 'https://www.presentto.online/#organization' },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -66,7 +73,7 @@ const howToSchema = {
     <p class="eyebrow">SEO LOCAL · GOOGLE BUSINESS</p>
     <h1>Google Business Profile: optimización paso a paso</h1>
     <p class="lead">La ficha que alimenta el pack de Maps — cómo configurarla bien desde el día uno.</p>
-    <p class="guide-meta">Serie: Guía de SEO local · Presentto Online · septiembre 2026</p>
+    <p class="guide-meta">Actualizado: {fechaLarga} · Presentto Online</p>
   </section>
 
   <section class="section wrap guide-layout">
@@ -75,19 +82,61 @@ const howToSchema = {
       Google Business Profile (antes Google My Business) es el panel gratuito donde defines nombre, categoría,
       dirección, horarios, fotos y reseñas de tu negocio. Es la fuente principal del pack local de Google Maps.
     </p>
+    <p>
+      Piensa en la ficha como la ficha técnica de tu empresa dentro de Google. No es una página que tú
+      diseñas, sino un conjunto de campos que Google lee para decidir qué mostrar y cuándo. Por eso el trabajo
+      aquí es de precisión: cada campo vacío o ambiguo es una señal que el algoritmo no recibe.
+    </p>
+    <p>
+      La ficha también es lo primero que ve alguien que busca desde el celular. Antes de entrar a tu web, la
+      persona lee el nombre, la calificación, las fotos, el horario y los botones de llamar o pedir ruta. Una
+      ficha completa convierte; una ficha a medias, aunque tengas buena web, hace que el clic se vaya al
+      competidor de al lado.
+    </p>
 
-    <h2>Pasos de optimización</h2>
+    <h2>Paso a paso de optimización</h2>
+    <p>
+      Sigue el orden. Cada paso alimenta al siguiente, y saltar uno deja huecos que después cuesta detectar.
+      Las reglas oficiales están en las
+      <a href="https://support.google.com/business/answer/3038177" target="_blank" rel="noopener">directrices
+      de Google para representar tu negocio</a>.
+    </p>
     <ol>
-      <li><strong>Verifica</strong> la ficha (postal, teléfono o video según el caso).</li>
-      <li><strong>Categoría principal</strong> exacta (ej. “Peluquería”, no “Servicios generales”).</li>
-      <li><strong>Secundarias</strong> solo si realmente ofreces esos servicios.</li>
-      <li><strong>Descripción</strong> con ciudad + servicio + diferencial, sin relleno.</li>
-      <li><strong>Servicios y precios</strong> alineados con los de tu web.</li>
-      <li><strong>Fotos reales</strong> del local, equipo y trabajos (actualiza cada mes).</li>
-      <li><strong>Horarios</strong> con festivos especiales actualizados.</li>
-      <li><strong>Preguntas y respuestas</strong>: publica las típicas tú mismo y responde siempre.</li>
-      <li><strong>Enlace a la web</strong> con URL canónica limpia (ej. <code>/servicios/</code>).</li>
+      <li><strong>Categoría principal.</strong> Elige la categoría que complete la frase “este negocio es un…”. Una peluquería es “Peluquería”, no “Servicios generales”. Debe describir el negocio completo, no una lista de todo lo que haces.</li>
+      <li><strong>Categorías secundarias.</strong> Añade solo las que aplican de verdad. Google recomienda usar la menor cantidad posible para describir el negocio central; puedes sumar hasta nueve adicionales, pero cada una innecesaria desenfoca.</li>
+      <li><strong>Descripción.</strong> Tienes hasta 750 caracteres. No se permiten enlaces ni código HTML, y conviene evitar las promociones como eje. Escribe qué ofreces, para quién, desde cuándo y qué te diferencia, con la ciudad de forma natural.</li>
+      <li><strong>Servicios.</strong> Carga la lista completa con nombre y precio si aplica. Debe coincidir con los servicios que vendes en tu web: si allí ofreces tres y aquí diez, o al revés, Google percibe inconsistencia.</li>
+      <li><strong>Productos.</strong> Sirve para mostrar catálogo con foto y precio. La disponibilidad del editor de productos depende del país y del tipo de negocio, así que revisa si tu perfil lo habilita antes de diseñar la estrategia sobre ese campo.</li>
+      <li><strong>Horarios y horarios especiales.</strong> Deja el horario regular completo y carga los festivos con “horarios especiales”. Un negocio que figura cerrado en Semana Santa pierde visitas que ya estaban en camino.</li>
+      <li><strong>Fotos y videos.</strong> Sube fachada, interior, equipo y trabajos recientes. Las fotos reales ayudan a reconocer el local; actualiza al menos una vez al mes para que el perfil no parezca abandonado.</li>
+      <li><strong>Atributos.</strong> Marca los datos verificables: parqueadero, Wi-Fi, accesible, acepta tarjetas, aire acondicionado. Los atributos subjetivos los llena Google con opiniones de usuarios; tú solo aportas los objetivos.</li>
+      <li><strong>Zona de servicio.</strong> Si vas al cliente y no quieres mostrar la dirección, oculta el domicilio y declara ciudades o códigos postales. Google sugiere que el área no supere unas dos horas de conducción desde tu base.</li>
+      <li><strong>Mensajes.</strong> Actívalos solo si alguien responde. Un chat sin respuesta genera frustración y empeora la percepción; si no puedes atenderlo, deja el botón de llamada como vía principal.</li>
+      <li><strong>Publicaciones y preguntas.</strong> Publica novedades con regularidad: obras, nuevos servicios, eventos, horarios de temporada. Contesta tú mismo las preguntas frecuentes que aparezcan en el perfil: cada una resuelta evita dudas a los siguientes visitantes.</li>
+      <li><strong>Enlace a la web y teléfono.</strong> Usa una URL limpia y estable, sin parámetros de campaña, y el mismo teléfono que aparece en tu sitio y en tus directorios.</li>
     </ol>
+    <p>
+      El criterio común es la coherencia. Lo que decláres aquí debe poder verificarse en tu web, en tu
+      letrero y en tus facturas. Si los cuatro lugares cuentan la misma historia, la ficha gana confianza.
+    </p>
+
+    <h2>Verificación: postal, video y llamada</h2>
+    <p class="snippet">
+      Sin verificar no administras la ficha ni respondes reseñas. Google decide los métodos disponibles según
+      el tipo de negocio, la región y la información pública; no se pueden cambiar a voluntad.
+    </p>
+    <p>
+      Los métodos más comunes son tres. La <strong>verificación por correo postal</strong> envía un código a
+      la dirección declarada: suele llegar en unos 14 días, caduca a los 30 y no debes editar nombre,
+      dirección ni categoría mientras esperas, porque el código deja de servir. La
+      <strong>verificación por video</strong> pide mostrar el local, el letrero, el personal y pruebas de
+      gestión; es la opción recomendada cuando está disponible. La verificación por <strong>llamada, SMS o
+      correo</strong> llega con un código que se ingresa en el perfil. Google indica que la revisión puede
+      tardar hasta cinco días hábiles, y que en algunos casos la verificación es instantánea si tu sitio ya
+      está verificado en Search Console. La guía completa está en
+      <a href="https://support.google.com/business/answer/7107242" target="_blank" rel="noopener">verificar
+      tu negocio en Google</a>.
+    </p>
 
     <h2>Coherencia NAP con tu web</h2>
     <p class="snippet">
@@ -95,9 +144,126 @@ const howToSchema = {
       variación (“Cra.” vs “Carrera”) diluye la confianza de Google en la entidad de tu negocio.
     </p>
     <p>
-      En Presentto incluimos los datos de contacto consistentes en el pie, la página de contacto y los datos
-      estructurados <code>Organization</code>/<code>Service</code>.
+      Escribe el NAP en un solo lugar del sitio — pie de página y página de contacto — y usa exactamente ese
+      texto en la ficha, en directorios, en redes y en facturas. Incluye el mismo orden de los elementos, el
+      mismo formato de teléfono y el mismo código postal. Si cambias de local, actualiza todo el mismo día y
+      vuelve a verificar la ficha: Google pide revalidación cuando la dirección cambia.
     </p>
+    <p>
+      En Presentto incluimos los datos de contacto consistentes en el pie, la página de contacto y los datos
+      estructurados <code>Organization</code>/<code>Service</code>. Esa repetición ordenada es lo que permite
+      que el motor cruce la información sin dudar.
+    </p>
+
+    <h2>Cómo publicar novedades</h2>
+    <p>
+      Las publicaciones del perfil son el canal editorial de tu ficha. Sirven para anunciar un servicio nuevo,
+      recordar horarios de temporada, mostrar un proyecto terminado o invitar a un evento. Publica con
+      frecuencia constante — una vez por semana es un ritmo sostenible — y con una sola idea por publicación.
+    </p>
+    <p>
+      Cada publicación necesita imagen, texto breve y una llamada a la acción clara. A diferencia de la
+      descripción del negocio, las publicaciones sí admiten enlaces, así que puedes dirigir a una página
+      concreta de tu sitio. Evita promesas de resultados, precios inventados y contenido genérico; Google
+      revisa el contenido publicado y puede rechazarlo. También evita automatizar mensajes idénticos: lo que
+      no aporta novedad real no aporta al usuario.
+    </p>
+
+    <h2>Métricas que importan en el panel</h2>
+    <p>
+      El panel de rendimiento del perfil mide acciones, no posiciones. Estas son las cinco filas que conviene
+      revisar cada mes, con la señal que interpretan:
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Métrica</th><th>Qué refleja</th><th>Si baja</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Búsquedas donde apareces</td><td>Alcance de tu ficha en Maps y Search</td><td>Revisa categoría, servicios y frescura del contenido</td></tr>
+        <tr><td>Llamadas</td><td>Intención inmediata de compra</td><td>Comprueba horarios, teléfono y reseñas</td></tr>
+        <tr><td>Mensajes</td><td>Consulta previa a la venta</td><td>Revisa tiempos de respuesta y si está activo</td></tr>
+        <tr><td>Solicitudes de ruta</td><td>Visita física al local</td><td>Verifica el pin del mapa y la dirección</td></tr>
+        <tr><td>Clics al sitio</td><td>Paso de la ficha a tu web</td><td>Mejora enlace, descripción y publicaciones</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Complementa con <a href="https://search.google.com/search-console/about" target="_blank" rel="noopener">Google
+      Search Console</a> para medir la web. Los datos de la ficha se editan desde
+      <a href="https://support.google.com/business/answer/3039617" target="_blank" rel="noopener">el panel de
+      edición del perfil</a> y conviene revisarlos en escritorio, donde hay más campos visibles.
+    </p>
+    <p>
+      El seguimiento no sirve de nada si no se convierte en acción semanal: responder reseñas pendientes,
+      subir una foto, publicar una novedad. Ese ciclo es justo lo que cubre
+      <a href="/servicios/">el servicio de web administrada</a> cuando el negocio no tiene tiempo propio,
+      y el detalle de cómo pedir y contestar valoraciones está en
+      <a href="/guias/seo-local/resenas-google/">la guía de reseñas de Google</a>.
+    </p>
+
+    <h2>Errores que bloquean la verificación</h2>
+    <ul>
+      <li><strong>Nombre con palabras clave.</strong> Añadir servicios o ciudades al nombre dispara revisión o suspensión.</li>
+      <li><strong>Dirección no válida.</strong> Casillas de correo, oficinas virtuales sin personal ni letrero no califican.</li>
+      <li><strong>Letrero ausente.</strong> Para verificar por video necesitas mostrar identidad del negocio en el lugar.</li>
+      <li><strong>Código vencido.</strong> Editar nombre, dirección o categoría durante la espera postal invalida el código.</li>
+      <li><strong>Código compartido.</strong> Google nunca pide el código; compartirlo con terceros bloquea el proceso.</li>
+      <li><strong>Perfil duplicado.</strong> Dos fichas para el mismo lugar compiten y retrasan la aprobación.</li>
+      <li><strong>Sin acceso al teléfono.</strong> Las llamadas automáticas y los centralizados (IVR) no reciben el código.</li>
+      <li><strong>Categoría prohibida.</strong> Negocios no elegibles o con restricciones por edad no pueden verificarse como ficha de servicio.</li>
+    </ul>
+
+    <h2>Preguntas que aparecen siempre</h2>
+
+    <h3>¿Cuánto tiempo toma dejar la ficha optimizada?</h3>
+    <p>
+      La configuración inicial se resuelve en una sesión larga si ya tienes fotos, textos y horarios a mano.
+      Lo que toma tiempo es la verificación y la constancia posterior: esperar el código, cargar contenido y
+      responder reseñas. Una ficha recién verificada no aparece al día siguiente en el pack; necesita
+      señales acumuladas.
+    </p>
+
+    <h3>¿Puedo cambiar la categoría principal después?</h3>
+    <p>
+      Sí, y conviene revisarla si el negocio evolucionó. Pero los cambios de categoría o de nombre pueden
+      activar una nueva verificación, así que no se deben probar cada semana. Elige la más específica que
+      describa tu negocio central y úsala como ancla; las demás categorías acompañan.
+    </p>
+
+    <h3>¿La ficha reemplaza a la web?</h3>
+    <p>
+      No. La ficha controla la presencia en Maps y los botones de contacto; la web controla el mensaje, el
+      contenido y la conversión. Google espera que ambas cuenten lo mismo. Si quieres entender por qué la web
+      sigue siendo necesaria, lee <a href="/guias/seo-local/que-es-seo-local/">qué es el SEO local</a> y
+      <a href="/guias/seo-local/aparecer-en-google-maps/">cómo aparecer en Google Maps</a>.
+    </p>
+
+    <h3>¿Quién debe ser dueño de la ficha?</h3>
+    <p>
+      El negocio. La cuenta propietaria debe quedar siempre en manos del dueño; a los colaboradores o agencias
+      se les da rol de gerente. Así evitas perder la ficha si cambias de proveedor, y mantienes el historial
+      de reseñas y publicaciones bajo tu control.
+    </p>
+
+    <h3>¿Con qué frecuencia hay que tocar la ficha?</h3>
+    <p>
+      Hay un mínimo mensual: foto nueva, publicación y respuesta a reseñas pendientes. Además, cada cambio de
+      horario, precio o servicio debe reflejarse el mismo día. Una ficha que se actualiza cuando hay tiempo
+      pierde frente a competidores que la mantienen viva.
+    </p>
+
+    <h2>Checklist final</h2>
+    <ul>
+      <li>Ficha reclamada y verificada, con la cuenta propietaria en el negocio.</li>
+      <li>Categoría principal específica y pocas secundarias.</li>
+      <li>Descripción de hasta 750 caracteres, sin enlaces ni solo promociones.</li>
+      <li>Servicios y precios alineados con la web.</li>
+      <li>Horarios regulares y horarios especiales cargados.</li>
+      <li>Fotos de fachada, interior y equipo, con al menos una actualización mensual.</li>
+      <li>Atributos objetivos marcados.</li>
+      <li>Zona de servicio declarada si el negocio viaja al cliente.</li>
+      <li>NAP idéntico al de la web y URL canónica limpia.</li>
+      <li>Publicaciones programadas y reseñas respondidas.</li>
+    </ul>
 
     <div class="guide-cta">
       <p><strong>¿Necesitas una web que complemente la ficha?</strong></p>

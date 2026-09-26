@@ -734,6 +734,8 @@ h1 em, h2 em, h3 em { color: var(--orange); font-style: normal; }
 }
 .plan-price span { color: var(--muted); font-size: .78rem; font-weight: var(--fw-semibold); }
 .plan-per { margin: 8px 0 0; color: var(--muted); font-size: .78rem; }
+.plan-usd { margin: 3px 0 0; color: var(--muted); font-size: .7rem; letter-spacing: .02em; }
+.plan-card.plan-featured .plan-usd { color: #cbc6bc; }
 .plan-perks {
   display: grid;
   gap: 8px;
@@ -1705,7 +1707,7 @@ html.has-reveal .reveal.visible { opacity: 1; transform: none; }
   .published-sites .business-list { grid-template-columns: repeat(3, 1fr); }
   .demo-disclaimer .wrap { display: flex; align-items: center; justify-content: center; gap: 24px; padding: 22px 0; }
   .demo-disclaimer .eyebrow { margin-bottom: 0; }
-  .footer-grid { grid-template-columns: 2fr 1fr 1fr; gap: 26px; padding-bottom: 42px; }
+  .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 26px; padding-bottom: 42px; }
   .footer-grid .brand { grid-column: auto; }
   footer { padding-top: 58px; }
   .footer-info, .managed-by, .breadcrumbs { width: min(1160px, calc(100% - 40px)); }

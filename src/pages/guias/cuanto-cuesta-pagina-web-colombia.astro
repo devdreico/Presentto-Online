@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { authorRef } from '../../components/schemas';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FaqList from '../../components/FaqList.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
@@ -47,7 +48,7 @@ const articleSchema = {
     name: 'Diseño web',
     sameAs: 'https://es.wikipedia.org/wiki/Dise%C3%B1o_web',
   },
-  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://www.presentto.online/nosotros/' },
+  author: authorRef,
   publisher: { '@id': 'https://www.presentto.online/#organization' },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -74,7 +75,7 @@ const articleSchema = {
     <p class="eyebrow">GUÍA · PRECIOS WEB COLOMBIA</p>
     <h1>¿Cuánto cuesta una página web en Colombia en 2026?</h1>
     <p class="lead">Precios reales de mercado, qué incluye cada rango y dónde encaja una opción administrada desde $40.000 COP.</p>
-    <p class="guide-meta">Actualizado: septiembre 2026 · Presentto Online</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
   </section>
 
   <section class="section wrap guide-layout">
@@ -99,6 +100,17 @@ const articleSchema = {
         <tr><td>Plantilla DIY (Wix, Hostinger)</td><td>≈ 250.000 – 700.000 / año</td><td>Autogestión</td><td>Quien administra solo</td></tr>
       </tbody>
     </table>
+    <p class="stack-note">
+      Rangos de mercado en Colombia contrastados con
+      <a
+        href="https://muselab.com.co/cuanto-cuesta-una-pagina-web-en-colombia-2025/"
+        target="_blank"
+        rel="noopener">estudios locales de precio de páginas web</a
+      >
+      y con las
+      <a href="https://wordpress.com/pricing" target="_blank" rel="noopener">tarifas públicas de WordPress.com</a>.
+      Presentto no vende proyectos a medida: por eso su precio no es comparable con una cotización de agencia.
+    </p>
 
     <h2>Qué suele quedar fuera de la cotización</h2>
     <ul>

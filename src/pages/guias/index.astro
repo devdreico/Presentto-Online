@@ -1,62 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { guideIndex } from '../../data/site-index';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Guías' }];
 
 const title = 'Guías SEO local y precios web | Presentto Online';
 const description =
-  'Guías de SEO local, Google Business, reseñas y precios de páginas web en Colombia.';
+  'Guías prácticas de SEO local, Google Business Profile, reseñas y precio de página web en Colombia 2026, con checklists y ejemplos reales.';
 
-const guides = [
-  {
-    href: '/guias/seo-local/',
-    title: 'Guía completa de SEO local',
-    desc: 'Pilar: definición, factores, checklist y estrategia para negocios locales.',
-    tag: 'Pilar',
-  },
-  {
-    href: '/guias/seo-local/que-es-seo-local/',
-    title: '¿Qué es el SEO local?',
-    desc: 'Definición operativa, ejemplos de búsqueda y los 3 pilares del ranking local.',
-    tag: 'SEO local',
-  },
-  {
-    href: '/guias/seo-local/google-business-profile/',
-    title: 'Google Business Profile paso a paso',
-    desc: 'Categorías, fotos, servicios y coherencia NAP con tu web.',
-    tag: 'SEO local',
-  },
-  {
-    href: '/guias/seo-local/aparecer-en-google-maps/',
-    title: 'Cómo aparecer en Google Maps',
-    desc: 'Orden de factores para entrar al pack local y errores que lo bloquean.',
-    tag: 'SEO local',
-  },
-  {
-    href: '/guias/seo-local/resenas-google/',
-    title: 'Reseñas de Google sin riesgos',
-    desc: 'Cómo pedirlas, responderlas y evitar penalizaciones.',
-    tag: 'SEO local',
-  },
-  {
-    href: '/guias/seo-local/seo-vs-anuncios-google/',
-    title: 'SEO local vs anuncios de Google',
-    desc: 'Comparativa de coste, velocidad y cuándo usar cada canal.',
-    tag: 'SEO local',
-  },
-  {
-    href: '/guias/cuanto-cuesta-pagina-web-colombia/',
-    title: '¿Cuánto cuesta una web en Colombia 2026?',
-    desc: 'Precios reales por tipo de sitio y qué suele quedar fuera de la cotización.',
-    tag: 'Precios',
-  },
-  {
-    href: '/comparativas/web-administrada-vs-agencia/',
-    title: 'Web administrada vs agencia vs DIY',
-    desc: 'Tabla comparativa para decidir con claridad.',
-    tag: 'Comparativa',
-  },
-];
+const guides = guideIndex;
 
 const collectionSchema = {
   '@context': 'https://schema.org',
@@ -87,6 +39,46 @@ const collectionSchema = {
   </section>
 
   <section class="section wrap guide-layout">
+    <h2>Cómo está organizado este centro de guías</h2>
+    <p class="snippet">
+      El contenido sigue una estructura de pilar, clúster y comparativas: primero la guía que explica el
+      panorama completo, después guías cortas que resuelven una tarea concreta, y al final tablas para
+      elegir entre opciones.
+    </p>
+    <p>
+      La <a href="/guias/seo-local/">guía completa de SEO local</a> es el pilar. Todo lo demás cuelga de
+      ella: si necesitas definir el concepto, montar la ficha, salir en el mapa, gestionar reseñas o decidir
+      entre SEO y anuncios, entra directo a esa guía corta y vuelve al pilar cuando quieras el contexto. Las
+      comparativas van al final, porque solo ayudan a quien ya sabe qué necesita y está comparando
+      alternativas de contratación.
+    </p>
+
+    <h2>Los tres grupos</h2>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Grupo</th><th>Qué lo compone</th><th>Qué resuelve</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pilar</td><td>1 guía larga de SEO local</td><td>Visión completa: factores, checklist y estrategia</td></tr>
+        <tr><td>Clúster SEO local</td><td>5 guías: definición, ficha de Google, mapas, reseñas, SEO vs anuncios</td><td>Una tarea concreta por guía, con pasos y ejemplos</td></tr>
+        <tr><td>Precios y comparativas</td><td>2 guías: precio de web y web administrada vs agencia</td><td>Comparar costes, plazos y control antes de contratar</td></tr>
+      </tbody>
+    </table>
+    <p>
+      El pilar sirve para entender el terreno antes de tocar nada: qué factores mueven el ranking local y
+      cuáles no. El clúster de SEO local resuelve tareas sueltas, una por guía: definición, ficha de Google,
+      mapas, reseñas y pauta. El grupo de precios y comparativas entra cuando ya sabes qué necesitas y toca
+      decidir con quién contratar.
+    </p>
+    <p>
+      No hace falta leerlas en orden: busca la tarea que tienes hoy y sigue desde ahí. Seis de las ocho
+      entradas pertenecen al silo de SEO local, una trata precios y la comparativa vive también en su propio
+      hub. Google explica la base de todo esto en la
+      <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es" target="_blank" rel="noopener">guía
+      de SEO para principiantes de Search Central</a>.
+    </p>
+
+    <h2>Todas las guías</h2>
     <ul class="collection-list">
       {guides.map((g) => (
         <li>
@@ -98,5 +90,77 @@ const collectionSchema = {
         </li>
       ))}
     </ul>
+
+    <h2>Por dónde empezar</h2>
+    <h3>Si no tienes nada (ni web ni ficha)</h3>
+    <p>
+      Empieza por el pilar de <a href="/guias/seo-local/">SEO local</a> para entender qué mueve el ranking
+      local y qué no. Después monta tu ficha con la guía de
+      <a href="/guias/seo-local/google-business-profile/">Google Business Profile</a>, verifica el negocio y
+      deja nombre, categoría y horarios correctos. Cuando la ficha esté lista, publica una web rápida con tus
+      servicios y zonas: sin página a la que enviar el clic, el trabajo anterior pierde la mitad del valor.
+    </p>
+    <h3>Si ya tienes ficha de Google</h3>
+    <p>
+      Tu siguiente paso no es “hacer más SEO”, sino cerrar los huecos. Revisa si apareces en el
+      <a href="/guias/seo-local/aparecer-en-google-maps/">pack de mapas</a>, pon en orden las reseñas con la
+      <a href="/guias/seo-local/resenas-google/">guía de reseñas</a> y decide si la pauta te aporta algo con
+      la <a href="/guias/seo-local/seo-vs-anuncios-google/">comparativa de SEO vs anuncios</a>. Trabaja en ese
+      orden: primero lo que ya tienes, después lo nuevo.
+    </p>
+    <h3>Si quieres comparar precios antes de decidir</h3>
+    <p>
+      Ve directo a <a href="/guias/cuanto-cuesta-pagina-web-colombia/">cuánto cuesta una web en Colombia</a>
+      y a la <a href="/comparativas/web-administrada-vs-agencia/">comparativa entre web administrada, agencia
+      y hacerlo tú</a>. Ahí están los rangos por tipo de sitio y lo que suele quedar fuera de una cotización.
+      Los precios de este sitio están publicados sin letra pequeña en <a href="/precios/">precios</a> y en
+      <a href="/servicios/">servicios</a>.
+    </p>
+
+    <h2>Preguntas antes de abrir la primera guía</h2>
+    <h3>¿Tengo que leer las guías en orden?</h3>
+    <p>
+      No. Cada guía se sostiene sola. El orden solo importa si partes de cero: primero conceptos y ficha,
+      después canales y reputación, y por último dinero y contratación.
+    </p>
+    <h3>¿Sirven estas guías si mi negocio está en un municipio pequeño?</h3>
+    <p>
+      Sí. La lógica local es la misma en Funza, Mosquera, Madrid o Facatativa: categoría correcta, datos
+      consistentes, web que responda la búsqueda y reseñas frescas. Lo que cambia es la competencia, no los
+      pasos.
+    </p>
+    <h3>¿Necesito contratar algo para aplicarlas?</h3>
+    <p>
+      No. Las guías están escritas para que tú las ejecutes. Contratar solo tiene sentido cuando no tienes
+      tiempo o cuando quieres que alguien mantenga el sistema mes a mes; para eso están las páginas de
+      servicios y precios.
+    </p>
+    <h3>¿Cada cuánto se actualizan?</h3>
+    <p>
+      Las guías se revisan cuando cambian las políticas de Google o cuando aparece una tarea nueva en los
+      proyectos reales de clientes. Cuando una guía cambia, su cabecera muestra la fecha de la última
+      revisión editorial.
+    </p>
+    <h3>¿Dónde pregunto si mi caso no aparece?</h3>
+    <p>
+      En la página de <a href="/preguntas/">preguntas y respuestas</a> reunimos dudas frecuentes sobre
+      planes, plazos y soporte. Si tu caso no está, escríbenos con tu municipio y tu servicio y te indicamos
+      por qué vía empezar.
+    </p>
+
+    <h2>Sigue desde aquí</h2>
+    <ul>
+      <li><a href="/servicios/">Servicios</a>: qué incluye la web administrada, el SEO local y el mantenimiento.</li>
+      <li><a href="/precios/">Precios</a>: planes con prepago por plazo, sin suscripción ni permanencia.</li>
+      <li><a href="/preguntas/">Preguntas</a>: dudas sobre planes, plazos, dominio y soporte.</li>
+      <li>Por zona: <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a> y <a href="/facatativa/">Facatativa</a>, con el contexto local de cada municipio.</li>
+    </ul>
+    <p>
+      Si prefieres la fuente oficial antes que cualquier interpretación, los criterios de posicionamiento
+      local de Google están en
+      <a href="https://support.google.com/business/answer/7091?hl=es" target="_blank" rel="noopener">consejos
+      para mejorar el posicionamiento local</a>: relevancia, distancia y popularidad son las tres variables
+      que todas estas guías intentan mover.
+    </p>
   </section>
 </BaseLayout>

@@ -31,9 +31,16 @@ const faqs = [
     a: 'Las agencias suelen cotizar sitios desde $800.000 a $3.000.000 COP más mantenimiento mensual. Presentto trabaja con una oferta estandarizada y administrada para negocios locales de la Sabana Occidental, por eso puede mantener precios desde $40.000 COP/mes sin sacrificar dominio, correo ni SEO local.',
   },
 ];
+// FAQPage: solo preguntas exclusivas de esta página (el hub /preguntas/ es el
+// canónico para las compartidas)
+const sharedWithFaqHub = new Set([
+  '¿Es una mensualidad o un pago único?',
+  '¿Puedo ver la web antes de pagar?',
+]);
+const faqSchema = faqs.filter((f) => !sharedWithFaqHub.has(f.q));
 ---
 
-<BaseLayout title={title} description={description} path="/precios/" breadcrumbs={crumbs} faqs={faqs} plansOffers={true}>
+<BaseLayout title={title} description={description} path="/precios/" breadcrumbs={crumbs} faqs={faqSchema} plansOffers={true}>
   <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero">
@@ -42,7 +49,7 @@ const faqs = [
     <p class="lead">
       Un solo servicio, cuatro plazos de prepago. Todo incluido: web, dominio, correo, SEO on-page,
       SEO local y administración. IVA incluido, sin suscripción automática y con demo gratis antes
-      de pagar.
+      de pagar. Cobramos en COP: el plan de 1 mes equivale a ≈ US$10 al mes de ese plazo (referencia).
     </p>
     <div class="actions">
       <a
@@ -99,6 +106,10 @@ const faqs = [
       <h2>Dudas frecuentes <em>sobre planes y pagos.</em></h2>
     </div>
     <FaqList faqs={faqs} />
+    <p class="stack-note">
+      ¿Otras dudas? Ver <a href="/preguntas/">todas las preguntas frecuentes</a> o
+      <a href="/comparativas/">comparar opciones de web y SEO</a>.
+    </p>
   </section>
 
   <section class="final-cta">

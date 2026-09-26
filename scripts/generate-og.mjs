@@ -7,6 +7,8 @@ const H = 630;
 const root = process.cwd();
 const logo = path.join(root, 'public/assets/img/Presentto-Nombre-Fondo-Transparente.webp');
 const out = path.join(root, 'public/assets/img/og-presentto.webp');
+// Copia JPEG: algunos scrapers (LinkedIn, Slack antiguos) no renderizan WebP en og:image
+const outJpg = path.join(root, 'public/assets/img/og-presentto.jpg');
 
 const meta = await sharp(logo).metadata();
 const targetW = 720;
@@ -28,9 +30,12 @@ const svg = Buffer.from(`
   <text x="72" y="585" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="500" fill="#9aa6c2">Web desde $40.000 COP · Sabana Occidental</text>
 </svg>`);
 
-await sharp(svg)
+const composed = await sharp(svg)
   .composite([{ input: logoBuf, top: 160, left: 240 }])
-  .webp({ quality: 85 })
-  .toFile(out);
+  .toBuffer();
+
+await sharp(composed).webp({ quality: 85 }).toFile(out);
+await sharp(composed).jpeg({ quality: 82, mozjpeg: true }).toFile(outJpg);
 
 console.log('wrote', out, fs.statSync(out).size, 'bytes');
+console.log('wrote', outJpg, fs.statSync(outJpg).size, 'bytes');

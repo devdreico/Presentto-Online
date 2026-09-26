@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { authorRef } from '../../../components/schemas';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import AuthorBox from '../../../components/AuthorBox.astro';
 import { datesFor } from '../../../data/content-dates';
@@ -24,7 +25,7 @@ const articleSchema = {
   dateModified: dates.modified,
   inLanguage: 'es-CO',
   about: { '@type': 'Thing', name: 'Marketing de buscadores' },
-  author: { '@type': 'Organization', name: 'Presentto Online', url: 'https://www.presentto.online/nosotros/' },
+  author: authorRef,
   publisher: { '@id': 'https://www.presentto.online/#organization' },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -50,7 +51,7 @@ const articleSchema = {
     <p class="eyebrow">SEO LOCAL · COMPARATIVA</p>
     <h1>SEO local vs anuncios de Google</h1>
     <p class="lead">Dos canales, objetivos distintos — y cómo combinarlos sin quemar presupuesto.</p>
-    <p class="guide-meta">Serie: Guía de SEO local · Presentto Online · septiembre 2026</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
   </section>
 
   <section class="section wrap guide-layout">
@@ -60,6 +61,12 @@ const articleSchema = {
       generando visitas cuando detienes la pauta. Para un negocio local con presupuesto ajustado, conviene
       empezar por una web + ficha sólidas (SEO) y usar pauta solo en campañas puntuales.
     </p>
+    <p>
+      La pregunta útil no es “¿cuál es mejor?”, sino “¿qué necesito yo esta semana”. Si necesitas contactos
+      desde el lunes, necesitas anuncios. Si necesitas que dentro de seis meses la gente te encuentre sin
+      pagar por cada clic, necesitas SEO local. La mayoría de los negocios de la Sabana acaban necesitando
+      las dos cosas, pero en este orden: primero el activo, después la pauta.
+    </p>
 
     <h2>Tabla comparativa</h2>
     <table class="compare-table">
@@ -67,26 +74,192 @@ const articleSchema = {
         <tr><th>Criterio</th><th>SEO local</th><th>Google Ads</th></tr>
       </thead>
       <tbody>
-        <tr><td>Resultados desde</td><td>2–6 meses</td><td>Días (si la cuenta está sana)</td></tr>
-        <tr><td>Coste por lead a 12 meses</td><td>Bajo (web administrada)</td><td>Variable y recurrente</td></tr>
-        <tr><td>Cuando dejas de pagar</td><td>El tráfico puede sostenerse</td><td>Desaparece casi por completo</td></tr>
-        <tr><td>Control creativo</td><td>Alto (contenido propio)</td><td>Medio (políticas de Google)</td></tr>
-        <tr><td>Riesgo</td><td>Dependencia de algoritmo y competencia</td><td>Subasta y CPC al alza</td></tr>
-        <tr><td>Ideal para</td><td>Presencia sostenida y barrio/zona</td><td>Lanzamientos, stock, urgencias</td></tr>
+        <tr><td>Resultados desde</td><td>Meses, no semanas</td><td>Días (si la cuenta y la web están sanas)</td></tr>
+        <tr><td>Cómo se paga</td><td>Trabajo continuo: web, ficha, contenido, reseñas</td><td>Clic facturado por campaña</td></tr>
+        <tr><td>Coste a 12 meses</td><td>Bajo y predecible (web administrada)</td><td>Variable y recurrente: sube el gasto, sube el tráfico</td></tr>
+        <tr><td>Cuando dejas de pagar</td><td>El tráfico puede sostenerse con mantenimiento</td><td>Desaparece casi por completo en cuanto pausas</td></tr>
+        <tr><td>Control</td><td>Alto sobre tu web y tu ficha, bajo sobre el algoritmo</td><td>Alto sobre puja, texto y segmentación, limitado por políticas</td></tr>
+        <tr><td>Riesgo</td><td>Dependencia del algoritmo y de la competencia local</td><td>Subasta, CPC al alza y campañas mal medidas</td></tr>
+        <tr><td>Datos que aporta</td><td>Términos que traen visitas y llamadas</td><td>Qué palabras convierten, desde el primer día</td></tr>
+        <tr><td>Ideal para</td><td>Presencia sostenida en barrio, ciudad y mapa</td><td>Lanzamientos, temporadas, urgencias, ticket alto</td></tr>
       </tbody>
     </table>
 
-    <h2>Errores comunes</h2>
+    <h2>Cuánto cuesta cada canal en Colombia</h2>
+    <p class="snippet">
+      No existe un CPC estándar ni un precio único de SEO: el coste depende del presupuesto que tú fijes en
+      Ads y del tipo de web y mantenimiento que contrates. Estas son las cifras publicadas en este sitio y
+      las reglas oficiales de Google.
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Canal</th><th>Cómo se factura</th><th>Rango verificable</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SEO local con web administrada</td>
+          <td>Prepago por plazo, sin suscripción</td>
+          <td>Desde $40.000 COP al mes (1 mes) hasta $350.000 COP al año, IVA incluido. Ver <a href="/precios/">precios</a></td>
+        </tr>
+        <tr>
+          <td>Sitio a medida con agencia</td>
+          <td>Proyecto único más mantenimiento</td>
+          <td>Diseño a medida desde $800.000 a $3.000.000 COP más mensualidad. Ver <a href="/precios/">precios</a> y <a href="/guias/cuanto-cuesta-pagina-web-colombia/">cuánto cuesta una web en Colombia</a></td>
+        </tr>
+        <tr>
+          <td>Google Ads</td>
+          <td>Presupuesto diario medio y clics</td>
+          <td>Tú fijas el presupuesto: el límite diario suele ser 2 veces el presupuesto diario medio y el mensual 30,4 veces. Ver <a href="https://support.google.com/google-ads/answer/6385083?hl=es" target="_blank" rel="noopener">presupuesto diario medio</a></td>
+        </tr>
+        <tr>
+          <td>Agencia que gestiona Ads</td>
+          <td>Mensualidad de gestión aparte</td>
+          <td>Se cotiza sobre tu presupuesto publicitario; pídelo por escrito antes de firmar. Ver <a href="/servicios/">servicios</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Ejemplo con la regla de Google: si defines un presupuesto diario medio de $20.000 COP, tu límite
+      mensual es de $608.000 COP (20.000 × 30,4). En un día con mucho tráfico puedes llegar a gastar hasta
+      $40.000 COP, y en otro menos de lo previsto: el tope mensual no se supera.
+    </p>
+    <p>
+      El coste por clic no lo fija Google a dedo: sale de la subasta y de la calidad de tu anuncio. Google
+      indica que los anuncios de mayor calidad pueden reducir el CPC, así que una landing rápida y relevante
+      baja tu factura sin tocar la puja
+      (<a href="https://support.google.com/google-ads/answer/1722122?hl=es" target="_blank" rel="noopener">información
+      sobre el ranking del anuncio</a>).
+    </p>
+
+    <h2>Cálculo simple: coste por clic frente al valor de vida del cliente</h2>
+    <p class="snippet">
+      La única cuenta que importa es esta: ¿cuánto me cuesta conseguir un cliente y cuánto me deja? Si el
+      coste por cliente es menor que el beneficio que aporta, la campaña sostiene sola. Si no, no es un
+      problema de canal: es un problema de precio, de seguimiento o de oferta.
+    </p>
+    <ol>
+      <li>Abre tu cuenta de Google Ads y copia el <strong>CPC medio</strong> de las últimas semanas.</li>
+      <li><strong>Clics</strong> = presupuesto del mes ÷ CPC medio.</li>
+      <li><strong>Contactos</strong> = clics × tasa de conversión de tu landing (formularios y clics a WhatsApp).</li>
+      <li><strong>Clientes</strong> = contactos × tasa de cierre de tu equipo.</li>
+      <li><strong>Coste por cliente</strong> = presupuesto del mes ÷ clientes.</li>
+      <li><strong>Valor de vida</strong> = ticket promedio × veces que compra al año × años promedio de relación.</li>
+    </ol>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Paso del cálculo</th><th>Ejemplo ilustrativo (sustituye por tus números)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Presupuesto mensual</td><td>$300.000 COP</td></tr>
+        <tr><td>CPC medio (de tu cuenta)</td><td>$1.500 COP</td></tr>
+        <tr><td>Clics</td><td>200 (300.000 ÷ 1.500)</td></tr>
+        <tr><td>Conversión a contacto</td><td>10 % → 20 contactos</td></tr>
+        <tr><td>Cierre</td><td>25 % → 5 clientes</td></tr>
+        <tr><td>Coste por cliente</td><td>$60.000 COP</td></tr>
+        <tr><td>Valor de vida (1er año)</td><td>ticket $200.000 × 2 compras = $400.000 COP</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Los números de arriba son un ejemplo de cálculo, no datos de mercado: cambia cada fila por la tuya
+      antes de decidir. Con Ads, ese coste por cliente se repite cada mes mientras la campaña corre. Con SEO
+      local, vas acumulando posiciones y contenidos: con el tiempo dejas de pagar por cada clic que ya llega
+      solo y solo mantienes la web y la ficha al día.
+    </p>
+
+    <h2>Un embudo real: anuncio para captar ya, SEO para sostener</h2>
+    <p class="snippet">
+      Los dos canales se complementan cuando se ordenan en el tiempo: la pauta compra los primeros contactos
+      mientras el SEO local madura, y después la pauta se reduce a lo que el posicionamiento todavía no cubre.
+    </p>
+    <ol>
+      <li><strong>Días 1–15</strong>: lanzas una campaña de búsqueda con 5 a 10 términos de servicio + ciudad, CPC máximo definido y una landing con WhatsApp visible. Al mismo tiempo verificas tu ficha de Google con categoría, fotos y horarios.</li>
+      <li><strong>Días 15–60</strong>: pides reseñas a cada cliente cerrado con la rutina de la <a href="/guias/seo-local/resenas-google/">guía de reseñas</a>. En la web publicas una página por servicio y zona, con datos estructurados locales.</li>
+      <li><strong>Días 60–120</strong>: mira en la cuenta de Ads qué palabras trajeron llamadas reales. Esas mismas palabras priorízalas en tu contenido SEO: ya sabes que convierten.</li>
+      <li><strong>Desde el día 120</strong>: pausas las palabras que ya posicionas de forma estable en orgánico y dejas Ads solo para lanzamientos, temporadas y servicios de ticket alto.</li>
+    </ol>
+    <p>
+      La señal para empezar a recortar es sencilla: cuando el coste por cliente del SEO sea menor que el de
+      la campaña y el volumen de contactos orgánicos se mantenga estable dos meses seguidos, puedes reducir
+      la pauta sin miedo.
+    </p>
+
+    <h2>Cuándo conviene cada uno</h2>
+    <h3>Conviene el SEO local si…</h3>
+    <p>
+      Tu presupuesto es bajo pero constante, tu mercado es local y estable, y puedes esperar semanas a que
+      la web y la ficha ganen terreno. También cuando tu servicio se busca muchas veces al mes y no quieres
+      pagar por cada visita. Es la vía por defecto para un negocio de barrio que depende de que le encuentren
+      en el mapa.
+    </p>
+    <h3>Conviene Google Ads si…</h3>
+    <p>
+      Acabas de abrir, lanzas un servicio nuevo, entra una temporada alta o tienes un ticket alto que
+      justifica pagar el clic. También sirve para validar palabras antes de invertir en contenido, y para
+      cubrir búsquedas donde la competencia ya se come el pack local.
+    </p>
+    <h3>Conviene usar ambos si…</h3>
+    <p>
+      Quieres reducir el riesgo: la pauta te da contactos y datos desde el primer día, y el SEO convierte
+      esos datos en un activo que baja tu coste medio con el tiempo. Es el escenario recomendado cuando ya
+      facturas y puedes mantener un presupuesto pequeño de Ads sin descuidar la web.
+    </p>
+
+    <h2>Errores de principiante</h2>
     <ul>
-      <li>Comprar Ads sin web rápida ni conversiones claras → dinero quemado.</li>
-      <li>Esperar resultados de SEO en 2 semanas.</li>
-      <li>Medir solo “impresiones” sin llamadas o formularios reales.</li>
+      <li>Comprar Ads con una web lenta o sin WhatsApp visible → el clic entra y se pierde.</li>
+      <li>Medir solo impresiones: impresiones no son llamadas ni formularios.</li>
+      <li>No configurar el seguimiento de conversiones, así que no sabes qué palabra trajo clientes.</li>
+      <li>Esperar resultados de SEO en dos semanas y pausar antes de tiempo.</li>
+      <li>Pagar por clics que tu web ya capta gratis en orgánico.</li>
+      <li>Cambiar de estrategia cada mes: ni la pauta ni el SEO dan tiempo a aprender.</li>
+      <li>Revisar la cuenta una vez al mes y descubrir al final que gastó en búsquedas sin intención de compra.</li>
     </ul>
 
-    <h2>Recomendación práctica para la Sabana Occidental</h2>
+    <h2>Cinco dudas frecuentes antes de decidir</h2>
+    <h3>¿Puedo hacer SEO local sin web?</h3>
+    <p>
+      Solo a medias. Tu ficha puede aparecer y recibir reseñas, pero no controlas qué página recibe el clic
+      ni puedes explicar servicios, precios y zonas con detalle. La web es el activo sobre el que se apoya
+      todo lo demás; sin ella, la pauta lleva al usuario a una calle sin salida.
+    </p>
+    <h3>¿Cuánto tarda el SEO local en dar resultados?</h3>
+    <p>
+      Tardarás semanas en que Google rastree e indexe los cambios y meses en consolidar posiciones locales.
+      Por eso la tabla no promete una fecha exacta: depende de la competencia en tu ciudad, del estado actual
+      de tu ficha y de la frecuencia con la que publiques y pidas reseñas.
+    </p>
+    <h3>¿Tengo que elegir uno para siempre?</h3>
+    <p>
+      No. Se puede pausar una campaña sin perder lo que ya construiste con SEO, y se puede encender Ads una
+      semana al mes para una promoción. Lo que no conviene es dejar ambos a medias: medio presupuesto mal
+      medido no enseña nada.
+    </p>
+    <h3>¿Qué gasto mínimo necesito para probar Ads?</h3>
+    <p>
+      Google no marca un mínimo: tú defines el presupuesto diario medio y el tope mensual sale de multiplicar
+      ese número por 30,4. Empieza con un presupuesto que puedas sostener tres meses seguidos, porque las
+      primeras semanas sirven para aprender qué palabras no debes pagar.
+    </p>
+    <h3>¿Qué pasa cuando dejo de pagar Ads?</h3>
+    <p>
+      Dejas de aparecer en la zona de anuncios y el tráfico de esa campaña cae casi por completo. En cambio,
+      las posiciones orgánicas y las reseñas acumuladas siguen trabajando mientras mantengas la web y la
+      ficha al día. Esa es la diferencia real entre alquilar y construir.
+    </p>
+
+    <h2>Veredicto práctico</h2>
     <p class="snippet">
-      Empieza con Presencia (web + SEO local + ficha) por $40.000 COP de inversión inicial en el sitio, acumula
-      reseñas 90 días y evalúa Ads solo para servicios de ticket alto o temporadas altas.
+      Si estás empezando y el presupuesto es ajustado: monta la web, configura la ficha, pide reseñas y
+      dedica los primeros 90 días a SEO local. Cuando tengas flujo de caja y un servicio de ticket alto,
+      añade una campaña pequeña con seguimiento de conversiones. Después decide con una sola cifra: coste por
+      cliente frente a valor de vida.
+    </p>
+    <p>
+      Para negocios de la Sabana Occidental, la secuencia que funciona es la misma que describe la
+      <a href="/comparativas/web-administrada-vs-agencia/">comparativa entre web administrada, agencia y
+      hacerlo tú</a>: activo primero, pauta después. Si quieres ver qué incluye cada opción, revisa los
+      <a href="/servicios/">servicios</a> y los <a href="/precios/">precios</a> antes de comprometer un
+      presupuesto publicitario.
     </p>
 
     <div class="guide-cta">

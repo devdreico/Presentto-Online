@@ -38,7 +38,7 @@ const {
 } = Astro.props;
 
 const canonical = new URL(path, Astro.site).href;
-const ogImage = new URL('/assets/img/og-presentto.webp', Astro.site).href;
+const ogImage = new URL('/assets/img/og-presentto.jpg', Astro.site).href;
 const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto Online`;
 const gsc = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { authorRef } from '../../components/schemas';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FaqList from '../../components/FaqList.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
@@ -47,11 +48,7 @@ const articleSchema = {
     name: 'Posicionamiento local en buscadores',
     sameAs: 'https://es.wikipedia.org/wiki/Posicionamiento_en_motores_de_b%C3%BAsqueda',
   },
-  author: {
-    '@type': 'Organization',
-    name: 'Presentto Online',
-    url: 'https://www.presentto.online/nosotros/',
-  },
+  author: authorRef,
   publisher: { '@id': 'https://www.presentto.online/#organization' },
   mainEntityOfPage: {
     '@type': 'WebPage',
@@ -79,7 +76,7 @@ const articleSchema = {
       Todo lo que necesitas para posicionar tu negocio en búsquedas de tu ciudad y en Google Maps — sin jerga
       innecesaria y con pasos aplicables desde hoy.
     </p>
-    <p class="guide-meta">Actualizado: septiembre 2026 · Lectura: 12 min · Presentto Online</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Lectura: 12 min · Presentto Online</p>
   </section>
 
   <section class="section wrap guide-layout">
@@ -108,6 +105,15 @@ const articleSchema = {
       <li><strong>Google Business Profile</strong>: categoría, servicios, fotos, horarios, preguntas y reseñas.</li>
       <li><strong>Señales externas</strong>: citaciones NAP consistentes, prensa local y menciones de autoridad.</li>
     </ol>
+    <p>
+      Google resume los factores que usa para ordenar los resultados locales en su documentación oficial de
+      <a
+        href="https://support.google.com/business/answer/7091?hl=es"
+        target="_blank"
+        rel="noopener">mejora de la presencia local</a
+      >: relevancia, distancia y prominencia. Todo lo que sigue en esta guía traduce esos tres factores a
+      tareas concretas de web y de ficha.
+    </p>
 
     <h2>Checklist de SEO local (empieza hoy)</h2>
     <ul>
@@ -120,6 +126,15 @@ const articleSchema = {
       <li>Core Web Vitals en verde (LCP, INP, CLS) y HTTPS activo.</li>
       <li>Enlaces internos con anclas descriptivas dentro del mismo silo temático.</li>
     </ul>
+    <p>
+      La referencia para todo lo técnico sigue siendo la
+      <a
+        href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es"
+        target="_blank"
+        rel="noopener">guía de inicio de SEO de Google</a
+      >; la parte de ficha y reseñas se resuelve en
+      <a href="/guias/seo-local/google-business-profile/">Google Business Profile paso a paso</a>.
+    </p>
 
     <h2>Errores comunes que frenan el SEO local</h2>
     <ul>

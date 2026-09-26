@@ -1,0 +1,249 @@
+{
+  "generatedAt": "2026-09-25",
+  "note": "Clústeres de contenidos: 1 keyword primaria por clúster (evita canibalización) y 1 targetPage por clúster. status: published | planned. Lo amplía el sub-agente seo-cluster-architect.",
+  "clusters": [
+    {
+      "id": "seo-local-pilar",
+      "title": "Pilar: SEO local",
+      "primaryKeyword": "seo local",
+      "targetPage": "/guias/seo-local/",
+      "intent": "informational",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "seo-local-fundamentos",
+      "title": "Fundamentos del SEO local",
+      "primaryKeyword": "qué es el seo local",
+      "targetPage": "/guias/seo-local/que-es-seo-local/",
+      "intent": "informational",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "google-business-profile",
+      "title": "Google Business Profile / ficha de Google",
+      "primaryKeyword": "google business profile",
+      "targetPage": "/guias/seo-local/google-business-profile/",
+      "intent": "informational",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "aparecer-google-maps",
+      "title": "Aparecer en Google Maps / pack local",
+      "primaryKeyword": "aparecer en google maps",
+      "targetPage": "/guias/seo-local/aparecer-en-google-maps/",
+      "intent": "informational",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "resenas-google",
+      "title": "Reseñas de Google",
+      "primaryKeyword": "reseñas de google",
+      "targetPage": "/guias/seo-local/resenas-google/",
+      "intent": "informational",
+      "status": "published",
+      "priority": 2
+    },
+    {
+      "id": "seo-vs-ads",
+      "title": "SEO local vs Google Ads",
+      "primaryKeyword": "seo local vs google ads",
+      "targetPage": "/guias/seo-local/seo-vs-anuncios-google/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "precio-pagina-web",
+      "title": "Precio de página web",
+      "primaryKeyword": "cuánto cuesta una página web",
+      "targetPage": "/guias/cuanto-cuesta-pagina-web-colombia/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "web-vs-agencia",
+      "title": "Web administrada vs agencia",
+      "primaryKeyword": "web administrada vs agencia",
+      "targetPage": "/comparativas/web-administrada-vs-agencia/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "comparativas-hub",
+      "title": "Hub de comparativas",
+      "primaryKeyword": "comparativas de servicios web",
+      "targetPage": "/comparativas/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 2
+    },
+    {
+      "id": "guias-hub",
+      "title": "Hub de guías",
+      "primaryKeyword": "guías de seo local",
+      "targetPage": "/guias/",
+      "intent": "informational",
+      "status": "published",
+      "priority": 2
+    },
+    {
+      "id": "servicios-presentto",
+      "title": "Servicios",
+      "primaryKeyword": "servicios de seo local",
+      "targetPage": "/servicios/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "planes-precios",
+      "title": "Planes y precios",
+      "primaryKeyword": "planes de página web",
+      "targetPage": "/precios/",
+      "intent": "transactional",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "portfolio-presentto",
+      "title": "Portafolio",
+      "primaryKeyword": "portafolio de desarrollo web",
+      "targetPage": "/portfolio/",
+      "intent": "navigational",
+      "status": "published",
+      "priority": 3
+    },
+    {
+      "id": "sitios-publicados",
+      "title": "Sitios publicados",
+      "primaryKeyword": "sitios publicados con seo",
+      "targetPage": "/sitios/",
+      "intent": "navigational",
+      "status": "published",
+      "priority": 3
+    },
+    {
+      "id": "nosotros-presentto",
+      "title": "Nosotros / E-E-A-T",
+      "primaryKeyword": "quiénes son presentto",
+      "targetPage": "/nosotros/",
+      "intent": "navigational",
+      "status": "published",
+      "priority": 3
+    },
+    {
+      "id": "faq-seo",
+      "title": "Preguntas frecuentes",
+      "primaryKeyword": "preguntas de seo",
+      "targetPage": "/preguntas/",
+      "intent": "informational",
+      "status": "published",
+      "priority": 2
+    },
+    {
+      "id": "contacto-demo",
+      "title": "Contacto / solicitud de presupuesto",
+      "primaryKeyword": "pedir presupuesto web",
+      "targetPage": "/contacto/",
+      "intent": "transactional",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "ciudad-funza",
+      "title": "Ciudad: Funza",
+      "primaryKeyword": "seo en funza",
+      "targetPage": "/funza/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "ciudad-mosquera",
+      "title": "Ciudad: Mosquera",
+      "primaryKeyword": "seo en mosquera",
+      "targetPage": "/mosquera/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "ciudad-madrid",
+      "title": "Ciudad: Madrid (Cundinamarca)",
+      "primaryKeyword": "seo en madrid",
+      "targetPage": "/madrid/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "ciudad-facatativa",
+      "title": "Ciudad: Facatativá",
+      "primaryKeyword": "seo en facatativá",
+      "targetPage": "/facatativa/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 1
+    },
+    {
+      "id": "rubro-restaurantes",
+      "title": "Rubro: restaurantes y cafés",
+      "primaryKeyword": "seo para restaurantes",
+      "targetPage": "/guias/seo-para-restaurantes/",
+      "intent": "informational",
+      "status": "planned",
+      "priority": 1
+    },
+    {
+      "id": "rubro-clinicas",
+      "title": "Rubro: clínicas y consultorios",
+      "primaryKeyword": "seo para clínicas",
+      "targetPage": "/guias/seo-para-clinicas/",
+      "intent": "informational",
+      "status": "planned",
+      "priority": 1
+    },
+    {
+      "id": "rubro-peluquerias",
+      "title": "Rubro: peluquerías y barberías",
+      "primaryKeyword": "seo para peluquerías",
+      "targetPage": "/guias/seo-para-peluquerias/",
+      "intent": "informational",
+      "status": "planned",
+      "priority": 2
+    },
+    {
+      "id": "rubro-talleres",
+      "title": "Rubro: talleres mecánicos",
+      "primaryKeyword": "seo para talleres mecánicos",
+      "targetPage": "/guias/seo-para-talleres/",
+      "intent": "informational",
+      "status": "planned",
+      "priority": 2
+    },
+    {
+      "id": "rubro-comercios",
+      "title": "Rubro: comercios y ferreterías",
+      "primaryKeyword": "seo para comercios",
+      "targetPage": "/guias/seo-para-comercios/",
+      "intent": "informational",
+      "status": "planned",
+      "priority": 2
+    },
+    {
+      "id": "rubro-profesionales",
+      "title": "Rubro: profesionales (abogados, contadores)",
+      "primaryKeyword": "seo para profesionales",
+      "targetPage": "/guias/seo-para-profesionales/",
+      "intent": "informational",
+      "status": "planned",
+      "priority": 2
+    }
+  ]
+}

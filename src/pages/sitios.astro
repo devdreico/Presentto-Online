@@ -3,9 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Sitios' }];
 
-const title = 'Sitios publicados con SEO local y posicionamiento | Presentto Online';
+const title = 'Sitios reales publicados con SEO local | Presentto Online';
 const description =
-  'Sitios reales construidos y publicados con Presenttación Digital en la Sabana Occidental: SEO on-page, ficha de Maps y tráfico orgánico.';
+  'Sitios reales construidos y publicados con Presenttación Digital en la Sabana Occidental: SEO on-page, ficha de Google Maps y tráfico orgánico medible.';
 
 const listSchema = {
   '@context': 'https://schema.org',
@@ -36,6 +36,19 @@ const sites = [
   { name: 'Aeperion', url: 'https://aeperion.presentto.online/', host: 'aeperion.presentto.online' },
   { name: 'USPKH', url: 'https://uspkh.presentto.online/', host: 'uspkh.presentto.online' },
 ];
+
+// Cada nota se toma del título del sitio publicado en su propio subdominio.
+const siteNotes: Record<string, string> = {
+  Botane: 'Bienestar natural en Colombia',
+  KSPR: 'Ingeniería inversa y análisis estático desde la terminal',
+  Esturel: 'Tecnología en Colombia',
+  LYL: 'Dispositivos de cuidado en casa (se presenta como Lun & Lou)',
+  'Viking Dogs': 'Cuidado para tu mejor amigo',
+  YA: 'Perfil profesional de administración de empresas',
+  Knifopics: 'Cuchillos premium',
+  Aeperion: 'Automatización e IA para empresas',
+  USPKH: 'Marketing y pauta publicitaria en Bogotá',
+};
 ---
 
 <BaseLayout title={title} description={description} path="/sitios/" breadcrumbs={crumbs} jsonld={[listSchema]}>
@@ -72,6 +85,7 @@ const sites = [
                 <span>
                   <strong>{site.name}</strong>
                   <small>{site.host}</small>
+                  <small>{siteNotes[site.name]}</small>
                 </span>
                 <b>↗</b>
               </a>
@@ -79,12 +93,131 @@ const sites = [
           ))}
         </ol>
         <p class="map-note">
-          Todos se publican en la infraestructura administrada de Presentto con indexación, sitemap y datos
+          Las descripciones de la lista toman el título de cada sitio publicado en su subdominio. Todos se
+          publican en la infraestructura administrada de Presentto con indexación, sitemap y datos
           estructurados listos para el rastreo de Google. Cada sitio conserva su identidad y muestra una
           aplicación distinta de la misma base técnica.
         </p>
       </div>
     </div>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>Qué son los sitios de esta lista</h2>
+    <p class="snippet">
+      Cada sitio vive en un subdominio de presentto.online: botane.presentto.online, kspr.presentto.online y
+      así con los nueve. Es la misma infraestructura administrada de Presentto, con instalación propia,
+      contenido propio e identidad propia.
+    </p>
+    <p>
+      No son demostraciones de plantilla ni páginas de prueba. Son sitios en producción que su público abre
+      desde un enlace de WhatsApp, un código QR o una tarjeta impresa. Compartimos el hospedaje, los
+      certificados y el mantenimiento; no compartimos el contenido. El subdominio es la vía para publicar sin
+      que el negocio tenga que comprar servidores ni aprender a configurarlos.
+    </p>
+    <p>
+      Sirven también para que veas el trabajo antes de contratar. Entra a cualquiera, mírale la velocidad en
+      el celular, la jerarquía de encabezados, el HTTPS y cómo se ve el resultado de búsqueda en Google. Si
+      lo que ves encaja con tu negocio, pides el tuyo en <a href="/contacto/">contacto</a>.
+    </p>
+
+    <h2>Por qué están indexados</h2>
+    <p>
+      Que un sitio esté en Google no es un favor: es el resultado de publicar algo rastreable. Cada sitio de
+      esta lista tiene su propio mapa del sitio (sitemap), sus etiquetas canónicas, sus datos estructurados y
+      una estructura de URL limpia, y su propiedad se registra en Google Search Console para seguimiento. La
+      guía de Google lo describe sin rodeos: los rastreadores descubren las páginas, las analizan y deciden si
+      las incorporan a su índice. Si el sitio cumple esos requisitos técnicos, puede aparecer; si no, no aparece
+      aunque el diseño sea bonito.
+    </p>
+    <p>
+      Tampoco se promete posición. Estar indexado significa que la página puede mostrarse; la posición que
+      ocupe depende de la relevancia del contenido, de la competencia local y de las señales de cada negocio,
+      como las reseñas y la consistencia de su ficha. Ese trabajo de base —
+      <a href="/guias/seo-local/">SEO local paso a paso</a> — es el que hacemos en cada publicación.
+    </p>
+
+    <h2>Cómo se construye cada sitio</h2>
+    <p>
+      Los nueve sitios salen del mismo proceso: contenido del negocio, maquetación con encabezados ordenados,
+      revisión de textos, publicación y verificación. Lo que cambia es la identidad y el rubro; la base
+      técnica es la misma en todos.
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Qué hace en el sitio</th>
+          <th>Cuándo se revisa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Título y meta descripción</td>
+          <td>Es lo que Google muestra en el resultado de búsqueda</td>
+          <td>Al publicar y en cada cambio de contenido</td>
+        </tr>
+        <tr>
+          <td>Encabezados H1, H2 y H3</td>
+          <td>Ordenan la página para lectores y rastreadores</td>
+          <td>Al publicar, con aprobación del cliente</td>
+        </tr>
+        <tr>
+          <td>URL limpias y HTTPS</td>
+          <td>Direcciones legibles y conexión cifrada</td>
+          <td>En cada publicación y migración</td>
+        </tr>
+        <tr>
+          <td>Datos estructurados (schema)</td>
+          <td>Dan contexto sobre el negocio, sus servicios y sus artículos</td>
+          <td>Al publicar y al ampliar secciones</td>
+        </tr>
+        <tr>
+          <td>Mapa del sitio (sitemap)</td>
+          <td>Lista las páginas vigentes para que Google las rastree</td>
+          <td>Se genera con el sitio y se envía a Search Console</td>
+        </tr>
+        <tr>
+          <td>Imágenes con texto alternativo</td>
+          <td>Describen cada imagen a buscadores y a lectores de pantalla</td>
+          <td>Con cada carga de material</td>
+        </tr>
+        <tr>
+          <td>Peso y velocidad de página</td>
+          <td>Menos espera en celular y mejor experiencia de uso</td>
+          <td>En la publicación y en cada actualización</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Indexación y Search Console</h2>
+    <p>
+      Search Console es la herramienta gratuita con la que se confirma que Google ya conoce un sitio: permite
+      enviar el sitemap, inspeccionar una URL concreta y ver si hay problemas de cobertura. La usamos para
+      verificar cada publicación y para avisarte si algo deja de rastrearse. Si quieres medir el rendimiento
+      por tu cuenta, pide el acceso a la propiedad de Search Console y compartimos los datos contigo.
+    </p>
+    <p>
+      Cuando un sitio no aparece, primero se revisa el estado técnico: que no haya etiqueta noindex, que el
+      sitemap responda y que la URL se pueda inspeccionar. Solo después se habla de posicionamiento. Consulta
+      <a href="https://search.google.com/search-console/about?hl=es" target="_blank" rel="noopener">qué hace Google Search Console</a>
+      y los <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es" target="_blank" rel="noopener">requisitos de indexación explicados por Google</a>.
+    </p>
+
+    <h2>Cómo pedir un sitio parecido</h2>
+    <p>
+      Escríbenos por <a href="/contacto/">contacto</a> con el nombre de tu negocio, tu municipio y lo que
+      quieres lograr: aparecer en el mapa, que te encuentren por WhatsApp o vender catálogo. Primero te
+      mostramos una demo de tu negocio; si te convence, publicamos. Antes puedes revisar entregas anteriores
+      en <a href="/portfolio/">portfolio</a>, ver qué incluye cada plan en <a href="/precios/">precios</a> y
+      comparar opciones en <a href="/comparativas/">comparativas</a>.
+    </p>
+    <p>
+      Si prefieres entender el trabajo antes de pedir nada, empieza por la
+      <a href="/guias/seo-local/">guía de SEO local</a> o resuelve las dudas más comunes en
+      <a href="/preguntas/">preguntas frecuentes</a>. Ambas rutas explican el mismo proceso que aplicamos en
+      estos nueve sitios.
+    </p>
   </section>
 
   <section class="section map-principles">
