@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel';
 import { datesFor } from './src/data/content-dates';
 
 const SITE = 'https://www.presentto.online';
@@ -47,6 +48,11 @@ export default defineConfig({
   site: SITE,
   trailingSlash: 'always',
   build: { format: 'directory' },
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   integrations: [
     sitemap({
       changefreq: 'weekly',
