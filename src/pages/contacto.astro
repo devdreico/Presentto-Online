@@ -5,9 +5,9 @@ import PlansGrid from '../components/PlansGrid.astro';
 import { localBusinessSchema } from '../components/schemas';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Contacto' }];
 
-const title = 'Contacto, planes y SEO local | Presentto Online';
+const title = 'Contacto, planes y demo gratis | Presentto Online';
 const description =
-  'Pide tu demo gratis o asesoría sobre planes con posicionamiento en Google, SEO on-page y dominio desde $40.000 COP/mes.';
+  'Pide tu demo gratis o asesoría sobre planes de web administrada y dominio desde $40.000 COP/mes.';
 
 const contactSchema = {
   '@context': 'https://schema.org',
@@ -34,10 +34,10 @@ const contactSchema = {
   <Breadcrumbs items={crumbs} />
 
   <section class="section wrap contact-page">
-    <p class="eyebrow">HABLEMOS · SEO LOCAL Y POSICIONAMIENTO</p>
+    <p class="eyebrow">HABLEMOS · DEMO GRATIS</p>
     <h1>Tu posición en Google <em>empieza aquí.</em></h1>
     <p class="lead">
-      Cuéntanos de tu negocio y te enviamos una demo gratis o te asesoramos sobre el plan ideal con SEO
+      Cuéntanos de tu negocio y te enviamos una demo gratis o te asesoramos sobre el plan ideal con
       on-page, ficha de Maps y dominio. También puedes elegir y pagar tu plan directo con Mercado Pago.
     </p>
     <div class="contact-layout">
@@ -64,7 +64,7 @@ const contactSchema = {
           <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Vender más" /> Vender más</label>
           <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Verse más profesional" /> Verse más profesional</label>
           <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Llegar a nuevos clientes" /> Llegar a nuevos clientes</label>
-          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Aparecer en Google" /> Aparecer en Google (SEO local)</label>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Aparecer en Google" /> Aparecer en Google</label>
           <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Mostrar servicios o productos" /> Mostrar servicios o productos</label>
         </fieldset>
         <label>¿Algo más que debamos saber?
@@ -77,7 +77,7 @@ const contactSchema = {
         </label>
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
         <button class="button primary" type="submit">Quiero mi demo o asesoría <span>↗</span></button>
-        <p class="form-note">Respondemos por WhatsApp o correo en horario hábil. La demo no requiere abono; puedes elegir un plan y pagarlo cuando quieras. Cada web incluye SEO on-page y estructura lista para posicionar en Google.</p>
+        <p class="form-note">Respondemos por WhatsApp o correo en horario hábil. La demo no requiere abono; puedes elegir un plan y pagarlo cuando quieras. Cada web incluye dominio, correo y administración durante el plan.</p>
         <p id="formStatus" role="status" aria-live="polite"></p>
       </form>
       <aside class="contact-aside">

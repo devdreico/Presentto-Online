@@ -9,18 +9,17 @@ export interface ContentDates {
 }
 
 export const contentDates: Record<string, ContentDates> = {
-  '/guias/seo-local/': { published: '2026-09-23', modified: '2026-09-24' },
-  '/guias/seo-local/que-es-seo-local/': { published: '2026-09-23', modified: '2026-09-25' },
-  '/guias/seo-local/google-business-profile/': { published: '2026-09-23', modified: '2026-09-25' },
-  '/guias/seo-local/aparecer-en-google-maps/': { published: '2026-09-23', modified: '2026-09-25' },
-  '/guias/seo-local/resenas-google/': { published: '2026-09-23', modified: '2026-09-25' },
-  '/guias/seo-local/seo-vs-anuncios-google/': { published: '2026-09-23', modified: '2026-09-25' },
-  '/guias/cuanto-cuesta-pagina-web-colombia/': { published: '2026-09-23', modified: '2026-09-24' },
+  '/guias/que-es-presencia-digital/': { published: '2026-10-01', modified: '2026-10-01' },
+  '/guias/ficha-de-google-mi-negocio/': { published: '2026-10-01', modified: '2026-10-01' },
+  '/guias/aparecer-en-google-maps/': { published: '2026-10-01', modified: '2026-10-01' },
+  '/guias/resenas-google/': { published: '2026-10-01', modified: '2026-10-01' },
+  '/guias/web-propia-vs-anuncios/': { published: '2026-10-01', modified: '2026-10-01' },
+  '/guias/cuanto-cuesta-pagina-web-colombia/': { published: '2026-09-23', modified: '2026-10-01' },
   '/comparativas/web-administrada-vs-agencia/': { published: '2026-09-23', modified: '2026-09-24' },
 };
 
 // Última revisión del sitio (páginas evergreen sin fecha editorial propia).
-export const SITE_MODIFIED = '2026-09-25';
+export const SITE_MODIFIED = '2026-10-01';
 
 export function datesFor(path: string): ContentDates {
   const normalized = path.endsWith('/') || path === '' ? path : `${path}/`;

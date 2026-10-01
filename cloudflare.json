@@ -284,32 +284,32 @@
     },
     {
       "source": "/guias/seo-local",
-      "destination": "/guias/seo-local/",
+      "destination": "/guias/que-es-presencia-digital/",
       "status": 301
     },
     {
       "source": "/guias/seo-local/aparecer-en-google-maps",
-      "destination": "/guias/seo-local/aparecer-en-google-maps/",
+      "destination": "/guias/aparecer-en-google-maps/",
       "status": 301
     },
     {
       "source": "/guias/seo-local/google-business-profile",
-      "destination": "/guias/seo-local/google-business-profile/",
+      "destination": "/guias/ficha-de-google-mi-negocio/",
       "status": 301
     },
     {
       "source": "/guias/seo-local/que-es-seo-local",
-      "destination": "/guias/seo-local/que-es-seo-local/",
+      "destination": "/guias/que-es-presencia-digital/",
       "status": 301
     },
     {
       "source": "/guias/seo-local/resenas-google",
-      "destination": "/guias/seo-local/resenas-google/",
+      "destination": "/guias/resenas-google/",
       "status": 301
     },
     {
       "source": "/guias/seo-local/seo-vs-anuncios-google",
-      "destination": "/guias/seo-local/seo-vs-anuncios-google/",
+      "destination": "/guias/web-propia-vs-anuncios/",
       "status": 301
     },
     {
@@ -484,7 +484,7 @@
       ]
     },
     {
-      "source": "/guias/seo-local/",
+      "source": "/guias/que-es-presencia-digital/",
       "headers": [
         {
           "key": "Cache-Control",
@@ -493,7 +493,7 @@
       ]
     },
     {
-      "source": "/guias/seo-local/aparecer-en-google-maps/",
+      "source": "/guias/aparecer-en-google-maps/",
       "headers": [
         {
           "key": "Cache-Control",
@@ -502,7 +502,7 @@
       ]
     },
     {
-      "source": "/guias/seo-local/google-business-profile/",
+      "source": "/guias/ficha-de-google-mi-negocio/",
       "headers": [
         {
           "key": "Cache-Control",
@@ -511,7 +511,7 @@
       ]
     },
     {
-      "source": "/guias/seo-local/que-es-seo-local/",
+      "source": "/guias/resenas-google/",
       "headers": [
         {
           "key": "Cache-Control",
@@ -520,16 +520,7 @@
       ]
     },
     {
-      "source": "/guias/seo-local/resenas-google/",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/guias/seo-local/seo-vs-anuncios-google/",
+      "source": "/guias/web-propia-vs-anuncios/",
       "headers": [
         {
           "key": "Cache-Control",

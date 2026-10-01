@@ -6,9 +6,9 @@ import PlansGrid from '../components/PlansGrid.astro';
 import { localBusinessSchema } from '../components/schemas';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Servicios' }];
 
-const title = 'Servicios de SEO local y posicionamiento web | Presentto';
+const title = 'Servicios de web administrada | Presentto';
 const description =
-  'SEO on-page, SEO local, posicionamiento en Google y web administrada desde $40.000 COP/mes. Dominio, correo, schema y ficha de Google. Demo gratis.';
+  'Web administrada, dominio propio, correo profesional y presencia digital desde $40.000 COP/mes. Demo gratis antes de pagar.';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -21,7 +21,7 @@ const serviceSchema = {
     { '@type': 'Place', name: 'Madrid' },
     { '@type': 'Place', name: 'Facatativá' },
   ],
-  serviceType: 'Diseño y administración de páginas web con SEO local',
+  serviceType: 'Diseño y administración de páginas web',
   offers: [
     { '@type': 'Offer', name: '1 mes', price: '40000', priceCurrency: 'COP', url: 'https://mpago.li/2j4gTPj' },
     { '@type': 'Offer', name: '3 meses', price: '100000', priceCurrency: 'COP', url: 'https://mpago.li/17JYVwX' },
@@ -58,7 +58,7 @@ const clientsSchema = {
 const faqs = [
   {
     q: '¿Qué incluye la Presenttación Digital?',
-    a: 'Todo lo esencial para existir en internet y verte profesional: web con tu contenido, dominio propio, correo profesional, SEO local, códigos QR, ajustes durante el plan y administración por Presentto. Desde $40.000 COP/mes, IVA incluido.',
+    a: 'Todo lo esencial para existir en internet y verte profesional: web con tu contenido, dominio propio, correo profesional, códigos QR, ajustes durante el plan y administración por Presentto. Desde $40.000 COP/mes, IVA incluido.',
   },
   {
     q: '¿Cuánto cuesta y cómo se paga?',
@@ -69,8 +69,8 @@ const faqs = [
     a: 'La Presenttación Digital incluye el dominio propio tuempresa.online y 1 correo profesional @tuempresa.online. Si ya tienes un dominio, puedes aportarlo sin costo adicional.',
   },
   {
-    q: '¿Cómo se configura el SEO local y el posicionamiento en Google?',
-    a: 'Aplicamos SEO on-page (meta títulos, meta descripciones, encabezados, enlaces internos, URL limpias), SEO técnico (sitemap, robots, velocidad, datos estructurados schema LocalBusiness) y SEO local (contenido por municipio, NAP coherente, orientación de Google Business Profile) para que te encuentren en Funza, Mosquera, Madrid, Facatativá y la Sabana Occidental — tanto en búsqueda orgánica como en el pack de Google Maps.',
+    q: '¿Cómo preparan mi web para que me encuentren en Google?',
+    a: 'Cuidamos lo técnico sin que tú tengas que entenderlo: meta títulos y descripciones, encabezados claros, estructura con enlaces internos, sitemap, velocidad, datos estructurados y orientación para tu ficha de Google. Así un cliente puede encontrarte en Funza, Mosquera, Madrid, Facatativá o donde trabajes.',
   },
   {
     q: '¿Quiénes ya tienen un sitio con Presentto?',
@@ -105,11 +105,10 @@ const faqSchema = faqs.filter((f) => !sharedWithFaqHub.has(f.q));
       fetchpriority="high"
       decoding="async"
     />
-    <h1>Posicionamiento web <em>sin agencia tradicional.</em></h1>
+    <h1>Tu web profesional, <em>sin agencia tradicional.</em></h1>
     <p class="lead">
-      Presenttación Digital: web administrada con SEO on-page, SEO técnico, datos estructurados y SEO local
-      para que tu negocio aparezca en Google, en el pack de Maps y en búsquedas “cerca de mí”. Entrega en
-      pocos días hábiles; demo gratis antes de pagar.
+      Presenttación Digital: web administrada con dominio, correo y presencia clara para que tus
+      clientes te encuentren en Google. Entrega en pocos días hábiles; demo gratis antes de pagar.
     </p>
     <div class="actions">
       <a
@@ -132,19 +131,19 @@ const faqSchema = faqs.filter((f) => !sharedWithFaqHub.has(f.q));
           <p class="eyebrow">SERVICIO PRINCIPAL</p>
           <h2>Presenttación <em>Digital</em></h2>
           <p>
-            Recibes una web lista para vender, construida con SEO on-page desde el día uno: meta títulos,
+            Recibes una web lista para vender, construida desde el día uno con estructura clara: meta títulos,
             meta descripciones, encabezados jerárquicos, enlaces internos, imágenes comprimidas y datos
-            estructurados (schema). Nosotros construimos, publicamos, indexamos y ajustamos contigo. Sin
-            plugins, sin hosting que administrar y sin pelear con herramientas.
+            estructurados. Nosotros construimos, publicamos y ajustamos contigo. Sin plugins, sin hosting
+            que administrar y sin pelear con herramientas.
           </p>
           <ul>
             <li>Creación personalizada con tus imágenes, tu estilo y tu contenido real.</li>
             <li>Dominio propio incluido: <strong>tuempresa.online</strong>.</li>
             <li>1 correo profesional: <strong>@tuempresa.online</strong>.</li>
-            <li>SEO on-page: metas, H1–H3, enlaces internos y URL limpias.</li>
-            <li>SEO local y schema LocalBusiness para búsquedas por ciudad y “cerca de mí”.</li>
-            <li>Orientación de Google Business Profile: categorías, NAP y coherencia de ficha.</li>
-            <li>Velocidad y Core Web Vitals: que el rastreador y el usuario carguen rápido.</li>
+            <li>Metas, H1–H3, enlaces internos y URLs limpias.</li>
+            <li>Estructura lista para búsquedas de tu zona y “cerca de mí”.</li>
+            <li>Orientación de tu ficha de Google: categorías y datos coherentes.</li>
+            <li>Velocidad y Core Web Vitals: que tu cliente cargue rápido.</li>
             <li>Sitemap XML, robots.txt e indexación listos al publicar.</li>
             <li>Códigos QR para llevar tráfico del punto de venta a tu web.</li>
             <li>Sin permanencia: eliges el plan y decides si renuevas al finalizarlo.</li>

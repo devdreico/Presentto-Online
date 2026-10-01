@@ -21,7 +21,7 @@ export function GET() {
   <channel>
     <title>Presentto Online — Guías</title>
     <link>${SITE}/guias/</link>
-    <description>Guías de SEO local, Google Business y precios reales de páginas web en Colombia — de Presentto, web administrada desde $40.000 COP.</description>
+    <description>Guías de presencia digital, ficha de Google y precios reales de páginas web en Colombia — de Presentto, web administrada desde $40.000 COP.</description>
     <language>es-CO</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SITE}/rss.xml" rel="self" type="application/rss+xml"/>

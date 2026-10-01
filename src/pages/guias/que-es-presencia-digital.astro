@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { authorRef } from '../../components/schemas';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FaqList from '../../components/FaqList.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import { datesFor } from '../../data/content-dates';
+const crumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Guías', href: '/guias/' },
+  { label: 'Qué es la presencia digital' },
+];
+const dates = datesFor('/guias/que-es-presencia-digital/');
+
+const title = '¿Qué es la presencia digital? | Presentto';
+const description =
+  'Presencia digital: qué es, qué piezas necesita un negocio para existir en internet y errores frecuentes al empezar.';
+
+const faqs = [
+  {
+    q: '¿Qué es la presencia digital de un negocio?',
+    a: 'Es el conjunto de puntos donde un cliente te encuentra en internet: tu página web, tu ficha de Google, tus redes sociales, tu correo profesional y tu mensajería. No hace falta estar en todos lados; hace falta que los que uses sean coherentes y completos.',
+  },
+  {
+    q: '¿Es lo mismo que tener redes sociales?',
+    a: 'No. Las redes ayudan a conversar, pero no reemplazan una web propia: tu perfil de Instagram no es tuyo, no aparece en Google con tus servicios y no transmite información de forma estable. La web es el punto de anclaje; las redes son canales.',
+  },
+  {
+    q: '¿Qué necesito como mínimo para empezar?',
+    a: 'Tres cosas: una página web con lo esencial (qué vendes, dónde estás, cómo contactarte), una ficha de Google verificada y un correo con tu dominio. Con eso un cliente puede encontrarte, comparar y escribirte sin depender de un algoritmo.',
+  },
+  {
+    q: '¿Cuánto cuesta tener presencia digital básica en Colombia?',
+    a: 'Hay opciones desde $40.000 COP/mes con la Presenttación Digital de Presentto (web, dominio, correo y administración). También puedes hacerlo tú con plataformas de pago mensual, a costa de tu tiempo.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: dates.published,
+  dateModified: dates.modified,
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Presencia digital' },
+  author: authorRef,
+  publisher: { '@id': 'https://www.presentto.online/#organization' },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://www.presentto.online/guias/que-es-presencia-digital/#webpage',
+  },
+  breadcrumb: {
+    '@id': 'https://www.presentto.online/guias/que-es-presencia-digital/#breadcrumb',
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path="/guias/que-es-presencia-digital/"
+  breadcrumbs={crumbs}
+  jsonld={[articleSchema]}
+  article={{ publishedTime: dates.published, modifiedTime: dates.modified }}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">PRESENCIA DIGITAL · FUNDAMENTOS</p>
+    <h1>¿Qué es la presencia digital?</h1>
+    <p class="lead">Definición práctica y los mínimos que necesita tu negocio para existir en internet.</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>Definición</h2>
+    <p class="snippet">
+      La presencia digital es todo lo que un cliente encuentra de ti en internet: tu web, tu ficha de Google,
+      tus redes, tu correo y tu número de contacto verificable.
+    </p>
+    <p>
+      No es una sola cosa ni un solo canal. Es la suma coherente de datos que permite a una persona descubrir
+      tu negocio, entender qué ofreces y contactarte. Un negocio puede tener muchas redes y aun así tener una
+      presencia digital débil si su información está desactualizada o si nadie le da contexto a lo que vende.
+    </p>
+
+    <h2>Las cuatro piezas mínimas</h2>
+    <ul>
+      <li><strong>Una web propia.</strong> El único punto de internet que controlas por completo: tus textos, tu catálogo, tus precios.</li>
+      <li><strong>Ficha de Google.</strong> La tarjeta que aparece en Google y Maps con categoría, horarios, fotos y reseñas.</li>
+      <li><strong>Correo profesional.</strong> Escribir desde tuempresa.com da más confianza que desde un correo genérico.</li>
+      <li><strong>Mensajería y datos consistentes.</strong> El mismo teléfono y horario en web, ficha y redes.</li>
+    </ul>
+
+    <h2>Errores frecuentes al empezar</h2>
+    <ul>
+      <li>Depender solo de Instagram o WhatsApp y no tener un lugar propio que resuma los servicios.</li>
+      <li>Datos distintos en cada canal (horarios, dirección, número). Eso confunde al cliente y a Google.</li>
+      <li>Una web bonita pero vacía: sin precios, sin horario, sin forma clara de contacto.</li>
+      <li>Esperar a tener "todo listo" para publicar. Con los mínimos bien hechos ya puedes recibir clientes.</li>
+    </ul>
+
+    <h2>Cómo encaja la web en tu presencia</h2>
+    <p>
+      La web es la base. Las redes publican; la ficha de Google muestra ubicación y reputación; pero la web es
+      donde respondes las dudas que no caben en una publicación: qué incluye un servicio, cuánto cuesta, cómo
+      se entrega. En Presentto la llamamos <em>Presenttación Digital</em>: un sitio con tu marca, dominio
+      propio, correo profesional y administración incluida, pensado para negocios que no quieren aprender
+      herramientas nuevas.
+    </p>
+
+    <h2>Por dónde seguir</h2>
+    <ul>
+      <li><a href="/guias/ficha-de-google-mi-negocio/">Cómo crear y optimizar tu ficha de Google</a></li>
+      <li><a href="/guias/aparecer-en-google-maps/">Aparecer en Google Maps</a></li>
+      <li><a href="/guias/resenas-google/">Conseguir reseñas de Google sin riesgos</a></li>
+      <li><a href="/guias/web-propia-vs-anuncios/">Web propia vs anuncios de Google</a></li>
+    </ul>
+
+    <div class="guide-cta">
+      <p><strong>¿Quieres ver tu negocio online?</strong></p>
+      <a class="button primary" href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20pedir%20una%20demo%20web%20gratis" target="_blank" rel="noopener">
+        Pedir mi demo gratis <span>↗</span>
+      </a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <FaqList faqs={faqs} />
+  </section>
+
+  <AuthorBox name="Equipo Presentto Online" />
+</BaseLayout>

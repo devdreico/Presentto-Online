@@ -32,7 +32,7 @@ export const business = {
   priceRange: '$40000-$350000 COP',
   inLanguage: 'es-CO',
   slogan:
-    'Web administrada con SEO local y posicionamiento en Google desde $40.000 COP/mes — demo gratis',
+    'Presentación digital por tecnologías web y redes, accesible para el público común — demo gratis',
 
   // NAP — dirección física/fiscal visible en GBP y schema (service-area business).
   address: null as PostalAddress | null,
@@ -50,11 +50,11 @@ export const business = {
   editor: null as Person | null,
 
   areaServed: [
+    { '@type': 'Place', name: 'Colombia' },
     { '@type': 'Place', name: 'Funza, Cundinamarca, Colombia' },
     { '@type': 'Place', name: 'Mosquera, Cundinamarca, Colombia' },
     { '@type': 'Place', name: 'Madrid, Cundinamarca, Colombia' },
     { '@type': 'Place', name: 'Facatativá, Cundinamarca, Colombia' },
-    { '@type': 'Place', name: 'Sabana Occidental, Colombia' },
   ],
 };
 

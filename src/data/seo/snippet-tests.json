@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-09-25",
+  "generatedAt": "2026-10-01",
   "note": "Tests de title/description para posicionar snippets y comparar CTR en Search Console. status: pending (por aplicar) | applied (en código, sin medir) | shipped (publicado) | reverted. Máx 60 / 160 caracteres. Lo amplía el sub-agente snippet-ctr-optimizer.",
   "tests": [
     {
       "id": "home-v1",
       "page": "/",
-      "targetQuery": "seo local páginas web",
-      "title": "SEO local y páginas web para negocios | Presentto",
-      "description": "Agencia de SEO local y desarrollo web: dominio, correo, hosting y web administrada desde 40.000/mes. Primera página en Google para tu negocio.",
+      "targetQuery": "página web para negocios",
+      "title": "Página web y presencia digital para negocios | Presentto",
+      "description": "Web administrada y presencia digital: dominio, correo, hosting y web administrada desde 40.000/mes. Primera página en Google para tu negocio.",
       "hypothesis": "Agrupar las dos intenciones (servicio + producto) en el H1 mejorará la relevancia combinada para búsquedas mixtas.",
       "status": "shipped"
     },
     {
       "id": "servicios-v1",
       "page": "/servicios/",
-      "targetQuery": "servicios de seo local",
-      "title": "Servicios de SEO local y web | Presentto",
-      "description": "SEO local, ficha de Google, reseñas y web administrada: qué incluye cada servicio y cómo se mide. Pide tu diagnóstico gratuito.",
+      "targetQuery": "servicios de web administrada",
+      "title": "Servicios de web administrada | Presentto",
+      "description": "Web administrada, ficha de Google y reseñas: qué incluye cada servicio y cómo se mide. Pide tu diagnóstico gratuito.",
       "hypothesis": "Beneficio explícito (diagnóstico gratuito) en la descripción sube el CTR en resultados informativos.",
       "status": "shipped"
     },
@@ -30,26 +30,26 @@
       "status": "shipped"
     },
     {
-      "id": "guia-seo-local-v1",
-      "page": "/guias/seo-local/",
-      "targetQuery": "guía de seo local",
-      "title": "Guía completa de SEO local en Colombia | Presentto",
-      "description": "Guía de SEO local paso a paso: Google Business, reseñas, citas locales y cómo medir resultados en Search Console.",
+      "id": "guia-presencia-digital-v1",
+      "page": "/guias/que-es-presencia-digital/",
+      "targetQuery": "guía de presencia digital",
+      "title": "Guía de presencia digital para negocios | Presentto",
+      "description": "Guía de presencia digital paso a paso: Google Business, reseñas, citas locales y cómo medir resultados en Search Console.",
       "hypothesis": "Título con país + palabra clave central posiciona mejor en español LATAM que versión global.",
       "status": "shipped"
     },
     {
-      "id": "que-es-seo-local-v1",
-      "page": "/guias/seo-local/que-es-seo-local/",
-      "targetQuery": "qué es el seo local",
-      "title": "Qué es el SEO local y cómo funciona | Presentto",
-      "description": "Qué es el SEO local, cómo elige Google el pack local y qué señales puedes controlar para posicionar tu negocio en tu ciudad.",
+      "id": "que-es-presencia-digital-v1",
+      "page": "/guias/que-es-presencia-digital/",
+      "targetQuery": "qué es la presencia digital",
+      "title": "Qué es la presencia digital y cómo empezar | Presentto",
+      "description": "Qué es la presencia digital, qué piezas necesita un negocio y qué puedes controlar para que te encuentren.",
       "hypothesis": "Doble palabra clave en title (qué es + cómo funciona) capta las dos búsquedas relacionadas.",
       "status": "shipped"
     },
     {
       "id": "gbp-v1",
-      "page": "/guias/seo-local/google-business-profile/",
+      "page": "/guias/ficha-de-google-mi-negocio/",
       "targetQuery": "optimizar ficha de google",
       "title": "Optimiza tu ficha de Google Business Profile | Presentto",
       "description": "Paso a paso para optimizar Google Business Profile: categorías, fotos, zonas de servicio, publicaciones y métricas de la ficha.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "maps-v1",
-      "page": "/guias/seo-local/aparecer-en-google-maps/",
+      "page": "/guias/aparecer-en-google-maps/",
       "targetQuery": "aparecer en google maps",
       "title": "Cómo aparecer en Google Maps: guía 2026 | Presentto",
       "description": "Aparece en Google Maps y en el pack local: requisitos, categorías, distancias, reseñas y errores que te hunden en el mapa.",
@@ -67,7 +67,7 @@
     },
     {
       "id": "resenas-v1",
-      "page": "/guias/seo-local/resenas-google/",
+      "page": "/guias/resenas-google/",
       "targetQuery": "reseñas de google",
       "title": "Reseñas en Google: cómo pedirlas y responder | Presentto",
       "description": "Cómo pedir reseñas en Google sin reglas, responder reseñas negativas y usar las peticiones para mejorar tu posición local.",
@@ -75,11 +75,11 @@
       "status": "shipped"
     },
     {
-      "id": "seo-vs-ads-v1",
-      "page": "/guias/seo-local/seo-vs-anuncios-google/",
-      "targetQuery": "seo local vs google ads",
-      "title": "SEO local vs Google Ads: qué conviene más | Presentto",
-      "description": "SEO frente a Google Ads: coste, tiempo hasta resultados y mantenimiento. Cuándo usar cada uno y cuándo combinarlos.",
+      "id": "web-vs-anuncios-v1",
+      "page": "/guias/web-propia-vs-anuncios/",
+      "targetQuery": "web propia vs google ads",
+      "title": "Web propia vs Google Ads: qué conviene | Presentto",
+      "description": "Web propia frente a Google Ads: coste, tiempo hasta resultados y mantenimiento. Cuándo usar cada uno y cuándo combinarlos.",
       "hypothesis": "La pregunta directa en el title mejora el CTR en comparativas de decisión.",
       "status": "shipped"
     },
@@ -105,7 +105,7 @@
       "id": "comparativas-hub-v1",
       "page": "/comparativas/",
       "targetQuery": "comparativas de servicios web",
-      "title": "Comparativas de web, agencias y SEO | Presentto",
+      "title": "Comparativas de web y agencias | Presentto",
       "description": "Comparativas independientes: plataformas, agencias, costos y plazos. Tablas con fuentes para decidir sin vendedores de por medio.",
       "hypothesis": "'Independientes' + fuentes aumenta la confianza percibida y el CTR en queries de evaluación.",
       "status": "shipped"
@@ -113,9 +113,9 @@
     {
       "id": "guias-hub-v1",
       "page": "/guias/",
-      "targetQuery": "guías de seo local",
-      "title": "Guías de SEO local y posicionamiento web | Presentto",
-      "description": "Todas las guías de Presentto: SEO local, Google Business, reseñas, precios de web y comparativas, con pasos y fuentes.",
+      "targetQuery": "guías de presencia digital",
+      "title": "Guías de Presencia digital y posicionamiento web | Presentto",
+      "description": "Todas las guías de Presentto: Presencia digital, Google Business, reseñas, precios de web y comparativas, con pasos y fuentes.",
       "hypothesis": "Enumera los pilares en la descripción para cubrir sinónimos del hub.",
       "status": "shipped"
     },
@@ -123,7 +123,7 @@
       "id": "sitios-v1",
       "page": "/sitios/",
       "targetQuery": "sitios web publicados",
-      "title": "Sitios web publicados con SEO | Presentto",
+      "title": "Sitios web publicados | Presentto",
       "description": "Sitios reales publicados por Presentto: rubros, tipos de web y funcionamiento incluido. Casos verificables, no capturas inventadas.",
       "hypothesis": "La promesa de verificabilidad ('no capturas inventadas') diferencia frente a portfolios genéricos.",
       "status": "shipped"
@@ -133,7 +133,7 @@
       "page": "/nosotros/",
       "targetQuery": "presentto qué es",
       "title": "Quiénes somos: agencia web en Colombia | Presentto",
-      "description": "Quiénes somos en Presentto: cómo trabajamos, qué garantizamos y con qué fuentes medimos el SEO de tu negocio.",
+      "description": "Quiénes somos en Presentto: cómo trabajamos, qué garantizamos y cómo medimos resultados de tu negocio.",
       "hypothesis": "La pregunta 'quiénes somos' en el title capta la búsqueda de marca/compañía.",
       "status": "shipped"
     },
@@ -149,9 +149,9 @@
     {
       "id": "preguntas-v1",
       "page": "/preguntas/",
-      "targetQuery": "preguntas frecuentes de seo",
-      "title": "Preguntas frecuentes de SEO local y web | Presentto",
-      "description": "Resolvemos las dudas más frecuentes sobre SEO local, web administrada, dominios, hosting, reseñas y medición.",
+      "targetQuery": "preguntas frecuentes de web administrada",
+      "title": "Preguntas frecuentes de Presencia digital y web | Presentto",
+      "description": "Resolvemos las dudas más frecuentes sobre Presencia digital, web administrada, dominios, hosting, reseñas y medición.",
       "hypothesis": "El hub de FAQ debe listar los temas en la descripción para capturar long tail de dudas.",
       "status": "shipped"
     },
@@ -159,16 +159,16 @@
       "id": "portfolio-v1",
       "page": "/portfolio/",
       "targetQuery": "portafolio desarrollo web",
-      "title": "Portafolio de sitios web con SEO | Presentto",
-      "description": "Muestra de trabajos: sitios por rubro con SEO técnico, contenido y medición. Cada caso indica alcance y plazo.",
+      "title": "Portafolio de sitios web | Presentto",
+      "description": "Muestra de trabajos: sitios por rubro con técnica, contenido y medición. Cada caso indica alcance y plazo.",
       "hypothesis": "Añadir 'alcance y plazo' al snippet atrae a clientes que comparan presupuestos.",
       "status": "shipped"
     },
     {
       "id": "funza-v1",
       "page": "/funza/",
-      "targetQuery": "seo en funza",
-      "title": "SEO y posicionamiento en Google en Funza | Presentto",
+      "targetQuery": "página web en funza",
+      "title": "Página web y presencia digital en Funza | Presentto",
       "description": "Posicionamiento en Google para negocios en Funza: sectores locales, competencia y pasos para aparecer en el pack local.",
       "hypothesis": "Ciudad + intención ('posicionamiento en Google') en el title domina la cola larga local.",
       "status": "shipped"
@@ -176,28 +176,28 @@
     {
       "id": "mosquera-v1",
       "page": "/mosquera/",
-      "targetQuery": "seo en mosquera",
-      "title": "SEO y posicionamiento en Google en Mosquera | Presentto",
-      "description": "SEO local en Mosquera: qué buscan tus clientes, cómo es la competencia en el mapa y qué señales pesan más hoy.",
+      "targetQuery": "página web en mosquera",
+      "title": "Página web y presencia digital en Mosquera | Presentto",
+      "description": "Presencia digital en Mosquera: qué buscan tus clientes, cómo es la competencia en el mapa y qué señales pesan más hoy.",
       "hypothesis": "Mismo patrón de title que Funza con contenido único por ciudad (evita duplicidad).",
       "status": "shipped"
     },
     {
       "id": "madrid-v1",
       "page": "/madrid/",
-      "targetQuery": "seo en madrid",
-      "title": "SEO y posicionamiento en Google en Madrid | Presentto",
-      "description": "SEO en Madrid (Cundinamarca): sectores, población y estrategia local para que tu negocio aparezca en Google Maps y búsqueda.",
+      "targetQuery": "página web en madrid",
+      "title": "Página web y presencia digital en Madrid | Presentto",
+      "description": "Web en Madrid (Cundinamarca): sectores, población y estrategia local para que tu negocio aparezca en Google Maps y búsqueda.",
       "hypothesis": "Aclarar '(Cundinamarca)' en la descripción evita la confusión con Madrid, España en la intención de búsqueda.",
       "status": "shipped"
     },
     {
       "id": "facatativa-v1",
       "page": "/facatativa/",
-      "targetQuery": "seo en facatativá",
-      "title": "SEO y posicionamiento en Google en Facatativá | Presentto",
+      "targetQuery": "página web en facatativá",
+      "title": "Página web y presencia digital en Facatativá | Presentto",
       "description": "Posicionamiento en Facatativá: perfil de comercio local, competencia y qué hacer para entrar al pack local de Google.",
-      "hypothesis": "Mantener el acento en el title y el slug sin acento equilibra SEO y ortografía.",
+      "hypothesis": "Mantener el acento en el title y el slug sin acento equilibra relevancia y ortografía.",
       "status": "shipped"
     },
     {
@@ -211,7 +211,7 @@
     },
     {
       "id": "gbp-v2-cta",
-      "page": "/guias/seo-local/google-business-profile/",
+      "page": "/guias/ficha-de-google-mi-negocio/",
       "targetQuery": "google business profile optimización",
       "title": "Google Business Profile: guía de optimización",
       "description": "Optimiza tu ficha de Google al 100%: categorías, zonas de servicio, fotos y publicaciones. Checklist descargable incluida.",
@@ -220,7 +220,7 @@
     },
     {
       "id": "maps-v2-pregunta",
-      "page": "/guias/seo-local/aparecer-en-google-maps/",
+      "page": "/guias/aparecer-en-google-maps/",
       "targetQuery": "cómo aparecer primero en google maps",
       "title": "¿Cómo aparecer en Google Maps primero? | Presentto",
       "description": "Los 9 factores que decide tu posición en el mapa de Google, con checklist para aplicarlos hoy en tu ficha.",
@@ -229,7 +229,7 @@
     },
     {
       "id": "resenas-v2-larga",
-      "page": "/guias/seo-local/resenas-google/",
+      "page": "/guias/resenas-google/",
       "targetQuery": "pedir reseñas sin que te penalice google",
       "title": "Pedir reseñas en Google sin penalizaciones | Presentto",
       "description": "La política de reseñas de Google explicada: qué está permitido al pedir reseñas, qué no, y plantillas listas para usar.",

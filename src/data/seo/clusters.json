@@ -1,30 +1,21 @@
 {
-  "generatedAt": "2026-09-25",
+  "generatedAt": "2026-10-01",
   "note": "Clústeres de contenidos: 1 keyword primaria por clúster (evita canibalización) y 1 targetPage por clúster. status: published | planned. Lo amplía el sub-agente seo-cluster-architect.",
   "clusters": [
     {
-      "id": "seo-local-pilar",
-      "title": "Pilar: SEO local",
-      "primaryKeyword": "seo local",
-      "targetPage": "/guias/seo-local/",
+      "id": "presencia-digital-pilar",
+      "title": "Pilar: presencia digital",
+      "primaryKeyword": "presencia digital",
+      "targetPage": "/guias/que-es-presencia-digital/",
       "intent": "informational",
       "status": "published",
       "priority": 1
     },
     {
-      "id": "seo-local-fundamentos",
-      "title": "Fundamentos del SEO local",
-      "primaryKeyword": "qué es el seo local",
-      "targetPage": "/guias/seo-local/que-es-seo-local/",
-      "intent": "informational",
-      "status": "published",
-      "priority": 1
-    },
-    {
-      "id": "google-business-profile",
-      "title": "Google Business Profile / ficha de Google",
-      "primaryKeyword": "google business profile",
-      "targetPage": "/guias/seo-local/google-business-profile/",
+      "id": "ficha-de-google",
+      "title": "Ficha de Google Mi Negocio",
+      "primaryKeyword": "ficha de google mi negocio",
+      "targetPage": "/guias/ficha-de-google-mi-negocio/",
       "intent": "informational",
       "status": "published",
       "priority": 1
@@ -33,25 +24,25 @@
       "id": "aparecer-google-maps",
       "title": "Aparecer en Google Maps / pack local",
       "primaryKeyword": "aparecer en google maps",
-      "targetPage": "/guias/seo-local/aparecer-en-google-maps/",
+      "targetPage": "/guias/aparecer-en-google-maps/",
       "intent": "informational",
       "status": "published",
       "priority": 1
     },
     {
-      "id": "resenas-google",
+      "id": "resenas-de-google",
       "title": "Reseñas de Google",
       "primaryKeyword": "reseñas de google",
-      "targetPage": "/guias/seo-local/resenas-google/",
+      "targetPage": "/guias/resenas-google/",
       "intent": "informational",
       "status": "published",
       "priority": 2
     },
     {
-      "id": "seo-vs-ads",
-      "title": "SEO local vs Google Ads",
-      "primaryKeyword": "seo local vs google ads",
-      "targetPage": "/guias/seo-local/seo-vs-anuncios-google/",
+      "id": "web-vs-anuncios",
+      "title": "Web propia vs Google Ads",
+      "primaryKeyword": "web propia vs google ads",
+      "targetPage": "/guias/web-propia-vs-anuncios/",
       "intent": "commercial",
       "status": "published",
       "priority": 1
@@ -86,7 +77,7 @@
     {
       "id": "guias-hub",
       "title": "Hub de guías",
-      "primaryKeyword": "guías de seo local",
+      "primaryKeyword": "guías de presencia digital",
       "targetPage": "/guias/",
       "intent": "informational",
       "status": "published",
@@ -95,7 +86,7 @@
     {
       "id": "servicios-presentto",
       "title": "Servicios",
-      "primaryKeyword": "servicios de seo local",
+      "primaryKeyword": "web administrada",
       "targetPage": "/servicios/",
       "intent": "commercial",
       "status": "published",
@@ -122,7 +113,7 @@
     {
       "id": "sitios-publicados",
       "title": "Sitios publicados",
-      "primaryKeyword": "sitios publicados con seo",
+      "primaryKeyword": "sitios publicados con presentto",
       "targetPage": "/sitios/",
       "intent": "navigational",
       "status": "published",
@@ -138,9 +129,9 @@
       "priority": 3
     },
     {
-      "id": "faq-seo",
+      "id": "faq-presentto",
       "title": "Preguntas frecuentes",
-      "primaryKeyword": "preguntas de seo",
+      "primaryKeyword": "preguntas frecuentes de web administrada",
       "targetPage": "/preguntas/",
       "intent": "informational",
       "status": "published",
@@ -158,7 +149,7 @@
     {
       "id": "ciudad-funza",
       "title": "Ciudad: Funza",
-      "primaryKeyword": "seo en funza",
+      "primaryKeyword": "página web en funza",
       "targetPage": "/funza/",
       "intent": "commercial",
       "status": "published",
@@ -167,7 +158,7 @@
     {
       "id": "ciudad-mosquera",
       "title": "Ciudad: Mosquera",
-      "primaryKeyword": "seo en mosquera",
+      "primaryKeyword": "página web en mosquera",
       "targetPage": "/mosquera/",
       "intent": "commercial",
       "status": "published",
@@ -176,7 +167,7 @@
     {
       "id": "ciudad-madrid",
       "title": "Ciudad: Madrid (Cundinamarca)",
-      "primaryKeyword": "seo en madrid",
+      "primaryKeyword": "página web en madrid",
       "targetPage": "/madrid/",
       "intent": "commercial",
       "status": "published",
@@ -185,7 +176,7 @@
     {
       "id": "ciudad-facatativa",
       "title": "Ciudad: Facatativá",
-      "primaryKeyword": "seo en facatativá",
+      "primaryKeyword": "página web en facatativa",
       "targetPage": "/facatativa/",
       "intent": "commercial",
       "status": "published",
@@ -194,8 +185,8 @@
     {
       "id": "rubro-restaurantes",
       "title": "Rubro: restaurantes y cafés",
-      "primaryKeyword": "seo para restaurantes",
-      "targetPage": "/guias/seo-para-restaurantes/",
+      "primaryKeyword": "página web para restaurantes",
+      "targetPage": "/guias/pagina-web-para-restaurantes/",
       "intent": "informational",
       "status": "planned",
       "priority": 1
@@ -203,8 +194,8 @@
     {
       "id": "rubro-clinicas",
       "title": "Rubro: clínicas y consultorios",
-      "primaryKeyword": "seo para clínicas",
-      "targetPage": "/guias/seo-para-clinicas/",
+      "primaryKeyword": "página web para clínicas",
+      "targetPage": "/guias/pagina-web-para-clinicas/",
       "intent": "informational",
       "status": "planned",
       "priority": 1
@@ -212,8 +203,8 @@
     {
       "id": "rubro-peluquerias",
       "title": "Rubro: peluquerías y barberías",
-      "primaryKeyword": "seo para peluquerías",
-      "targetPage": "/guias/seo-para-peluquerias/",
+      "primaryKeyword": "página web para peluquerías",
+      "targetPage": "/guias/pagina-web-para-peluquerias/",
       "intent": "informational",
       "status": "planned",
       "priority": 2
@@ -221,8 +212,8 @@
     {
       "id": "rubro-talleres",
       "title": "Rubro: talleres mecánicos",
-      "primaryKeyword": "seo para talleres mecánicos",
-      "targetPage": "/guias/seo-para-talleres/",
+      "primaryKeyword": "página web para talleres mecánicos",
+      "targetPage": "/guias/pagina-web-para-talleres/",
       "intent": "informational",
       "status": "planned",
       "priority": 2
@@ -230,8 +221,8 @@
     {
       "id": "rubro-comercios",
       "title": "Rubro: comercios y ferreterías",
-      "primaryKeyword": "seo para comercios",
-      "targetPage": "/guias/seo-para-comercios/",
+      "primaryKeyword": "página web para comercios",
+      "targetPage": "/guias/pagina-web-para-comercios/",
       "intent": "informational",
       "status": "planned",
       "priority": 2
@@ -239,8 +230,8 @@
     {
       "id": "rubro-profesionales",
       "title": "Rubro: profesionales (abogados, contadores)",
-      "primaryKeyword": "seo para profesionales",
-      "targetPage": "/guias/seo-para-profesionales/",
+      "primaryKeyword": "página web para profesionales (abogados, contadores)",
+      "targetPage": "/guias/pagina-web-para-profesionales/",
       "intent": "informational",
       "status": "planned",
       "priority": 2

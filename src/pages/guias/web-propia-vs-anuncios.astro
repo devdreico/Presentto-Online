@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { authorRef } from '../../components/schemas';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FaqList from '../../components/FaqList.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import { datesFor } from '../../data/content-dates';
+const crumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Guías', href: '/guias/' },
+  { label: 'Web propia vs anuncios' },
+];
+const dates = datesFor('/guias/web-propia-vs-anuncios/');
+
+const title = 'Web propia vs anuncios de Google | Presentto';
+const description =
+  'Comparativa entre tener una web propia y pagar anuncios de Google: costes, velocidad, control y cuándo usar cada uno.';
+
+const faqs = [
+  {
+    q: '¿Necesito anuncios si ya tengo web?',
+    a: 'No necesariamente. Una web clara, con tu información actualizada y enlazada desde tu ficha de Google puede traer clientes sin pagar por clic. Los anuncios sirven cuando necesitas volumen inmediato o lanzar algo puntual.',
+  },
+  {
+    q: '¿Qué es más barato a largo plazo?',
+    a: 'La web propia. Pagas la creación y una administración mensual acotada, y eso queda tuyo. Los anuncios cobran por clic mientras los pagues; al pausarlos, el tráfico se detiene de inmediato.',
+  },
+  {
+    q: '¿Se pueden usar los dos?',
+    a: 'Sí, y es común: primero tener web y ficha en orden, y después lanzar anuncios puntuales para lanzamientos, estacionalidad o nuevas sedes. Sin una web decente detrás, la pauta se quema dinero.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: dates.published,
+  dateModified: dates.modified,
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Publicidad en línea' },
+  author: authorRef,
+  publisher: { '@id': 'https://www.presentto.online/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.presentto.online/guias/web-propia-vs-anuncios/#webpage' },
+  breadcrumb: { '@id': 'https://www.presentto.online/guias/web-propia-vs-anuncios/#breadcrumb' },
+};
+---
+
+<BaseLayout title={title} description={description} path="/guias/web-propia-vs-anuncios/" breadcrumbs={crumbs} jsonld={[articleSchema]} article={{ publishedTime: dates.published, modifiedTime: dates.modified }}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">CANALES · COMPARATIVA</p>
+    <h1>Web propia vs anuncios de Google</h1>
+    <p class="lead">Dos formas distintas de que te encuentren: una es tuya, la otra se alquila por clic.</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>La diferencia de fondo</h2>
+    <p class="snippet">Tu web es un activo que queda tuyo; los anuncios son un gasto que se detiene cuando cortas el presupuesto.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Criterio</th><th>Web propia</th><th>Anuncios de Google</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Coste</td><td>Una vez o plan mensual acotado</td><td>Por clic; crece con la competencia</td></tr>
+        <tr><td>Velocidad</td><td>Días para tenerla; el tráfico orgánico tarda más</td><td>Empieza el mismo día</td></tr>
+        <tr><td>Duración</td><td>Permanente mientras la administres</td><td>Se detiene al pausar</td></tr>
+        <tr><td>Control</td><td>Tuyo: textos, fotos, precios</td><td>Limitado al formato del anuncio</td></tr>
+        <tr><td>Confianza</td><td>Alta: página propia con datos claros</td><td>Menor: muchos la saltan al primer resultado orgánico</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Cuándo conviene cada una</h2>
+    <ul>
+      <li><strong>Web propia:</strong> siempre que quieras quedarte en internet sin esperar a campañas.</li>
+      <li><strong>Anuncios:</strong> para un lanzamiento, temporada fuerte o cuando necesitas clientes esta semana.</li>
+      <li><strong>Primero la base:</strong> sin web decente y ficha actualizada, la pauta convierte peor.</li>
+    </ul>
+
+    <h2>La recomendación práctica</h2>
+    <p>Para la mayoría de negocios pequeños y medianos en Colombia, el orden sensato es: web clara → ficha de Google verificada → reseñas reales → y solo después, anuncios si hace falta acelerar. En Presentto cubrimos los tres primeros pasos desde $40.000 COP/mes con demo gratis antes de pagar.</p>
+
+    <div class="guide-cta">
+      <p><strong>Empieza por la base sólida</strong></p>
+      <a class="button primary" href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20pedir%20una%20demo%20web%20gratis" target="_blank" rel="noopener">Pedir mi demo gratis <span>↗</span></a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <FaqList faqs={faqs} />
+  </section>
+
+  <AuthorBox name="Equipo Presentto Online" />
+</BaseLayout>

@@ -4,16 +4,16 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { guideIndex } from '../../data/site-index';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Guías' }];
 
-const title = 'Guías SEO local y precios web | Presentto Online';
+const title = 'Guías de presencia digital y precios web | Presentto Online';
 const description =
-  'Guías prácticas de SEO local, Google Business Profile, reseñas y precio de página web en Colombia 2026, con checklists y ejemplos reales.';
+  'Guías prácticas sobre presencia digital, ficha de Google, reseñas y precio de página web en Colombia 2026.';
 
 const guides = guideIndex;
 
 const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Guías de SEO local y precios web',
+  name: 'Guías de presencia digital y precios web',
   url: 'https://www.presentto.online/guias/',
   inLanguage: 'es-CO',
   isPartOf: { '@id': 'https://www.presentto.online/#website' },
@@ -34,7 +34,7 @@ const collectionSchema = {
 
   <section class="section wrap page-hero">
     <p class="eyebrow">RECURSOS</p>
-    <h1>Guías de SEO local y precios web</h1>
+    <h1>Guías de presencia digital y precios web</h1>
     <p class="lead">Contenido práctico para posicionar tu negocio y decidir con datos.</p>
   </section>
 
@@ -46,9 +46,9 @@ const collectionSchema = {
       elegir entre opciones.
     </p>
     <p>
-      La <a href="/guias/seo-local/">guía completa de SEO local</a> es el pilar. Todo lo demás cuelga de
+      La <a href="/guias/que-es-presencia-digital/">guía de presencia digital</a> es el pilar. Todo lo demás cuelga de
       ella: si necesitas definir el concepto, montar la ficha, salir en el mapa, gestionar reseñas o decidir
-      entre SEO y anuncios, entra directo a esa guía corta y vuelve al pilar cuando quieras el contexto. Las
+      entre web propia y anuncios, entra directo a esa guía corta y vuelve al pilar cuando quieras el contexto. Las
       comparativas van al final, porque solo ayudan a quien ya sabe qué necesita y está comparando
       alternativas de contratación.
     </p>
@@ -59,23 +59,20 @@ const collectionSchema = {
         <tr><th>Grupo</th><th>Qué lo compone</th><th>Qué resuelve</th></tr>
       </thead>
       <tbody>
-        <tr><td>Pilar</td><td>1 guía larga de SEO local</td><td>Visión completa: factores, checklist y estrategia</td></tr>
-        <tr><td>Clúster SEO local</td><td>5 guías: definición, ficha de Google, mapas, reseñas, SEO vs anuncios</td><td>Una tarea concreta por guía, con pasos y ejemplos</td></tr>
+        <tr><td>Pilar</td><td>1 guía larga de presencia digital</td><td>Visión completa: factores, checklist y estrategia</td></tr>
+        <tr><td>Clúster de presencia</td><td>5 guías: ficha de Google, mapas, reseñas, web vs anuncios</td><td>Una tarea concreta por guía, con pasos y ejemplos</td></tr>
         <tr><td>Precios y comparativas</td><td>2 guías: precio de web y web administrada vs agencia</td><td>Comparar costes, plazos y control antes de contratar</td></tr>
       </tbody>
     </table>
     <p>
-      El pilar sirve para entender el terreno antes de tocar nada: qué factores mueven el ranking local y
-      cuáles no. El clúster de SEO local resuelve tareas sueltas, una por guía: definición, ficha de Google,
+      El pilar sirve para entender el terreno antes de tocar nada: qué piezas necesitas y cuáles no. El clúster resuelve tareas sueltas, una por guía: definición, ficha de Google,
       mapas, reseñas y pauta. El grupo de precios y comparativas entra cuando ya sabes qué necesitas y toca
       decidir con quién contratar.
     </p>
     <p>
-      No hace falta leerlas en orden: busca la tarea que tienes hoy y sigue desde ahí. Seis de las ocho
-      entradas pertenecen al silo de SEO local, una trata precios y la comparativa vive también en su propio
+      No hace falta leerlas en orden: busca la tarea que tienes hoy y sigue desde ahí. Seis de las ocho entradas tratan presencia digital, una trata precios y la comparativa vive también en su propio
       hub. Google explica la base de todo esto en la
-      <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=es" target="_blank" rel="noopener">guía
-      de SEO para principiantes de Search Central</a>.
+      <a href="https://developers.google.com/search/docs/fundamentals" target="_blank" rel="noopener">documentación de fundamentos de Google</a>.
     </p>
 
     <h2>Todas las guías</h2>
@@ -94,18 +91,17 @@ const collectionSchema = {
     <h2>Por dónde empezar</h2>
     <h3>Si no tienes nada (ni web ni ficha)</h3>
     <p>
-      Empieza por el pilar de <a href="/guias/seo-local/">SEO local</a> para entender qué mueve el ranking
-      local y qué no. Después monta tu ficha con la guía de
-      <a href="/guias/seo-local/google-business-profile/">Google Business Profile</a>, verifica el negocio y
+      Empieza por el pilar de <a href="/guias/que-es-presencia-digital/">presencia digital</a> para entender qué necesitas. Después monta tu ficha con la guía de
+      <a href="/guias/ficha-de-google-mi-negocio/">Google Business Profile</a>, verifica el negocio y
       deja nombre, categoría y horarios correctos. Cuando la ficha esté lista, publica una web rápida con tus
       servicios y zonas: sin página a la que enviar el clic, el trabajo anterior pierde la mitad del valor.
     </p>
     <h3>Si ya tienes ficha de Google</h3>
     <p>
-      Tu siguiente paso no es “hacer más SEO”, sino cerrar los huecos. Revisa si apareces en el
-      <a href="/guias/seo-local/aparecer-en-google-maps/">pack de mapas</a>, pon en orden las reseñas con la
-      <a href="/guias/seo-local/resenas-google/">guía de reseñas</a> y decide si la pauta te aporta algo con
-      la <a href="/guias/seo-local/seo-vs-anuncios-google/">comparativa de SEO vs anuncios</a>. Trabaja en ese
+      Tu siguiente paso no es hacer más publicaciones, sino cerrar los huecos. Revisa si apareces en el
+      <a href="/guias/aparecer-en-google-maps/">pack de mapas</a>, pon en orden las reseñas con la
+      <a href="/guias/resenas-google/">guía de reseñas</a> y decide si la pauta te aporta algo con
+      la <a href="/guias/web-propia-vs-anuncios/">comparativa de web vs anuncios</a>. Trabaja en ese
       orden: primero lo que ya tienes, después lo nuevo.
     </p>
     <h3>Si quieres comparar precios antes de decidir</h3>
@@ -150,7 +146,7 @@ const collectionSchema = {
 
     <h2>Sigue desde aquí</h2>
     <ul>
-      <li><a href="/servicios/">Servicios</a>: qué incluye la web administrada, el SEO local y el mantenimiento.</li>
+      <li><a href="/servicios/">Servicios</a>: qué incluye la web administrada y el mantenimiento.</li>
       <li><a href="/precios/">Precios</a>: planes con prepago por plazo, sin suscripción ni permanencia.</li>
       <li><a href="/preguntas/">Preguntas</a>: dudas sobre planes, plazos, dominio y soporte.</li>
       <li>Por zona: <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a> y <a href="/facatativa/">Facatativa</a>, con el contexto local de cada municipio.</li>

@@ -14,7 +14,7 @@ function priorityFor(url) {
   if (url.endsWith(`${SITE}/`)) return 1.0;
   if (url.includes('/servicios/')) return 0.9;
   if (url.includes('/precios/')) return 0.9;
-  if (url.endsWith('/guias/seo-local/')) return 0.9;
+  if (url.endsWith('/guias/que-es-presencia-digital/')) return 0.9;
   if (url.includes('/contacto/')) return 0.8;
   if (
     url.includes('/funza/') ||

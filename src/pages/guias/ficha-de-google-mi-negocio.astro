@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { authorRef } from '../../components/schemas';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FaqList from '../../components/FaqList.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import { datesFor } from '../../data/content-dates';
+const crumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Guías', href: '/guias/' },
+  { label: 'Ficha de Google para tu negocio' },
+];
+const dates = datesFor('/guias/ficha-de-google-mi-negocio/');
+
+const title = 'Ficha de Google Mi Negocio paso a paso | Presentto';
+const description =
+  'Cómo crear y optimizar tu ficha de Google Mi Negocio: categoría, fotos, servicios y datos coherentes con tu web.';
+
+const faqs = [
+  {
+    q: '¿Qué es la ficha de Google Mi Negocio?',
+    a: 'Es la tarjeta con nombre, categoría, horario, teléfono, fotos y reseñas que aparece cuando alguien busca tu negocio en Google o Maps. Es gratuita y es una de las piezas más vistas de tu presencia digital.',
+  },
+  {
+    q: '¿Cómo creo mi ficha?',
+    a: 'Desde Google Business Profile: reclamas o creas el perfil, eliges la categoría principal, completas dirección u área de servicio, teléfono y horario, y verificas por video, llamada o correo según lo que Google te ofrezca.',
+  },
+  {
+    q: '¿Qué datos debo mantener actualizados?',
+    a: 'Horario (incluidos festivos), categoría, fotos recientes y respuesta a reseñas. Cualquier cambio en tu web debe reflejarse en la ficha: nombre, teléfono y dirección deben ser idénticos en todos lados.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: dates.published,
+  dateModified: dates.modified,
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Google Business Profile' },
+  author: authorRef,
+  publisher: { '@id': 'https://www.presentto.online/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.presentto.online/guias/ficha-de-google-mi-negocio/#webpage' },
+  breadcrumb: { '@id': 'https://www.presentto.online/guias/ficha-de-google-mi-negocio/#breadcrumb' },
+};
+---
+
+<BaseLayout title={title} description={description} path="/guias/ficha-de-google-mi-negocio/" breadcrumbs={crumbs} jsonld={[articleSchema]} article={{ publishedTime: dates.published, modifiedTime: dates.modified }}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">GOOGLE MI NEGOCIO · GUÍA</p>
+    <h1>Tu ficha de Google, paso a paso</h1>
+    <p class="lead">Cómo crearla, qué completar primero y cómo mantenerla coherente con tu web.</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>Antes de empezar</h2>
+    <p class="snippet">Ten a la mano: nombre comercial, categoría principal, teléfono, dirección u zona de cobertura, horario real y 10 fotos buenas del negocio.</p>
+    <p>Sin esos datos la ficha queda vacía y Google la muestra apenas. La verificación puede tardar días; el resto lo completas hoy.</p>
+
+    <h2>Pasos esenciales</h2>
+    <ol>
+      <li>Crea o reclama el perfil en Google Business Profile y verifica tu identidad.</li>
+      <li>Elige la categoría principal más exacta (una sola) y hasta 9 secundarias reales.</li>
+      <li>Completa dirección exacta o área de servicio, teléfono y enlace a tu web.</li>
+      <li>Publica horario, descripción corta y servicios con precios si los tienes.</li>
+      <li>Sube fotos del local, productos y equipo. Las fichas con fotos recientes reciben más clics.</li>
+      <li>Responde reseñas nuevas en menos de 48 horas, con nombre y tono cordial.</li>
+    </ol>
+
+    <h2>Errores que la dejan invisible</h2>
+    <ul>
+      <li>Categoría genérica ("tienda") en vez de la específica ("tienda de repuestos de motos").</li>
+      <li>Horarios distintos entre ficha, web y redes.</li>
+      <li>Fotos de hace dos años o ninguna.</li>
+      <li>Duplicar fichas para la misma dirección: Google las une o las suspende.</li>
+    </ul>
+
+    <h2>Cómo se conecta con tu web</h2>
+    <p>La ficha responde "dónde" y "cuándo"; la web responde "qué ofreces". Enlaza siempre la ficha a tu web y repite en ambas el mismo nombre, teléfono y horario. Es la forma más simple de darle coherencia a tu presencia digital.</p>
+
+    <div class="guide-cta">
+      <p><strong>¿Prefieres que te echemos una mano?</strong></p>
+      <a class="button primary" href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20pedir%20una%20demo%20web%20gratis" target="_blank" rel="noopener">Pedir mi demo gratis <span>↗</span></a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <FaqList faqs={faqs} />
+  </section>
+
+  <AuthorBox name="Equipo Presentto Online" />
+</BaseLayout>

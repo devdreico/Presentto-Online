@@ -139,7 +139,7 @@ export const localBusinessSchema = {
       itemOffered: {
         '@type': 'Service',
         name: 'Presenttación Digital',
-        description: 'Sitio web con SEO on-page, SEO local, schema y dominio — plan de 1 mes.',
+        description: 'Sitio web con dominio, correo y administración — plan de 1 mes.',
       },
       price: '40000',
       priceCurrency: 'COP',

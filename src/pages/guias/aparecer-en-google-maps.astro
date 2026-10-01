@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { authorRef } from '../../components/schemas';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FaqList from '../../components/FaqList.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import { datesFor } from '../../data/content-dates';
+const crumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Guías', href: '/guias/' },
+  { label: 'Aparecer en Google Maps' },
+];
+const dates = datesFor('/guias/aparecer-en-google-maps/');
+
+const title = 'Cómo aparecer en Google Maps | Presentto';
+const description =
+  'Qué necesita tu negocio para salir en Google Maps y en el pack local: ficha verificada, web coherente y reseñas.';
+
+const faqs = [
+  {
+    q: '¿Cuánto tarda en aparecer mi negocio en Maps?',
+    a: 'Tras verificar la ficha, los cambios suelen reflejarse en días. Entrar al pack de resultados destacados toma más tiempo y depende de la competencia de tu zona y del número y calidad de tus reseñas.',
+  },
+  {
+    q: '¿Necesito tener web para salir en Maps?',
+    a: 'No es obligatorio, pero sí muy recomendable: los negocios con web vinculada, datos coherentes y contenido propio reciben más clics y más confianza. La ficha sola no explica bien tus servicios.',
+  },
+  {
+    q: '¿Qué puedo hacer yo para mejorar?',
+    a: 'Verificar la ficha, elegir bien la categoría, mantener horarios reales, subir fotos recientes y responder reseñas. No recomendamos reseñas falsas ni comprar valoraciones: Google las penaliza y se notan.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: dates.published,
+  dateModified: dates.modified,
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Google Maps' },
+  author: authorRef,
+  publisher: { '@id': 'https://www.presentto.online/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.presentto.online/guias/aparecer-en-google-maps/#webpage' },
+  breadcrumb: { '@id': 'https://www.presentto.online/guias/aparecer-en-google-maps/#breadcrumb' },
+};
+---
+
+<BaseLayout title={title} description={description} path="/guias/aparecer-en-google-maps/" breadcrumbs={crumbs} jsonld={[articleSchema]} article={{ publishedTime: dates.published, modifiedTime: dates.modified }}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">GOOGLE MAPS · GUÍA</p>
+    <h1>Aparecer en Google Maps</h1>
+    <p class="lead">Lo esencial para que tu negocio salga cuando alguien busca cerca de ti.</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>Qué mueve el resultado en Maps</h2>
+    <p class="snippet">Tres ideas simples: que Google sepa exactamente dónde estás, que entienda qué ofreces y que otras personas confirmen que eres real.</p>
+    <ul>
+      <li><strong>Relevancia:</strong> categoría correcta y descripción clara de tus servicios.</li>
+      <li><strong>Distancia:</strong> dirección u área de servicio bien declarada.</li>
+      <li><strong>Prominencia:</strong> reseñas reales y constantes, fotos y enlaces desde tu web.</li>
+    </ul>
+
+    <h2>Lista práctica</h2>
+    <ol>
+      <li>Verifica tu ficha de Google Mi Negocio.</li>
+      <li>Elige la categoría más específica posible.</li>
+      <li>Pon el mismo nombre, teléfono y horario en web, ficha y redes.</li>
+      <li>Enlaza tu web desde la ficha.</li>
+      <li>Pide reseñas reales después de cada venta o servicio.</li>
+      <li>Contesta todas las reseñas, incluidas las negativas, con educación.</li>
+    </ol>
+
+    <h2>Errores que bloquean la salida</h2>
+    <ul>
+      <li>Fichas duplicadas o categorías contradictorias.</li>
+      <li>Dirección inventada o que no coincide con el local real.</li>
+      <li>Reseñas compradas o de cuentas recién creadas: Google las filtra o suspende la ficha.</li>
+      <li>Horarios sin actualizar en festivos.</li>
+    </ul>
+
+    <h2>Cuánto puede tardar</h2>
+    <p>No hay un botón de "aparecer primero". Los cambios en la ficha se reflejan en días, pero el orden del pack local depende de la competencia, la cercanía y la constancia de tus reseñas. Lo sostenible es mantener los datos bien y pedir opiniones reales cada semana.</p>
+
+    <div class="guide-cta">
+      <p><strong>¿Quieres tu web y ficha alineadas?</strong></p>
+      <a class="button primary" href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20pedir%20una%20demo%20web%20gratis" target="_blank" rel="noopener">Pedir mi demo gratis <span>↗</span></a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <FaqList faqs={faqs} />
+  </section>
+
+  <AuthorBox name="Equipo Presentto Online" />
+</BaseLayout>

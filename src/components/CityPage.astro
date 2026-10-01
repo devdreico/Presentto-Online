@@ -44,8 +44,8 @@ const {
 } = Astro.props;
 
 const path = `/${slug}/`;
-const title = `SEO y posicionamiento en Google en ${city} | Presentto`;
-const description = `Web con SEO local y posicionamiento en Google en ${city} desde $40.000 COP/mes: schema, ficha de Google, dominio y correo. Demo gratis.`;
+const title = `Páginas web y presencia digital en ${city} | Presentto`;
+const description = `Web propia en ${city} desde $40.000 COP/mes con dominio y correo: presencia digital clara para tu negocio. Demo gratis.`;
 const DEMO_URL = `https://wa.me/573236487336?text=${encodeURIComponent(
   `Hola Presentto, quiero solicitar una demo web gratis de mi negocio en ${city}`
 )}`;
@@ -55,10 +55,10 @@ const crumbs = [{ label: 'Inicio', href: '/' }, { label: city }];
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: `Páginas web con SEO local y posicionamiento en ${city}`,
+  name: `Páginas web en ${city}`,
   provider: { '@id': 'https://www.presentto.online/#organization' },
   areaServed: { '@type': 'Place', name: `${city}, Cundinamarca, Colombia` },
-  serviceType: 'Diseño web, SEO on-page y posicionamiento local',
+  serviceType: 'Diseño y administración web',
   offers: {
     '@type': 'Offer',
     price: '40000',
@@ -69,12 +69,12 @@ const schema = {
 
 const faqs = [
   {
-    q: `¿Cuánto cuesta una página web con SEO local en ${city}?`,
-    a: `La Presenttación Digital cuesta desde $40.000 COP/mes con IVA incluido e integra diseño, dominio propio, correo, SEO on-page y SEO local para ${city}. Antes de pagar puedes pedir una demo gratis de tu negocio.`,
+    q: `¿Cuánto cuesta una página web en ${city}?`,
+    a: `La Presenttación Digital cuesta desde $40.000 COP/mes con IVA incluido e integra diseño, dominio propio, correo y administración para ${city}. Antes de pagar puedes pedir una demo gratis de tu negocio.`,
   },
   {
-    q: `¿Cómo posiciono mi negocio de ${city} en Google y en el pack de Maps?`,
-    a: `Con tres patas: web con metas, schema LocalBusiness y contenido de ${city}; Google Business Profile con categorías y NAP coherente (Nombre, Dirección, Teléfono); y reseñas reales y constantes. Nosotros preparamos las dos primeras; las reseñas las decides tú. No prometemos ranking garantizado.`,
+    q: `¿Cómo hago visible mi negocio de ${city} en Google y Maps?`,
+    a: `Con tres patas: una web clara con tus servicios y zona de cobertura; una ficha de Google verificada con categorías y datos coherentes; y reseñas reales y constantes. Nosotros preparamos las dos primeras; las reseñas las decides tú.`,
   },
   {
     q: `¿Cuánto tarda en indexarse un sitio web en ${city}?`,
@@ -102,11 +102,11 @@ const relatedCities = [
   <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero">
-    <p class="eyebrow">SEO LOCAL · POSICIONAMIENTO · {city.toUpperCase()}</p>
+    <p class="eyebrow">PRESENCIA DIGITAL · {city.toUpperCase()}</p>
     <h1>Tu negocio en {city}, <em>posicionado en Google.</em></h1>
     <p class="lead">
-      Aparece en Google, en el pack de Maps y en “cerca de mí” con SEO on-page, schema y contenido
-      geolocalizado a {city}. Primero lo ves gratis; pagas solo si te gusta.
+      Un sitio claro, una ficha de Google bien hecha y un correo propio. Así se ve un negocio serio
+      desde {city}. Primero lo ves gratis; pagas solo si te gusta.
     </p>
     <div class="actions">
       <a class="button primary" href={DEMO_URL} target="_blank" rel="noopener">
@@ -117,21 +117,21 @@ const relatedCities = [
   </section>
 
   <section class="section wrap guide-layout">
-    <h2>Por qué {city} necesita SEO local</h2>
+    <h2>Por qué {city} necesita presencia digital</h2>
     <p class="snippet">
       Según el Censo Nacional de Población y Vivienda 2018 del DANE, {city} reúne {poblacion} habitantes
       sobre {areaKm2} km² de territorio (consulta la
       <a href={fuenteDane} target="_blank" rel="noopener">ficha municipal del DANE</a>). Cada una de esas
       personas que busca un producto o un servicio con la palabra “{city}” o con “cerca de mí” decide en
       segundos entre tu competencia local y los resultados de Bogotá que se cuelan por cercanía. Quien no
-      aparece cede el cliente sin darse cuenta. Por eso el SEO local aquí no es un extra: es la forma en que
-      tu negocio se muestra en el mapa y en los resultados orgánicos.
+      aparece cede el cliente sin darse cuenta. Por eso tener una web y una ficha bien hechas aquí no es un extra: es la forma en que
+      tu negocio se muestra en el mapa y cuando alguien busca lo que tú ofreces.
     </p>
     <p>{economia}</p>
 
-    <h2>Visibilidad orgánica para {focus}</h2>
-    <p class="snippet">{sectors}. Una web rápida e indexable convierte esa actividad en consultas que Google
-      puede responder con tus páginas, en lugar de con las de otro municipio.</p>
+    <h2>Presencia web para {focus}</h2>
+    <p class="snippet">{sectors}. Una web clara convierte esa actividad en llamadas y mensajes,
+      en lugar de perderlos frente a otro municipio.</p>
     <p>{highlight}</p>
     <p>{landmarks}</p>
 
@@ -144,8 +144,8 @@ const relatedCities = [
     </ul>
 
     <h2>Sectores con búsquedas propias en {city}</h2>
-    <p>El patrón de búsqueda cambia según el giro. Estos sectores suelen pedir una web con SEO local en
-      {city}, con ejemplos de consulta:</p>
+    <p>El patrón de búsqueda cambia según el giro. Estos sectores necesitan una web propia en
+      {city}, con ejemplos de lo que buscan sus clientes:</p>
     <ul>
       {sectoresUnicos.map((s) => (
         <li>{s}</li>
@@ -153,20 +153,19 @@ const relatedCities = [
     </ul>
     <p>{casoTipo}</p>
 
-    <h2>Qué incluye la web con SEO local para {city}</h2>
+    <h2>Qué incluye la web para {city}</h2>
     <ul>
       <li>Diseño personalizado alineado con tu marca y con {focus}.</li>
       <li>Dominio propio y correo profesional (por ejemplo, <strong>tuempresa.online</strong>).</li>
-      <li>SEO on-page: meta títulos, meta descripciones, H1–H3, enlaces internos y URL limpias.</li>
-      <li>Datos estructurados schema LocalBusiness/Service, más sitemap XML y robots.txt para el rastreo.</li>
-      <li>Contenido geolocalizado y palabras clave de cola larga de {city}.</li>
-      <li>Orientación de Google Business Profile: categorías, fotos y coherencia NAP.</li>
-      <li>Velocidad, Core Web Vitals y administración del hosting por Presentto durante el plan.</li>
+      <li>Contenido hecho para tus clientes: servicios, precios, fotos y zonas de cobertura.</li>
+      <li>Metas y estructura lista para que Google entienda tu negocio.</li>
+      <li>Orientación de tu ficha de Google: categorías, fotos y datos coherentes.</li>
+      <li>Velocidad y administración del hosting por Presentto durante el plan.</li>
     </ul>
 
-    <h2>¿Cuánto cuesta una página web con SEO en {city}?</h2>
+    <h2>¿Cuánto cuesta una página web en {city}?</h2>
     <p class="snippet">
-      Desde $40.000 COP/mes con IVA incluido: creación, dominio, correo, SEO on-page, SEO local, schema y
+      Desde $40.000 COP/mes con IVA incluido: creación, dominio, correo y
       administración. Prepago de 1, 3, 6 meses o 1 año, sin permanencia. Pide tu demo gratis antes de
       decidir.
     </p>
@@ -177,22 +176,22 @@ const relatedCities = [
       <tbody>
         <tr><td>Presentto ({city}) — 1 mes</td><td>$40.000 COP (IVA incl.)</td><td>Negocios locales que quieren posicionar ya</td></tr>
         <tr><td>Presentto ({city}) — 1 año</td><td>$350.000 COP (IVA incl.)</td><td>Quien busca el mejor coste por mes</td></tr>
-        <tr><td>Agencia web + SEO local</td><td>$800.000 – $3.000.000 COP + mant.</td><td>Proyectos grandes con CMS y blog</td></tr>
-        <tr><td>Plantilla DIY (Wix, etc.)</td><td>Desde ~20 USD/mes</td><td>Quien quiere hacer SEO y web solo</td></tr>
+        <tr><td>Agencia web</td><td>$800.000 – $3.000.000 COP + mant.</td><td>Proyectos grandes con CMS y blog</td></tr>
+        <tr><td>Plantilla DIY (Wix, etc.)</td><td>Desde ~20 USD/mes</td><td>Quien quiere montarla solo</td></tr>
       </tbody>
     </table>
 
-    <h2>Cómo trabajamos el posicionamiento SEO en {city}</h2>
+    <h2>Cómo trabajamos tu web en {city}</h2>
     <ol>
-      <li>Keyword research local: búsquedas reales con intención en {city} y municipios vecinos.</li>
+      <li>Entendemos cómo busca tu cliente en {city} y municipios vecinos.</li>
       {pasosLocales.map((p) => (
         <li>{p}</li>
       ))}
-      <li>Medición en Google Search Console y ajuste continuo según tráfico orgánico.</li>
+      <li>Revisión de visitas y ajuste continuo durante el plan.</li>
     </ol>
 
     <div class="guide-cta">
-      <p><strong>¿Quieres posicionar tu negocio en {city}?</strong></p>
+      <p><strong>¿Quieres tu web lista en {city}?</strong></p>
       <a class="button primary" href={DEMO_URL} target="_blank" rel="noopener">
         Pedir mi demo gratis <span>↗</span>
       </a>
@@ -213,7 +212,7 @@ const relatedCities = [
         {relatedCities.map((c) => (
           <li><a href={`/${c.slug}/`}>{c.label}</a></li>
         ))}
-        <li><a href="/guias/seo-local/">Guía completa de SEO local</a></li>
+        <li><a href="/guias/que-es-presencia-digital/">Guía de presencia digital</a></li>
         <li><a href="/servicios/">Ver servicios y planes</a></li>
       </ul>
     </section>

@@ -27,7 +27,7 @@ Mismo NAP en todos lados (nombre, dirección, teléfono idénticos a la ficha de
 ## 3. Contenido de autoridad y backlinks (prioridad 3)
 
 - [ ] **1 link de autoridad**: artículo/guía en un medio o blog de confianza (marketing digital, emprendimiento
-      en LATAM, prensa local de Cundinamarca) con enlace a `/guias/seo-local/` o a la página de precio.
+      en LATAM, prensa local de Cundinamarca) con enlace a `/guias/que-es-presencia-digital/` o a la página de precio.
 - [ ] Guest posts: 1/mes, siempre aportando datos propios (ej.: rango de precios de web en Colombia 2026).
 - [ ] Participar en directorios de casos: compartir el sitio en comunidades (Reddit r/SEO, foros de marketing)
       sin spam — aportar respuesta concreta y enlace solo si suma.

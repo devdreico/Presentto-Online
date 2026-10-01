@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { authorRef } from '../../components/schemas';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FaqList from '../../components/FaqList.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import { datesFor } from '../../data/content-dates';
+const crumbs = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Guías', href: '/guias/' },
+  { label: 'Reseñas de Google' },
+];
+const dates = datesFor('/guias/resenas-google/');
+
+const title = 'Reseñas de Google: pedirlas y responder | Presentto';
+const description =
+  'Guía sobre reseñas de Google para negocios: cómo pedirlas, responderlas y evitar penalizaciones por prácticas falsas.';
+
+const faqs = [
+  {
+    q: '¿Cómo pido reseñas sin molestar al cliente?',
+    a: 'Después de entregar el producto o terminar el servicio, envía un mensaje corto por WhatsApp o correo con el enlace directo de reseñas y una sola frase de agradecimiento. Pide una, no insistas.',
+  },
+  {
+    q: '¿Qué hago si me dejan una reseña negativa?',
+    a: 'Responde dentro de 48 horas, con calma: agradece, ofrece solución concreta y lleva la conversación a un canal privado. Nunca discutas en público ni borres la reseña presionando.',
+  },
+  {
+    q: '¿Puedo pagar por reseñas?',
+    a: 'No. Comprar reseñas o intercambiarlas por descuentos viola las políticas de Google y puede costarte la suspensión de la ficha. Además, los clientes notan las valoraciones falsas y pierden confianza.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  description,
+  datePublished: dates.published,
+  dateModified: dates.modified,
+  inLanguage: 'es-CO',
+  about: { '@type': 'Thing', name: 'Reseñas en línea' },
+  author: authorRef,
+  publisher: { '@id': 'https://www.presentto.online/#organization' },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://www.presentto.online/guias/resenas-google/#webpage' },
+  breadcrumb: { '@id': 'https://www.presentto.online/guias/resenas-google/#breadcrumb' },
+};
+---
+
+<BaseLayout title={title} description={description} path="/guias/resenas-google/" breadcrumbs={crumbs} jsonld={[articleSchema]} article={{ publishedTime: dates.published, modifiedTime: dates.modified }}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="section wrap page-hero">
+    <p class="eyebrow">REPUTACIÓN · GUÍA</p>
+    <h1>Reseñas de Google sin riesgos</h1>
+    <p class="lead">Cómo pedirlas, cómo contestarlas y qué no hacer nunca.</p>
+    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
+  </section>
+
+  <section class="section wrap guide-layout">
+    <h2>Por qué importan</h2>
+    <p class="snippet">Las reseñas son la prueba social que mira un cliente antes de escribirte. Influyen en qué tan seguido visitas tu ficha y en si deciden contactarte.</p>
+
+    <h2>Cómo pedirlas</h2>
+    <ul>
+      <li>Elige el momento justo: justo después de una buena experiencia.</li>
+      <li>Envía un mensaje breve con el enlace directo de reseñas de tu ficha.</li>
+      <li>Pide una sola vez. Un recordatorio amable al mes es suficiente.</li>
+      <li>Facilita el trabajo: un mensaje de WhatsApp ya preparado para que tus clientes solo toquen "enviar".</li>
+    </ul>
+
+    <h2>Cómo responderlas</h2>
+    <ul>
+      <li>Positivas: agradece mencionando el producto o servicio.</li>
+      <li>Negativas: responde rápido, con empatía, ofrece solución y mueve el caso a un canal privado.</li>
+      <li>No respondas con descuentos ni ofrezcas nada a cambio de cambiar la reseña.</li>
+    </ul>
+
+    <h2>Lo que nunca debes hacer</h2>
+    <ul>
+      <li>Comprar reseñas o pedirlas a cuentas falsas.</li>
+      <li>Ofrecer beneficios a quien deje cinco estrellas.</li>
+      <li>Escribir reseñas sobre tu propio negocio desde tu cuenta personal.</li>
+    </ul>
+
+    <div class="guide-cta">
+      <p><strong>¿Quieres una web que refuerce tu reputación?</strong></p>
+      <a class="button primary" href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20pedir%20una%20demo%20web%20gratis" target="_blank" rel="noopener">Pedir mi demo gratis <span>↗</span></a>
+    </div>
+
+    <h2>Preguntas frecuentes</h2>
+    <FaqList faqs={faqs} />
+  </section>
+
+  <AuthorBox name="Equipo Presentto Online" />
+</BaseLayout>

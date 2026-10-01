@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-25",
+  "generatedAt": "2026-10-01",
   "generator": "scripts/seo/seed-keywords.mjs",
   "note": "Siembra inicial. Ampliar y curar con los sub-agentes seo-keyword-miner y seo-cluster-architect. No ejecutar seo:seed tras curar a mano (sobrescribe).",
   "keywords": [
     {
-      "term": "seo en Funza",
+      "term": "página web en Funza",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-funza",
@@ -13,7 +13,7 @@
       "source": "seed"
     },
     {
-      "term": "seo local en Funza",
+      "term": "web para negocio en Funza",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-funza",
@@ -22,7 +22,7 @@
       "source": "seed"
     },
     {
-      "term": "posicionamiento en google en Funza",
+      "term": "diseño web en Funza",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-funza",
@@ -76,7 +76,7 @@
       "source": "seed"
     },
     {
-      "term": "google business profile Funza",
+      "term": "ficha de google en Funza",
       "intent": "informational",
       "geo": "CO",
       "cluster": "ciudad-funza",
@@ -85,7 +85,7 @@
       "source": "seed"
     },
     {
-      "term": "mejor agencia de marketing digital en Funza",
+      "term": "correo profesional en Funza",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-funza",
@@ -112,7 +112,7 @@
       "source": "seed"
     },
     {
-      "term": "seo en Mosquera",
+      "term": "página web en Mosquera",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-mosquera",
@@ -121,7 +121,7 @@
       "source": "seed"
     },
     {
-      "term": "seo local en Mosquera",
+      "term": "web para negocio en Mosquera",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-mosquera",
@@ -130,7 +130,7 @@
       "source": "seed"
     },
     {
-      "term": "posicionamiento en google en Mosquera",
+      "term": "diseño web en Mosquera",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-mosquera",
@@ -184,7 +184,7 @@
       "source": "seed"
     },
     {
-      "term": "google business profile Mosquera",
+      "term": "ficha de google en Mosquera",
       "intent": "informational",
       "geo": "CO",
       "cluster": "ciudad-mosquera",
@@ -193,7 +193,7 @@
       "source": "seed"
     },
     {
-      "term": "mejor agencia de marketing digital en Mosquera",
+      "term": "correo profesional en Mosquera",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-mosquera",
@@ -220,7 +220,7 @@
       "source": "seed"
     },
     {
-      "term": "seo en Madrid",
+      "term": "página web en Madrid",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-madrid",
@@ -229,7 +229,7 @@
       "source": "seed"
     },
     {
-      "term": "seo local en Madrid",
+      "term": "web para negocio en Madrid",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-madrid",
@@ -238,7 +238,7 @@
       "source": "seed"
     },
     {
-      "term": "posicionamiento en google en Madrid",
+      "term": "diseño web en Madrid",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-madrid",
@@ -292,7 +292,7 @@
       "source": "seed"
     },
     {
-      "term": "google business profile Madrid",
+      "term": "ficha de google en Madrid",
       "intent": "informational",
       "geo": "CO",
       "cluster": "ciudad-madrid",
@@ -301,7 +301,7 @@
       "source": "seed"
     },
     {
-      "term": "mejor agencia de marketing digital en Madrid",
+      "term": "correo profesional en Madrid",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-madrid",
@@ -328,7 +328,7 @@
       "source": "seed"
     },
     {
-      "term": "seo en Facatativá",
+      "term": "página web en Facatativá",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-facatativa",
@@ -337,7 +337,7 @@
       "source": "seed"
     },
     {
-      "term": "seo local en Facatativá",
+      "term": "web para negocio en Facatativá",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-facatativa",
@@ -346,7 +346,7 @@
       "source": "seed"
     },
     {
-      "term": "posicionamiento en google en Facatativá",
+      "term": "diseño web en Facatativá",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-facatativa",
@@ -400,7 +400,7 @@
       "source": "seed"
     },
     {
-      "term": "google business profile Facatativá",
+      "term": "ficha de google en Facatativá",
       "intent": "informational",
       "geo": "CO",
       "cluster": "ciudad-facatativa",
@@ -409,7 +409,7 @@
       "source": "seed"
     },
     {
-      "term": "mejor agencia de marketing digital en Facatativá",
+      "term": "correo profesional en Facatativá",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-facatativa",
@@ -436,16 +436,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para restaurantes",
-      "intent": "informational",
+      "term": "página web para restaurantes",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-restaurantes",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para restaurantes",
+      "term": "web para restaurantes",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-restaurantes",
@@ -463,12 +463,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi restaurantes en google",
+      "term": "cómo tener web mi restaurantes",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-restaurantes",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -490,16 +490,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para cafés",
-      "intent": "informational",
+      "term": "página web para cafés",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-restaurantes",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para cafés",
+      "term": "web para cafés",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-restaurantes",
@@ -517,12 +517,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi cafés en google",
+      "term": "cómo tener web mi cafés",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-restaurantes",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -544,16 +544,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para clínicas y consultorios",
-      "intent": "informational",
+      "term": "página web para clínicas y consultorios",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-clinicas",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para clínicas y consultorios",
+      "term": "web para clínicas y consultorios",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-clinicas",
@@ -571,12 +571,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi clínicas y consultorios en google",
+      "term": "cómo tener web mi clínicas y consultorios",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-clinicas",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -598,16 +598,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para dentistas",
-      "intent": "informational",
+      "term": "página web para dentistas",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-clinicas",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para dentistas",
+      "term": "web para dentistas",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-clinicas",
@@ -625,12 +625,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi dentistas en google",
+      "term": "cómo tener web mi dentistas",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-clinicas",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -652,16 +652,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para peluquerías y barberías",
-      "intent": "informational",
+      "term": "página web para peluquerías y barberías",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-peluquerias",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para peluquerías y barberías",
+      "term": "web para peluquerías y barberías",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-peluquerias",
@@ -679,12 +679,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi peluquerías y barberías en google",
+      "term": "cómo tener web mi peluquerías y barberías",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-peluquerias",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -706,16 +706,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para talleres mecánicos",
-      "intent": "informational",
+      "term": "página web para talleres mecánicos",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-talleres",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para talleres mecánicos",
+      "term": "web para talleres mecánicos",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-talleres",
@@ -733,12 +733,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi talleres mecánicos en google",
+      "term": "cómo tener web mi talleres mecánicos",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-talleres",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -760,16 +760,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para ferreterías",
-      "intent": "informational",
+      "term": "página web para ferreterías",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-comercios",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para ferreterías",
+      "term": "web para ferreterías",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-comercios",
@@ -787,12 +787,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi ferreterías en google",
+      "term": "cómo tener web mi ferreterías",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-comercios",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -814,16 +814,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para tiendas y comercios",
-      "intent": "informational",
+      "term": "página web para tiendas y comercios",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-comercios",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para tiendas y comercios",
+      "term": "web para tiendas y comercios",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-comercios",
@@ -841,12 +841,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi tiendas y comercios en google",
+      "term": "cómo tener web mi tiendas y comercios",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-comercios",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -868,16 +868,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para abogados",
-      "intent": "informational",
+      "term": "página web para abogados",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-profesionales",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para abogados",
+      "term": "web para abogados",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-profesionales",
@@ -895,12 +895,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi abogados en google",
+      "term": "cómo tener web mi abogados",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-profesionales",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -922,16 +922,16 @@
       "source": "seed"
     },
     {
-      "term": "seo para contadores",
-      "intent": "informational",
+      "term": "página web para contadores",
+      "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-profesionales",
-      "funnel": "tofu",
+      "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "página web para contadores",
+      "term": "web para contadores",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "rubro-profesionales",
@@ -949,12 +949,12 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi contadores en google",
+      "term": "cómo tener web mi contadores",
       "intent": "informational",
       "geo": "CO",
       "cluster": "rubro-profesionales",
       "funnel": "tofu",
-      "priority": 1,
+      "priority": 2,
       "source": "seed"
     },
     {
@@ -976,91 +976,91 @@
       "source": "seed"
     },
     {
-      "term": "qué es el seo local",
+      "term": "qué es la presencia digital",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-fundamentos",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "cómo funciona el seo local",
+      "term": "cómo tener presencia digital",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-fundamentos",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "factores del seo local",
+      "term": "qué necesita un negocio en internet",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-fundamentos",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "seo local qué es y para qué sirve",
+      "term": "presencia digital para pymes",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-fundamentos",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "diferencia entre seo y sem",
+      "term": "diferencia entre web y red social",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-fundamentos",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 3,
       "source": "seed"
     },
     {
-      "term": "guía de seo local 2026",
+      "term": "guía de presencia digital 2026",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-pilar",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "estrategia de seo local paso a paso",
+      "term": "cómo llevar mi negocio a internet",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-pilar",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "checklist de seo local",
+      "term": "checklist para tener web",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-pilar",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "errores de seo local",
+      "term": "errores al crear una web",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-pilar",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 3,
       "source": "seed"
     },
     {
-      "term": "cuánto tarda el seo local",
+      "term": "cuánto tarda hacer una web",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-pilar",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
@@ -1069,7 +1069,7 @@
       "term": "google business profile optimización",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "google-business-profile",
+      "cluster": "ficha-de-google",
       "funnel": "tofu",
       "priority": 1,
       "source": "seed"
@@ -1078,7 +1078,7 @@
       "term": "optimizar ficha de google",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "google-business-profile",
+      "cluster": "ficha-de-google",
       "funnel": "tofu",
       "priority": 1,
       "source": "seed"
@@ -1087,7 +1087,7 @@
       "term": "cómo verificar google business profile",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "google-business-profile",
+      "cluster": "ficha-de-google",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
@@ -1096,7 +1096,7 @@
       "term": "categorías de google business profile",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "google-business-profile",
+      "cluster": "ficha-de-google",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
@@ -1105,7 +1105,7 @@
       "term": "zonas de servicio google business profile",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "google-business-profile",
+      "cluster": "ficha-de-google",
       "funnel": "tofu",
       "priority": 3,
       "source": "seed"
@@ -1114,7 +1114,7 @@
       "term": "mejorar posición en google business",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "google-business-profile",
+      "cluster": "ficha-de-google",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
@@ -1168,7 +1168,7 @@
       "term": "reseñas de google cómo pedirlas",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "resenas-google",
+      "cluster": "resenas-de-google",
       "funnel": "tofu",
       "priority": 1,
       "source": "seed"
@@ -1177,7 +1177,7 @@
       "term": "cómo responder reseñas negativas google",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "resenas-google",
+      "cluster": "resenas-de-google",
       "funnel": "tofu",
       "priority": 1,
       "source": "seed"
@@ -1186,7 +1186,7 @@
       "term": "pedir reseñas sin que te penalice google",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "resenas-google",
+      "cluster": "resenas-de-google",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
@@ -1195,7 +1195,7 @@
       "term": "plantillas para pedir reseñas",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "resenas-google",
+      "cluster": "resenas-de-google",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
@@ -1204,34 +1204,34 @@
       "term": "reseñas falsas cómo denunciarlas",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "resenas-google",
+      "cluster": "resenas-de-google",
       "funnel": "tofu",
       "priority": 3,
       "source": "seed"
     },
     {
-      "term": "seo local vs google ads",
+      "term": "web propia vs google ads",
       "intent": "commercial",
       "geo": "CO",
-      "cluster": "seo-vs-ads",
+      "cluster": "web-vs-anuncios",
       "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "seo o anuncios de google para mi negocio",
+      "term": "web o anuncios de google para mi negocio",
       "intent": "commercial",
       "geo": "CO",
-      "cluster": "seo-vs-ads",
+      "cluster": "web-vs-anuncios",
       "funnel": "mofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "cuál es mejor seo o google ads",
+      "term": "cuál es mejor web u google ads",
       "intent": "commercial",
       "geo": "CO",
-      "cluster": "seo-vs-ads",
+      "cluster": "web-vs-anuncios",
       "funnel": "mofu",
       "priority": 2,
       "source": "seed"
@@ -1240,7 +1240,7 @@
       "term": "costo de google ads por clic colombia",
       "intent": "commercial",
       "geo": "CO",
-      "cluster": "seo-vs-ads",
+      "cluster": "web-vs-anuncios",
       "funnel": "mofu",
       "priority": 2,
       "source": "seed"
@@ -1345,7 +1345,7 @@
       "source": "seed"
     },
     {
-      "term": "comparar servicios de seo",
+      "term": "comparar servicios de diseño web",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "comparativas-hub",
@@ -1354,7 +1354,7 @@
       "source": "seed"
     },
     {
-      "term": "servicios de seo local",
+      "term": "web administrada",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "servicios-presentto",
@@ -1363,7 +1363,7 @@
       "source": "seed"
     },
     {
-      "term": "web con seo incluido",
+      "term": "web con dominio incluido",
       "intent": "transactional",
       "geo": "CO",
       "cluster": "servicios-presentto",
@@ -1372,7 +1372,7 @@
       "source": "seed"
     },
     {
-      "term": "servicio de posicionamiento en google",
+      "term": "servicio de diseño web",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "servicios-presentto",
@@ -1408,7 +1408,7 @@
       "source": "seed"
     },
     {
-      "term": "plan de seo mensual barato",
+      "term": "plan web mensual barato",
       "intent": "transactional",
       "geo": "CO",
       "cluster": "planes-precios",
@@ -1453,19 +1453,19 @@
       "source": "seed"
     },
     {
-      "term": "preguntas frecuentes de seo",
+      "term": "preguntas frecuentes de web administrada",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "faq-seo",
+      "cluster": "faq-presentto",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "dudas sobre posicionamiento web",
+      "term": "dudas sobre crear una web",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "faq-seo",
+      "cluster": "faq-presentto",
       "funnel": "tofu",
       "priority": 3,
       "source": "seed"
@@ -1480,7 +1480,7 @@
       "source": "seed"
     },
     {
-      "term": "sitios publicados con seo",
+      "term": "sitios publicados con presentto",
       "intent": "navigational",
       "geo": "CO",
       "cluster": "sitios-publicados",
@@ -1498,7 +1498,7 @@
       "source": "seed"
     },
     {
-      "term": "guías de seo local",
+      "term": "guías de presencia digital",
       "intent": "informational",
       "geo": "CO",
       "cluster": "guias-hub",
@@ -1507,25 +1507,7 @@
       "source": "seed"
     },
     {
-      "term": "seo local",
-      "intent": "commercial",
-      "geo": "global",
-      "cluster": "seo-local-pilar",
-      "funnel": "mofu",
-      "priority": 1,
-      "source": "seed"
-    },
-    {
-      "term": "seo local Chile",
-      "intent": "commercial",
-      "geo": "CL",
-      "cluster": "seo-local-pilar",
-      "funnel": "mofu",
-      "priority": 2,
-      "source": "seed"
-    },
-    {
-      "term": "posicionamiento web",
+      "term": "página web administrada",
       "intent": "commercial",
       "geo": "global",
       "cluster": "servicios-presentto",
@@ -1534,7 +1516,25 @@
       "source": "seed"
     },
     {
-      "term": "posicionamiento web México",
+      "term": "página web administrada Chile",
+      "intent": "commercial",
+      "geo": "CL",
+      "cluster": "servicios-presentto",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "seed"
+    },
+    {
+      "term": "diseño web para pymes",
+      "intent": "commercial",
+      "geo": "global",
+      "cluster": "servicios-presentto",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "seed"
+    },
+    {
+      "term": "diseño web para pymes México",
       "intent": "commercial",
       "geo": "MX",
       "cluster": "servicios-presentto",
@@ -1543,7 +1543,7 @@
       "source": "seed"
     },
     {
-      "term": "agencia de seo",
+      "term": "empresa de diseño web colombia",
       "intent": "commercial",
       "geo": "global",
       "cluster": "servicios-presentto",
@@ -1552,7 +1552,7 @@
       "source": "seed"
     },
     {
-      "term": "agencia de seo Argentina",
+      "term": "empresa de diseño web colombia Argentina",
       "intent": "commercial",
       "geo": "AR",
       "cluster": "servicios-presentto",
@@ -1561,7 +1561,7 @@
       "source": "seed"
     },
     {
-      "term": "consultor seo",
+      "term": "presupuesto para página web",
       "intent": "commercial",
       "geo": "global",
       "cluster": "servicios-presentto",
@@ -1570,7 +1570,7 @@
       "source": "seed"
     },
     {
-      "term": "consultor seo Perú",
+      "term": "presupuesto para página web Perú",
       "intent": "commercial",
       "geo": "PE",
       "cluster": "servicios-presentto",
@@ -1579,19 +1579,19 @@
       "source": "seed"
     },
     {
-      "term": "servicios de seo para pymes",
+      "term": "presencia digital para pymes",
       "intent": "commercial",
       "geo": "global",
-      "cluster": "servicios-presentto",
+      "cluster": "rubro-profesionales",
       "funnel": "mofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "servicios de seo para pymes España",
+      "term": "presencia digital para pymes España",
       "intent": "commercial",
       "geo": "ES",
-      "cluster": "servicios-presentto",
+      "cluster": "rubro-profesionales",
       "funnel": "mofu",
       "priority": 3,
       "source": "seed"
@@ -1615,25 +1615,25 @@
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi negocio en internet",
+      "term": "cómo empezar mi negocio en internet",
       "intent": "informational",
       "geo": "global",
-      "cluster": "seo-local-pilar",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "cómo posicionar mi negocio en internet México",
+      "term": "cómo empezar mi negocio en internet México",
       "intent": "informational",
       "geo": "MX",
-      "cluster": "seo-local-pilar",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "cuánto cuesta contratar seo",
+      "term": "cuánto cuesta una web administrada",
       "intent": "commercial",
       "geo": "global",
       "cluster": "precio-pagina-web",
@@ -1642,7 +1642,7 @@
       "source": "seed"
     },
     {
-      "term": "cuánto cuesta contratar seo Argentina",
+      "term": "cuánto cuesta una web administrada Argentina",
       "intent": "commercial",
       "geo": "AR",
       "cluster": "precio-pagina-web",
@@ -1651,7 +1651,7 @@
       "source": "seed"
     },
     {
-      "term": "seo para tiendas en línea",
+      "term": "web para tiendas en línea",
       "intent": "informational",
       "geo": "global",
       "cluster": "rubro-comercios",
@@ -1660,7 +1660,7 @@
       "source": "seed"
     },
     {
-      "term": "seo para tiendas en línea Perú",
+      "term": "web para tiendas en línea Perú",
       "intent": "informational",
       "geo": "PE",
       "cluster": "rubro-comercios",
@@ -1669,19 +1669,19 @@
       "source": "seed"
     },
     {
-      "term": "mejorar el seo de mi página",
+      "term": "cómo mejorar mi página web",
       "intent": "informational",
       "geo": "global",
-      "cluster": "seo-local-pilar",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "mejorar el seo de mi página España",
+      "term": "cómo mejorar mi página web España",
       "intent": "informational",
       "geo": "ES",
-      "cluster": "seo-local-pilar",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 3,
       "source": "seed"
@@ -1771,22 +1771,22 @@
       "term": "cómo hacer que mi negocio aparezca en google",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-local-pilar",
+      "cluster": "aparecer-google-maps",
       "funnel": "tofu",
       "priority": 1,
       "source": "seed"
     },
     {
-      "term": "ficha de google business gratis",
+      "term": "ficha de google gratis",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "google-business-profile",
+      "cluster": "ficha-de-google",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "cuánto cuesta el seo mensual",
+      "term": "cuánto cuesta una web mensual",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "precio-pagina-web",
@@ -1795,16 +1795,16 @@
       "source": "seed"
     },
     {
-      "term": "vale la pena contratar seo",
+      "term": "vale la pena una web propia",
       "intent": "informational",
       "geo": "CO",
-      "cluster": "seo-vs-ads",
+      "cluster": "web-vs-anuncios",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
     },
     {
-      "term": "cuándo contratar una agencia de seo",
+      "term": "cuándo contratar una web administrada",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "web-vs-agencia",
@@ -1849,7 +1849,7 @@
       "source": "seed"
     },
     {
-      "term": "cómo pedir presupuesto de seo",
+      "term": "cómo pedir presupuesto de web",
       "intent": "transactional",
       "geo": "CO",
       "cluster": "contacto-demo",
@@ -1858,7 +1858,7 @@
       "source": "seed"
     },
     {
-      "term": "empresa de seo en cundinamarca",
+      "term": "empresa de diseño web en cundinamarca",
       "intent": "commercial",
       "geo": "CO",
       "cluster": "ciudad-funza",

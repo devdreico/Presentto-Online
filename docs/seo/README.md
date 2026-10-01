@@ -1,5 +1,9 @@
 # Flujo de SEO con sub-agentes
 
+Orientado al negocio real de Presentto (Presenttación Digital): el pipeline existe para posicionar la marca y sus guías, no para vender "SEO" como producto. Ver estrategia-posicionamiento.md.
+
+
+
 Cómo se multiplica el CTR y las posiciones de `www.presentto.online` (español neutro, alcance mundial).
 
 ## Comando maestro

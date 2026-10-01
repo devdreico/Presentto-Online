@@ -5,29 +5,29 @@ import FaqList from '../components/FaqList.astro';
 import { localBusinessSchema } from '../components/schemas';
 import { usd } from '../data/business';
 
-const title = 'SEO local y posicionamiento en Google | Presentto';
+const title = 'Páginas web y presencia digital accesible | Presentto';
 const description =
-  'Web con SEO local y posicionamiento en Google desde $40.000 COP/mes en Funza, Mosquera, Madrid y Facatativá. Dominio, correo y ficha de Google. Demo gratis.';
+  'Web propia con dominio, correo y presencia digital desde $40.000 COP/mes en Colombia. Demo gratis antes de pagar.';
 const faqs = [
   {
-    q: '¿Qué es el SEO local y cómo ayuda a mi negocio a aparecer en Google?',
-    a: 'El SEO local optimiza tu web, tu ficha de Google Business Profile y tus datos estructurados para aparecer en búsquedas con geolocalización ("cerca de mí", "en Funza") y en el pack de Maps. En Presentto lo incluimos en la web desde el primer día: metas, schema LocalBusiness, contenido por municipio y arquitectura de enlaces internos. Te lo explicamos paso a paso en la guía de SEO local.',
+    q: '¿Qué incluye la Presenttación Digital?',
+    a: 'Una web con tu marca, dominio propio, correo profesional, página pensada para que te encuentren en Google y administración durante todo el plan. No necesitas saber de tecnología: nosotros la montamos, publicamos y mantenemos. Te lo explicamos en la guía de presencia digital.',
   },
   {
     q: '¿Cuánto cuesta el posicionamiento en Google con Presentto?',
-    a: 'La Presenttación Digital arranca en $40.000 COP (IVA incluido) por plan prepago de 1 mes, con equivalente aproximado de US$10 al mes de ese plazo. El precio incluye diseño, dominio propio, correo profesional, SEO on-page, SEO local y administración. No hay mensualidad recurrente ni permanencia: pagas por el plazo que elijas.',
+    a: 'La Presenttación Digital arranca en $40.000 COP (IVA incluido) por plan prepago de 1 mes. El precio incluye diseño, dominio propio, correo profesional y administración. No hay suscripción automática ni permanencia: pagas por el plazo que elijas.',
   },
   {
-    q: '¿En cuánto tiempo se ven resultados de SEO local?',
-    a: 'La indexación suele ocurrir en días o semanas tras publicar, con sitemap y Search Console. El posicionamiento orgánico en búsquedas locales competitivas toma meses de autoridad, contenido y reseñas coherentes: promedios publicados por especialistas apuntan a 3-6 meses según competencia y punto de partida. Tú decides cuándo arrancar.',
+    q: '¿En cuánto tiempo publican mi web?',
+    a: 'La entrega técnica es de pocos días hábiles tras aprobar la demo y confirmar el pago. Después la web ya está en línea y Google la va incorporando en los días siguientes.',
   },
   {
-    q: '¿Posicionan mi negocio en Funza, Mosquera, Madrid y Facatativá?',
-    a: 'Sí. Trabajamos la Sabana Occidental (Funza, Mosquera, Madrid, Facatativá) con contenido específico por municipio y municipios vecinos de Cundinamarca. Si tu negocio atiende también a Bogotá o a clientes de otros países, diseñamos la arquitectura de contenidos para esas búsquedas sin duplicar páginas.',
+    q: '¿Trabajan con negocios de Funza, Mosquera, Madrid y Facatativá?',
+    a: 'Sí. Empezamos en la Sabana Occidental (Funza, Mosquera, Madrid, Facatativá) y atendemos negocios de toda Colombia. Tu web queda adaptada a tu zona y a tus clientes, sin páginas duplicadas.',
   },
   {
-    q: '¿Qué diferencia hay entre SEO local y anuncios de Google?',
-    a: 'Los anuncios de Google son pago por clic: aparecen primero mientras pagas y se detienen al cortar el presupuesto. El SEO local es orgánico: se construye con contenido, técnica y reseñas y sigue generando visitas sin costo por clic, aunque tarda más en crecer. Lo habitual es empezar por SEO y usar anuncios solo para lanzamientos puntuales.',
+    q: '¿Necesito anuncios de Google si tengo web?',
+    a: 'No es obligatorio. Una web clara y una ficha de Google bien hecha ya traen clientes. Los anuncios se usan para lanzar algo nuevo o ganar volumen rápido, pero no son requisito para tener presencia.',
   },
   {
     q: '¿La demo web es gratis y sin compromiso?',
@@ -40,7 +40,7 @@ const homeService = {
   '@type': 'Service',
   name: 'Presenttación Digital',
   description:
-    'Sitio web profesional con SEO on-page, posicionamiento local, dominio propio, correo y administración para negocios de la Sabana Occidental.',
+    'Sitio web profesional con dominio propio, correo y administración para negocios de Colombia.',
   provider: { '@id': 'https://www.presentto.online/#organization' },
   areaServed: [
     { '@type': 'Place', name: 'Funza' },
@@ -109,12 +109,11 @@ const homeService = {
         fetchpriority="high"
         decoding="async"
       />
-      <p class="eyebrow">SEO LOCAL · POSICIONAMIENTO EN GOOGLE</p>
-      <h1>Tu negocio, <em>posicionado en Google y en la Sabana Occidental.</em></h1>
+      <p class="eyebrow">PRESENCIA DIGITAL · WEB PROPIA</p>
+      <h1>Tu negocio, <em>en internet sin complicaciones.</em></h1>
       <p class="lead">
-        Presentamos tu negocio online con una web optimizada para SEO on-page, SEO técnico y búsquedas
-        locales: dominio, correo y ficha de Google Business Profile incluidos. Primero la ves gratis; pagas
-        solo si te convence.
+        Presentamos tu negocio online con una web clara, tu propia dirección de internet y correo
+        profesional incluidos. Primero la ves gratis; pagas solo si te convence.
       </p>
       <div class="hero-price">
         <strong>desde $40.000</strong>
@@ -157,7 +156,7 @@ const homeService = {
   <section class="proof">
     <div class="wrap proof-grid">
       <div><strong>Demo</strong><span>gratis, sin abono</span></div>
-      <div><strong>SEO</strong><span>local + posicionamiento</span></div>
+      <div><strong>Web</strong><span>propia + correo incluido</span></div>
       <div><strong>desde $40.000</strong><span>COP/mes · IVA incl.</span></div>
     </div>
   </section>
@@ -165,12 +164,12 @@ const homeService = {
   <PlansGrid id="planes" heading={true} />
 
   <section class="section wrap" id="como-funciona">
-    <p class="eyebrow">POSICIONAMIENTO WEB · TODO INCLUIDO</p>
+    <p class="eyebrow">UN SOLO PLAN · TODO INCLUIDO</p>
     <div class="section-heading">
-      <h2>SEO local y posicionamiento web: <em>un solo plan, todo incluido.</em></h2>
+      <h2>Tu web y tu presencia digital: <em>un solo plan, todo incluido.</em></h2>
       <p>
-        Diseño, SEO on-page, SEO técnico, datos estructurados y contenido geolocalizado para que tu negocio
-        aparezca en búsquedas locales de Funza, Mosquera, Madrid, Facatativá y en el pack local de Google Maps.
+        Diseño, textos a tu medida y todo lo técnico resuelto para que cualquier cliente te encuentre,
+        te escriba y confíe en tu negocio, sin importar en qué ciudad estés.
       </p>
     </div>
     <div class="feature-grid feature-grid-four">
@@ -192,11 +191,11 @@ const homeService = {
       </article>
       <article>
         <b>03</b>
-        <h3>SEO local y pack de Maps</h3>
+        <h3>Lista para que te encuentren</h3>
         <p>
-          SEO on-page, meta títulos, schema LocalBusiness y contenido por municipio para posicionar en
-          <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a>,
-          <a href="/facatativa/">Facatativá</a> y búsquedas “cerca de mí”.
+          Metas, estructura y contenido claro para tu negocio, con apoyo a tu ficha de Google y orientación
+          según tu zona: <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a>
+          y <a href="/facatativa/">Facatativá</a>.
         </p>
       </article>
       <article>
@@ -224,7 +223,7 @@ const homeService = {
   <section class="section industries-section">
     <div class="wrap">
       <p class="eyebrow">UNA WEB PARA CADA NEGOCIO</p>
-      <h2 class="center">Una web con SEO <em>a la medida de tu rubro.</em></h2>
+      <h2 class="center">Una web <em>a la medida de tu rubro.</em></h2>
       <div class="industry-grid">
         <span>Restaurantes y cafés</span>
         <span>Tiendas y comercios</span>
@@ -238,7 +237,7 @@ const homeService = {
       <p class="stack-note">
         Cada rubro tiene búsquedas distintas: revisa cómo se traduce eso en
         <a href="/portfolio/">proyectos publicados</a> y en las
-        <a href="/comparativas/">comparativas de opciones de web y SEO</a>.
+        <a href="/comparativas/">comparativas de opciones de web</a>.
       </p>
     </div>
   </section>
@@ -284,7 +283,7 @@ const homeService = {
 
   <section class="section stack-section">
     <div class="wrap">
-      <p class="eyebrow">SEO TÉCNICO · CORE WEB VITALS</p>
+      <p class="eyebrow">TECNOLOGÍA · RÁPIDA Y SEGURA</p>
       <div class="section-heading">
         <h2>Indexable, veloz <em>y listo para posicionar.</em></h2>
         <p>
@@ -306,7 +305,7 @@ const homeService = {
           <strong>JavaScript</strong><span>Interacción sin bloquear rastreo</span>
         </article>
         <article class="stack-card">
-          <span class="stack-badge">SEO</span><strong>SEO on-page</strong><span>Metas, schema y enlaces internos</span>
+          <span class="stack-badge">WEB</span><strong>Base lista para Google</strong><span>Metas, estructura y enlaces internos</span>
         </article>
         <article class="stack-card">
           <span class="stack-badge">GBP</span><strong>Google Business</strong><span>Ficha, NAP y pack local</span>
@@ -318,22 +317,22 @@ const homeService = {
       <p class="stack-note">
         Tecnologías y estándares de trabajo (guía oficial de
         <a
-          href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+          href="https://developers.google.com/search/docs/fundamentals"
           target="_blank"
-          rel="noopener">SEO de Google</a
+          rel="noopener">Guía de Google</a
         >). No representa certificaciones oficiales de terceros.
       </p>
     </div>
   </section>
 
-  <section class="section wrap" id="preguntas-seo">
-    <p class="eyebrow">PREGUNTAS FRECUENTES · SEO LOCAL</p>
+  <section class="section wrap" id="preguntas">
+    <p class="eyebrow">PREGUNTAS FRECUENTES</p>
     <div class="section-heading">
-      <h2>Dudas sobre <em>SEO local y posicionamiento en Google</em></h2>
+      <h2>Dudas sobre <em>tu web y tu plan</em></h2>
       <p>
         Lo que más nos preguntan antes de pedir la demo. Más respuestas en
         <a href="/preguntas/">preguntas frecuentes</a> y en la
-        <a href="/guias/seo-local/">guía completa de SEO local</a>.
+        <a href="/guias/que-es-presencia-digital/">guía de presencia digital</a>.
       </p>
     </div>
     <FaqList faqs={faqs} />
