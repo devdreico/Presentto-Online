@@ -1,0 +1,169 @@
+{
+  "clusterId": "rubro-restaurantes",
+  "generatedAt": "2026-10-02",
+  "generatedBy": "seo-content-brief",
+  "status": "brief-only (no redactar hasta aprobación)",
+  "targetPage": "/guias/pagina-web-para-restaurantes/",
+  "primaryKeyword": "página web para restaurantes",
+  "secondaryKeywords": [
+    "web para restaurantes",
+    "página web para cafés",
+    "web para cafés",
+    "necesito una página web para mi restaurante",
+    "cuánto cuesta una página web para restaurante",
+    "precio de página web para restaurante",
+    "cuánto cuesta una web para restaurantes",
+    "cuánto cuesta una web para cafés",
+    "web para restaurante en Colombia",
+    "página web para restaurante en Colombia",
+    "cómo tener web mi restaurante"
+  ],
+  "keywordsNota": "Las keywords del clúster 'restaurantes cerca de mí' y 'mejores restaurantes en mi ciudad' son queries de COMENSALES, no de dueños: esta página no las ataca directamente, solo explica cómo aparecer en esas búsquedas. Sugerir a seo-keyword-miner revisar su asignación al clúster.",
+  "title": "Página web para restaurantes y cafés: guía 2026",
+  "titleLength": 47,
+  "description": "Qué debe tener la web de un restaurante o café: menú, reservas por WhatsApp, ficha de Google y pedidos. Guía práctica con precios y errores comunes.",
+  "descriptionLength": 148,
+  "intent": "informational con carga commercial (mixto, según keywords del clúster)",
+  "funnel": "mofu",
+  "priority": 1,
+  "wordCount": { "min": 1400, "target": 1700, "max": 2000 },
+  "audience": {
+    "primaria": "Dueño/a o administrador de restaurante, café, panadería o food truck en Colombia (1-3 sedes), sin equipo de marketing. Hoy depende de Instagram, WhatsApp y las apps de domicilio, y sospecha que pierde clientes que lo buscan en Google.",
+    "secundaria": "Emprendedores a punto de abrir que quieren salir con presencia digital ordenada desde el día 1.",
+    "noEs": "Comensales buscando dónde comer (queries 'cerca de mí'): se les menciona solo como contexto de por qué aparecer en Maps importa."
+  },
+  "valueProposition": "La única guía en español que trata la web de un restaurante como un sistema de captación (menú + reservas por WhatsApp + ficha de Google + reseñas) y no como un folleto: checklist accionable, precios reales 2026 con fuentes enlazadas, y una ruta para empezar en días sin inversión de millones.",
+  "angle": "La SERP de 'página web para restaurantes' mezcla agencias vendiendo proyectos a medida y listicles genéricos de '10 razones para tener web'. Esta página gana porque: (1) responde las dos dudas reales del dueño —qué debe tener y cuánto cuesta— con checklist y tabla; (2) conecta la web con el pack local de Google, que es donde se decide 'dónde comer', citando documentación oficial de Google; (3) muestra precios con fuentes externas y una alternativa administrada desde $40.000 COP/mes verificable en /precios/; (4) demuestra con sitios reales en producción (/sitios/) en vez de prometer.",
+  "outline": [
+    {
+      "h1": "Página web para restaurantes y cafés: qué debe tener y cuánto cuesta",
+      "objetivo": "Coincidir con la keyword primaria y prometer las dos respuestas que busca el dueño: contenido y precio."
+    },
+    {
+      "h2": "Por qué tu restaurante necesita web propia (aunque tengas Instagram)",
+      "objetivo": "Captar la query tofu 'cómo tener web mi restaurante' y abrir el argumento web vs redes sin repetir la guía pilar.",
+      "h3": [
+        { "h3": "Lo que Instagram y WhatsApp no resuelven solos", "nota": "Menú no indexable, sin precios buscables, dependencia del algoritmo; tono empático, no anti-redes." },
+        { "h3": "La web como ancla de tu presencia digital", "nota": "Aquí va el enlace al pilar /guias/que-es-presencia-digital/ con anchor 'presencia digital'." }
+      ]
+    },
+    {
+      "h2": "Qué debe tener la web de un restaurante: checklist",
+      "objetivo": "Apuntar al featured snippet de la keyword primaria con una lista clara y accionable.",
+      "h3": [
+        { "h3": "Menú con precios actualizados (en HTML, no en un PDF viejo)", "nota": "El menú es la página más buscada de un restaurante; texto rastreable, no imagen." },
+        { "h3": "Reservas y pedidos por WhatsApp en un clic", "nota": "Botón wa.me con mensaje prellenado; es la conversión real del rubro." },
+        { "h3": "Ubicación, horarios y fotos reales", "nota": "Coherencia NAP con la ficha de Google; fotos propias, no de banco." }
+      ]
+    },
+    {
+      "h2": "Google Maps y la ficha: donde se decide 'dónde comer'",
+      "objetivo": "Conectar la web con el pack local; cubre indirectamente las queries 'restaurantes cerca de mí' desde el lado del dueño.",
+      "h3": [
+        { "h3": "Categoría, atributos y menú en tu Perfil de Empresa", "nota": "Citar que el perfil es gratuito y que la información completa aumenta la probabilidad de aparecer (fuente Google 3038063 y 7091). Enlaces a /guias/ficha-de-google-mi-negocio/ y /guias/aparecer-en-google-maps/." },
+        { "h3": "Reseñas: cómo pedirlas sin que Google te penalice", "nota": "Citar la prohibición de incentivos (fuente Google 3474122). Enlace a /guias/resenas-google/." }
+      ]
+    },
+    {
+      "h2": "Pedidos online y domicilios: web propia vs apps",
+      "objetivo": "Resolver la objeción mofu 'para qué web si ya estoy en las apps'; diferenciador de comisiones sin inventar cifras de comisión.",
+      "h3": [
+        { "h3": "Pedidos directos por WhatsApp desde tu propia web", "nota": "Canal propio sin intermediario; la web como carta + botón de pedido." },
+        { "h3": "Cuándo sí conviene estar en apps de domicilio", "nota": "Tono honesto: las apps dan descubrimiento; la web fideliza y evita depender de un solo canal." }
+      ]
+    },
+    {
+      "h2": "Cuánto cuesta una página web para restaurante en 2026",
+      "objetivo": "Cubrir 'cuánto cuesta una página web para restaurante' y 'precio de página web para restaurante' (mofu p2) SIN canibalizar la guía general de precios.",
+      "h3": [
+        { "h3": "Rangos de mercado en Colombia", "nota": "Reusar los rangos ya publicados en /guias/cuanto-cuesta-pagina-web-colombia/ con las mismas fuentes (Muselab + WordPress.com). Enlazar esa guía con anchor 'cuánto cuesta una página web en Colombia'." },
+        { "h3": "La opción administrada desde $40.000 COP/mes", "nota": "Precio propio verificable en /precios/; qué incluye para un restaurante (web, dominio, correo, cambios de menú)." }
+      ]
+    },
+    {
+      "h2": "Errores comunes en las webs de restaurantes",
+      "objetivo": "Retención y demostración de experiencia; long-tail de errores.",
+      "h3": [
+        { "h3": "Menú desactualizado o solo en foto", "nota": "El error más frecuente del rubro; consecuencia: el cliente duda y se va." },
+        { "h3": "Datos distintos en web, ficha y redes", "nota": "Horarios y teléfonos inconsistentes confunden al cliente y a Google (apoyarse en fuente 7091)." }
+      ]
+    },
+    {
+      "h2": "Cómo empezar esta semana: pasos concretos",
+      "objetivo": "Salida bofu para 'necesito una página web para mi restaurante'; derivar a demo y contacto.",
+      "h3": [
+        { "h3": "Si lo haces por tu cuenta", "nota": "Ruta DIY honesta: dominio, plantilla, ficha verificada; coste en tiempo." },
+        { "h3": "Si lo hacemos contigo", "nota": "Proceso Presentto: demo gratis de TU restaurante antes de pagar; enlace a /sitios/ como prueba y CTA WhatsApp." }
+      ]
+    },
+    {
+      "h2": "Preguntas frecuentes",
+      "objetivo": "FAQ visible con FaqList (componente existente). SIN schema FAQPage nuevo; las preguntas son específicas del rubro y no colisionan con /preguntas/."
+    }
+  ],
+  "questions": [
+    "¿Cuánto cuesta una página web para un restaurante?",
+    "¿Necesito una web si ya tengo Instagram y WhatsApp?",
+    "¿Puedo recibir reservas y pedidos desde mi propia web?",
+    "¿La web reemplaza a las apps de domicilio como Rappi?",
+    "¿Qué pesa más para aparecer en Google: la web o la ficha?"
+  ],
+  "internalLinks": [
+    { "url": "/guias/que-es-presencia-digital/", "anchor": "presencia digital", "desdeSeccion": "H2 'Por qué tu restaurante necesita web propia' → H3 'La web como ancla de tu presencia digital'", "nota": "Enlace al pilar: obligatorio, es el hub temático de esta guía." },
+    { "url": "/guias/ficha-de-google-mi-negocio/", "anchor": "crear y optimizar tu ficha de Google", "desdeSeccion": "H2 'Google Maps y la ficha' → H3 'Categoría, atributos y menú'" },
+    { "url": "/guias/aparecer-en-google-maps/", "anchor": "cómo aparecer en Google Maps", "desdeSeccion": "H2 'Google Maps y la ficha' → primer párrafo" },
+    { "url": "/guias/resenas-google/", "anchor": "pedir reseñas de Google sin riesgos", "desdeSeccion": "H2 'Google Maps y la ficha' → H3 'Reseñas'" },
+    { "url": "/guias/cuanto-cuesta-pagina-web-colombia/", "anchor": "cuánto cuesta una página web en Colombia", "desdeSeccion": "H2 'Cuánto cuesta…' → H3 'Rangos de mercado'" },
+    { "url": "/precios/", "anchor": "planes de web administrada desde $40.000 COP/mes", "desdeSeccion": "H2 'Cuánto cuesta…' → H3 'La opción administrada'" },
+    { "url": "/sitios/", "anchor": "sitios reales publicados con Presentto", "desdeSeccion": "H2 'Cómo empezar esta semana' → H3 'Si lo hacemos contigo'" },
+    { "url": "/contacto/", "anchor": "pedir una demo gratis", "desdeSeccion": "CTA final tras H2 'Cómo empezar esta semana'" }
+  ],
+  "ctaWhatsApp": [
+    {
+      "ubicacion": "Tras el H2 checklist (mitad de página)",
+      "texto": "Quiero una demo web gratis para mi restaurante",
+      "url": "https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20una%20demo%20web%20gratis%20para%20mi%20restaurante",
+      "nota": "Mismo número de business.ts; target=\"_blank\" rel=\"noopener\"."
+    },
+    {
+      "ubicacion": "CTA final (H2 'Cómo empezar esta semana')",
+      "texto": "Pedir la demo de mi restaurante por WhatsApp",
+      "url": "https://wa.me/573236487336?text=Hola%20Presentto%2C%20tengo%20un%20restaurante%20y%20quiero%20ver%20mi%20demo%20web%20gratis",
+      "nota": "Acompañar de enlace secundario a /contacto/ para quien prefiera formulario."
+    }
+  ],
+  "sources": [
+    { "nombre": "Google — Empezar a usar Perfil de Empresa en Google", "url": "https://support.google.com/business/answer/3038063?hl=es", "uso": "El perfil es gratuito ('sin coste') y permite mostrar horario, web, teléfono y fotos.", "verificada": "2026-10-02 (fetch directo)" },
+    { "nombre": "Google — Consejos para mejorar el posicionamiento local", "url": "https://support.google.com/business/answer/7091?hl=es", "uso": "Los resultados locales se basan en relevancia, distancia y prominencia; la información completa y precisa aumenta la probabilidad de aparecer.", "verificada": "2026-10-02 (fetch directo)" },
+    { "nombre": "Google — Consejos para conseguir más reseñas", "url": "https://support.google.com/business/answer/3474122?hl=es", "uso": "Prohibido ofrecer incentivos a cambio de reseñas; prácticas recomendadas para pedirlas y responderlas.", "verificada": "2026-10-02 (fetch directo)" },
+    { "nombre": "DANE — Estadísticas por tema: Servicios", "url": "https://www.dane.gov.co/index.php/estadisticas-por-tema/servicios", "uso": "Contexto sectorial oficial (alojamiento y restaurantes como sector medido en Colombia). Solo contexto, sin cifra concreta.", "verificada": "2026-10-02 (búsqueda web, página temática oficial)" },
+    { "nombre": "Muselab — Cuánto cuesta una página web en Colombia", "url": "https://muselab.com.co/cuanto-cuesta-una-pagina-web-en-colombia-2025/", "uso": "Rangos de mercado para la sección de precios (misma fuente ya citada en /guias/cuanto-cuesta-pagina-web-colombia/).", "verificada": "Ya publicada en la guía de precios" },
+    { "nombre": "WordPress.com — Pricing", "url": "https://wordpress.com/pricing", "uso": "Contraste de coste de plataformas DIY (misma fuente ya citada en la guía de precios).", "verificada": "Ya publicada en la guía de precios" }
+  ],
+  "stats": [
+    { "cifra": "El Perfil de Empresa en Google es gratuito", "fuente": "https://support.google.com/business/answer/3038063?hl=es", "tipo": "hecho citable (sin número)" },
+    { "cifra": "Los resultados locales se basan en relevancia, distancia y prominencia", "fuente": "https://support.google.com/business/answer/7091?hl=es", "tipo": "hecho citable (sin número)" },
+    { "cifra": "Web administrada Presentto desde $40.000 COP/mes (IVA incluido)", "fuente": "/precios/ (fuente propia verificable en el sitio)", "tipo": "precio propio" },
+    { "cifra": "Rangos de mercado Colombia: landing ≈ $800.000–$2.500.000 COP; sitio corporativo $1.700.000–$6.000.000 COP", "fuente": "https://muselab.com.co/cuanto-cuesta-una-pagina-web-en-colombia-2025/", "tipo": "rango externo ya publicado en la guía de precios" }
+  ],
+  "statsProhibidas": [
+    { "cifra": "'76% de las búsquedas locales en móvil visitan un negocio en 24 h' (Think with Google)", "motivo": "La URL histórica de Think with Google redirige hoy a otro artículo (verificado 2026-10-02). NO usar hasta tener URL viva que contenga el dato." },
+    { "cifra": "Comisiones de apps de domicilio (Rappi, etc.)", "motivo": "Sin fuente pública oficial estable; hablar de 'comisión por pedido' en genérico sin porcentajes." },
+    { "cifra": "Número de restaurantes en Colombia", "motivo": "El DANE mide el sector pero no localizamos cifra puntual con URL directa; omitir o encargar verificación a seo-keyword-miner." }
+  ],
+  "eeat": {
+    "experiencia": "Proceso real de publicación documentado en /sitios/ (9 sitios en producción, visitables). IMPORTANTE: ninguno es un restaurante — NO afirmar 'hemos hecho webs de restaurantes'; formular como 'la misma base técnica y el mismo proceso de los sitios publicados en /sitios/'.",
+    "autoria": "Equipo Presentto Online con AuthorBox (componente existente); fechas published/modified desde src/data/content-dates.ts (crear entrada con 2026-10-02 al redactar).",
+    "demostracion": "La demo gratis previa al pago es la prueba de trabajo real; los rangos de precio se contrastan con fuentes externas enlazadas.",
+    "confianza": "Toda afirmación sobre Google enlaza a documentación oficial con target=\"_blank\" rel=\"noopener\"; cero cifras sin fuente."
+  },
+  "notasRedaccion": [
+    "Estructura: replicar el patrón de src/pages/guias/que-es-presencia-digital.astro (BaseLayout + Breadcrumbs + page-hero + guide-layout + FaqList + AuthorBox).",
+    "JSON-LD: solo el TechArticle por página siguiendo el patrón de las guías existentes (authorRef desde src/components/schemas.ts). PROHIBIDO FAQPage o tipos nuevos: el grafo lo audita seo-schema-auditor.",
+    "Canibalización: la sección de precios es específica del rubro y SIEMPRE enlaza a /guias/cuanto-cuesta-pagina-web-colombia/; no reoptimizar esta página para 'cuánto cuesta una página web' genérica.",
+    "Al redactar: registrar la ruta en src/data/site-index.ts (hub 'guias'), en src/data/content-dates.ts y en public/llms.txt (seo:check valida la sincronía site-index ↔ llms.txt).",
+    "Enlaces internos con trailing slash; externos con target=\"_blank\" rel=\"noopener\".",
+    "Español neutro con ejemplos colombianos (COP, Rappi) solo donde la keyword lo pide; alcance de rubro mundial.",
+    "Cuando existan las páginas /funza/rubros/, /mosquera/rubros/ y /madrid/rubros/ (clústeres planned), añadir enlaces cruzados desde esta guía (ella es el pilar de rubro)."
+  ]
+}

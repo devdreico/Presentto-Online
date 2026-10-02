@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
 import PlansGrid from '../components/PlansGrid.astro';
-import { localBusinessSchema } from '../components/schemas';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Servicios' }];
 
 const title = 'Servicios de web administrada | Presentto';
@@ -83,15 +82,9 @@ const faqs = [
 ];
 // FAQPage: solo las preguntas exclusivas de esta página (las compartidas con
 // /preguntas/ tienen el schema canónico ahí para no duplicar FAQPage en el sitio)
-const sharedWithFaqHub = new Set([
-  '¿Qué incluye la Presenttación Digital?',
-  '¿Qué incluye el dominio y correo profesional?',
-  '¿Puedo ver una demo antes de pagar?',
-]);
-const faqSchema = faqs.filter((f) => !sharedWithFaqHub.has(f.q));
 ---
 
-<BaseLayout title={title} description={description} path="/servicios/" breadcrumbs={crumbs} faqs={faqSchema} plansOffers={true} jsonld={[serviceSchema, localBusinessSchema, clientsSchema]}>
+<BaseLayout title={title} description={description} path="/servicios/" breadcrumbs={crumbs} plansOffers={true} jsonld={[serviceSchema, clientsSchema]}>
   <Breadcrumbs items={crumbs} />
 
   <section class="section wrap page-hero">

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-01",
+  "generatedAt": "2026-10-02",
   "generator": "scripts/seo/seed-keywords.mjs",
-  "note": "Siembra inicial. Ampliar y curar con los sub-agentes seo-keyword-miner y seo-cluster-architect. No ejecutar seo:seed tras curar a mano (sobrescribe).",
+  "note": "Curado por seo-keyword-miner 2026-10-02: +75 términos (precio web, rubros×ciudad, presencia digital pequeños negocios, correo profesional, demo gratis, variantes y quick wins GSC). No ejecutar seo:seed tras curar a mano (sobrescribe).",
   "keywords": [
     {
       "term": "página web en Funza",
@@ -1384,7 +1384,7 @@
       "term": "dominio y correo profesional incluidos",
       "intent": "commercial",
       "geo": "CO",
-      "cluster": "servicios-presentto",
+      "cluster": "dominio-y-correo",
       "funnel": "mofu",
       "priority": 3,
       "source": "seed"
@@ -1546,7 +1546,7 @@
       "term": "empresa de diseño web colombia",
       "intent": "commercial",
       "geo": "global",
-      "cluster": "servicios-presentto",
+      "cluster": "ciudad-colombia",
       "funnel": "mofu",
       "priority": 2,
       "source": "seed"
@@ -1582,7 +1582,7 @@
       "term": "presencia digital para pymes",
       "intent": "commercial",
       "geo": "global",
-      "cluster": "rubro-profesionales",
+      "cluster": "presencia-digital-pilar",
       "funnel": "mofu",
       "priority": 2,
       "source": "seed"
@@ -1600,7 +1600,7 @@
       "term": "marketing digital para pequeños negocios",
       "intent": "informational",
       "geo": "global",
-      "cluster": "rubro-profesionales",
+      "cluster": "presencia-digital-pilar",
       "funnel": "tofu",
       "priority": 2,
       "source": "seed"
@@ -1708,7 +1708,7 @@
       "term": "presenttación digital",
       "intent": "navigational",
       "geo": "CO",
-      "cluster": "planes-precios",
+      "cluster": "nosotros-presentto",
       "funnel": "bofu",
       "priority": 3,
       "source": "seed"
@@ -1834,7 +1834,7 @@
       "term": "cuánto cuesta dominio y hosting en colombia",
       "intent": "commercial",
       "geo": "CO",
-      "cluster": "precio-pagina-web",
+      "cluster": "dominio-y-correo",
       "funnel": "mofu",
       "priority": 3,
       "source": "seed"
@@ -1861,10 +1861,685 @@
       "term": "empresa de diseño web en cundinamarca",
       "intent": "commercial",
       "geo": "CO",
-      "cluster": "ciudad-funza",
+      "cluster": "ciudad-colombia",
       "funnel": "mofu",
       "priority": 2,
       "source": "seed"
+    },
+    {
+      "term": "cuánto cuesta una página web en colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "precio-pagina-web",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "precio página web colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "precio-pagina-web",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cuánto vale una página web en colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "precio-pagina-web",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "precio de página web por mes",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "precio-pagina-web",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cuánto cuesta una página web sencilla",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "precio-pagina-web",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "pagina web precios colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "precio-pagina-web",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "páginas web precios colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "precio-pagina-web",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "precio de página web para restaurante",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-restaurantes",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para restaurante en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-restaurantes",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para restaurante en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-restaurantes",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para peluquería en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-peluquerias",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para peluquería en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-peluquerias",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para consultorio en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-clinicas",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para consultorio en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-clinicas",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para taller en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-talleres",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para taller en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-talleres",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para tienda en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-comercios",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para tienda en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-comercios",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para abogado en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-profesionales",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para abogado en Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-profesionales",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cuánto cuesta una página web para restaurante",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-restaurantes",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cuánto cuesta una página web para peluquería",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-peluquerias",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cuánto cuesta una página web para consultorio",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-clinicas",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cuánto cuesta una página web para taller",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-talleres",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cuánto cuesta una página web para tienda",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-comercios",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cuánto cuesta una página web para abogado",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-profesionales",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para consultorio médico",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-clinicas",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para consultorio odontológico",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-clinicas",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "página web para tienda online",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-comercios",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para tienda de ropa",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-comercios",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "web para bufete de abogados",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-profesionales",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para barbería",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-peluquerias",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para salón de belleza",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-peluquerias",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "página web para taller",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubro-talleres",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para restaurante en Funza",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-funza",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para peluquería en Funza",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-funza",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "página web para consultorio en Funza",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-funza",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "página web para restaurante en Mosquera",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-mosquera",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para taller en Mosquera",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-mosquera",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "página web para tienda en Mosquera",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-mosquera",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "página web para restaurante en Madrid",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-madrid",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para abogado en Madrid",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-madrid",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "página web para tienda en Madrid",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-madrid",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "página web para restaurante en Facatativá",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-facatativa",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web para peluquería en Facatativá",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-facatativa",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "página web para consultorio en Facatativá",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "rubros-facatativa",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "mejor diseño web en Funza",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "ciudad-funza",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "mejor diseño web en Mosquera",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "ciudad-mosquera",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "mejor diseño web en Madrid",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "ciudad-madrid",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "mejor diseño web en Facatativá",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "ciudad-facatativa",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presencia digital para pequeños negocios",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "presencia-digital-pilar",
+      "funnel": "tofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "presencia digital para negocios locales",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "presencia-digital-pilar",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cómo tener presencia digital en colombia",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "presencia-digital-pilar",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presencia digital para emprendedores",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "presencia-digital-pilar",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "qué es presencia digital para un negocio",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "presencia-digital-pilar",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "beneficios de la presencia digital",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "presencia-digital-pilar",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "demo de página web gratis",
+      "intent": "transactional",
+      "geo": "CO",
+      "cluster": "contacto-demo",
+      "funnel": "bofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "demo web gratis para mi negocio",
+      "intent": "transactional",
+      "geo": "CO",
+      "cluster": "contacto-demo",
+      "funnel": "bofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "solicitar demo de página web",
+      "intent": "transactional",
+      "geo": "CO",
+      "cluster": "contacto-demo",
+      "funnel": "bofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "demo gratis de diseño web",
+      "intent": "transactional",
+      "geo": "CO",
+      "cluster": "contacto-demo",
+      "funnel": "bofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "ver demo de página web",
+      "intent": "transactional",
+      "geo": "CO",
+      "cluster": "contacto-demo",
+      "funnel": "bofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "correo profesional para mi negocio",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "dominio-y-correo",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "correo corporativo para empresa",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "dominio-y-correo",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "correo con dominio propio",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "dominio-y-correo",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "correo profesional barato",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "dominio-y-correo",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "sitio web para mi negocio",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "servicios-presentto",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "sitio web administrado",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "servicios-presentto",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "crear página web para negocio",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "servicios-presentto",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web para pequeños negocios",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "servicios-presentto",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "diseño web cerca de mí",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "servicios-presentto",
+      "funnel": "mofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "opiniones de google cómo conseguirlas",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "resenas-de-google",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "opiniones de clientes en google",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "resenas-de-google",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presento",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "nosotros-presentto",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "gsc"
+    },
+    {
+      "term": "presentación digital",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "nosotros-presentto",
+      "funnel": "bofu",
+      "priority": 3,
+      "source": "gsc"
+    },
+    {
+      "term": "presentaitor",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "nosotros-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "gsc"
     }
   ]
 }

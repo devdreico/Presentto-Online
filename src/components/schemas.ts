@@ -114,7 +114,8 @@ export const websiteSchema = {
 };
 
 // Service-area business (no public storefront): LocalBusiness + areaServed
-export const localBusinessSchema = {
+export const localBusinessSchema = (business.address || business.gbpUrl)
+  ? {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   '@id': `${site}#localbusiness`,
@@ -170,7 +171,8 @@ export const localBusinessSchema = {
       url: 'https://mpago.li/344eu17',
     },
   ],
-};
+}
+  : null;
 
 // Person (E-E-A-T) — se activa al configurar `business.editor` en src/data/business.ts.
 // Mientras no haya persona real configurada, los artículos firman como Organization.

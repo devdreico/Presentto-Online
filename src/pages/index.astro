@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PlansGrid from '../components/PlansGrid.astro';
 import FaqList from '../components/FaqList.astro';
-import { localBusinessSchema } from '../components/schemas';
 import { usd } from '../data/business';
 
 const title = 'Páginas web y presencia digital accesible | Presentto';
@@ -95,8 +94,7 @@ const homeService = {
   description={description}
   path="/"
   plansOffers={true}
-  faqs={faqs}
-  jsonld={[localBusinessSchema, homeService]}
+  jsonld={[homeService]}
 >
   <section class="hero wrap">
     <div class="hero-copy">

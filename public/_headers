@@ -41,8 +41,6 @@
   Cache-Control: public, max-age=0, must-revalidate
 /guias/ficha-de-google-mi-negocio/
   Cache-Control: public, max-age=0, must-revalidate
-/guias/que-es-presencia-digital/
-  Cache-Control: public, max-age=0, must-revalidate
 /guias/resenas-google/
   Cache-Control: public, max-age=0, must-revalidate
 /guias/web-propia-vs-anuncios/

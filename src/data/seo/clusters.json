@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-01",
-  "note": "Clústeres de contenidos: 1 keyword primaria por clúster (evita canibalización) y 1 targetPage por clúster. status: published | planned. Lo amplía el sub-agente seo-cluster-architect.",
+  "generatedAt": "2026-10-02",
+  "note": "Clústeres de contenidos: 1 keyword primaria por clúster (evita canibalización) y 1 targetPage por clúster. status: published | planned. Lo amplía el sub-agente seo-cluster-architect. 2026-10-02: +6 clústeres planned (dominio-y-correo, ciudad-colombia, rubros-funza/mosquera/madrid/facatativa) y reasignación de keywords huérfanas (correo/dominio, rubros×ciudad, presencia digital global, typos de marca).",
   "clusters": [
     {
       "id": "presencia-digital-pilar",
@@ -233,6 +233,60 @@
       "primaryKeyword": "página web para profesionales (abogados, contadores)",
       "targetPage": "/guias/pagina-web-para-profesionales/",
       "intent": "informational",
+      "status": "planned",
+      "priority": 2
+    },
+    {
+      "id": "dominio-y-correo",
+      "title": "Dominio y correo profesional",
+      "primaryKeyword": "dominio y correo profesional",
+      "targetPage": "/servicios/dominio-correo/",
+      "intent": "commercial",
+      "status": "planned",
+      "priority": 2
+    },
+    {
+      "id": "ciudad-colombia",
+      "title": "Hub nacional: Colombia",
+      "primaryKeyword": "página web en colombia",
+      "targetPage": "/colombia/",
+      "intent": "commercial",
+      "status": "planned",
+      "priority": 2
+    },
+    {
+      "id": "rubros-funza",
+      "title": "Rubros × ciudad: Funza",
+      "primaryKeyword": "página web para restaurante en funza",
+      "targetPage": "/funza/rubros/",
+      "intent": "commercial",
+      "status": "planned",
+      "priority": 1
+    },
+    {
+      "id": "rubros-mosquera",
+      "title": "Rubros × ciudad: Mosquera",
+      "primaryKeyword": "página web para restaurante en mosquera",
+      "targetPage": "/mosquera/rubros/",
+      "intent": "commercial",
+      "status": "planned",
+      "priority": 1
+    },
+    {
+      "id": "rubros-madrid",
+      "title": "Rubros × ciudad: Madrid",
+      "primaryKeyword": "página web para restaurante en madrid",
+      "targetPage": "/madrid/rubros/",
+      "intent": "commercial",
+      "status": "planned",
+      "priority": 1
+    },
+    {
+      "id": "rubros-facatativa",
+      "title": "Rubros × ciudad: Facatativá",
+      "primaryKeyword": "página web para restaurante en facatativa",
+      "targetPage": "/facatativa/rubros/",
+      "intent": "commercial",
       "status": "planned",
       "priority": 2
     }

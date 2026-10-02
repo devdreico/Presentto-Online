@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PlansGrid from '../components/PlansGrid.astro';
-import { localBusinessSchema } from '../components/schemas';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Contacto' }];
 
 const title = 'Contacto, planes y demo gratis | Presentto Online';
@@ -29,7 +28,7 @@ const contactSchema = {
   path="/contacto/"
   breadcrumbs={crumbs}
   plansOffers={true}
-  jsonld={[contactSchema, localBusinessSchema]}
+  jsonld={[contactSchema]}
 >
   <Breadcrumbs items={crumbs} />
 

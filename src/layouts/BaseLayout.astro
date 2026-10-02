@@ -63,7 +63,7 @@ const webpageSchema: Record<string, unknown> = {
     : {}),
 };
 
-const pageSchemas = jsonld.filter((s) => {
+const pageSchemas = jsonld.filter(Boolean).filter((s) => {
   const t = s['@type'];
   return t !== 'Organization' && t !== 'WebSite' && t !== 'WebPage';
 });
@@ -99,6 +99,7 @@ const allSchemas = noindex
     <meta name="theme-color" content="#fffdf9" />
     {gsc && <meta name="google-site-verification" content={gsc} />}
     {!noindex && <link rel="canonical" href={canonical} />}
+    <meta name="author" content="Presentto Online" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/webp" href="/assets/img/Presentto-Icono-Fondo-Transparente.webp" />
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />

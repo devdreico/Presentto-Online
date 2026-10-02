@@ -95,9 +95,8 @@ const relatedCities = [
   title={title}
   description={description}
   path={path}
-  jsonld={[localBusinessSchema, schema]}
+  jsonld={[...(localBusinessSchema ? [localBusinessSchema] : []), schema]}
   breadcrumbs={crumbs}
-  faqs={faqs}
 >
   <Breadcrumbs items={crumbs} />
 
