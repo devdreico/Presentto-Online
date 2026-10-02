@@ -52,7 +52,11 @@ export const business = {
 
   // Persona responsable editorial (visible en artículos + schema Person).
   // Debe ser una persona real: añadir nombre y URL de bio en /nosotros/.
-  editor: null as Person | null,
+  editor: {
+    name: 'Dilan Andrei Cifuentes Ortiz',
+    jobTitle: 'Fundador y responsable editorial',
+    url: '/nosotros/',
+  } as Person | null,
 
   areaServed: [
     { '@type': 'Place', name: 'Colombia' },

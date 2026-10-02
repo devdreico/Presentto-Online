@@ -9,6 +9,7 @@ import {
   breadcrumbSchema,
   faqPageSchema,
   plansItemListSchema,
+  personSchema,
   type Crumb,
   type Faq,
 } from '../components/schemas';
@@ -78,7 +79,7 @@ if (!noindex) {
 
 const allSchemas = noindex
   ? pageSchemas
-  : [organizationSchema, websiteSchema, webpageSchema, ...pageSchemas, ...componentSchemas];
+  : [organizationSchema, websiteSchema, webpageSchema, personSchema(), ...pageSchemas.filter(Boolean), ...componentSchemas].filter(Boolean);
 ---
 
 <!doctype html>
