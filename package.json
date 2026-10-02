@@ -11,7 +11,9 @@
     "og": "node scripts/generate-og.mjs && node scripts/generate-icons.mjs",
     "seo:gsc": "node scripts/seo/parse-gsc.mjs",
     "seo:seed": "node scripts/seo/seed-keywords.mjs",
-    "seo:check": "node scripts/seo/validate-seo.mjs"
+    "seo:check": "node scripts/seo/validate-seo.mjs",
+    "indexnow": "node scripts/indexnow.mjs",
+    "indexnow:key": "node scripts/indexnow-key.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

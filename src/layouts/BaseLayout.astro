@@ -42,6 +42,7 @@ const canonical = new URL(path, Astro.site).href;
 const ogImage = new URL('/assets/img/og-presentto.jpg', Astro.site).href;
 const fullTitle = title.includes('Presentto') ? title : `${title} | Presentto Online`;
 const gsc = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+const bing = import.meta.env.PUBLIC_BING_SITE_VERIFICATION;
 
 const isArticle = Boolean(article);
 const ogType = isArticle ? 'article' : 'website';
@@ -99,6 +100,7 @@ const allSchemas = noindex
     />
     <meta name="theme-color" content="#fffdf9" />
     {gsc && <meta name="google-site-verification" content={gsc} />}
+    {bing && <meta name="msvalidate.01" content={bing} />}
     {!noindex && <link rel="canonical" href={canonical} />}
     <meta name="author" content="Presentto Online" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />

@@ -57,3 +57,9 @@ npm run seo:seed    # regenera la siembra inicial de keywords (NO usar tras cura
 
 - `docs/seo/kpis.md` — metas, línea base y recordatorios de medición.
 - `docs/seo/offsite.md` — checklist manual: Google Business Profile, citas, backlinks, señales locales.
+
+## Lanzamiento e indexación
+
+- Verificar Google Search Console y Bing Webmaster Tools; enviar `https://www.presentto.online/sitemap.xml`.
+- Para IndexNow: `npm run indexnow:key` (crea `public/<key>.txt`), define `INDEXNOW_KEY`, rebuild y `npm run indexnow`.
+- Rellenar `src/data/business.ts` con `address`, `geo` y `gbpUrl` cuando la ficha de Google esté verificada; eso reactiva `localBusinessSchema`.
