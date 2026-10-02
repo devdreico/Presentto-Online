@@ -43,7 +43,12 @@ export const business = {
   gbpUrl: null as string | null,
 
   // Redes/perfiles verificables (se añaden al `sameAs` de Organization y LocalBusiness).
-  sameAs: ['https://wa.me/573236487336'] as string[],
+  sameAs: [
+    'https://wa.me/573236487336',
+    'https://www.tiktok.com/@presenttonline',
+    'https://www.instagram.com/presenttonline',
+    'https://www.facebook.com/PresenttoOnline',
+  ] as string[],
 
   // Persona responsable editorial (visible en artículos + schema Person).
   // Debe ser una persona real: añadir nombre y URL de bio en /nosotros/.
