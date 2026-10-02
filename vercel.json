@@ -514,6 +514,41 @@
       ],
       "destination": "/portfolio/",
       "permanent": true
+    },
+    {
+      "source": "/presentto",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/presento",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/present-online",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/presentto-online",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/presento-online",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/presentto-webs",
+      "destination": "/servicios/",
+      "permanent": true
+    },
+    {
+      "source": "/presento-webs",
+      "destination": "/servicios/",
+      "permanent": true
     }
   ]
 }

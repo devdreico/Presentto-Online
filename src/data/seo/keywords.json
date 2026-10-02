@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-10-02",
   "generator": "scripts/seo/seed-keywords.mjs",
-  "note": "Curado por seo-keyword-miner 2026-10-02: +75 términos (precio web, rubros×ciudad, presencia digital pequeños negocios, correo profesional, demo gratis, variantes y quick wins GSC). No ejecutar seo:seed tras curar a mano (sobrescribe).",
+  "note": "Curado por seo-keyword-miner 2026-10-02: +75 términos (precio web, rubros×ciudad, presencia digital pequeños negocios, correo profesional, demo gratis, variantes y quick wins GSC). 2026-10-02: +clúster marca-presentto (16 términos de marca/navigational + 6 variantes de tecleo solo MONITOREO, no visibles en el sitio); reasignados presento/presentación digital/presentaitor/presentto online/presentto web administrada/presenttación digital a marca-presentto. No ejecutar seo:seed tras curar a mano (sobrescribe). 2026-10-02: limpieza marca-presentto — movidos 'presentto precios'→planes-precios, 'presentto demo gratis'/'presentto whatsapp'/'presentto contacto'→contacto-demo, 'presentación digital'→presencia-digital-pilar (revisar intent: quedó navigational/bofu en clúster informational).",
   "keywords": [
     {
       "term": "página web en Funza",
@@ -1690,28 +1690,28 @@
       "term": "presentto online",
       "intent": "navigational",
       "geo": "CO",
-      "cluster": "nosotros-presentto",
+      "cluster": "marca-presentto",
       "funnel": "tofu",
-      "priority": 3,
-      "source": "seed"
+      "priority": 1,
+      "source": "serp"
     },
     {
       "term": "presentto web administrada",
       "intent": "navigational",
       "geo": "CO",
-      "cluster": "nosotros-presentto",
+      "cluster": "marca-presentto",
       "funnel": "tofu",
-      "priority": 3,
-      "source": "seed"
+      "priority": 2,
+      "source": "serp"
     },
     {
       "term": "presenttación digital",
       "intent": "navigational",
       "geo": "CO",
-      "cluster": "nosotros-presentto",
+      "cluster": "marca-presentto",
       "funnel": "bofu",
       "priority": 3,
-      "source": "seed"
+      "source": "serp"
     },
     {
       "term": "presentto.funza",
@@ -2518,7 +2518,7 @@
       "term": "presento",
       "intent": "navigational",
       "geo": "CO",
-      "cluster": "nosotros-presentto",
+      "cluster": "marca-presentto",
       "funnel": "tofu",
       "priority": 2,
       "source": "gsc"
@@ -2527,19 +2527,217 @@
       "term": "presentación digital",
       "intent": "navigational",
       "geo": "CO",
-      "cluster": "nosotros-presentto",
+      "cluster": "presencia-digital-pilar",
       "funnel": "bofu",
       "priority": 3,
-      "source": "gsc"
+      "source": "serp"
     },
     {
       "term": "presentaitor",
       "intent": "navigational",
       "geo": "CO",
-      "cluster": "nosotros-presentto",
+      "cluster": "marca-presentto",
       "funnel": "tofu",
       "priority": 3,
       "source": "gsc"
+    },
+    {
+      "term": "presentto",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "presento online",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "present online",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presentto webs",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presento webs",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "webs presentto",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presentto paginas web",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presento colombia",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presentto colombia",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "presentto online bogota",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presento online bogota",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presentto sabana occidental",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presentto demo gratis",
+      "intent": "transactional",
+      "geo": "CO",
+      "cluster": "contacto-demo",
+      "funnel": "bofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presentto precios",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "planes-precios",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "presentto whatsapp",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "contacto-demo",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presentto contacto",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "contacto-demo",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presentoo nline",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presenttoo online",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presentto onlin",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presentto nline",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presneto online",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
+    },
+    {
+      "term": "presentto onilne",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "tofu",
+      "priority": 3,
+      "source": "serp"
     }
   ]
 }

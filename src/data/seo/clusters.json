@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-10-02",
-  "note": "Clústeres de contenidos: 1 keyword primaria por clúster (evita canibalización) y 1 targetPage por clúster. status: published | planned. Lo amplía el sub-agente seo-cluster-architect. 2026-10-02: +6 clústeres planned (dominio-y-correo, ciudad-colombia, rubros-funza/mosquera/madrid/facatativa) y reasignación de keywords huérfanas (correo/dominio, rubros×ciudad, presencia digital global, typos de marca).",
+  "note": "Clústeres de contenidos: 1 keyword primaria por clúster (evita canibalización) y 1 targetPage por clúster. status: published | planned. Lo amplía el sub-agente seo-cluster-architect. 2026-10-02: +6 clústeres planned (dominio-y-correo, ciudad-colombia, rubros-funza/mosquera/madrid/facatativa) y reasignación de keywords huérfanas (correo/dominio, rubros×ciudad, presencia digital global, typos de marca). 2026-10-02: +clúster marca-presentto (queries de marca/navigational + variantes de tecleo solo monitoreo). 2026-10-02: marca-presentto depurado — solo marca/misspellings; targetPage '/' sin conflictos; términos transaccionales/comerciales de marca movidos a contacto-demo y planes-precios.",
   "clusters": [
     {
       "id": "presencia-digital-pilar",
@@ -279,6 +279,15 @@
       "targetPage": "/madrid/rubros/",
       "intent": "commercial",
       "status": "planned",
+      "priority": 1
+    },
+    {
+      "id": "marca-presentto",
+      "title": "Marca: Presentto",
+      "primaryKeyword": "presentto",
+      "targetPage": "/",
+      "intent": "navigational",
+      "status": "published",
       "priority": 1
     },
     {

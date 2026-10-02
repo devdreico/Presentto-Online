@@ -280,6 +280,51 @@
       "description": "Ve tu web antes de pagar: demo gratis con tu marca, dominio y correo. Planes desde $40.000 COP/mes en Colombia.",
       "hypothesis": "'Demo gratis' en title reduce fricción y sube el CTR en queries transaccionales; medir 4 semanas en GSC.",
       "status": "pending"
+    },
+    {
+      "id": "home-v2-marca-presentto",
+      "page": "/",
+      "targetQuery": "presentto",
+      "title": "Presentto: tu página web administrada",
+      "description": "Presentto crea páginas web con dominio, correo y hosting desde $40.000 COP/mes en Colombia. Pide tu demo gratis.",
+      "hypothesis": "Marca al inicio del title capta la query exacta 'presentto' y sube el CTR de marca; medir 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "home-v2-marca-online",
+      "page": "/",
+      "targetQuery": "presentto online",
+      "title": "Presentto Online: web y presencia digital",
+      "description": "Presentto Online: páginas web administradas, dominio, correo y Google para negocios en Colombia. Demo gratis.",
+      "hypothesis": "Repetir la variante 'presentto online' en title y description alinea el snippet con la query de marca compuesta; medir 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "home-v2-marca-webs",
+      "page": "/",
+      "targetQuery": "presentto webs",
+      "title": "Presentto Webs: páginas web para negocios",
+      "description": "Presentto Webs crea tu página web con dominio, correo y hosting incluido desde $40.000 COP/mes. Mira planes.",
+      "hypothesis": "Incluir 'webs' en el title responde la variante de marca y puede captar clics de esa query; medir 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "home-v2-marca-colombia",
+      "page": "/",
+      "targetQuery": "presentto colombia",
+      "title": "Presentto Colombia: páginas web y presencia",
+      "description": "Presentto Colombia: web administrada, dominio y correo para negocios en Funza, Mosquera, Madrid y Facatativá.",
+      "hypothesis": "Añadir 'Colombia' al title de marca refuerza relevancia local y sube CTR en la query 'presentto colombia'; medir 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "home-v2-marca-typo-presentaitor",
+      "page": "/",
+      "targetQuery": "presentaitor",
+      "title": "Presentto: páginas web y presencia digital",
+      "description": "¿Buscabas Presentto? Páginas web administradas con dominio, correo y hosting desde $40.000 COP/mes en Colombia.",
+      "hypothesis": "Un snippet que reconoce el typo ('¿Buscabas Presentto?') mejora el CTR de la query mal escrita 'presentaitor' (pos 3, CTR 0); medir 4 semanas en GSC.",
+      "status": "pending"
     }
   ]
 }
