@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-02",
-  "note": "Tests de title/description para posicionar snippets y comparar CTR en Search Console. status: pending (por aplicar) | applied (en código, sin medir) | shipped (publicado) | reverted. Máx 60 / 160 caracteres. Lo amplía el sub-agente snippet-ctr-optimizer.",
+  "generatedAt": "2026-10-05",
+  "note": "Tests de title/description para posicionar snippets y comparar CTR en Search Console. status: pending (por aplicar) | applied (en código, sin medir) | shipped (publicado) | reverted. Máx 60 / 160 caracteres. Lo amplía el sub-agente snippet-ctr-optimizer. 2026-10-05: +test present-to-v1 (variante de tecleo \"present to\").",
   "tests": [
     {
       "id": "home-v1",
@@ -324,6 +324,15 @@
       "title": "Presentto: páginas web y presencia digital",
       "description": "¿Buscabas Presentto? Páginas web administradas con dominio, correo y hosting desde $40.000 COP/mes en Colombia.",
       "hypothesis": "Un snippet que reconoce el typo ('¿Buscabas Presentto?') mejora el CTR de la query mal escrita 'presentaitor' (pos 3, CTR 0); medir 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "present-to-v1",
+      "page": "/",
+      "targetQuery": "present to",
+      "title": "Presentto: páginas web y presencia digital",
+      "description": "Presentto crea tu página web con dominio, correo y presencia digital desde $40.000 COP/mes. Demo gratis.",
+      "hypothesis": "Captar la variante de tecleo \"present to\" con la marca al inicio del title y precio mínimo en la descripción; medir CTR 4 semanas en GSC.",
       "status": "pending"
     }
   ]

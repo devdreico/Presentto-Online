@@ -16,6 +16,7 @@ export const contentDates: Record<string, ContentDates> = {
   '/guias/web-propia-vs-anuncios/': { published: '2026-10-01', modified: '2026-10-01' },
   '/guias/cuanto-cuesta-pagina-web-colombia/': { published: '2026-09-23', modified: '2026-10-01' },
   '/comparativas/web-administrada-vs-agencia/': { published: '2026-09-23', modified: '2026-09-24' },
+  '/preguntas/': { published: '2026-10-01', modified: '2026-10-05' },
 };
 
 // Última revisión del sitio (páginas evergreen sin fecha editorial propia).

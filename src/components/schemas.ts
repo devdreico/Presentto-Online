@@ -76,7 +76,7 @@ export const organizationSchema = {
   '@id': `${site}#organization`,
   '@type': 'Organization',
   name: business.name,
-  alternateName: ['Presentto', 'Presento'],
+  alternateName: ['Presentto', 'Presento', 'Present To'],
   url: site,
   logo: {
     '@type': 'ImageObject',
@@ -109,7 +109,7 @@ export const websiteSchema = {
   '@id': `${site}#website`,
   '@type': 'WebSite',
   name: 'Presentto Online',
-  alternateName: ['Presentto', 'Presento'],
+  alternateName: ['Presentto', 'Presento', 'Present To'],
   url: site,
   inLanguage: 'es-CO',
   publisher: { '@id': `${site}#organization` },

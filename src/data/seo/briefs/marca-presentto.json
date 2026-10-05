@@ -29,7 +29,11 @@
   "intent": "navigational / brand",
   "funnel": "tofu-mofu",
   "priority": 1,
-  "wordCount": { "min": 1200, "target": 1500, "max": 2000 },
+  "wordCount": {
+    "min": 1200,
+    "target": 1500,
+    "max": 2000
+  },
   "audience": {
     "primaria": "Persona que ya escuchó de Presentto (referido, WhatsApp, red social) y busca la marca para confirmar qué es, si es confiable y cómo empezar.",
     "secundaria": "Quien escribe mal la marca ('presento', 'presentto webs') y necesita llegar igual a la página correcta.",
@@ -46,38 +50,62 @@
       "h2": "¿Qué es Presentto Online?",
       "objetivo": "Responder la query de marca informacional; definir la Presenttación Digital en 2-3 frases y enlazar a /servicios/ y /guias/que-es-presencia-digital/.",
       "h3": [
-        { "h3": "Un solo producto: la Presenttación Digital", "nota": "Web + dominio + correo + administración; enlazar /precios/." },
-        { "h3": "Para quién es", "nota": "Negocios de Colombia, base en Sabana Occidental; enlazar /funza/, /mosquera/, /madrid/, /facatativa/." }
+        {
+          "h3": "Un solo producto: la Presenttación Digital",
+          "nota": "Web + dominio + correo + administración; enlazar /precios/."
+        },
+        {
+          "h3": "Para quién es",
+          "nota": "Negocios de Colombia, base en Sabana Occidental; enlazar /funza/, /mosquera/, /madrid/, /facatativa/."
+        }
       ]
     },
     {
       "h2": "¿Presentto o Presento? Cómo se escribe la marca",
-      "objetivo": "Captar las variantes 'presento', 'presento online', 'presentto webs' sin keyword stuffing: una sola sección que aclara la grafía correcta y que las búsquedas con 'presento' llevan al mismo sitio.",
+      "objetivo": "Captar las variantes 'presento', 'presento online', 'presentto webs', 'present to' sin keyword stuffing: una sola sección que aclara la grafía correcta y que las búsquedas con 'presento' llevan al mismo sitio.",
       "h3": [
-        { "h3": "La grafía oficial es Presentto", "nota": "Explicar que 'Presento' es la confusión frecuente; no repetir la variante más de 2 veces." }
+        {
+          "h3": "La grafía oficial es Presentto",
+          "nota": "Explicar que 'Presento' y 'Present to' son confusiones frecuentes; no repetir la variante más de 2 veces."
+        }
       ]
     },
     {
       "h2": "¿Qué incluye la Presenttación Digital?",
       "objetivo": "Featured snippet de lista: web con tu marca, dominio propio, correo profesional, estructura para Google, administración durante el plan. Ya existe como FAQ en la home: mantenerla y enlazar /servicios/.",
       "h3": [
-        { "h3": "Web, dominio y correo incluidos", "nota": "Enlazar /servicios/ y /precios/." },
-        { "h3": "Administración y cambios durante el plan", "nota": "Sin permanencia; prepago por plazo." }
+        {
+          "h3": "Web, dominio y correo incluidos",
+          "nota": "Enlazar /servicios/ y /precios/."
+        },
+        {
+          "h3": "Administración y cambios durante el plan",
+          "nota": "Sin permanencia; prepago por plazo."
+        }
       ]
     },
     {
       "h2": "Cómo funciona: demo gratis, aprobación y publicación",
       "objetivo": "Reducir fricción de marca: 3 pasos (ya existe la sección 'Tres pasos'); reforzar con CTA a WhatsApp y enlace a /contacto/.",
       "h3": [
-        { "h3": "Demo con tu identidad real", "nota": "Sin abono; enlazar /sitios/ como prueba." },
-        { "h3": "Pago único por plazo, sin permanencia", "nota": "Enlazar /precios/." }
+        {
+          "h3": "Demo con tu identidad real",
+          "nota": "Sin abono; enlazar /sitios/ como prueba."
+        },
+        {
+          "h3": "Pago único por plazo, sin permanencia",
+          "nota": "Enlazar /precios/."
+        }
       ]
     },
     {
       "h2": "Planes desde $40.000 COP/mes",
       "objetivo": "Responder 'presentto precios' sin canibalizar /precios/: resumen y enlace.",
       "h3": [
-        { "h3": "Qué incluye cada plan", "nota": "IVA incluido; Mercado Pago; enlazar /precios/." }
+        {
+          "h3": "Qué incluye cada plan",
+          "nota": "IVA incluido; Mercado Pago; enlazar /precios/."
+        }
       ]
     },
     {
@@ -102,14 +130,47 @@
     "¿En qué ciudades trabaja Presentto?"
   ],
   "internalLinks": [
-    { "url": "/nosotros/", "anchor": "quiénes somos y cómo trabajamos", "desdeSeccion": "H2 '¿Qué es Presentto Online?'", "nota": "Soporte E-E-A-T de la marca." },
-    { "url": "/servicios/", "anchor": "qué incluye el servicio de web administrada", "desdeSeccion": "H2 '¿Qué incluye la Presenttación Digital?'" },
-    { "url": "/precios/", "anchor": "planes y precios de Presentto", "desdeSeccion": "H2 'Planes desde $40.000 COP/mes'" },
-    { "url": "/sitios/", "anchor": "sitios reales publicados con Presentto", "desdeSeccion": "H2 'Prueba real'" },
-    { "url": "/portfolio/", "anchor": "portfolio de proyectos", "desdeSeccion": "H2 'Prueba real'" },
-    { "url": "/contacto/", "anchor": "pedir una demo gratis", "desdeSeccion": "CTA final" },
-    { "url": "/guias/que-es-presencia-digital/", "anchor": "guía de presencia digital", "desdeSeccion": "H2 '¿Qué es Presentto Online?'" },
-    { "url": "/funza/", "anchor": "páginas web en Funza", "desdeSeccion": "H2 'Dónde trabajamos'" }
+    {
+      "url": "/nosotros/",
+      "anchor": "quiénes somos y cómo trabajamos",
+      "desdeSeccion": "H2 '¿Qué es Presentto Online?'",
+      "nota": "Soporte E-E-A-T de la marca."
+    },
+    {
+      "url": "/servicios/",
+      "anchor": "qué incluye el servicio de web administrada",
+      "desdeSeccion": "H2 '¿Qué incluye la Presenttación Digital?'"
+    },
+    {
+      "url": "/precios/",
+      "anchor": "planes y precios de Presentto",
+      "desdeSeccion": "H2 'Planes desde $40.000 COP/mes'"
+    },
+    {
+      "url": "/sitios/",
+      "anchor": "sitios reales publicados con Presentto",
+      "desdeSeccion": "H2 'Prueba real'"
+    },
+    {
+      "url": "/portfolio/",
+      "anchor": "portfolio de proyectos",
+      "desdeSeccion": "H2 'Prueba real'"
+    },
+    {
+      "url": "/contacto/",
+      "anchor": "pedir una demo gratis",
+      "desdeSeccion": "CTA final"
+    },
+    {
+      "url": "/guias/que-es-presencia-digital/",
+      "anchor": "guía de presencia digital",
+      "desdeSeccion": "H2 '¿Qué es Presentto Online?'"
+    },
+    {
+      "url": "/funza/",
+      "anchor": "páginas web en Funza",
+      "desdeSeccion": "H2 'Dónde trabajamos'"
+    }
   ],
   "ctaWhatsApp": [
     {
@@ -126,19 +187,56 @@
     }
   ],
   "sources": [
-    { "nombre": "Google — Directrices de calidad para resultados de búsqueda (contenido útil, E-E-A-T)", "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content", "uso": "Justificar que la home de marca debe demostrar experiencia real y datos verificables.", "verificada": "2026-10-02 (documentación oficial de Google)" },
-    { "nombre": "Google — Cómo funciona la Búsqueda (rastreo e indexación)", "url": "https://developers.google.com/search/docs/crawling-indexing", "uso": "Contexto técnico de por qué la home debe ser rastreable y enlazar a las páginas clave.", "verificada": "2026-10-02 (documentación oficial de Google)" },
-    { "nombre": "Google — Perfil de Empresa: directrices", "url": "https://support.google.com/business/answer/3038177?hl=es", "uso": "Nombre del negocio y categorías deben ser consistentes con la marca (refuerza 'Presentto' como nombre oficial).", "verificada": "2026-10-02 (ya enlazada en /nosotros/)" },
-    { "nombre": "Schema.org — Organization", "url": "https://schema.org/Organization", "uso": "Referencia del tipo ya usado en el grafo de src/components/schemas.ts; no añadir JSON-LD nuevo.", "verificada": "2026-10-02" }
+    {
+      "nombre": "Google — Directrices de calidad para resultados de búsqueda (contenido útil, E-E-A-T)",
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "uso": "Justificar que la home de marca debe demostrar experiencia real y datos verificables.",
+      "verificada": "2026-10-02 (documentación oficial de Google)"
+    },
+    {
+      "nombre": "Google — Cómo funciona la Búsqueda (rastreo e indexación)",
+      "url": "https://developers.google.com/search/docs/crawling-indexing",
+      "uso": "Contexto técnico de por qué la home debe ser rastreable y enlazar a las páginas clave.",
+      "verificada": "2026-10-02 (documentación oficial de Google)"
+    },
+    {
+      "nombre": "Google — Perfil de Empresa: directrices",
+      "url": "https://support.google.com/business/answer/3038177?hl=es",
+      "uso": "Nombre del negocio y categorías deben ser consistentes con la marca (refuerza 'Presentto' como nombre oficial).",
+      "verificada": "2026-10-02 (ya enlazada en /nosotros/)"
+    },
+    {
+      "nombre": "Schema.org — Organization",
+      "url": "https://schema.org/Organization",
+      "uso": "Referencia del tipo ya usado en el grafo de src/components/schemas.ts; no añadir JSON-LD nuevo.",
+      "verificada": "2026-10-02"
+    }
   ],
   "stats": [
-    { "cifra": "Web administrada Presentto desde $40.000 COP/mes (IVA incluido)", "fuente": "/precios/ (fuente propia verificable en el sitio)", "tipo": "precio propio" },
-    { "cifra": "Operado por Soverath Holding S.A.S. con respaldo técnico de Aeperion Systems", "fuente": "/nosotros/ (página propia)", "tipo": "dato propio" }
+    {
+      "cifra": "Web administrada Presentto desde $40.000 COP/mes (IVA incluido)",
+      "fuente": "/precios/ (fuente propia verificable en el sitio)",
+      "tipo": "precio propio"
+    },
+    {
+      "cifra": "Operado por Soverath Holding S.A.S. con respaldo técnico de Aeperion Systems",
+      "fuente": "/nosotros/ (página propia)",
+      "tipo": "dato propio"
+    }
   ],
   "statsProhibidas": [
-    { "cifra": "Número de clientes, sitios publicados o años de operación", "motivo": "No inventar: solo usar cifras verificables en /sitios/ o /precios/ con enlace." },
-    { "cifra": "Reseñas, calificaciones o testimonios", "motivo": "La política editorial del sitio prohíbe reseñas inventadas (ver /nosotros/)." },
-    { "cifra": "'Primera página garantizada' o posiciones en Google", "motivo": "Promesa no verificable; prohibida por la política editorial." }
+    {
+      "cifra": "Número de clientes, sitios publicados o años de operación",
+      "motivo": "No inventar: solo usar cifras verificables en /sitios/ o /precios/ con enlace."
+    },
+    {
+      "cifra": "Reseñas, calificaciones o testimonios",
+      "motivo": "La política editorial del sitio prohíbe reseñas inventadas (ver /nosotros/)."
+    },
+    {
+      "cifra": "'Primera página garantizada' o posiciones en Google",
+      "motivo": "Promesa no verificable; prohibida por la política editorial."
+    }
   ],
   "eeat": {
     "experiencia": "Proceso real documentado en /sitios/ y /portfolio/; la demo gratis previa al pago es la prueba de trabajo. NO afirmar clientes o rubros no publicados.",
@@ -151,7 +249,7 @@
     "JSON-LD: mantener solo el Service existente; PROHIBIDO FAQPage o tipos nuevos (lo audita seo-schema-auditor).",
     "No tocar src/styles/global.css; usar clases existentes (section, wrap, eyebrow, section-heading, FaqList).",
     "Enlaces internos con trailing slash; externos con target=\"_blank\" rel=\"noopener\".",
-    "Español neutro; la marca se escribe 'Presentto' (con doble t); 'Presento' solo como aclaración de variante.",
+    "Español neutro; la marca se escribe 'Presentto' (con doble t); 'Presento' y 'Present to' solo como aclaración de variante.",
     "Al redactar: actualizar src/data/content-dates.ts y verificar que public/llms.txt y src/data/site-index.ts sigan sincronizados (npm run seo:check)."
   ]
 }

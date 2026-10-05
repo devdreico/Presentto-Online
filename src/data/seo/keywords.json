@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-02",
+  "generatedAt": "2026-10-05",
   "generator": "scripts/seo/seed-keywords.mjs",
-  "note": "Curado por seo-keyword-miner 2026-10-02: +75 términos (precio web, rubros×ciudad, presencia digital pequeños negocios, correo profesional, demo gratis, variantes y quick wins GSC). 2026-10-02: +clúster marca-presentto (16 términos de marca/navigational + 6 variantes de tecleo solo MONITOREO, no visibles en el sitio); reasignados presento/presentación digital/presentaitor/presentto online/presentto web administrada/presenttación digital a marca-presentto. No ejecutar seo:seed tras curar a mano (sobrescribe). 2026-10-02: limpieza marca-presentto — movidos 'presentto precios'→planes-precios, 'presentto demo gratis'/'presentto whatsapp'/'presentto contacto'→contacto-demo, 'presentación digital'→presencia-digital-pilar (revisar intent: quedó navigational/bofu en clúster informational).",
+  "note": "Curado por seo-keyword-miner 2026-10-02: +75 términos (precio web, rubros×ciudad, presencia digital pequeños negocios, correo profesional, demo gratis, variantes y quick wins GSC). 2026-10-02: +clúster marca-presentto (16 términos de marca/navigational + 6 variantes de tecleo solo MONITOREO, no visibles en el sitio); reasignados presento/presentación digital/presentaitor/presentto online/presentto web administrada/presenttación digital a marca-presentto. No ejecutar seo:seed tras curar a mano (sobrescribe). 2026-10-02: limpieza marca-presentto — movidos 'presentto precios'→planes-precios, 'presentto demo gratis'/'presentto whatsapp'/'presentto contacto'→contacto-demo, 'presentación digital'→presencia-digital-pilar (revisar intent: quedó navigational/bofu en clúster informational). 2026-10-05: + variantes de tecleo \"present to\"/\"present-to\" en marca-presentto.",
   "keywords": [
     {
       "term": "página web en Funza",
@@ -2738,6 +2738,24 @@
       "funnel": "tofu",
       "priority": 3,
       "source": "serp"
+    },
+    {
+      "term": "present to",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "bofu",
+      "priority": 3,
+      "source": "typo-2026-10"
+    },
+    {
+      "term": "present-to",
+      "intent": "navigational",
+      "geo": "CO",
+      "cluster": "marca-presentto",
+      "funnel": "bofu",
+      "priority": 3,
+      "source": "typo-2026-10"
     }
   ]
 }
