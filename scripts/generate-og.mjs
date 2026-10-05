@@ -5,7 +5,7 @@ import fs from 'node:fs';
 const W = 1200;
 const H = 630;
 const root = process.cwd();
-const logo = path.join(root, 'public/assets/img/Presentto-Nombre-Fondo-Transparente.webp');
+const logo = path.join(root, 'public/assets/img/Presentto-Nombre-Fondo-Transparente.png');
 const out = path.join(root, 'public/assets/img/og-presentto.webp');
 // Copia JPEG: algunos scrapers (LinkedIn, Slack antiguos) no renderizan WebP en og:image
 const outJpg = path.join(root, 'public/assets/img/og-presentto.jpg');
