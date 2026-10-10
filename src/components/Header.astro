@@ -11,6 +11,7 @@ type NavGroup = { label: string; links: NavLink[] };
 
 const direct: NavLink[] = [
   { href: '/', label: 'Inicio' },
+  { href: 'https://map.presentto.online/', label: 'Mapa', external: true },
 ];
 
 const groups: NavGroup[] = [
@@ -48,6 +49,12 @@ const isGroupActive = (group: NavGroup) => group.links.some((l) => isSame(l.href
 const linkClass = (href: string) => (isSame(href, path) ? 'active' : undefined);
 
 const mobileGroups: NavGroup[] = [
+  {
+    label: 'Mapa',
+    links: [
+      { href: 'https://map.presentto.online/', label: 'Mapa ↗', external: true, desc: 'Directorio en la Sabana Occidental' },
+    ],
+  },
   ...groups,
   {
     label: 'Contacto',
@@ -66,13 +73,20 @@ const mobileGroups: NavGroup[] = [
         height="54"
         decoding="async"
       />
-      <span class="brand-name">Present<em>tto</em></span>
+      <span class="brand-name">Presen<em>tto</em></span>
     </a>
 
     <nav class="site-nav" aria-label="Navegación principal">
       {direct.map((link) => (
-        <a class="nav-link" href={link.href} aria-current={linkClass(link.href) ? 'page' : undefined}>
+        <a
+          class="nav-link"
+          href={link.href}
+          target={link.external ? '_blank' : undefined}
+          rel={link.external ? 'noopener' : undefined}
+          aria-current={!link.external && linkClass(link.href) ? 'page' : undefined}
+        >
           {link.label}
+          {link.external && <span class="nav-ext" aria-hidden="true">↗</span>}
         </a>
       ))}
       {groups.map((group) => (
@@ -137,7 +151,12 @@ const mobileGroups: NavGroup[] = [
         <small>{group.label}</small>
         <div class="nav-group-links">
           {group.links.map((link) => (
-            <a href={link.href} aria-current={linkClass(link.href) ? 'page' : undefined}>{link.label}</a>
+            <a
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener' : undefined}
+              aria-current={!link.external && linkClass(link.href) ? 'page' : undefined}
+            >{link.label}</a>
           ))}
         </div>
       </div>
