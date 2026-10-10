@@ -1,5 +1,6 @@
 ---
 import { plans } from '../data/plans';
+import MvoConstellation from './three/MvoConstellation.astro';
 
 interface Props {
   id?: string;
@@ -8,7 +9,11 @@ interface Props {
 const { id = 'planes', heading = true } = Astro.props;
 
 const DEMO_URL =
-  'https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio';
+  'https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20plan%20MVO%20y%20agendar%20mi%20sesi%C3%B3n';
+
+// Dividir entre planes MVO y planes con dominio propio
+const mvoPlans = plans.filter((p) => p.id.includes('mvo'));
+const ownDomainPlans = plans.filter((p) => !p.id.includes('mvo'));
 ---
 
 <section class="section plans-section" id={id} aria-labelledby={`${id}-title`}>
@@ -16,17 +21,62 @@ const DEMO_URL =
     {heading && (
       <div class="section-heading plans-heading">
         <div>
-          <p class="eyebrow">PLANES · PREPAGO POR PLAZO</p>
-          <h2 id={`${id}-title`}>Elige tu plan. <em>Empieza con la demo.</em></h2>
+          <p class="eyebrow">PLANES · MVO Y DOMINIO PROPIO</p>
+          <h2 id={`${id}-title`}>Elige tu plan. <em>Empieza con la asesoría.</em></h2>
         </div>
         <p>
-          Paga solo cuando veas la web de tu negocio y estés conforme. Sin abono para pedir tu demo, sin
-          suscripción automática y sin permanencia. Pago seguro con Mercado Pago.
+          Escoge entre el nuevo MVO en subdominio ($15.000/mes) o los planes tradicionales con dominio propio y correo.
+          Pago seguro con Mercado Pago.
         </p>
       </div>
     )}
+
+    <!-- MVO Plans Row -->
+    <div style="margin-bottom: 32px;">
+      <h3 style="font-size: 1.25rem; margin-bottom: 16px; color: var(--orange-dark);">
+        🚀 Plan MVO (Subdominio <code>cliente.presentto.online</code> + 3 Sesiones Meet)
+      </h3>
+      <div class="plans-grid">
+        {mvoPlans.map((plan) => (
+          <article class:list={['plan-card', { 'plan-featured': plan.featured }]}>
+            {plan.badge && <span class="plan-badge">{plan.badge}</span>}
+            <h3 class="plan-name">{plan.name}</h3>
+            <div class="plan-price">
+              <strong>{plan.price}</strong>
+              <span>{plan.unit}</span>
+            </div>
+            {plan.per && <p class="plan-per">{plan.per}</p>}
+            <p class="plan-usd">≈ {plan.priceUsd} (ref. USD)</p>
+            <ul class="plan-perks">
+              <li>Subdominio <code>cliente.presentto.online</code></li>
+              <li>Sitio administrado y diseño a gusto</li>
+              <li>3 sesiones de asesoría por Google Meet</li>
+              <li>Ajustes y mantenimiento incluido</li>
+            </ul>
+            <a
+              class:list={['button', 'plan-cta', { primary: plan.featured, ghost: !plan.featured }]}
+              href={plan.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-plan-checkout
+              data-pay={plan.url}
+              data-plan={plan.name}
+              data-price={plan.price}
+            >
+              Pagar {plan.name} <span>↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="tier-divider">
+      <span>¿Prefieres tu propio dominio y correo?</span>
+    </div>
+
+    <!-- Own Domain Plans Row -->
     <div class="plans-grid">
-      {plans.map((plan) => (
+      {ownDomainPlans.map((plan) => (
         <article class:list={['plan-card', { 'plan-featured': plan.featured }]}>
           {plan.badge && <span class="plan-badge">{plan.badge}</span>}
           <h3 class="plan-name">{plan.name}</h3>
@@ -37,10 +87,10 @@ const DEMO_URL =
           {plan.per && <p class="plan-per">{plan.per}</p>}
           <p class="plan-usd">≈ {plan.priceUsd} (ref. USD)</p>
           <ul class="plan-perks">
-            <li>Web lista con tu contenido, fotos y servicios</li>
-            <li>Dominio y correo profesionales incluidos</li>
-            <li>Presencia digital lista para publicar</li>
-            <li>Ajustes y administración durante el plan</li>
+            <li>Web lista con tu contenido y fotos</li>
+            <li>Dominio propio y correo profesional</li>
+            <li>Presencia digital optimizada</li>
+            <li>Administración durante el plan</li>
           </ul>
           <a
             class:list={['button', 'plan-cta', { primary: plan.featured, ghost: !plan.featured }]}
@@ -57,18 +107,18 @@ const DEMO_URL =
         </article>
       ))}
     </div>
+
     <div class="plans-demo">
       <div class="plans-demo-copy">
-        <strong>¿Prefieres verlo antes de pagar?</strong>
-        <p>Pide la demo web de tu negocio: sin abono y sin compromiso. Pagas solo si te gusta.</p>
+        <strong>¿Quieres agendar tu primera sesión?</strong>
+        <p>Hablemos por WhatsApp para coordinar la Sesión 1 (30 min) y resolver tus dudas sobre MVO.</p>
       </div>
       <a class="button ghost" href={DEMO_URL} target="_blank" rel="noopener">
-        Pedir demo gratis <span>↗</span>
+        Agendar sesión 1 <span>↗</span>
       </a>
     </div>
     <p class="plans-note">
-      Todos los precios incluyen IVA. Es un pago único por el plazo elegido, no una mensualidad recurrente.
-      La entrega se agenda tras confirmar el plan y el pago revisado en Mercado Pago.
+      Todos los precios incluyen IVA. El MVO funciona mediante subdominio compartido para optimizar costos.
       {Astro.url.pathname !== '/precios/' && (
         <> <a href="/precios/">Ver planes y precios en detalle</a>.</>
       )}
@@ -113,7 +163,7 @@ const DEMO_URL =
       Enviar y pagar <span>↗</span>
     </button>
     <p class="form-note">
-      Solo usamos tu nombre y WhatsApp para identificar tu compra y coordinar la entrega de tu web.
+      Solo usamos tu nombre y WhatsApp para coordinar tus sesiones de Google Meet y la entrega de tu web.
       <a href="/privacidad/" target="_blank" rel="noopener">Política de privacidad</a>.
     </p>
     <p id="planCheckoutStatus" class="plan-checkout-status" role="status" aria-live="polite"></p>

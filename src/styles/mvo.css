@@ -1,0 +1,187 @@
+/* ==========================================================================
+   Presentto Online — MVO Matte & Glass & 3D Additions
+   ========================================================================== */
+
+:root {
+  --orange-matte: #d4552a;
+  --orange-burn: #a83a0e;
+}
+
+/* Glass & Matte adjustments */
+.mvo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 14px;
+  background: rgba(241, 90, 36, .12);
+  border: 1px solid rgba(241, 90, 36, .3);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  color: var(--orange-dark);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: var(--space-4);
+}
+
+.mvo-economics {
+  background: var(--glass-strong);
+  backdrop-filter: var(--blur-md);
+  -webkit-backdrop-filter: var(--blur-md);
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-xl);
+  padding: var(--space-7);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--space-7);
+}
+
+.mvo-eco-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.mvo-eco-card {
+  background: rgba(255, 253, 249, .6);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--space-5);
+  text-align: center;
+}
+
+.mvo-eco-card strong {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: var(--fw-extrabold);
+  color: var(--orange-dark);
+  margin-bottom: var(--space-2);
+}
+
+.session-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-7);
+}
+
+.session-card {
+  background: var(--glass);
+  backdrop-filter: var(--blur-sm);
+  -webkit-backdrop-filter: var(--blur-sm);
+  border: 1px solid var(--glass-line);
+  border-radius: var(--r-lg);
+  padding: var(--space-6);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+
+.session-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.session-card span.s-num {
+  position: absolute;
+  top: -16px;
+  left: 24px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+.session-card h3 {
+  margin-top: var(--space-3);
+  font-size: 1.15rem;
+  font-weight: var(--fw-bold);
+}
+
+.session-card p {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  margin-top: var(--space-2);
+}
+
+.session-card small {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-weight: var(--fw-semibold);
+  color: var(--orange-dark);
+}
+
+.tier-divider {
+  text-align: center;
+  margin: var(--space-9) 0 var(--space-7);
+  position: relative;
+}
+
+.tier-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--line);
+  z-index: 1;
+}
+
+.tier-divider span {
+  position: relative;
+  z-index: 2;
+  background: #fdfaf6;
+  padding: 0 var(--space-5);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.infra-box {
+  background: linear-gradient(135deg, rgba(241, 90, 36, .08), rgba(245, 239, 229, .8));
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  padding: var(--space-7);
+  margin-top: var(--space-7);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+@media (min-width: 981px) {
+  .infra-box {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.infra-tree {
+  background: var(--glass-solid);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--space-5);
+  font-family: monospace;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.infra-tree code {
+  display: block;
+  line-height: 1.6;
+}
+
+.infra-tree .hl {
+  color: var(--orange-dark);
+  font-weight: bold;
+}

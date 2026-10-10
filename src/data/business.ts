@@ -29,7 +29,7 @@ export const business = {
   url: 'https://www.presentto.online/',
   email: 'inbox@presentto.online',
   telephone: '+57-323-648-7336',
-  priceRange: '$40000-$350000 COP',
+  priceRange: '$15000-$350000 COP',
   inLanguage: 'es-CO',
   slogan:
     'Presentación digital por tecnologías web y redes, accesible para el público común — demo gratis',

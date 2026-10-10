@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-05",
+  "generatedAt": "2026-10-10",
   "generator": "scripts/seo/seed-keywords.mjs",
-  "note": "Curado por seo-keyword-miner 2026-10-02: +75 términos (precio web, rubros×ciudad, presencia digital pequeños negocios, correo profesional, demo gratis, variantes y quick wins GSC). 2026-10-02: +clúster marca-presentto (16 términos de marca/navigational + 6 variantes de tecleo solo MONITOREO, no visibles en el sitio); reasignados presento/presentación digital/presentaitor/presentto online/presentto web administrada/presenttación digital a marca-presentto. No ejecutar seo:seed tras curar a mano (sobrescribe). 2026-10-02: limpieza marca-presentto — movidos 'presentto precios'→planes-precios, 'presentto demo gratis'/'presentto whatsapp'/'presentto contacto'→contacto-demo, 'presentación digital'→presencia-digital-pilar (revisar intent: quedó navigational/bofu en clúster informational). 2026-10-05: + variantes de tecleo \"present to\"/\"present-to\" en marca-presentto.",
+  "note": "Curado por seo-keyword-miner 2026-10-02: +75 términos (precio web, rubros×ciudad, presencia digital pequeños negocios, correo profesional, demo gratis, variantes y quick wins GSC). 2026-10-02: +clúster marca-presentto (16 términos de marca/navigational + 6 variantes de tecleo solo MONITOREO, no visibles en el sitio); reasignados presento/presentación digital/presentaitor/presentto online/presentto web administrada/presenttación digital a marca-presentto. No ejecutar seo:seed tras curar a mano (sobrescribe). 2026-10-02: limpieza marca-presentto — movidos 'presentto precios'→planes-precios, 'presentto demo gratis'/'presentto whatsapp'/'presentto contacto'→contacto-demo, 'presentación digital'→presencia-digital-pilar (revisar intent: quedó navigational/bofu en clúster informational). 2026-10-05: + variantes de tecleo \"present to\"/\"present-to\" en marca-presentto. 2026-10-10: +23 términos MVO (web por mensualidad/cuota/pago mensual, sitio web administrado barato, web en subdominio, landing page mensual/barata, web barata × Funza/Mosquera/Madrid/Facatativá, negocio en internet barato, presencia digital mensual, mostrar servicios online, web sin agencia, demo gratis-primero-pago, costo de mantenimiento mensual). Sin volumen en GSC → source serp (hipótesis de demanda). 2026-10-10 (seo-cluster-architect): creado el clúster web-por-mensualidad (targetPage '/'). 19 términos reasignados a web-por-mensualidad — 16 del lote MVO + 3 preexistentes sobre mensualidad/subdominio ('cuánto cuesta una web mensual', 'precio de página web por mes', 'plan web mensual barato'); vacían la zona de mensualidad de precio-pagina-web para que no compita con la guía de precios de mercado ni con la comparativa web-vs-agencia. Se MANTIENEN fuera del clúster MVO (documentado, no borrado): 'página web barata en Funza/Mosquera/Madrid/Facatativá' → siguen en ciudad-* (modificador geo: mejor target la landing de ciudad, que ya cita el precio MVO); 'cómo tener mi negocio en internet barato' y 'mostrar mis servicios online' → siguen en presencia-digital-pilar (intención informational TOFU, la home es landing de conversión); 'página web gratis primero pago después' → sigue en contacto-demo (oferta demo/primero gratis, coherente con el resto de términos demo en /contacto/). No ejecutar seo:seed tras curar a mano (sobrescribe).",
   "keywords": [
     {
       "term": "página web en Funza",
@@ -1411,7 +1411,7 @@
       "term": "plan web mensual barato",
       "intent": "transactional",
       "geo": "CO",
-      "cluster": "planes-precios",
+      "cluster": "web-por-mensualidad",
       "funnel": "bofu",
       "priority": 2,
       "source": "seed"
@@ -1789,7 +1789,7 @@
       "term": "cuánto cuesta una web mensual",
       "intent": "commercial",
       "geo": "CO",
-      "cluster": "precio-pagina-web",
+      "cluster": "web-por-mensualidad",
       "funnel": "mofu",
       "priority": 2,
       "source": "seed"
@@ -1897,7 +1897,7 @@
       "term": "precio de página web por mes",
       "intent": "commercial",
       "geo": "CO",
-      "cluster": "precio-pagina-web",
+      "cluster": "web-por-mensualidad",
       "funnel": "mofu",
       "priority": 2,
       "source": "serp"
@@ -2756,6 +2756,213 @@
       "funnel": "bofu",
       "priority": 3,
       "source": "typo-2026-10"
+    },
+    {
+      "term": "página web por mensualidad Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "página web mensual",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web por cuota mensual",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "página web con pago mensual",
+      "intent": "transactional",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "bofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "sitio web administrado barato",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "página web con subdominio",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "subdominio para negocio",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "web en subdominio para negocio",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "landing page mensual Colombia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "landing page barata por mes",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "tener página web sin pagar mucho",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "página web barata para negocios",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "página web barata en Funza",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "ciudad-funza",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web barata en Mosquera",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "ciudad-mosquera",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web barata en Madrid",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "ciudad-madrid",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web barata en Facatativá",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "ciudad-facatativa",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cómo tener mi negocio en internet barato",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "presencia-digital-pilar",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "presencia digital mensual",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "mostrar mis servicios online",
+      "intent": "informational",
+      "geo": "CO",
+      "cluster": "presencia-digital-pilar",
+      "funnel": "tofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "contratar página web sin agencia",
+      "intent": "transactional",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "bofu",
+      "priority": 1,
+      "source": "serp"
+    },
+    {
+      "term": "web propia sin agencia",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "página web gratis primero pago después",
+      "intent": "transactional",
+      "geo": "CO",
+      "cluster": "contacto-demo",
+      "funnel": "bofu",
+      "priority": 2,
+      "source": "serp"
+    },
+    {
+      "term": "cuánto cuesta mantener una página web mensual",
+      "intent": "commercial",
+      "geo": "CO",
+      "cluster": "web-por-mensualidad",
+      "funnel": "mofu",
+      "priority": 1,
+      "source": "serp"
     }
   ]
 }

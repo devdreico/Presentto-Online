@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-10-05",
-  "note": "Tests de title/description para posicionar snippets y comparar CTR en Search Console. status: pending (por aplicar) | applied (en código, sin medir) | shipped (publicado) | reverted. Máx 60 / 160 caracteres. Lo amplía el sub-agente snippet-ctr-optimizer. 2026-10-05: +test present-to-v1 (variante de tecleo \"present to\").",
+  "note": "Tests de title/description para posicionar snippets y comparar CTR en Search Console. status: pending (por aplicar) | applied (en código, sin medir) | shipped (publicado) | reverted. Máx 60 / 160 caracteres. Lo amplía el sub-agente snippet-ctr-optimizer. 2026-10-05: +test present-to-v1 (variante de tecleo \"present to\"). 2026-10-10: +6 tests reforma MVO (entrada desde $15.000 COP/mes con subdominio, CTA agendar 1ª sesión por WhatsApp, doble ruta sesión/compra directa), todos pending. Las entradas shipped anteriores pueden divergir del código (bug conocido, no corregido aquí).",
   "tests": [
     {
       "id": "home-v1",
@@ -333,6 +333,60 @@
       "title": "Presentto: páginas web y presencia digital",
       "description": "Presentto crea tu página web con dominio, correo y presencia digital desde $40.000 COP/mes. Demo gratis.",
       "hypothesis": "Captar la variante de tecleo \"present to\" con la marca al inicio del title y precio mínimo en la descripción; medir CTR 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "home-v3-mvo",
+      "page": "/",
+      "targetQuery": "página web por mensualidad",
+      "title": "Página web por mensualidad desde $15.000 | Presentto",
+      "description": "MVO con subdominio desde $15.000 COP/mes, o web administrada con dominio propio desde $40.000. Agenda tu 1ª sesión por WhatsApp y ve tu web antes de pagar.",
+      "hypothesis": "El title con la entrada de $15.000 supera al control actual en CTR de transaccionales de costo; medir 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "home-v3-sesiones",
+      "page": "/",
+      "targetQuery": "página web con asesoría",
+      "title": "Página web lista en 3 sesiones o demo gratis | Presentto",
+      "description": "Agenda tu 1ª sesión por WhatsApp: te mostramos tu web en Google Meet y solo pagas al cierre. O compra directa con dominio propio desde $40.000 COP/mes.",
+      "hypothesis": "La promesa de proceso (3 sesiones o demo gratis) supera al control en CTR de queries de asesoría; medir 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "precios-v3-mvo",
+      "page": "/precios/",
+      "targetQuery": "precios de planes de página web",
+      "title": "Precios: MVO con subdominio desde $15.000 | Presentto",
+      "description": "$15.000 COP/mes o $120.000 al año con subdominio; desde $40.000 con dominio propio y correo. Compara planes y agenda tu 1ª sesión por WhatsApp.",
+      "hypothesis": "El title con MVO y subdominio supera al control y a precios-v2-ctr en CTR de transaccionales; medir 4 semanas en GSC sin pisar la guía de precio de mercado.",
+      "status": "pending"
+    },
+    {
+      "id": "servicios-v3-mvo",
+      "page": "/servicios/",
+      "targetQuery": "servicios de página web",
+      "title": "Servicios: MVO desde $15.000 y web administrada | Presentto",
+      "description": "Subdominio por $15.000 COP/mes con MVO, o dominio propio desde $40.000. Agenda tu 1ª sesión en WhatsApp o compra directa: tú eliges.",
+      "hypothesis": "El title con el precio MVO de $15.000 supera al control en CTR de queries de servicios; medir 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "contacto-v3-sesiones",
+      "page": "/contacto/",
+      "targetQuery": "agendar asesoría de página web",
+      "title": "Contacto: agenda tu 1ª sesión por WhatsApp | Presentto",
+      "description": "Escríbenos por WhatsApp y reserva tu 1ª sesión: la llevamos en Google Meet, vemos tu negocio, resolvemos dudas. O compra directa desde $15.000 COP/mes.",
+      "hypothesis": "El CTA de agendar la 1ª sesión supera al control en CTR de queries de contacto y asesoría; medir 4 semanas en GSC.",
+      "status": "pending"
+    },
+    {
+      "id": "preguntas-v3-mvo",
+      "page": "/preguntas/",
+      "targetQuery": "planes y MVO",
+      "title": "FAQ: planes, MVO y web administrada | Presentto",
+      "description": "Dudas sobre MVO desde $15.000 COP/mes, subdominio o dominio propio, planes desde $40.000 y cómo agendar tu 1ª sesión por WhatsApp.",
+      "hypothesis": "El title con planes y MVO supera al control en CTR de dudas de long tail; medir 4 semanas en GSC.",
       "status": "pending"
     }
   ]

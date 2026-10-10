@@ -2,86 +2,90 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PlansGrid from '../components/PlansGrid.astro';
 import FaqList from '../components/FaqList.astro';
+import MvoEconomics from '../components/MvoEconomics.astro';
+import SessionTimeline from '../components/SessionTimeline.astro';
+import MvoConstellation from '../components/three/MvoConstellation.astro';
 import { usd } from '../data/business';
 
-const title = 'Páginas web y presencia digital accesible | Presentto';
+const title = 'Página web por mensualidad desde $15.000 | Presentto';
 const description =
-  'Web propia con dominio, correo y presencia digital desde $40.000 COP/mes en Colombia. Demo gratis antes de pagar.';
+  'MVO con subdominio desde $15.000 COP/mes, o web administrada con dominio propio desde $40.000. Agenda tu 1ª sesión por WhatsApp y ve tu web antes de pagar.';
+
 const faqs = [
   {
-    q: '¿Qué incluye la Presenttación Digital?',
-    a: 'Una web con tu marca, dominio propio, correo profesional, página pensada para que te encuentren en Google y administración durante todo el plan. No necesitas saber de tecnología: nosotros la montamos, publicamos y mantenemos. Te lo explicamos en la guía de presencia digital.',
+    q: '¿Qué es el plan MVO de Presentto Online?',
+    a: 'Es el modelo de infraestructura compartida en subdominio (cliente.presentto.online) con el que puedes tener tu sitio web administrado, con diseño a gusto y 3 sesiones de asesoría por Google Meet, desde $15.000 COP al mes.',
   },
   {
-    q: '¿Cuánto cuesta el posicionamiento en Google con Presentto?',
-    a: 'La Presenttación Digital arranca en $40.000 COP (IVA incluido) por plan prepago de 1 mes. El precio incluye diseño, dominio propio, correo profesional y administración. No hay suscripción automática ni permanencia: pagas por el plazo que elijas.',
+    q: '¿Por qué se usa un subdominio y no un dominio propio en el MVO?',
+    a: 'Porque un dominio propio individual encarecería el servicio. El subdominio compartido (cliente.presentto.online) permite que mantengamos una infraestructura única y de alta calidad a un costo extremadamente bajo para tu negocio.',
   },
   {
-    q: '¿En cuánto tiempo publican mi web?',
-    a: 'La entrega técnica es de pocos días hábiles tras aprobar la demo y confirmar el pago. Después la web ya está en línea y Google la va incorporando en los días siguientes.',
+    q: '¿Cómo funcionan las tres sesiones por Google Meet?',
+    a: '1ª Sesión (30 min): solicitud de información y lectura previa del contrato. 2ª Sesión: muestra preliminar y correcciones de tu mano. 3ª Sesión: cierre final, entrega, firmado de contrato y pago.',
+  },
+  {
+    q: '¿Qué diferencia hay entre el MVO y los planes con dominio propio?',
+    a: 'El MVO opera en subdominio y cuesta desde $15.000/mes con acompañamiento por sesiones. Los planes tradicionales (desde $40.000/mes) incluyen tu propio dominio (ej. .online o .com) y correo profesional.',
+  },
+  {
+    q: '¿Puedo solicitar una demo o asesoría gratis?',
+    a: 'Sí. Puedes escribirnos por WhatsApp para agendar tu primera sesión de coordinación sin compromiso.',
   },
   {
     q: '¿Trabajan con negocios de Funza, Mosquera, Madrid y Facatativá?',
-    a: 'Sí. Empezamos en la Sabana Occidental (Funza, Mosquera, Madrid, Facatativá) y atendemos negocios de toda Colombia. Tu web queda adaptada a tu zona y a tus clientes, sin páginas duplicadas.',
-  },
-  {
-    q: '¿Necesito anuncios de Google si tengo web?',
-    a: 'No es obligatorio. Una web clara y una ficha de Google bien hecha ya traen clientes. Los anuncios se usan para lanzar algo nuevo o ganar volumen rápido, pero no son requisito para tener presencia.',
-  },
-  {
-    q: '¿La demo web es gratis y sin compromiso?',
-    a: 'Sí: construimos una demo con la identidad real de tu negocio y la ves completa antes de pagar. Sin abono, sin formulario eterno y sin permanencia. Si no te convence, no pasa nada; si te gusta, eliges plan en Mercado Pago y publicamos en pocos días hábiles.',
+    a: 'Sí. Atendemos negocios de Sabana Occidental y toda Colombia con adaptación local a tu zona y clientes.',
   },
 ];
 
 const homeService = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Presenttación Digital',
+  name: 'MVO — Presencia Digital Administrada',
   description:
-    'Sitio web profesional con dominio propio, correo y administración para negocios de Colombia.',
+    'Sitio web administrado en subdominio con 3 sesiones de asesoría por Google Meet desde $15.000 COP/mes.',
   provider: { '@id': 'https://www.presentto.online/#organization' },
   areaServed: [
+    { '@type': 'Place', name: 'Colombia' },
     { '@type': 'Place', name: 'Funza' },
     { '@type': 'Place', name: 'Mosquera' },
     { '@type': 'Place', name: 'Madrid' },
     { '@type': 'Place', name: 'Facatativá' },
-    { '@type': 'Place', name: 'Sabana Occidental, Colombia' },
   ],
   offers: [
     {
       '@type': 'Offer',
-      name: '1 mes',
+      name: 'MVO Mensual',
+      price: '15000',
+      priceCurrency: 'COP',
+      description: 'MVO — Subdominio cliente.presentto.online, 1 mes',
+      availability: 'https://schema.org/InStock',
+      url: 'https://mpago.li/1iJFAwE',
+    },
+    {
+      '@type': 'Offer',
+      name: 'MVO Anual',
+      price: '120000',
+      priceCurrency: 'COP',
+      description: 'MVO — Subdominio cliente.presentto.online, 1 año',
+      availability: 'https://schema.org/InStock',
+      url: 'https://mpago.li/113CYVC',
+    },
+    {
+      '@type': 'Offer',
+      name: '1 mes (Dominio propio)',
       price: '40000',
       priceCurrency: 'COP',
-      description: 'Presenttación Digital — 1 mes, IVA incluido',
+      description: 'Presenttación Digital con dominio propio — 1 mes',
       availability: 'https://schema.org/InStock',
       url: 'https://mpago.li/2j4gTPj',
     },
     {
       '@type': 'Offer',
-      name: '3 meses',
-      price: '100000',
-      priceCurrency: 'COP',
-      description: 'Presenttación Digital — 3 meses, IVA incluido',
-      availability: 'https://schema.org/InStock',
-      url: 'https://mpago.li/17JYVwX',
-    },
-    {
-      '@type': 'Offer',
-      name: '6 meses',
-      price: '190000',
-      priceCurrency: 'COP',
-      description: 'Presenttación Digital — 6 meses, IVA incluido',
-      availability: 'https://schema.org/InStock',
-      url: 'https://mpago.li/1j4eF1j',
-    },
-    {
-      '@type': 'Offer',
-      name: '1 año',
+      name: '1 año (Dominio propio)',
       price: '350000',
       priceCurrency: 'COP',
-      description: 'Presenttación Digital — 1 año, IVA incluido',
+      description: 'Presenttación Digital con dominio propio — 1 año',
       availability: 'https://schema.org/InStock',
       url: 'https://mpago.li/344eu17',
     },
@@ -107,114 +111,90 @@ const homeService = {
         fetchpriority="high"
         decoding="async"
       />
-      <p class="eyebrow">PRESENCIA DIGITAL · WEB PROPIA</p>
+      <p class="eyebrow">MVO · EL NUEVO COSTO REAL DE MOSTRAR TUS SERVICIOS ONLINE</p>
       <h1>Tu negocio, <em>en internet sin complicaciones.</em></h1>
       <p class="lead">
-        Presentamos tu negocio online con una web clara, tu propia dirección de internet y correo
-        profesional incluidos. Primero la ves gratis; pagas solo si te convence.
+        El nuevo plan MVO te ofrece presencia web administrada en subdominio y 3 sesiones de asesoría por Google Meet.
+        Desde <strong>$15.000 COP/mes</strong> o <strong>$120.000 anuales</strong>.
       </p>
       <div class="hero-price">
-        <strong>desde $40.000</strong>
-        <span>COP / mes<br />IVA incluido<br />≈ {usd(40000)} (ref.)</span>
+        <strong>desde $15.000</strong>
+        <span>COP / mes<br />IVA incluido<br />≈ {usd(15000)} (ref.)</span>
       </div>
       <div class="actions">
         <a
           class="button primary"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
+          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20agendar%20mi%201%C2%AA%20sesi%C3%B3n%20para%20el%20plan%20MVO"
           target="_blank"
           rel="noopener"
         >
-          Pedir mi demo gratis <span>↗</span>
+          Agendar mi sesión 1 <span>↗</span>
         </a>
         <a class="button ghost" href="#planes">Ver planes <span>↓</span></a>
       </div>
       <p class="hero-demo">
         <a href="#planes">
-          ¿Listo para comprar? Planes desde $40.000 COP · pago seguro con Mercado Pago ↓
+          Plan MVO mensual ($15k) y anual ($120k) · Planes con dominio propio desde $40k ↓
         </a>
       </p>
     </div>
     <div class="hero-visual">
-      <div class="visual-window">
-        <div class="window-bar">
-          <i></i><i></i><i></i><span>tuempresa.online</span>
-        </div>
-        <div class="window-content">
-          <span class="visual-tag">TU NEGOCIO</span>
-          <strong>Una web clara<br />que trabaja<br /><em>por ti.</em></strong>
-          <div class="visual-qr">
-            <svg viewBox="0 0 31 31" aria-hidden="true" shape-rendering="crispEdges"><path stroke="currentColor" stroke-width=".7" fill="none" d="M1 1.5h7m2 0h2m1 0h1m2 0h6m1 0h7M1 2.5h1m5 0h1m4 0h1m5 0h1m4 0h1m5 0h1M1 3.5h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m1 0h1m1 0h3m1 0h1M1 4.5h1m1 0h3m1 0h1m1 0h3m5 0h2m1 0h1m2 0h1m1 0h3m1 0h1M1 5.5h1m1 0h3m1 0h1m1 0h1m3 0h4m1 0h3m2 0h1m1 0h3m1 0h1M1 6.5h1m5 0h1m1 0h1m2 0h7m2 0h1m1 0h1m5 0h1M1 7.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M9 8.5h3m1 0h2m1 0h1m2 0h3M1 9.5h1m1 0h5m4 0h2m1 0h2m1 0h1m1 0h1m2 0h5M1 10.5h1m2 0h3m3 0h3m3 0h6m1 0h3m3 0h1M1 11.5h2m2 0h3m1 0h2m1 0h1m9 0h1M1 12.5h1m1 0h2m1 0h1m2 0h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1M1 13.5h1m1 0h1m1 0h1m1 0h3m7 0h2m2 0h1m4 0h2M2 14.5h3m4 0h2m1 0h1m1 0h3m1 0h4m1 0h1m1 0h1m3 0h1M1 15.5h4m2 0h1m3 0h7m1 0h1m2 0h1m1 0h1m1 0h2M1 16.5h1m1 0h2m1 0h1m1 0h1m1 0h1m2 0h2m1 0h1m4 0h5m2 0h1M4 17.5h1m1 0h3m1 0h1m1 0h1m2 0h2m1 0h1m2 0h1m2 0h1m1 0h2M1 18.5h3m1 0h1m2 0h1m1 0h1m1 0h1m3 0h10m1 0h1m1 0h1M1 19.5h1m1 0h3m1 0h2m1 0h3m5 0h1m5 0h1m2 0h1M1 20.5h1m2 0h1m1 0h1m1 0h1m4 0h1m1 0h1m1 0h1m1 0h3m2 0h2m2 0h1M1 21.5h1m1 0h1m1 0h1m1 0h2m3 0h2m3 0h2m1 0h6m1 0h3M9 22.5h1m1 0h2m1 0h3m2 0h1m1 0h1m3 0h5M1 23.5h7m3 0h1m1 0h5m2 0h2m1 0h1m1 0h3M1 24.5h1m5 0h1m1 0h1m1 0h2m1 0h1m1 0h1m3 0h2m3 0h1M1 25.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h2m1 0h2m1 0h5m1 0h1m1 0h1M1 26.5h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h5m3 0h1m1 0h2M1 27.5h1m1 0h3m1 0h1m1 0h2m1 0h1m1 0h1m3 0h1m1 0h1m2 0h6M1 28.5h1m5 0h1m2 0h1m1 0h3m2 0h1m3 0h2m1 0h1m1 0h1m1 0h1M1 29.5h7m1 0h4m2 0h1m3 0h2m2 0h5"/></svg>
-            <small>presentto<br />.online</small>
-          </div>
-        </div>
-      </div>
+      <MvoConstellation />
     </div>
   </section>
 
   <section class="proof">
     <div class="wrap proof-grid">
-      <div><strong>Demo</strong><span>gratis, sin abono</span></div>
-      <div><strong>Web</strong><span>propia + correo incluido</span></div>
-      <div><strong>desde $40.000</strong><span>COP/mes · IVA incl.</span></div>
+      <div><strong>MVO</strong><span>desde $15.000/mes</span></div>
+      <div><strong>3 Sesiones</strong><span>Google Meet</span></div>
+      <div><strong>Subdominio</strong><span>cliente.presentto.online</span></div>
     </div>
   </section>
+
+  <MvoEconomics />
+
+  <SessionTimeline />
 
   <PlansGrid id="planes" heading={true} />
 
   <section class="section wrap" id="como-funciona">
-    <p class="eyebrow">UN SOLO PLAN · TODO INCLUIDO</p>
+    <p class="eyebrow">UN SERVICIO REAL · TRES SESIONES</p>
     <div class="section-heading">
       <h2>Tu web y tu presencia digital: <em>un solo plan, todo incluido.</em></h2>
       <p>
         Diseño, textos a tu medida y todo lo técnico resuelto para que cualquier cliente te encuentre,
-        te escriba y confíe en tu negocio, sin importar en qué ciudad estés.
+        te escriba y confíe en tu negocio, con acompañamiento guiado en Google Meet.
       </p>
     </div>
     <div class="feature-grid feature-grid-four">
       <article>
         <b>01</b>
-        <h3>Nosotros lo hacemos todo</h3>
+        <h3>Diseño a gusto</h3>
         <p>
-          Tú apruebas; nosotros <a href="/servicios/">diseñamos, publicamos y optimizamos tu web</a> con
-          tus fotos, textos y servicios reales.
+          Landing o multipágina adaptada a tu identidad, con tus fotos, servicios y canales de contacto listos.
         </p>
       </article>
       <article>
         <b>02</b>
-        <h3>Dominio y correo profesionales</h3>
+        <h3>Subdominio compartido</h3>
         <p>
-          Dominio propio <strong>tuempresa.online</strong> (autoridad de dominio propia, sin subdominios
-          gratis) y correo <strong>@tuempresa.online</strong> incluidos.
+          Infraestructura optimizada en <strong>cliente.presentto.online</strong> para mantener un costo extremadamente bajo.
         </p>
       </article>
       <article>
         <b>03</b>
-        <h3>Lista para que te encuentren</h3>
+        <h3>Asesoría por Google Meet</h3>
         <p>
-          Metas, estructura y contenido claro para tu negocio, con apoyo a tu ficha de Google y orientación
-          según tu zona: <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a>
-          y <a href="/facatativa/">Facatativá</a>.
+          3 sesiones guiadas: solicitud de info, muestra preliminar con tus correcciones, y entrega final con firma y pago.
         </p>
       </article>
       <article>
         <b>04</b>
-        <h3>Contenido indexable y conversión</h3>
+        <h3>Administración continua</h3>
         <p>
-          Arquitectura de <a href="/guias/">enlaces internos y contenidos indexables</a>, encabezados H1–H3,
-          imágenes optimizadas y CTAs claros para convertir tráfico orgánico en clientes por WhatsApp.
+          Mantenimiento técnico, optimización de velocidad y soporte activo durante todo tu plan MVO.
         </p>
       </article>
-    </div>
-    <div class="actions plan-cta">
-      <a
-        class="button primary"
-        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-        target="_blank"
-        rel="noopener"
-      >
-        Pedir mi demo gratis <span>↗</span>
-      </a>
-      <a class="button ghost" href="#planes">Ver planes <span>↓</span></a>
     </div>
   </section>
 
@@ -232,105 +212,16 @@ const homeService = {
         <span>Emprendimientos</span>
         <span>Portafolios profesionales</span>
       </div>
-      <p class="stack-note">
-        Cada rubro tiene búsquedas distintas: revisa cómo se traduce eso en
-        <a href="/portfolio/">proyectos publicados</a> y en las
-        <a href="/comparativas/">comparativas de opciones de web</a>.
-      </p>
-    </div>
-  </section>
-
-  <section class="section trust-section">
-    <div class="wrap">
-      <p class="eyebrow center">CÓMO FUNCIONA</p>
-      <div class="section-heading">
-        <h2>Tres pasos. <em>Cero riesgo.</em></h2>
-        <p>Ves la web de tu negocio antes de comprometer un peso. Así de simple.</p>
-      </div>
-      <div class="trust-grid">
-        <article class="trust-card">
-          <span class="trust-icon">01</span>
-          <h3>Cuéntanos de tu negocio</h3>
-          <p>
-            Nos escribes por WhatsApp: qué haces, tus fotos y a qué clientes quieres llegar. Sin formularios
-            eternos ni reuniones obligatorias.
-          </p>
-          <small>Sin abono · Sin compromiso</small>
-        </article>
-        <article class="trust-card">
-          <span class="trust-icon">02</span>
-          <h3>Te mostramos tu demo</h3>
-          <p>
-            Construimos una demo web con la identidad de tu negocio. La ves, pides cambios y decides con calma
-            si te convence.
-          </p>
-          <small>Demo gratis · Tú apruebas</small>
-        </article>
-        <article class="trust-card">
-          <span class="trust-icon">03</span>
-          <h3>Publicamos y la mantenemos</h3>
-          <p>
-            Pagas el plan que elijas en Mercado Pago y publicamos en pocos días. Ajustes y administración
-            incluidos durante todo el plan.
-          </p>
-          <small>Entrega en días · Sin permanencia</small>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section stack-section">
-    <div class="wrap">
-      <p class="eyebrow">TECNOLOGÍA · RÁPIDA Y SEGURA</p>
-      <div class="section-heading">
-        <h2>Indexable, veloz <em>y listo para posicionar.</em></h2>
-        <p>
-          Rastreo limpio, HTML semántico, sitemap XML, datos estructurados y Core Web Vitals (LCP, INP, CLS)
-          optimizados: la base técnica que Google necesita para indexarte y mostrarte en resultados locales.
-        </p>
-      </div>
-      <div class="stack-grid">
-        <article class="stack-card">
-          <img src="/assets/img/icons/html5.svg" alt="Icono HTML5" width="42" height="42" loading="lazy" />
-          <strong>HTML5</strong><span>Semántica e indexación</span>
-        </article>
-        <article class="stack-card">
-          <img src="/assets/img/icons/css3.svg" alt="Icono CSS3" width="42" height="42" loading="lazy" />
-          <strong>CSS3</strong><span>Mobile-first responsive</span>
-        </article>
-        <article class="stack-card">
-          <img src="/assets/img/icons/javascript.svg" alt="Icono JavaScript" width="42" height="42" loading="lazy" />
-          <strong>JavaScript</strong><span>Interacción sin bloquear rastreo</span>
-        </article>
-        <article class="stack-card">
-          <span class="stack-badge">WEB</span><strong>Base lista para Google</strong><span>Metas, estructura y enlaces internos</span>
-        </article>
-        <article class="stack-card">
-          <span class="stack-badge">GBP</span><strong>Google Business</strong><span>Ficha, NAP y pack local</span>
-        </article>
-        <article class="stack-card">
-          <span class="stack-badge">CWV</span><strong>Core Web Vitals</strong><span>LCP · INP · CLS</span>
-        </article>
-      </div>
-      <p class="stack-note">
-        Tecnologías y estándares de trabajo (guía oficial de
-        <a
-          href="https://developers.google.com/search/docs/fundamentals"
-          target="_blank"
-          rel="noopener">Guía de Google</a
-        >). No representa certificaciones oficiales de terceros.
-      </p>
     </div>
   </section>
 
   <section class="section wrap" id="preguntas">
-    <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+    <p class="eyebrow">PREGUNTAS FRECUENTES MVO</p>
     <div class="section-heading">
-      <h2>Dudas sobre <em>tu web y tu plan</em></h2>
+      <h2>Dudas sobre <em>el plan MVO y tu web</em></h2>
       <p>
-        Lo que más nos preguntan antes de pedir la demo. Más respuestas en
-        <a href="/preguntas/">preguntas frecuentes</a> y en la
-        <a href="/guias/que-es-presencia-digital/">guía de presencia digital</a>.
+        Lo que más nos preguntan sobre el subdominio, las sesiones y los precios. Más respuestas en
+        <a href="/preguntas/">preguntas frecuentes</a>.
       </p>
     </div>
     <FaqList faqs={faqs} />
@@ -338,18 +229,18 @@ const homeService = {
 
   <section class="final-cta">
     <div class="wrap">
-      <p class="eyebrow">EMPEZA SIN RIESGO</p>
-      <h2>Primero ves tu web. <em>Pagas solo si te gusta.</em></h2>
+      <p class="eyebrow">EMPIEZA CON EL MVO</p>
+      <h2>El nuevo costo real de mostrar tus servicios online.</h2>
       <div class="actions">
         <a
           class="button light"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
+          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20agendar%20mi%201%C2%AA%20sesi%C3%B3n%20para%20el%20plan%20MVO"
           target="_blank"
           rel="noopener"
         >
-          Pedir mi demo gratis <span>↗</span>
+          Agendar mi sesión 1 <span>↗</span>
         </a>
-        <a class="button ghost light-ghost" href="#planes">Ver planes <span>↓</span></a>
+        <a class="button ghost light-ghost" href="#planes">Ver planes MVO <span>↓</span></a>
       </div>
     </div>
   </section>

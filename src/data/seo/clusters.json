@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-10-02",
-  "note": "Clústeres de contenidos: 1 keyword primaria por clúster (evita canibalización) y 1 targetPage por clúster. status: published | planned. Lo amplía el sub-agente seo-cluster-architect. 2026-10-02: +6 clústeres planned (dominio-y-correo, ciudad-colombia, rubros-funza/mosquera/madrid/facatativa) y reasignación de keywords huérfanas (correo/dominio, rubros×ciudad, presencia digital global, typos de marca). 2026-10-02: +clúster marca-presentto (queries de marca/navigational + variantes de tecleo solo monitoreo). 2026-10-02: marca-presentto depurado — solo marca/misspellings; targetPage '/' sin conflictos; términos transaccionales/comerciales de marca movidos a contacto-demo y planes-precios.",
+  "note": "Clústeres de contenidos: 1 keyword primaria por clúster (evita canibalización) y 1 targetPage por clúster. status: published | planned. Lo amplía el sub-agente seo-cluster-architect. 2026-10-02: +6 clústeres planned (dominio-y-correo, ciudad-colombia, rubros-funza/mosquera/madrid/facatativa) y reasignación de keywords huérfanas (correo/dominio, rubros×ciudad, presencia digital global, typos de marca). 2026-10-02: +clúster marca-presentto (queries de marca/navigational + variantes de tecleo solo monitoreo). 2026-10-02: marca-presentto depurado — solo marca/misspellings; targetPage '/' sin conflictos; términos transaccionales/comerciales de marca movidos a contacto-demo y planes-precios. 2026-10-10: +clúster MVO web-por-mensualidad (targetPage '/', status published) para el lanzamiento MVO ($15.000 COP/mes | $120.000/año, sitio en subdominio cliente.presentto.online). Se descarta el clúster gemelo web-en-subdominio: mism targetPage '/' e idéntica intención (la solución MVO) = clúster gemelo; las queries de subdominio se pliegan como variantes. 19 keywords movidas fuera de precio-pagina-web/planes-precios/servicios-presentto/presencia-digital-pilar/web-vs-agencia para que la guía /guias/cuanto-cuesta-pagina-web-colombia/ siga siendo el pilar informativo de precios de MERCADO sin competir con la oferta propia. targetPage '/' comparte página con marca-presentto (aviso esperado del validador): sin canibalización real porque las intenciones no se solapan (navigational de marca vs commercial de modelo de pago).",
   "clusters": [
     {
       "id": "presencia-digital-pilar",
@@ -298,6 +298,15 @@
       "intent": "commercial",
       "status": "planned",
       "priority": 2
+    },
+    {
+      "id": "web-por-mensualidad",
+      "title": "MVO: página web por mensualidad (subdominio Presentto)",
+      "primaryKeyword": "página web por mensualidad",
+      "targetPage": "/",
+      "intent": "commercial",
+      "status": "published",
+      "priority": 1
     }
   ]
 }

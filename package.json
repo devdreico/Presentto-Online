@@ -17,10 +17,13 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^5.13.5"
+    "astro": "^5.13.5",
+    "gsap": "^3.15.0",
+    "three": "^0.186.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@types/three": "^0.186.0",
     "sharp": "^0.34.4",
     "typescript": "^5.9.3"
   }
