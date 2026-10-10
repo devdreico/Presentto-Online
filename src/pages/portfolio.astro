@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PageHero from '../components/PageHero.astro';
 import FinalCta from '../components/FinalCta.astro';
+import TrustStrip from '../components/TrustStrip.astro';
 import { ctaSession } from '../data/business';
 
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Portafolio' }];
@@ -118,6 +119,8 @@ const serviceSchema = {
       </article>
     </div>
   </section>
+
+  <TrustStrip />
 
   <section class="section wrap tech-section">
     <div class="section-head">

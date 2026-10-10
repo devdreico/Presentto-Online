@@ -1,0 +1,49 @@
+---
+// Banda de confianza: tecnología · canales Google/Maps · legibilidad por IA
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<section
+  class:list={['trust-strip', { compact }]}
+  aria-label="Tecnología, canales e inteligencia artificial"
+>
+  <div class="wrap trust-strip-inner">
+    <div class="trust-group">
+      <small>TECNOLOGÍA</small>
+      <ul>
+        <li class="trust-chip">Astro</li>
+        <li class="trust-chip">HTML semántico</li>
+        <li class="trust-chip">JavaScript ligero</li>
+        <li class="trust-chip">Schema.org</li>
+        <li class="trust-chip">Core Web Vitals</li>
+      </ul>
+    </div>
+
+    <div class="trust-group">
+      <small>PREPARADO PARA APARECER EN</small>
+      <ul>
+        <li class="trust-chip">Google</li>
+        <li class="trust-chip">Google Maps</li>
+        <li class="trust-chip">Ficha de Google</li>
+        <li class="trust-chip">Search Console</li>
+        <li class="trust-chip">WhatsApp</li>
+        <li class="trust-chip">Correo profesional</li>
+      </ul>
+    </div>
+
+    <div class="trust-group">
+      <small>LEGIBLE POR IA</small>
+      <ul>
+        <li class="trust-chip">ChatGPT</li>
+        <li class="trust-chip">Gemini</li>
+        <li class="trust-chip">Perplexity</li>
+        <li class="trust-chip">llms.txt</li>
+      </ul>
+    </div>
+
+    <p class="trust-note">Base técnica medible y publicada; no prometemos posiciones — sí una presencia que Google, Maps e IA pueden leer.</p>
+  </div>
+</section>

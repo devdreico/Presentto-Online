@@ -5,6 +5,7 @@ import FaqList from '../components/FaqList.astro';
 import PlansGrid from '../components/PlansGrid.astro';
 import PageHero from '../components/PageHero.astro';
 import FinalCta from '../components/FinalCta.astro';
+import TrustStrip from '../components/TrustStrip.astro';
 import { ctaSession } from '../data/business';
 
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Servicios' }];
@@ -159,6 +160,8 @@ const faqs = [
   </section>
 
   <PlansGrid id="planes" heading={true} />
+
+  <TrustStrip />
 
   <section class="section wrap">
     <div class="section-head">

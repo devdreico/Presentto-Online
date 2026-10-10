@@ -5,6 +5,7 @@ import FaqList from '../components/FaqList.astro';
 import MvoEconomics from '../components/MvoEconomics.astro';
 import SessionTimeline from '../components/SessionTimeline.astro';
 import FinalCta from '../components/FinalCta.astro';
+import TrustStrip from '../components/TrustStrip.astro';
 import MvoDevice from '../components/three/MvoDevice.astro';
 import { ctaSession } from '../data/business';
 
@@ -179,6 +180,8 @@ const homeService = {
       {marqueeItems.map((item) => <span>{item}</span>)}
     </div>
   </div>
+
+  <TrustStrip />
 
   <!-- 4. Bento: qué incluye --------------------------------------------------- -->
   <section class="section wrap" id="incluye">

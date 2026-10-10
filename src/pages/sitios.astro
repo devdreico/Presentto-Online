@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PageHero from '../components/PageHero.astro';
 import FinalCta from '../components/FinalCta.astro';
+import TrustStrip from '../components/TrustStrip.astro';
 import { ctaSession } from '../data/business';
 
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Sitios' }];
@@ -105,6 +106,8 @@ const siteNotes: Record<string, string> = {
       una aplicación distinta de la misma base técnica.
     </p>
   </section>
+
+  <TrustStrip />
 
   <section class="section wrap">
     <div class="prose">
