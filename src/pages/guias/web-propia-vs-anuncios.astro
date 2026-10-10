@@ -4,6 +4,9 @@ import { authorRef } from '../../components/schemas';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FaqList from '../../components/FaqList.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
+import ArticleLayout from '../../components/ArticleLayout.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { ctaSession } from '../../data/business';
 import { datesFor } from '../../data/content-dates';
 const crumbs = [
   { label: 'Inicio', href: '/' },
@@ -50,48 +53,63 @@ const articleSchema = {
 <BaseLayout title={title} description={description} path="/guias/web-propia-vs-anuncios/" breadcrumbs={crumbs} jsonld={[articleSchema]} article={{ publishedTime: dates.published, modifiedTime: dates.modified }}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">CANALES · COMPARATIVA</p>
-    <h1>Web propia vs anuncios de Google</h1>
-    <p class="lead">Dos formas distintas de que te encuentren: una es tuya, la otra se alquila por clic.</p>
-    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
-  </section>
-
-  <section class="section wrap guide-layout">
-    <h2>La diferencia de fondo</h2>
+  <ArticleLayout
+    eyebrow="CANALES · COMPARATIVA"
+    title="Web propia vs anuncios de Google"
+    lead="Dos formas distintas de que te encuentren: una es tuya, la otra se alquila por clic."
+    published={dates.published}
+    modified={dates.modified}
+    toc={true}
+  >
+    <h2 id="la-diferencia-de-fondo">La diferencia de fondo</h2>
     <p class="snippet">Tu web es un activo que queda tuyo; los anuncios son un gasto que se detiene cuando cortas el presupuesto.</p>
 
-    <table class="compare-table">
-      <thead>
-        <tr><th>Criterio</th><th>Web propia</th><th>Anuncios de Google</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Coste</td><td>Una vez o plan mensual acotado</td><td>Por clic; crece con la competencia</td></tr>
-        <tr><td>Velocidad</td><td>Días para tenerla; el tráfico orgánico tarda más</td><td>Empieza el mismo día</td></tr>
-        <tr><td>Duración</td><td>Permanente mientras la administres</td><td>Se detiene al pausar</td></tr>
-        <tr><td>Control</td><td>Tuyo: textos, fotos, precios</td><td>Limitado al formato del anuncio</td></tr>
-        <tr><td>Confianza</td><td>Alta: página propia con datos claros</td><td>Menor: muchos la saltan al primer resultado orgánico</td></tr>
-      </tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Criterio</th><th>Web propia</th><th>Anuncios de Google</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Coste</td><td>Una vez o plan mensual acotado</td><td>Por clic; crece con la competencia</td></tr>
+          <tr><td>Velocidad</td><td>Días para tenerla; el tráfico orgánico tarda más</td><td>Empieza el mismo día</td></tr>
+          <tr><td>Duración</td><td>Permanente mientras la administres</td><td>Se detiene al pausar</td></tr>
+          <tr><td>Control</td><td>Tuyo: textos, fotos, precios</td><td>Limitado al formato del anuncio</td></tr>
+          <tr><td>Confianza</td><td>Alta: página propia con datos claros</td><td>Menor: muchos la saltan al primer resultado orgánico</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-    <h2>Cuándo conviene cada una</h2>
+    <h2 id="cuando-conviene-cada-una">Cuándo conviene cada una</h2>
     <ul>
       <li><strong>Web propia:</strong> siempre que quieras quedarte en internet sin esperar a campañas.</li>
       <li><strong>Anuncios:</strong> para un lanzamiento, temporada fuerte o cuando necesitas clientes esta semana.</li>
       <li><strong>Primero la base:</strong> sin web decente y ficha actualizada, la pauta convierte peor.</li>
     </ul>
 
-    <h2>La recomendación práctica</h2>
-    <p>Para la mayoría de negocios pequeños y medianos en Colombia, el orden sensato es: web clara → ficha de Google verificada → reseñas reales → y solo después, anuncios si hace falta acelerar. En Presentto cubrimos los tres primeros pasos desde $40.000 COP/mes con demo gratis antes de pagar.</p>
+    <h2 id="la-recomendacion-practica">La recomendación práctica</h2>
+    <p>Para la mayoría de negocios pequeños y medianos en Colombia, el orden sensato es: web clara → ficha de Google verificada → reseñas reales → y solo después, anuncios si hace falta acelerar. En Presentto cubrimos los tres primeros pasos desde $40.000 COP/mes: agendan tu sesión 1, ves tu web antes de pagar y decides con calma.</p>
 
     <div class="guide-cta">
       <p><strong>Empieza por la base sólida</strong></p>
-      <a class="button primary" href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20pedir%20una%20demo%20web%20gratis" target="_blank" rel="noopener">Pedir mi demo gratis <span>↗</span></a>
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
+      </a>
     </div>
 
-    <h2>Preguntas frecuentes</h2>
+    <AuthorBox name="Dilan Andrei Cifuentes Ortiz" role="Fundador y responsable editorial · Presentto Online" />
+  </ArticleLayout>
+
+  <section class="section wrap" id="preguntas-frecuentes">
+    <div class="section-head">
+      <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+      <h2 data-split>Dudas sobre <em>canales y pauta.</em></h2>
+    </div>
     <FaqList faqs={faqs} />
   </section>
 
-  <AuthorBox name="Dilan Andrei Cifuentes Ortiz" role="Fundador y responsable editorial · Presentto Online" />
+  <FinalCta
+    eyebrow="EMPIEZA HOY"
+    title="Ve tu web antes de pagar. <em>Decide después.</em>"
+    note="Agenda tu sesión 1 por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+  />
 </BaseLayout>

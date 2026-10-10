@@ -1,0 +1,20 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  lead?: string;
+}
+const { eyebrow, title, lead } = Astro.props;
+---
+
+<section class="page-hero wrap">
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h1 data-split>{title ? <Fragment set:html={title} /> : <slot name="title" />}</h1>
+  {lead && <p class="lead">{lead}</p>}
+  <div class="actions">
+    <slot name="actions" />
+  </div>
+  <div class="page-hero-meta">
+    <slot name="meta" />
+  </div>
+</section>

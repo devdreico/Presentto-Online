@@ -1,6 +1,6 @@
 ---
 import { plans } from '../data/plans';
-import MvoConstellation from './three/MvoConstellation.astro';
+import { ctaSession } from '../data/business';
 
 interface Props {
   id?: string;
@@ -8,53 +8,81 @@ interface Props {
 }
 const { id = 'planes', heading = true } = Astro.props;
 
-const DEMO_URL =
-  'https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20informaci%C3%B3n%20sobre%20el%20plan%20MVO%20y%20agendar%20mi%20sesi%C3%B3n';
-
-// Dividir entre planes MVO y planes con dominio propio
 const mvoPlans = plans.filter((p) => p.id.includes('mvo'));
 const ownDomainPlans = plans.filter((p) => !p.id.includes('mvo'));
+
+const mvoPerks = [
+  'Subdominio <code>cliente.presentto.online</code>',
+  'Sitio administrado y diseño a tu gusto',
+  '3 sesiones de asesoría por Google Meet',
+  'Ajustes, mantenimiento y velocidad incluidos',
+];
+const domainPerks = [
+  'Web lista con tu contenido y fotos',
+  'Dominio propio (.com/.online) y correo profesional',
+  'Presencia digital optimizada para Google',
+  'Administración y soporte durante todo el plan',
+];
 ---
 
 <section class="section plans-section" id={id} aria-labelledby={`${id}-title`}>
   <div class="wrap">
     {heading && (
-      <div class="section-heading plans-heading">
-        <div>
-          <p class="eyebrow">PLANES · MVO Y DOMINIO PROPIO</p>
-          <h2 id={`${id}-title`}>Elige tu plan. <em>Empieza con la asesoría.</em></h2>
-        </div>
-        <p>
-          Escoge entre el nuevo MVO en subdominio ($15.000/mes) o los planes tradicionales con dominio propio y correo.
-          Pago seguro con Mercado Pago.
+      <div class="section-head center">
+        <p class="eyebrow">PLANES · MVO Y DOMINIO PROPIO</p>
+        <h2 id={`${id}-title`}>Elige tu plan. <em>Empieza con la asesoría.</em></h2>
+        <p class="lead">
+          MVO en subdominio desde $15.000/mes con 3 sesiones incluidas, o tu dominio propio con
+          correo profesional. Pagas con Mercado Pago, sin permanencia.
         </p>
       </div>
     )}
 
-    <!-- MVO Plans Row -->
-    <div style="margin-bottom: 32px;">
-      <h3 style="font-size: 1.25rem; margin-bottom: 16px; color: var(--orange-dark);">
-        🚀 Plan MVO (Subdominio <code>cliente.presentto.online</code> + 3 Sesiones Meet)
-      </h3>
-      <div class="plans-grid">
+    <div class="plans-toolbar">
+      <div class="seg-tabs" role="tablist" aria-label="Tipo de plan" data-plans-tabs data-active="0">
+        <span class="seg-indicator" aria-hidden="true"></span>
+        <button
+          class="seg-tab"
+          type="button"
+          role="tab"
+          id="tab-mvo"
+          aria-selected="true"
+          aria-controls="panel-mvo"
+          data-tab="mvo"
+        >
+          MVO · Subdominio
+        </button>
+        <button
+          class="seg-tab"
+          type="button"
+          role="tab"
+          id="tab-dominio"
+          aria-selected="false"
+          aria-controls="panel-dominio"
+          data-tab="dominio"
+        >
+          Dominio propio
+        </button>
+      </div>
+    </div>
+
+    <div class="plans-panel" id="panel-mvo" role="tabpanel" aria-labelledby="tab-mvo" data-panel="mvo">
+      <div class="plans-grid cols-2">
         {mvoPlans.map((plan) => (
           <article class:list={['plan-card', { 'plan-featured': plan.featured }]}>
             {plan.badge && <span class="plan-badge">{plan.badge}</span>}
             <h3 class="plan-name">{plan.name}</h3>
             <div class="plan-price">
-              <strong>{plan.price}</strong>
+              <strong>${plan.price}</strong>
               <span>{plan.unit}</span>
             </div>
             {plan.per && <p class="plan-per">{plan.per}</p>}
             <p class="plan-usd">≈ {plan.priceUsd} (ref. USD)</p>
             <ul class="plan-perks">
-              <li>Subdominio <code>cliente.presentto.online</code></li>
-              <li>Sitio administrado y diseño a gusto</li>
-              <li>3 sesiones de asesoría por Google Meet</li>
-              <li>Ajustes y mantenimiento incluido</li>
+              {mvoPerks.map((perk) => <li set:html={perk} />)}
             </ul>
             <a
-              class:list={['button', 'plan-cta', { primary: plan.featured, ghost: !plan.featured }]}
+              class:list={['btn', 'plan-cta', { 'btn-primary': plan.featured, 'btn-ghost': !plan.featured }]}
               href={plan.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -70,57 +98,59 @@ const ownDomainPlans = plans.filter((p) => !p.id.includes('mvo'));
       </div>
     </div>
 
-    <div class="tier-divider">
-      <span>¿Prefieres tu propio dominio y correo?</span>
-    </div>
-
-    <!-- Own Domain Plans Row -->
-    <div class="plans-grid">
-      {ownDomainPlans.map((plan) => (
-        <article class:list={['plan-card', { 'plan-featured': plan.featured }]}>
-          {plan.badge && <span class="plan-badge">{plan.badge}</span>}
-          <h3 class="plan-name">{plan.name}</h3>
-          <div class="plan-price">
-            <strong>{plan.price}</strong>
-            <span>{plan.unit}</span>
-          </div>
-          {plan.per && <p class="plan-per">{plan.per}</p>}
-          <p class="plan-usd">≈ {plan.priceUsd} (ref. USD)</p>
-          <ul class="plan-perks">
-            <li>Web lista con tu contenido y fotos</li>
-            <li>Dominio propio y correo profesional</li>
-            <li>Presencia digital optimizada</li>
-            <li>Administración durante el plan</li>
-          </ul>
-          <a
-            class:list={['button', 'plan-cta', { primary: plan.featured, ghost: !plan.featured }]}
-            href={plan.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-plan-checkout
-            data-pay={plan.url}
-            data-plan={plan.name}
-            data-price={plan.price}
-          >
-            Pagar {plan.name} <span>↗</span>
-          </a>
-        </article>
-      ))}
-    </div>
-
-    <div class="plans-demo">
-      <div class="plans-demo-copy">
-        <strong>¿Quieres agendar tu primera sesión?</strong>
-        <p>Hablemos por WhatsApp para coordinar la Sesión 1 (30 min) y resolver tus dudas sobre MVO.</p>
+    <div
+      class="plans-panel"
+      id="panel-dominio"
+      role="tabpanel"
+      aria-labelledby="tab-dominio"
+      data-panel="dominio"
+      hidden
+    >
+      <div class="plans-grid cols-4">
+        {ownDomainPlans.map((plan) => (
+          <article class:list={['plan-card', { 'plan-featured': plan.featured }]}>
+            {plan.badge && <span class="plan-badge">{plan.badge}</span>}
+            <h3 class="plan-name">{plan.name}</h3>
+            <div class="plan-price">
+              <strong>${plan.price}</strong>
+              <span>{plan.unit}</span>
+            </div>
+            {plan.per && <p class="plan-per">{plan.per}</p>}
+            <p class="plan-usd">≈ {plan.priceUsd} (ref. USD)</p>
+            <ul class="plan-perks">
+              {domainPerks.map((perk) => <li set:html={perk} />)}
+            </ul>
+            <a
+              class:list={['btn', 'plan-cta', { 'btn-primary': plan.featured, 'btn-ghost': !plan.featured }]}
+              href={plan.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-plan-checkout
+              data-pay={plan.url}
+              data-plan={plan.name}
+              data-price={plan.price}
+            >
+              Pagar {plan.name} <span>↗</span>
+            </a>
+          </article>
+        ))}
       </div>
-      <a class="button ghost" href={DEMO_URL} target="_blank" rel="noopener">
+    </div>
+
+    <div class="plans-foot">
+      <div>
+        <strong>¿Primero quieres hablarlo?</strong>
+        <p>Agenda la Sesión 1 (30 min): resolvemos dudas y vemos tu caso antes de que pagues nada.</p>
+      </div>
+      <a class="btn btn-ghost btn-sm" href={ctaSession} target="_blank" rel="noopener">
         Agendar sesión 1 <span>↗</span>
       </a>
     </div>
     <p class="plans-note">
-      Todos los precios incluyen IVA. El MVO funciona mediante subdominio compartido para optimizar costos.
+      Todos los precios incluyen IVA. El MVO funciona mediante subdominio compartido para optimizar
+      costos.
       {Astro.url.pathname !== '/precios/' && (
-        <> <a href="/precios/">Ver planes y precios en detalle</a>.</>
+        <> <a href="/precios/">Ver comparativa completa de planes</a>.</>
       )}
     </p>
   </div>
@@ -159,164 +189,14 @@ const ownDomainPlans = plans.filter((p) => !p.id.includes('mvo'));
     <input type="hidden" name="pagina" data-field="pagina" />
     <input type="hidden" name="referrer" data-field="referrer" />
     <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
-    <button class="button primary plan-checkout-submit" type="submit">
+    <button class="btn btn-primary plan-checkout-submit" type="submit">
       Enviar y pagar <span>↗</span>
     </button>
     <p class="form-note">
-      Solo usamos tu nombre y WhatsApp para coordinar tus sesiones de Google Meet y la entrega de tu web.
-      <a href="/privacidad/" target="_blank" rel="noopener">Política de privacidad</a>.
+      Solo usamos tu nombre y WhatsApp para coordinar tus sesiones de Google Meet y la entrega de tu
+      web. <a href="/privacidad/">Política de privacidad</a>.
     </p>
     <p id="planCheckoutStatus" class="plan-checkout-status" role="status" aria-live="polite"></p>
     <button type="button" class="plan-checkout-cancel" data-checkout-cancel>Cancelar</button>
   </form>
 </dialog>
-
-<script is:inline>
-  (function () {
-    var FORMSPREE = 'https://formspree.io/f/xeaokwly';
-    var dialog = document.getElementById('planCheckout');
-    var form = document.getElementById('planCheckoutForm');
-    var statusEl = document.getElementById('planCheckoutStatus');
-    if (!dialog || !form || !statusEl) return;
-
-    var planLabel = dialog.querySelector('[data-checkout-plan]');
-    var priceLabel = dialog.querySelector('[data-checkout-price]');
-    var fPlan = form.querySelector('[data-field="plan"]');
-    var fPrecio = form.querySelector('[data-field="precio"]');
-    var fHora = form.querySelector('[data-field="hora"]');
-    var fTz = form.querySelector('[data-field="zona_horaria"]');
-    var fPagina = form.querySelector('[data-field="pagina"]');
-    var fRef = form.querySelector('[data-field="referrer"]');
-    var submitBtn = form.querySelector('button[type="submit"]');
-    var payUrl = '';
-    var busy = false;
-
-    function setStatus(msg, isError) {
-      statusEl.textContent = msg || '';
-      statusEl.className = 'plan-checkout-status' + (msg ? (isError ? ' form-error' : ' form-status') : '');
-    }
-
-    var track = window.__presenttoTrack || function () {};
-
-    function localHora() {
-      try {
-        return new Date().toLocaleString('es-CO', {
-          year: 'numeric', month: '2-digit', day: '2-digit',
-          hour: '2-digit', minute: '2-digit', second: '2-digit',
-          hour12: false,
-          timeZoneName: 'short',
-        });
-      } catch (e) {
-        return new Date().toString();
-      }
-    }
-
-    function timezone() {
-      try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ''; }
-      catch (e) { return ''; }
-    }
-
-    function closeDialog() {
-      if (typeof dialog.close === 'function' && dialog.open) dialog.close();
-      document.body.classList.remove('modal-open');
-    }
-
-    function openCheckout(btn) {
-      payUrl = btn.getAttribute('data-pay') || '';
-      var plan = btn.getAttribute('data-plan') || '';
-      var price = btn.getAttribute('data-price') || '';
-      if (planLabel) planLabel.textContent = plan;
-      if (priceLabel) priceLabel.textContent = price;
-      if (fPlan) fPlan.value = plan;
-      if (fPrecio) fPrecio.value = price;
-      form.reset();
-      if (fPlan) fPlan.value = plan;
-      if (fPrecio) fPrecio.value = price;
-      setStatus('', false);
-      document.body.classList.add('modal-open');
-      track('checkout_start', { plan: plan, price: price, page_path: location.pathname });
-      if (typeof dialog.showModal === 'function') {
-        dialog.showModal();
-        var first = form.querySelector('input[name="nombre"]');
-        if (first) first.focus();
-      } else {
-        location.href = payUrl;
-      }
-    }
-
-    document.querySelectorAll('[data-plan-checkout]').forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        if (typeof dialog.showModal !== 'function') return;
-        e.preventDefault();
-        openCheckout(btn);
-      });
-    });
-
-    dialog.addEventListener('close', function () {
-      document.body.classList.remove('modal-open');
-    });
-    dialog.addEventListener('click', function (e) {
-      if (e.target === dialog) closeDialog();
-    });
-    var cancelBtn = dialog.querySelector('[data-checkout-cancel]');
-    if (cancelBtn) cancelBtn.addEventListener('click', closeDialog);
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      if (busy) return;
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      if (!payUrl) {
-        setStatus('No encontramos el enlace de pago. Cierra e intenta de nuevo.', true);
-        return;
-      }
-
-      busy = true;
-      if (submitBtn) submitBtn.disabled = true;
-      setStatus('Enviando tus datos…', false);
-
-      if (fHora) fHora.value = new Date().toISOString() + ' | ' + localHora();
-      if (fTz) fTz.value = timezone();
-      if (fPagina) fPagina.value = location.href;
-      if (fRef) fRef.value = document.referrer || '';
-
-      var data = {
-        nombre: (form.nombre && form.nombre.value || '').trim(),
-        whatsapp: (form.whatsapp && form.whatsapp.value || '').trim(),
-        plan: fPlan ? fPlan.value : '',
-        precio: fPrecio ? fPrecio.value : '',
-        hora: fHora ? fHora.value : '',
-        zona_horaria: fTz ? fTz.value : '',
-        pagina: fPagina ? fPagina.value : '',
-        referrer: fRef ? fRef.value : '',
-        _subject: 'Pago plan ' + (fPlan ? fPlan.value : '') + ' — Presentto',
-        _gotcha: (form._gotcha && form._gotcha.value) || '',
-      };
-
-      try {
-        var res = await fetch(FORMSPREE, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(data),
-        });
-        if (!res.ok) throw new Error('send');
-        setStatus('¡Listo! Te llevamos al pago seguro de Mercado Pago…', false);
-        track('checkout_lead_sent', {
-          plan: fPlan ? fPlan.value : '',
-          price: fPrecio ? fPrecio.value : '',
-          page_path: location.pathname,
-        });
-        setTimeout(function () {
-          location.href = payUrl;
-        }, 400);
-      } catch (err) {
-        setStatus('No pudimos enviar tus datos. Revisa tu conexión e inténtalo de nuevo.', true);
-        track('checkout_error', { plan: fPlan ? fPlan.value : '', page_path: location.pathname });
-        busy = false;
-        if (submitBtn) submitBtn.disabled = false;
-      }
-    });
-  })();
-</script>

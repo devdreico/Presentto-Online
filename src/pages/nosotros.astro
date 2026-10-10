@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { ctaSession } from '../data/business';
+
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Nosotros' }];
 
 const title = 'Sobre Presentto: web administrada y presencia digital';
 const description =
-  'Quiénes somos: web administrada y presencia digital accesible desde $40.000 COP, operado por Soverath Holding S.A.S.';
+  'Quiénes somos: MVO y web administrada accesible desde $15.000 COP/mes, operado por Soverath Holding S.A.S.';
 
 const aboutSchema = {
   '@context': 'https://schema.org',
@@ -20,150 +24,159 @@ const aboutSchema = {
 <BaseLayout title={title} description={description} path="/nosotros/" breadcrumbs={crumbs} jsonld={[aboutSchema]}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap info-page">
-    <p class="eyebrow">SOBRE PRESENTTO</p>
-    <img
-      class="page-logo"
-      src="/assets/img/Presentto-Nombre-Fondo-Transparente.png"
-      alt="Presentto Online"
-      width="240"
-      height="81"
-      fetchpriority="high"
-      decoding="async"
-    />
-    <h1>Presentto Online</h1>
-    <div class="info-content">
-      <article class="info-block">
-        <h2>Presencia digital para negocios reales.</h2>
-        <p>
-          Presentto existe para que un comercio, emprendimiento, profesional o restaurante de Funza, Mosquera,
-          Madrid, Facatativá o cualquier ciudad de Colombia pueda presentarse en internet con una web,
-          una ficha de Google bien montada y correo propio —sin contratar una agencia cara ni aprender a
-          programar. Creamos, publicamos, optimizamos y mantenemos tu web para que
-          te encuentren cuando tus clientes buscan.
-        </p>
-      </article>
+  <PageHero
+    eyebrow="SOBRE PRESENTTO"
+    title="Presentto Online"
+    lead="Presencia digital para negocios reales: creamos, publicamos y administramos tu web para que te encuentren cuando tus clientes buscan —sin contratar una agencia cara ni aprender a programar."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
+      </a>
+      <a class="btn btn-ghost" href="/precios/">Ver precios <span>↓</span></a>
+    </Fragment>
+    <Fragment slot="meta">
+      <span class="tag">Soverath Holding S.A.S.</span>
+      <span class="tag">Respaldo Aeperion Systems</span>
+      <span class="tag">Sabana Occidental · Colombia</span>
+    </Fragment>
+  </PageHero>
+
+  <section class="section wrap">
+    <div class="prose">
       <p>
-        Nuestra propuesta es simple y deliberada: un solo producto (la Presenttación Digital), todo incluido
-        (web con posicionamiento en Google, dominio, correo, datos estructurados, QR y administración) y
-        planes de prepago desde $40.000 COP. Primero ves una demo gratis de tu negocio; pagas solo si te
+        Presentto existe para que un comercio, emprendimiento, profesional o restaurante de Funza,
+        Mosquera, Madrid, Facatativá o cualquier ciudad de Colombia pueda presentarse en internet
+        con una web, una ficha de Google bien montada y correo propio. Nuestra propuesta es simple y
+        deliberada: un solo servicio (la <strong>Presenttación Digital</strong>), todo incluido (web
+        con estructura para Google, dominio o subdominio, datos estructurados, QR y administración)
+        y planes desde <strong>$15.000 COP/mes</strong> en modalidad MVO o
+        <strong>$40.000 COP/mes</strong> con dominio propio. Agenda tu sesión 1; pagas solo si te
         convence. Los valores, los plazos y lo que cubre cada plan están en
         <a href="/precios/">precios</a>, sin letra pequeña.
       </p>
 
       <h2>Quiénes somos</h2>
       <p>
-        Presentto Online es operado por <strong>Soverath Holding S.A.S.</strong>, con respaldo técnico en
-        desarrollo de software de <strong>Aeperion Systems</strong>. Trabajamos con un modelo de entrega
-        administrada: nosotros construimos, publicamos y mantenemos la presencia digital según el alcance
-        acordado contigo. Tú te dedicas a tu negocio; la parte técnica es nuestra.
+        Presentto Online es operado por <strong>Soverath Holding S.A.S.</strong>, con respaldo técnico
+        en desarrollo de software de <strong>Aeperion Systems</strong>. Trabajamos con un modelo de
+        entrega administrada: nosotros construimos, publicamos y mantenemos la presencia digital
+        según el alcance acordado contigo. Tú te dedicas a tu negocio; la parte técnica es nuestra.
       </p>
       <p>
-        El respaldo técnico importa en lo cotidiano: los despliegues, los certificados y los parches de
-        seguridad los hace un equipo de software, no una figura suelta que deja de contestar al mes siguiente.
-        Puedes ver el resultado de ese trabajo en los <a href="/sitios/">sitios publicados</a>, cada uno en su
-        subdominio y con su propio contenido.
+        El respaldo técnico importa en lo cotidiano: los despliegues, los certificados y los parches
+        de seguridad los hace un equipo de software, no una figura suelta que deja de contestar al
+        mes siguiente. Puedes ver el resultado de ese trabajo en los
+        <a href="/sitios/">sitios publicados</a>, cada uno con su subdominio y su contenido.
       </p>
 
       <h2>Cómo trabajamos</h2>
       <p>
-        El proceso es el mismo para todos los clientes y dura lo que dura tu aprobación, no lo que tarda una
-        negociación corporativa:
+        El proceso es el mismo para todos los clientes y dura lo que dura tu aprobación, no lo que
+        tarda una negociación corporativa:
       </p>
       <ol>
         <li>
-          <strong>Demo gratis.</strong> Nos cuentas de tu negocio y te mostramos una demo con tu contenido
-          real, en tu rubro y tu municipio.
+          <strong>Eliges plan y agendamos la sesión 1.</strong> Coordinamos por WhatsApp una sesión
+          de 30 minutos por Google Meet: nos cuentas de tu negocio, tomamos tu información y leemos
+          el proceso contigo.
         </li>
         <li>
-          <strong>Aprobación.</strong> Revisas textos, fotos, estructura y enlaces. Si algo no te convence, se
-          ajusta antes de que pagues nada.
+          <strong>Muestra con tus correcciones.</strong> En la sesión 2 ves tu web avanzada en vivo.
+          Revisas textos, fotos, estructura y enlaces; lo que no te convenza se ajusta.
         </li>
         <li>
-          <strong>Pago único por plazo.</strong> Eliges 1, 3, 6 meses o un año y pagas una sola vez, con IVA
-          incluido. No hay suscripción, ni renovación automática, ni permanencia. Ver
-          <a href="/precios/">los planes</a>.
+          <strong>Prepago por plazo.</strong> Eliges MVO mensual/anual o 1, 3, 6 meses o un año con
+          dominio propio, y pagas una sola vez con Mercado Pago e IVA incluido. Sin suscripción, ni
+          renovación automática, ni permanencia. Ver <a href="/precios/">los planes</a>.
         </li>
         <li>
-          <strong>Publicación.</strong> Subimos el sitio a su subdominio, activamos HTTPS, sitemap, datos
-          estructurados y la verificación en Search Console.
+          <strong>Entrega y publicación.</strong> Sesión 3: cierre, entrega del sitio activo,
+          firmado del contrato y pago definitivo. Activamos HTTPS, sitemap, datos estructurados y la
+          verificación en Search Console.
         </li>
       </ol>
       <p>
-        Después de publicar, la mantenemos publicada y operando dentro del alcance acordado. Los cambios de
-        contenido se piden por WhatsApp o correo, y los atiende el mismo equipo que publicó.
+        Después de publicar, la mantenemos publicada y operando dentro del alcance acordado. Los
+        cambios de contenido se coordinan en sesión o por WhatsApp, y los atiende el mismo equipo
+        que publicó.
       </p>
 
       <h2>Cómo podemos ofrecer este precio</h2>
       <p>
-        Sin trucos: operamos con procesos estandarizados, plantillas base de calidad y una infraestructura
-        compartida administrada. Eso nos permite entregar una web profesional y rápida a una
-        fracción del costo de una agencia tradicional, sin sacrificar lo esencial. Preferimos ser transparentes
-        sobre el cómo antes que inflar el discurso.
+        Sin trucos: operamos con procesos estandarizados, plantillas base de calidad y una
+        infraestructura compartida administrada (el subdominio <code>cliente.presentto.online</code>
+        del MVO es economías de escala hechas producto). Eso nos permite entregar una web
+        profesional y rápida a una fracción del costo de una agencia tradicional, sin sacrificar lo
+        esencial.
       </p>
       <p>
-        Hay tres decisiones concretas detrás del precio. Primero, una oferta estandarizada: vendemos un solo
-        producto con alcance definido en vez de cotizar proyectos a medida uno por uno. Segundo, sin equipo
-        comercial: no hay vendedores, ni comisiones, ni campañas de captación pagadas dentro del precio; se
-        llega por WhatsApp, por referidos y por este sitio. Tercero, sin permanencia: el pago es prepago por
-        plazo y no se renueva solo, así que no estamos financiando contratos de largo plazo. Si quieres ver
-        cómo se compara esto con una agencia tradicional, está explicado en
+        Hay tres decisiones concretas detrás del precio. Primero, una oferta estandarizada: vendemos
+        un servicio con alcance definido en vez de cotizar proyectos a medida uno por uno. Segundo,
+        sin equipo comercial: no hay vendedores, ni comisiones, ni campañas de captación pagadas
+        dentro del precio; se llega por WhatsApp, por referidos y por este sitio. Tercero, sin
+        permanencia: el pago es prepago por plazo y no se renueva solo. Si quieres ver cómo se
+        compara esto con una agencia tradicional, está explicado en
         <a href="/comparativas/">comparativas</a>.
       </p>
 
       <h2>Cobertura</h2>
       <p>
         Nuestra base está en la Sabana Occidental de Colombia: trabajamos con negocios de
-        <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a> y
-        <a href="/facatativa/">Facatativá</a>, y con clientes de otras ciudades del país atendidos de forma
-        remota. El servicio es el mismo en todos los casos: demo, aprobación, pago único y publicación. La
-        documentación pública del servicio, las guías y las comparativas aplican para cualquier municipio de
-        Colombia.
+        <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a>
+        y <a href="/facatativa/">Facatativá</a>, y con clientes de otras ciudades del país atendidos
+        de forma remota. El servicio es el mismo en todos los casos: sesión 1, muestra con
+        correcciones, prepago y publicación. La documentación pública del servicio, las guías y las
+        comparativas aplican para cualquier municipio de Colombia.
       </p>
 
       <h2>Nuestra política editorial</h2>
       <p>
-        El contenido de este sitio (guías de presencia digital, precios y comparativas) se redacta con
-        información pública actualizable y se revisa cuando cambian las condiciones del servicio o del
-        mercado. No publicamos reseñas inventadas ni promesas de “primera página garantizada”. Lo que sí
-        prometemos es entregar lo que acordamos —tu web publicada y funcionando— a tiempo y sin letra
-        pequeña.
+        El contenido de este sitio (guías de presencia digital, precios y comparativas) se redacta
+        con información pública actualizable y se revisa cuando cambian las condiciones del
+        servicio o del mercado. No publicamos reseñas inventadas ni promesas de “primera página
+        garantizada”. Lo que sí prometemos es entregar lo que acordamos —tu web publicada y
+        funcionando— a tiempo y sin letra pequeña.
       </p>
       <p>
-        Aplicamos cuatro criterios al escribir. Primero, separar hechos de opiniones: si es una afirmación
-        nuestra, se marca como tal. Segundo, citar la fuente de cada cifra y de cada regla de Google que
-        mencionamos, para que puedas verificarla tú mismo. Tercero, usar la terminología correcta y citar fuentes verificables cuando hablamos de cómo funcionan las búsquedas. Cuarto, aplicar las directrices oficiales cuando hablamos de ficha local: el
-        nombre del negocio, las categorías y la zona de servicio siguen las
+        Aplicamos cuatro criterios al escribir. Primero, separar hechos de opiniones: si es una
+        afirmación nuestra, se marca como tal. Segundo, citar la fuente de cada cifra y de cada
+        regla de Google que mencionamos, para que puedas verificarla tú mismo. Tercero, usar la
+        terminología correcta cuando hablamos de cómo funcionan las búsquedas. Cuarto, aplicar las
+        directrices oficiales cuando hablamos de ficha local: el nombre del negocio, las categorías
+        y la zona de servicio siguen las
         <a href="https://support.google.com/business/answer/3038177?hl=es" target="_blank" rel="noopener">directrices de Google Perfil de Empresa</a>.
       </p>
 
       <h2>Cómo revisamos nuestro contenido</h2>
       <p>
-        Revisión con fecha visible: cada guía y comparativa principal muestra cuándo se publicó y cuándo se
-        actualizó por última vez. Cuando una cifra o un precio deja de ser vigente, se corrige o se retira en
-        esa misma revisión.
+        Revisión con fecha visible: cada guía y comparativa principal muestra cuándo se publicó y
+        cuándo se actualizó por última vez. Cuando una cifra o un precio deja de ser vigente, se
+        corrige o se retira en esa misma revisión.
       </p>
       <p>
         Fuentes enlazadas: los números de este sitio salen de nuestros propios planes publicados en
-        <a href="/precios/">precios</a>, de rangos de mercado que enlazamos abiertamente y de la documentación
-        oficial de Google. Si una afirmación no tiene fuente, no se publica como dato.
+        <a href="/precios/">precios</a>, de rangos de mercado que enlazamos abiertamente y de la
+        documentación oficial de Google. Si una afirmación no tiene fuente, no se publica como dato.
       </p>
       <p>
-        Sin reseñas inventadas: no publicamos testimonios de clientes ni calificaciones fabricadas. La prueba
-        que ofrecemos son los <a href="/sitios/">sitios reales en producción</a> y el trabajo visible en
-        <a href="/portfolio/">portfolio</a>, con enlaces que puedes abrir y comprobar.
+        Sin reseñas inventadas: no publicamos testimonios de clientes ni calificaciones fabricadas.
+        La prueba que ofrecemos son los <a href="/sitios/">sitios reales en producción</a> y el
+        trabajo visible en <a href="/portfolio/">portfolio</a>, con enlaces que puedes abrir y
+        comprobar.
       </p>
       <p>
         Correcciones: si detectas un dato desactualizado o un error, escríbenos a
-        <a href="mailto:inbox@presentto.online">inbox@presentto.online</a> con el enlace de la página. Se
-        revisa y se corrige en la siguiente actualización. Para saber qué datos usamos cuando nos escribes,
-        consulta la <a href="/privacidad/">política de privacidad</a>.
+        <a href="mailto:inbox@presentto.online">inbox@presentto.online</a> con el enlace de la
+        página. Se revisa y se corrige en la siguiente actualización. Para saber qué datos usamos
+        cuando nos escribes, consulta la <a href="/privacidad/">política de privacidad</a>.
       </p>
 
       <h2>Responsable editorial</h2>
       <p>
-        Las guías y precios de Presentto Online son revisadas y mantenidas por <strong>Dilan Andrei Cifuentes Ortiz</strong>,
-        fundador y responsable editorial. Para correcciones, solicitudes o dudas sobre los datos publicados, escríbenos a
+        Las guías y precios de Presentto Online son revisadas y mantenidas por
+        <strong>Dilan Andrei Cifuentes Ortiz</strong>, fundador y responsable editorial. Para
+        correcciones, solicitudes o dudas sobre los datos publicados, escríbenos a
         <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>.
       </p>
 
@@ -177,21 +190,16 @@ const aboutSchema = {
         · Cobertura: Colombia, con base en la Sabana Occidental.
       </p>
       <p>
-        Al escribir, incluye el nombre de tu negocio, tu municipio y qué necesitas (web nueva, mejorar la que
-        tienes, o solo entender opciones). Con eso te respondemos con una demo o con la ruta que te convenga.
-        Si prefieres comparar antes de hablar, revisa <a href="/servicios/">servicios</a> y
-        <a href="/guias/que-es-presencia-digital/">la guía de presencia digital</a>.
-      </p>
-      <p>
-        <a
-          class="button primary"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-          target="_blank"
-          rel="noopener"
-        >
-          Pedir mi demo gratis <span>↗</span>
-        </a>
+        Al escribir, incluye el nombre de tu negocio, tu municipio y qué necesitas (web nueva,
+        mejorar la que tienes, o solo entender opciones). Con eso te respondemos con la ruta que te
+        convenga. Si prefieres comparar antes de hablar, revisa <a href="/servicios/">servicios</a>
+        y <a href="/guias/que-es-presencia-digital/">la guía de presencia digital</a>.
       </p>
     </div>
   </section>
+
+  <FinalCta
+    eyebrow="HABLEMOS"
+    title="Te enseñamos el proceso, <em>no un discurso de ventas.</em>"
+  />
 </BaseLayout>

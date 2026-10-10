@@ -1,24 +1,59 @@
 ---
+import { ctaSession } from '../data/business';
+
 interface Props {
   path?: string;
 }
 const { path = '/' } = Astro.props;
 
-const links = [
+type NavLink = { href: string; label: string; desc?: string; external?: boolean };
+type NavGroup = { label: string; links: NavLink[] };
+
+const direct: NavLink[] = [
   { href: '/', label: 'Inicio' },
-  { href: '/servicios/', label: 'Servicios' },
-  { href: '/precios/', label: 'Precios' },
-  { href: '/guias/', label: 'Guías' },
-  { href: 'https://map.presentto.online/', label: 'Mapa' },
-  { href: '/portfolio/', label: 'Portafolio' },
-  { href: '/contacto/', label: 'Contacto' },
 ];
 
-const isActive = (href: string) =>
-  href === '/' ? path === '/' : path.startsWith(href);
+const groups: NavGroup[] = [
+  {
+    label: 'Servicios',
+    links: [
+      { href: '/servicios/', label: 'Servicios', desc: 'Qué incluye tu web administrada' },
+      { href: '/precios/', label: 'Precios', desc: 'MVO desde $15.000/mes' },
+    ],
+  },
+  {
+    label: 'Trabajo',
+    links: [
+      { href: '/portfolio/', label: 'Portafolio', desc: 'Cómo queda cada proyecto' },
+      { href: '/sitios/', label: 'Sitios publicados', desc: 'Prueba real en producción' },
+    ],
+  },
+  {
+    label: 'Recursos',
+    links: [
+      { href: '/guias/', label: 'Guías', desc: 'Presencia digital paso a paso' },
+      { href: '/preguntas/', label: 'Preguntas', desc: 'Dudas frecuentes resueltas' },
+      { href: '/comparativas/', label: 'Comparativas', desc: 'Agencia vs web administrada' },
+    ],
+  },
+];
 
-const demoUrl =
-  'https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio';
+const tail: NavLink[] = [{ href: '/contacto/', label: 'Contacto' }];
+
+const isSame = (href: string, current: string) =>
+  href === '/' ? current === '/' : current.startsWith(href);
+
+const isGroupActive = (group: NavGroup) => group.links.some((l) => isSame(l.href, path));
+
+const linkClass = (href: string) => (isSame(href, path) ? 'active' : undefined);
+
+const mobileGroups: NavGroup[] = [
+  ...groups,
+  {
+    label: 'Contacto',
+    links: [...tail, { href: '/nosotros/', label: 'Nosotros', desc: 'Quiénes operan el portal' }],
+  },
+];
 ---
 
 <header class="site-header">
@@ -26,17 +61,92 @@ const demoUrl =
     <a class="brand" href="/" aria-label="Presentto Online — Inicio">
       <img
         src="/assets/img/Presentto-Icono-Fondo-Transparente.webp"
-        alt="Presentto Online"
+        alt=""
         width="46"
         height="54"
         decoding="async"
       />
+      <span class="brand-name">Present<em>tto</em></span>
     </a>
-    <nav aria-label="Navegación principal">
-      {links.map((link) => (
-        <a href={link.href} class={isActive(link.href) ? 'active' : undefined}>{link.label}</a>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      {direct.map((link) => (
+        <a class="nav-link" href={link.href} aria-current={linkClass(link.href) ? 'page' : undefined}>
+          {link.label}
+        </a>
       ))}
-      <a class="nav-cta" href={demoUrl} target="_blank" rel="noopener"><span>Demo gratis</span> <b>↗</b></a>
+      {groups.map((group) => (
+        <div class="nav-item" data-nav-item>
+          <a
+            class:list={['nav-link', { active: isGroupActive(group) }]}
+            href={group.links[0].href}
+            aria-haspopup="true"
+            aria-expanded="false"
+            data-nav-trigger
+          >
+            {group.label}
+            <i class="nav-caret" aria-hidden="true"></i>
+          </a>
+          <div class="nav-panel" role="group" aria-label={group.label}>
+            {group.links.map((link) => (
+              <a href={link.href} class={linkClass(link.href)}>
+                <b>{link.label}</b>
+                {link.desc && <small>{link.desc}</small>}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+      {tail.map((link) => (
+        <a class="nav-link" href={link.href} aria-current={linkClass(link.href) ? 'page' : undefined}>
+          {link.label}
+        </a>
+      ))}
     </nav>
+
+    <div class="header-actions">
+      <a
+        class="btn btn-primary btn-sm header-cta"
+        href={ctaSession}
+        target="_blank"
+        rel="noopener"
+        data-magnetic
+      >
+        Agendar sesión <span>↗</span>
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+        data-nav-toggle
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
+
+<!-- Menú móvil full-screen -->
+<div class="nav-overlay" id="mobileMenu" data-nav-overlay aria-hidden="true">
+  <div></div>
+  <div class="nav-overlay-inner">
+    {mobileGroups.map((group) => (
+      <div class="nav-group">
+        <small>{group.label}</small>
+        <div class="nav-group-links">
+          {group.links.map((link) => (
+            <a href={link.href} aria-current={linkClass(link.href) ? 'page' : undefined}>{link.label}</a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+  <div class="nav-overlay-foot">
+    <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener">
+      Agendar mi sesión 1 <span>↗</span>
+    </a>
+    <p>Primera sesión de 30 min sin compromiso · WhatsApp</p>
+  </div>
+</div>

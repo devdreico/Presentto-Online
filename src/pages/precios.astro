@@ -3,24 +3,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
 import PlansGrid from '../components/PlansGrid.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { ctaSession } from '../data/business';
+
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Precios' }];
 
 const title = 'Precios: planes de web administrada | Presentto';
 const description =
-  'Planes desde $40.000 COP (1 mes) hasta $350.000 COP (1 año), IVA incluido. Prepago por plazo, sin suscripción ni permanencia. Demo gratis antes de pagar.';
+  'MVO desde $15.000 COP/mes y dominio propio desde $40.000. Prepago por plazo, IVA incluido, sin suscripción. Agenda tu sesión 1 antes de pagar.';
 
 const faqs = [
   {
     q: '¿Es una mensualidad o un pago único?',
-    a: 'Es prepago por plazo, no una suscripción: 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP. Pagas una sola vez el plazo que elijas (Mercado Pago, IVA incluido) y no se te cobra nada automáticamente al final.',
+    a: 'Es prepago por plazo, no una suscripción: MVO mensual $15.000 · MVO anual $120.000 · dominio propio: 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP. Pagas una sola vez el plazo que elijas (Mercado Pago, IVA incluido) y no se te cobra nada automáticamente al final.',
   },
   {
     q: '¿Qué incluye cada plan?',
-    a: 'Web lista con tu contenido y fotos, dominio propio, correo profesional, estructura lista para Google, orientación de tu ficha de Google, ajustes durante el plan y administración por Presentto.',
+    a: 'Web lista con tu contenido y fotos, diseño a gusto, 3 sesiones de asesoría por Google Meet, estructura lista para Google, orientación de tu ficha de Google, ajustes durante el plan y administración por Presentto. El MVO opera en subdominio; los planes tradicionales incluyen dominio propio y correo profesional.',
   },
   {
     q: '¿Puedo ver la web antes de pagar?',
-    a: 'Sí. La demo es gratis y sin abono: la construimos con la información de tu negocio, la ves, pides cambios y solo pagas cuando decides contratar.',
+    a: 'Sí. Agenda tu Sesión 1 por WhatsApp: con la información de tu negocio construimos la web, la ves, pides cambios y solo pagas cuando decides contratar.',
   },
   {
     q: '¿Hay costos ocultos o permanencia?',
@@ -28,99 +32,107 @@ const faqs = [
   },
   {
     q: '¿Por qué es más barato que una agencia?',
-    a: 'Las agencias suelen cotizar sitios desde $800.000 a $3.000.000 COP más mantenimiento mensual. Presentto trabaja con una oferta estandarizada y administrada, por eso puede mantener precios desde $40.000 COP/mes sin sacrificar dominio, correo ni administración.',
+    a: 'Las agencias suelen cotizar sitios desde $800.000 a $3.000.000 COP más mantenimiento mensual. Presentto trabaja con una oferta estandarizada y administrada sobre infraestructura compartida (economía de escala del subdominio), por eso mantiene precios desde $15.000 COP/mes sin sacrificar diseño ni administración.',
   },
 ];
-// FAQPage: solo preguntas exclusivas de esta página (el hub /preguntas/ es el
-// canónico para las compartidas)
 ---
 
 <BaseLayout title={title} description={description} path="/precios/" breadcrumbs={crumbs} plansOffers={true}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">PLANES Y PRECIOS</p>
-    <h1>Precios claros. <em>Sin sorpresas ni letra pequeña.</em></h1>
-    <p class="lead">
-      Un solo servicio, cuatro plazos de prepago. Todo incluido: web, dominio, correo y administración. IVA incluido, sin suscripción automática y
-      con demo gratis antes de pagar. Cobramos en COP: el plan de 1 mes equivale a ≈ US$10 al mes de ese plazo (referencia).
-    </p>
-    <div class="actions">
-      <a
-        class="button primary"
-        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20una%20demo%20gratis%20antes%20de%20elegir%20plan"
-        target="_blank"
-        rel="noopener"
-      >
-        Pedir mi demo gratis <span>↗</span>
+  <PageHero
+    eyebrow="PLANES Y PRECIOS"
+    title="Precios claros. <em>Sin sorpresas ni letra pequeña.</em>"
+    lead="Dos formas de estar en línea: MVO en subdominio desde $15.000 COP/mes con 3 sesiones incluidas, o tu dominio propio con correo profesional desde $40.000 por mes de prepago. Todo con IVA incluido, sin suscripción automática y sin permanencia. El equivalente en USD es referenciaal: cobramos en COP."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
       </a>
-      <a class="button ghost" href="#planes">Ver los 4 planes <span>↓</span></a>
-    </div>
-  </section>
+      <a class="btn btn-ghost" href="#planes">Ver los planes <span>↓</span></a>
+    </Fragment>
+    <Fragment slot="meta">
+      <span class="tag">IVA incluido</span>
+      <span class="tag">Pago único por plazo</span>
+      <span class="tag">Mercado Pago</span>
+      <span class="tag">Sin cargo automático</span>
+    </Fragment>
+  </PageHero>
 
   <PlansGrid />
 
   <section class="section wrap">
-    <div class="section-heading">
-      <p class="eyebrow">COMPARATIVA HONESTA</p>
-      <h2>Qué cuesta lo mismo <em>en el mercado.</em></h2>
-      <p>
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">COMPARATIVA HONESTA</p>
+        <h2 data-split>Qué cuesta lo mismo <em>en el mercado.</em></h2>
+      </div>
+      <p class="lead">
         Referencias reales de la industria para que compares con contexto. Presentto cubre la
         presencia completa de un negocio local desde el plan más bajo.
       </p>
     </div>
-    <div class="service-list">
-      <article class="service-card">
-        <h3>Agencia tradicional</h3>
-        <p>
-          Diseño a medida desde <strong>$800.000 a $3.000.000 COP</strong> + mantenimiento mensual,
-          y campañas de promoción por separado desde $1.500.000 COP/mes. Contratos y tiempos más largos.
-        </p>
-      </article>
-      <article class="service-card">
-        <h3>Herramientas “hazlo tú mismo”</h3>
-        <p>
-          Desde <strong>~20 USD/mes</strong> de plataforma, más tu tiempo: tú escribes, tú optimizas,
-          tú resuelves el soporte. Sin contenido ni administración hechos por ti.
-        </p>
-      </article>
-      <article class="service-card">
-        <h3>Presentto</h3>
-        <p>
-          <strong>Desde $40.000 COP/mes</strong> (prepago por plazo): web publicada con tu contenido,
-          dominio, correo y administración incluidos. Demo gratis antes de pagar.
-        </p>
-      </article>
+    <div class="table-scroll reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th scope="col">Opción</th>
+            <th scope="col">Costo típico</th>
+            <th scope="col">Qué obtienes</th>
+            <th scope="col">Sobrecarga para ti</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Agencia tradicional</strong></td>
+            <td>$800.000 – $3.000.000 COP + mantenimiento mensual</td>
+            <td>Diseño a medida y código propio del proyecto</td>
+            <td>Contratos largos; cada cambio se cotiza aparte</td>
+          </tr>
+          <tr>
+            <td><strong>Plataforma hazlo tú mismo</strong></td>
+            <td>Desde ~20 USD/mes de licencia</td>
+            <td>Plantillas y herramientas en autoservicio</td>
+            <td>Tú escribes, optimizas y resuelves el soporte</td>
+          </tr>
+          <tr>
+            <td class="col-highlight"><strong>Presentto MVO</strong></td>
+            <td class="col-highlight"><strong>Desde $15.000 COP/mes</strong></td>
+            <td class="col-highlight">Web administrada en subdominio + 3 sesiones + correcciones</td>
+            <td class="col-highlight">Mínimo: apruebas en Meet; operamos nosotros</td>
+          </tr>
+          <tr>
+            <td class="col-highlight"><strong>Presentto dominio propio</strong></td>
+            <td class="col-highlight"><strong>Desde $40.000 COP/mes</strong></td>
+            <td class="col-highlight">Web + dominio .com/.online + correo profesional</td>
+            <td class="col-highlight">Mismo acompañamiento, con tu marca propia</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </section>
-
-  <section class="section wrap faq-section">
-    <div class="section-heading">
-      <p class="eyebrow">PREGUNTAS DE PRECIO</p>
-      <h2>Dudas frecuentes <em>sobre planes y pagos.</em></h2>
-    </div>
-    <FaqList faqs={faqs} />
     <p class="stack-note">
-      ¿Otras dudas? Ver <a href="/preguntas/">todas las preguntas frecuentes</a> o
-      <a href="/comparativas/">comparar opciones de web</a>.
+      ¿Quieres el detalle? Ver <a href="/comparativas/">comparativas de opciones de web</a> o
+      <a href="/preguntas/">todas las preguntas frecuentes</a>.
     </p>
   </section>
 
-  <section class="final-cta">
-    <div class="wrap">
-      <p class="eyebrow">EMPEZA SIN RIESGO</p>
-      <h2>Primero ves tu web. <em>Pagas solo si te gusta.</em></h2>
-      <div class="actions">
-        <a
-          class="button light"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-          target="_blank"
-          rel="noopener"
-        >
-          Pedir mi demo gratis <span>↗</span>
-        </a>
-        <a class="button ghost light-ghost" href="/contacto/">Hablar con el equipo</a>
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">PREGUNTAS DE PRECIO</p>
+        <h2 data-split>Dudas frecuentes <em>sobre planes y pagos.</em></h2>
       </div>
+      <p class="lead">
+        Prepago por plazo, Mercado Pago y cero letra pequeña. Si tu caso es especial, lo vemos en
+        la sesión 1.
+      </p>
     </div>
+    <FaqList faqs={faqs} />
   </section>
+
+  <FinalCta
+    eyebrow="EMPEZA SIN RIESGO"
+    title="Primero ves tu web. <em>Pagas solo si te gusta.</em>"
+    note="Sesión 1 de 30 min por Google Meet · Te enviamos el enlace de pago recién cuando decides"
+  />
 </BaseLayout>

@@ -4,6 +4,9 @@ import { authorRef } from '../../components/schemas';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FaqList from '../../components/FaqList.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
+import ArticleLayout from '../../components/ArticleLayout.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { ctaSession } from '../../data/business';
 import { datesFor } from '../../data/content-dates';
 const crumbs = [
   { label: 'Inicio', href: '/' },
@@ -50,18 +53,18 @@ const articleSchema = {
 <BaseLayout title={title} description={description} path="/guias/resenas-google/" breadcrumbs={crumbs} jsonld={[articleSchema]} article={{ publishedTime: dates.published, modifiedTime: dates.modified }}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">REPUTACIÓN · GUÍA</p>
-    <h1>Reseñas de Google sin riesgos</h1>
-    <p class="lead">Cómo pedirlas, cómo contestarlas y qué no hacer nunca.</p>
-    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
-  </section>
-
-  <section class="section wrap guide-layout">
-    <h2>Por qué importan</h2>
+  <ArticleLayout
+    eyebrow="REPUTACIÓN · GUÍA"
+    title="Reseñas de Google sin riesgos"
+    lead="Cómo pedirlas, cómo contestarlas y qué no hacer nunca."
+    published={dates.published}
+    modified={dates.modified}
+    toc={true}
+  >
+    <h2 id="por-que-importan">Por qué importan</h2>
     <p class="snippet">Las reseñas son la prueba social que mira un cliente antes de escribirte. Influyen en qué tan seguido visitas tu ficha y en si deciden contactarte.</p>
 
-    <h2>Cómo pedirlas</h2>
+    <h2 id="como-pedirlas">Cómo pedirlas</h2>
     <ul>
       <li>Elige el momento justo: justo después de una buena experiencia.</li>
       <li>Envía un mensaje breve con el enlace directo de reseñas de tu ficha.</li>
@@ -69,14 +72,14 @@ const articleSchema = {
       <li>Facilita el trabajo: un mensaje de WhatsApp ya preparado para que tus clientes solo toquen "enviar".</li>
     </ul>
 
-    <h2>Cómo responderlas</h2>
+    <h2 id="como-responderlas">Cómo responderlas</h2>
     <ul>
       <li>Positivas: agradece mencionando el producto o servicio.</li>
       <li>Negativas: responde rápido, con empatía, ofrece solución y mueve el caso a un canal privado.</li>
       <li>No respondas con descuentos ni ofrezcas nada a cambio de cambiar la reseña.</li>
     </ul>
 
-    <h2>Lo que nunca debes hacer</h2>
+    <h2 id="lo-que-nunca-debes-hacer">Lo que nunca debes hacer</h2>
     <ul>
       <li>Comprar reseñas o pedirlas a cuentas falsas.</li>
       <li>Ofrecer beneficios a quien deje cinco estrellas.</li>
@@ -85,12 +88,25 @@ const articleSchema = {
 
     <div class="guide-cta">
       <p><strong>¿Quieres una web que refuerce tu reputación?</strong></p>
-      <a class="button primary" href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20pedir%20una%20demo%20web%20gratis" target="_blank" rel="noopener">Pedir mi demo gratis <span>↗</span></a>
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
+      </a>
     </div>
 
-    <h2>Preguntas frecuentes</h2>
+    <AuthorBox name="Dilan Andrei Cifuentes Ortiz" role="Fundador y responsable editorial · Presentto Online" />
+  </ArticleLayout>
+
+  <section class="section wrap" id="preguntas-frecuentes">
+    <div class="section-head">
+      <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+      <h2 data-split>Dudas sobre <em>reseñas de Google.</em></h2>
+    </div>
     <FaqList faqs={faqs} />
   </section>
 
-  <AuthorBox name="Dilan Andrei Cifuentes Ortiz" role="Fundador y responsable editorial · Presentto Online" />
+  <FinalCta
+    eyebrow="EMPIEZA HOY"
+    title="Ve tu web antes de pagar. <em>Decide después.</em>"
+    note="Agenda tu sesión 1 por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+  />
 </BaseLayout>

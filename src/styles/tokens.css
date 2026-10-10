@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Presentto Online — Design Tokens
+   Marca estricta: naranja (#f15a24) + tinta + crema/papel.
+   Rounded grande, glass maduro, motion expresivo controlado.
+   ========================================================================== */
+
+:root {
+  /* 1. Color ------------------------------------------------------------- */
+  --ink: #1b1a18;
+  --ink-2: #2b2926;
+  --muted: #6d675e;
+  --faint: #93897b;
+  --on-dark: #f6f1e8;
+  --on-dark-muted: #b8b1a4;
+
+  --orange: #f15a24;
+  --orange-hover: #dc4c17;
+  --orange-aa: #c84412;
+  --orange-deep: #a83a0e;
+  --orange-tint: #fdeadf;
+  --orange-tint-2: #fadfcf;
+
+  --cream: #f6f0e5;
+  --cream-2: #efe6d6;
+  --paper: #fffdf9;
+  --paper-2: #fffaF2;
+
+  --line: rgba(27, 26, 24, 0.13);
+  --line-soft: rgba(27, 26, 24, 0.07);
+  --line-strong: rgba(27, 26, 24, 0.24);
+
+  --ok-bg: #e9f5e9;
+  --ok-fg: #2d6333;
+  --ok-line: #a7cfaa;
+  --err-bg: #fff0eb;
+  --err-fg: #9e3518;
+  --err-line: #e5a28e;
+
+  /* 2. Glass ------------------------------------------------------------- */
+  --glass: rgba(255, 253, 249, 0.6);
+  --glass-strong: rgba(255, 253, 249, 0.86);
+  --glass-solid: #fffdf9;
+  --glass-line: rgba(255, 255, 255, 0.85);
+  --glass-inner: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  --blur: blur(18px) saturate(1.5);
+  --blur-sm: blur(10px) saturate(1.35);
+
+  /* 3. Elevación --------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(27, 26, 24, 0.05);
+  --shadow-sm: 0 6px 18px -8px rgba(27, 26, 24, 0.14);
+  --shadow-md: 0 20px 44px -16px rgba(27, 26, 24, 0.2);
+  --shadow-lg: 0 36px 76px -24px rgba(27, 26, 24, 0.28);
+  --shadow-orange: 0 16px 36px -12px rgba(241, 90, 36, 0.5);
+  --shadow-orange-sm: 0 8px 20px -8px rgba(241, 90, 36, 0.45);
+
+  /* 4. Radio (rounded grande) -------------------------------------------- */
+  --r-xs: 10px;
+  --r-sm: 14px;
+  --r-md: 18px;
+  --r-lg: 24px;
+  --r-xl: 30px;
+  --r-2xl: 38px;
+  --r-pill: 999px;
+
+  /* 5. Tipografía --------------------------------------------------------- */
+  --font-sans: "Montserrat", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-serif: "Times New Roman", Times, Georgia, "Nimbus Roman", "Liberation Serif", serif;
+
+  --fw: 500;
+  --fw-semi: 600;
+  --fw-bold: 700;
+  --fw-xbold: 800;
+  --fw-black: 900;
+
+  --fs-display: clamp(2.55rem, 8.5vw, 4.5rem);
+  --fs-h1: clamp(2.3rem, 7vw, 3.9rem);
+  --fs-h2: clamp(1.9rem, 5vw, 3.1rem);
+  --fs-h3: clamp(1.32rem, 3vw, 1.75rem);
+  --fs-h4: clamp(1.08rem, 2vw, 1.25rem);
+  --fs-lead: clamp(1.03rem, 2.3vw, 1.17rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.92rem;
+  --fs-xs: 0.82rem;
+  --fs-2xs: 0.72rem;
+  --fs-eyebrow: 0.72rem;
+
+  --tracking-tight: -0.035em;
+  --tracking-display: -0.045em;
+
+  /* 6. Espaciado ---------------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --section-y: clamp(64px, 9vw, 116px);
+  --header-h: 74px;
+
+  /* 7. Motion -------------------------------------------------------------- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.18s;
+  --dur: 0.34s;
+  --dur-slow: 0.62s;
+
+  /* 8. Capas --------------------------------------------------------------- */
+  --z-backdrop: 0;
+  --z-content: 1;
+  --z-header: 40;
+  --z-progress: 45;
+  --z-menu: 30;
+  --z-preloader: 80;
+  --z-cursor: 90;
+  --z-dialog: 70;
+}

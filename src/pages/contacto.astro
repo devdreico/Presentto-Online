@@ -2,11 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PlansGrid from '../components/PlansGrid.astro';
+import PageHero from '../components/PageHero.astro';
+import { ctaSession, waDirect } from '../data/business';
+
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Contacto' }];
 
-const title = 'Contacto, planes y demo gratis | Presentto Online';
+const title = 'Contacto, planes y sesión 1 | Presentto Online';
 const description =
-  'Pide tu demo gratis o asesoría sobre planes de web administrada y dominio desde $40.000 COP/mes.';
+  'Agenda tu sesión 1 por WhatsApp o cuéntanos de tu negocio: te asesoramos sobre MVO desde $15.000/mes o dominio propio desde $40.000.';
 
 const contactSchema = {
   '@context': 'https://schema.org',
@@ -32,13 +35,25 @@ const contactSchema = {
 >
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap contact-page">
-    <p class="eyebrow">HABLEMOS · DEMO GRATIS</p>
-    <h1>Tu posición en Google <em>empieza aquí.</em></h1>
-    <p class="lead">
-      Cuéntanos de tu negocio y te enviamos una demo gratis o te asesoramos sobre el plan ideal con
-      on-page, ficha de Maps y dominio. También puedes elegir y pagar tu plan directo con Mercado Pago.
-    </p>
+  <PageHero
+    eyebrow="HABLEMOS · SESIÓN 1"
+    title="Tu posición en Google <em>empieza aquí.</em>"
+    lead="Agenda tu sesión 1 por WhatsApp (lo más rápido) o cuéntanos de tu negocio por el formulario: te asesoramos sobre el plan ideal, MVO en subdominio o dominio propio, y resolvemos dudas antes de que pagues."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
+      </a>
+      <a class="btn btn-ghost" href="#formulario">Escribir el formulario <span>↓</span></a>
+    </Fragment>
+    <Fragment slot="meta">
+      <span class="tag">Respuesta en horario hábil</span>
+      <span class="tag">Sin compromiso</span>
+      <span class="tag">Sabana Occidental y Colombia</span>
+    </Fragment>
+  </PageHero>
+
+  <section class="section wrap" id="formulario">
     <div class="contact-layout">
       <form
         id="contactForm"
@@ -67,7 +82,7 @@ const contactSchema = {
           <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Mostrar servicios o productos" /> Mostrar servicios o productos</label>
         </fieldset>
         <label>¿Algo más que debamos saber?
-          <textarea name="necesidades_extra" rows="5" placeholder="Textos, fotos, horarios, si ya tienes dominio… lo que nos sirva para tu demo"></textarea>
+          <textarea name="necesidades_extra" rows="5" placeholder="Textos, fotos, horarios, si ya tienes dominio… lo que nos sirva para conocerte"></textarea>
         </label>
         <label class="checkbox-option privacy-option">
           <input name="privacidad" type="checkbox" required value="aceptada" />
@@ -75,8 +90,12 @@ const contactSchema = {
           <a href="/privacidad/" target="_blank" rel="noopener">política de privacidad</a>.
         </label>
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
-        <button class="button primary" type="submit">Quiero mi demo o asesoría <span>↗</span></button>
-        <p class="form-note">Respondemos por WhatsApp o correo en horario hábil. La demo no requiere abono; puedes elegir un plan y pagarlo cuando quieras. Cada web incluye dominio, correo y administración durante el plan.</p>
+        <button class="btn btn-primary" type="submit">Quiero mi asesoría <span>↗</span></button>
+        <p class="form-note">
+          Respondemos por WhatsApp o correo en horario hábil. El MVO arranca desde $15.000/mes y los
+          planes con dominio propio desde $40.000/mes de prepago; ambos con 3 sesiones por Google
+          Meet y administración incluida.
+        </p>
         <p id="formStatus" role="status" aria-live="polite"></p>
       </form>
       <aside class="contact-aside">
@@ -84,26 +103,19 @@ const contactSchema = {
         <h2>Hablemos claro.</h2>
         <ol class="contact-steps">
           <li><b>01</b> Nos cuentas de tu negocio y tus metas de visibilidad</li>
-          <li><b>02</b> Te enviamos tu demo gratis</li>
-          <li><b>03</b> Apruebas, pagas y publicamos indexada en Google</li>
+          <li><b>02</b> Coordinamos tu sesión 1 y construimos tu web</li>
+          <li><b>03</b> Apruebas en Meet, pagas y publicamos tu presencia</li>
         </ol>
-        <p>Sin formularios eternos ni reuniones obligatorias. Nos escribes, entendemos qué necesitas y te mostramos cómo se vería tu web.</p>
-        <div class="contact-aside-actions">
-          <a
-            class="button ghost"
-            href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20asesor%C3%ADa%20sobre%20los%20planes"
-            target="_blank"
-            rel="noopener"
-          >
-            WhatsApp <span>↗</span>
+        <p>
+          Sin formularios eternos ni reuniones obligatorias. Nos escribes, entendemos qué necesitas
+          y te mostramos cómo se vería tu web antes de que decidas.
+        </p>
+        <div class="actions">
+          <a class="btn btn-ghost btn-sm" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+            Agendar sesión 1 <span>↗</span>
           </a>
-          <a
-            class="button ghost"
-            href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-            target="_blank"
-            rel="noopener"
-          >
-            Demo gratis <span>↗</span>
+          <a class="btn btn-ghost btn-sm" href={waDirect} target="_blank" rel="noopener">
+            WhatsApp directo <span>↗</span>
           </a>
         </div>
         <p class="muted">

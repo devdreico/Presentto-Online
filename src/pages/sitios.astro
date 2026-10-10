@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { ctaSession } from '../data/business';
+
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Sitios' }];
 
 const title = 'Sitios reales publicados con Presentto Online';
 const description =
-  'Sitios reales construidos y publicados con Presenttación Digital: dominio, correo y web en producción para negocios de Colombia.';
+  'Sitios reales con Presenttación Digital: dominio, correo y web en producción para negocios de Colombia. Agenda tu sesión 1 y ve tu web antes de pagar.';
 
 const listSchema = {
   '@context': 'https://schema.org',
@@ -54,191 +58,214 @@ const siteNotes: Record<string, string> = {
 <BaseLayout title={title} description={description} path="/sitios/" breadcrumbs={crumbs} jsonld={[listSchema]}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero map-hero">
-    <p class="eyebrow">SITIOS PUBLICADOS EN VIVO</p>
-    <img
-      class="page-logo"
-      src="/assets/img/Presentto-Nombre-Fondo-Transparente.png"
-      alt="Presentto Online"
-      width="240"
-      height="81"
-      fetchpriority="high"
-      decoding="async"
-    />
-    <h1>Proyectos que ya están <em>presentes online.</em></h1>
-    <p class="lead">
-      Visita los sitios que ya construimos y publicamos. Cada uno con su rubro, su identidad y su base de
-      Así se ve el trabajo de Presentto en producción: web, dominio y correo funcionando.
-    </p>
-  </section>
+  <PageHero
+    eyebrow="SITIOS PUBLICADOS EN VIVO"
+    title="Proyectos que ya están <em>presentes online.</em>"
+    lead="Visita los sitios que ya construimos y publicamos: cada uno con su rubro, su identidad y su base técnica. Así se ve el trabajo de Presentto en producción: web, dominio y correo funcionando."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
+      </a>
+      <a class="btn btn-ghost" href="#sitios">Ver los sitios <span>↓</span></a>
+    </Fragment>
+    <Fragment slot="meta">
+      <span class="tag">9 sitios en vivo</span>
+      <span class="tag">Subdominios *.presentto.online</span>
+      <span class="tag">Infraestructura administrada</span>
+    </Fragment>
+  </PageHero>
 
-  <section class="section map-section">
-    <div class="wrap published-sites">
-      <div class="map-directory">
+  <section class="section wrap" id="sitios">
+    <div class="section-head">
+      <div>
         <p class="eyebrow">SITIOS PUBLICADOS</p>
-        <h2>Explora los sitios publicados.</h2>
-        <ol class="business-list">
-          {sites.map((site, i) => (
-            <li>
-              <a href={site.url} target="_blank" rel="noopener">
-                <span class="business-index">{String(i + 1).padStart(2, '0')}</span>
-                <span>
-                  <strong>{site.name}</strong>
-                  <small>{site.host}</small>
-                  <small>{siteNotes[site.name]}</small>
-                </span>
-                <b>↗</b>
-              </a>
-            </li>
-          ))}
-        </ol>
-        <p class="map-note">
-          Las descripciones de la lista toman el título de cada sitio publicado en su subdominio. Todos se
-          publican en la infraestructura administrada de Presentto con indexación, sitemap y datos
-          estructurados listos para el rastreo de Google. Cada sitio conserva su identidad y muestra una
-          aplicación distinta de la misma base técnica.
-        </p>
+        <h2 data-split>Explora los sitios <em>publicados.</em></h2>
       </div>
+      <p class="lead">
+        Nueve negocios y proyectos en producción sobre la misma base técnica de Presentto. Ábrelos,
+        míralos en el celular y compáralos con lo que hoy tienes tú.
+      </p>
     </div>
-  </section>
-
-  <section class="section wrap guide-layout">
-    <h2>Qué son los sitios de esta lista</h2>
-    <p class="snippet">
-      Cada sitio vive en un subdominio de presentto.online: botane.presentto.online, kspr.presentto.online y
-      así con los nueve. Es la misma infraestructura administrada de Presentto, con instalación propia,
-      contenido propio e identidad propia.
-    </p>
-    <p>
-      No son demostraciones de plantilla ni páginas de prueba. Son sitios en producción que su público abre
-      desde un enlace de WhatsApp, un código QR o una tarjeta impresa. Compartimos el hospedaje, los
-      certificados y el mantenimiento; no compartimos el contenido. El subdominio es la vía para publicar sin
-      que el negocio tenga que comprar servidores ni aprender a configurarlos.
-    </p>
-    <p>
-      Sirven también para que veas el trabajo antes de contratar. Entra a cualquiera, mírale la velocidad en
-      el celular, la jerarquía de encabezados, el HTTPS y cómo se ve el resultado de búsqueda en Google. Si
-      lo que ves encaja con tu negocio, pides el tuyo en <a href="/contacto/">contacto</a>.
-    </p>
-
-    <h2>Por qué están indexados</h2>
-    <p>
-      Que un sitio esté en Google no es un favor: es el resultado de publicar algo rastreable. Cada sitio de
-      esta lista tiene su propio mapa del sitio (sitemap), sus etiquetas canónicas, sus datos estructurados y
-      una estructura de URL limpia, y su propiedad se registra en Google Search Console para seguimiento. La
-      guía de Google lo describe sin rodeos: los rastreadores descubren las páginas, las analizan y deciden si
-      las incorporan a su índice. Si el sitio cumple esos requisitos técnicos, puede aparecer; si no, no aparece
-      aunque el diseño sea bonito.
-    </p>
-    <p>
-      Tampoco se promete posición. Estar indexado significa que la página puede mostrarse; la posición que
-      ocupe depende de la relevancia del contenido, de la competencia local y de las señales de cada negocio,
-      como las reseñas y la consistencia de su ficha. Ese trabajo de base —
-      <a href="/guias/que-es-presencia-digital/">Presencia digital</a> — es el orden que seguimos en cada publicación.
-    </p>
-
-    <h2>Cómo se construye cada sitio</h2>
-    <p>
-      Los nueve sitios salen del mismo proceso: contenido del negocio, maquetación con encabezados ordenados,
-      revisión de textos, publicación y verificación. Lo que cambia es la identidad y el rubro; la base
-      técnica es la misma en todos.
-    </p>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Componente</th>
-          <th>Qué hace en el sitio</th>
-          <th>Cuándo se revisa</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Título y meta descripción</td>
-          <td>Es lo que Google muestra en el resultado de búsqueda</td>
-          <td>Al publicar y en cada cambio de contenido</td>
-        </tr>
-        <tr>
-          <td>Encabezados H1, H2 y H3</td>
-          <td>Ordenan la página para lectores y rastreadores</td>
-          <td>Al publicar, con aprobación del cliente</td>
-        </tr>
-        <tr>
-          <td>URL limpias y HTTPS</td>
-          <td>Direcciones legibles y conexión cifrada</td>
-          <td>En cada publicación y migración</td>
-        </tr>
-        <tr>
-          <td>Datos estructurados (schema)</td>
-          <td>Dan contexto sobre el negocio, sus servicios y sus artículos</td>
-          <td>Al publicar y al ampliar secciones</td>
-        </tr>
-        <tr>
-          <td>Mapa del sitio (sitemap)</td>
-          <td>Lista las páginas vigentes para que Google las rastree</td>
-          <td>Se genera con el sitio y se envía a Search Console</td>
-        </tr>
-        <tr>
-          <td>Imágenes con texto alternativo</td>
-          <td>Describen cada imagen a buscadores y a lectores de pantalla</td>
-          <td>Con cada carga de material</td>
-        </tr>
-        <tr>
-          <td>Peso y velocidad de página</td>
-          <td>Menos espera en celular y mejor experiencia de uso</td>
-          <td>En la publicación y en cada actualización</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Indexación y Search Console</h2>
-    <p>
-      Search Console es la herramienta gratuita con la que se confirma que Google ya conoce un sitio: permite
-      enviar el sitemap, inspeccionar una URL concreta y ver si hay problemas de cobertura. La usamos para
-      verificar cada publicación y para avisarte si algo deja de rastrearse. Si quieres medir el rendimiento
-      por tu cuenta, pide el acceso a la propiedad de Search Console y compartimos los datos contigo.
-    </p>
-    <p>
-      Cuando un sitio no aparece, primero se revisa el estado técnico: que no haya etiqueta noindex, que el
-      sitemap responda y que la URL se pueda inspeccionar. Solo después se habla de posicionamiento. Consulta
-      <a href="https://search.google.com/search-console/about?hl=es" target="_blank" rel="noopener">qué hace Google Search Console</a>
-      y cómo Google entiende tu página.
-    </p>
-
-    <h2>Cómo pedir un sitio parecido</h2>
-    <p>
-      Escríbenos por <a href="/contacto/">contacto</a> con el nombre de tu negocio, tu municipio y lo que
-      quieres lograr: aparecer en el mapa, que te encuentren por WhatsApp o vender catálogo. Primero te
-      mostramos una demo de tu negocio; si te convence, publicamos. Antes puedes revisar entregas anteriores
-      en <a href="/portfolio/">portfolio</a>, ver qué incluye cada plan en <a href="/precios/">precios</a> y
-      comparar opciones en <a href="/comparativas/">comparativas</a>.
-    </p>
-    <p>
-      Si prefieres entender el trabajo antes de pedir nada, empieza por la
-      <a href="/guias/que-es-presencia-digital/">guía de presencia digital</a> o resuelve las dudas más comunes en
-      <a href="/preguntas/">preguntas frecuentes</a>. Ambas rutas explican el mismo proceso que aplicamos en
-      estos nueve sitios.
-    </p>
-  </section>
-
-  <section class="section map-principles">
-    <div class="wrap">
-      <p class="eyebrow">UNA WEB QUE SE ADAPTA A TI</p>
-      <h2>Una presencia clara para <em>cada negocio.</em></h2>
-      <div class="feature-grid feature-grid-three">
-        <article><b>01</b><h3>Identidad propia</h3><p>Cada sitio parte de tu negocio real: tu tono, tus fotos y la forma en que atiendes a tus clientes.</p></article>
-        <article><b>02</b><h3>Indexable y compartible</h3><p>URL limpia, sitemap y datos estructurados listos para el rastreo — fácil de mandar por WhatsApp, redes, QR o tarjeta.</p></article>
-        <article><b>03</b><h3>Administrada por Presentto</h3><p>Nosotros la mantenemos publicada y operando según el alcance acordado. Tú no tocas el servidor.</p></article>
-      </div>
-      <div class="guide-cta guide-cta-tight">
-        <a
-          class="button primary"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-          target="_blank"
-          rel="noopener"
-        >
-          Quiero un sitio así para mi negocio <span>↗</span>
+    <div class="client-grid" data-stagger>
+      {sites.map((site, i) => (
+        <a class="client-card reveal" href={site.url} target="_blank" rel="noopener noreferrer">
+          <span class="client-index">{String(i + 1).padStart(2, '0')} · EN VIVO</span>
+          <strong>{site.name}</strong>
+          <code>{site.host}</code>
+          <span class="muted">{siteNotes[site.name]}</span>
+          <span class="client-go">Visitar sitio <span>↗</span></span>
         </a>
+      ))}
+    </div>
+    <p class="stack-note">
+      Las descripciones de la lista toman el título de cada sitio publicado en su subdominio. Todos
+      se publican en la infraestructura administrada de Presentto con indexación, sitemap y datos
+      estructurados listos para el rastreo de Google: cada sitio conserva su identidad y muestra
+      una aplicación distinta de la misma base técnica.
+    </p>
+  </section>
+
+  <section class="section wrap">
+    <div class="prose">
+      <h2>Qué son los sitios de esta lista</h2>
+      <p class="snippet">
+        Cada sitio vive en un subdominio de presentto.online: botane.presentto.online,
+        kspr.presentto.online y así con los nueve. Es la misma infraestructura administrada de
+        Presentto, con instalación propia, contenido propio e identidad propia.
+      </p>
+      <p>
+        No son demostraciones de plantilla ni páginas de prueba. Son sitios en producción que su
+        público abre desde un enlace de WhatsApp, un código QR o una tarjeta impresa. Compartimos el
+        hospedaje, los certificados y el mantenimiento; no compartimos el contenido. El subdominio
+        es la vía para publicar sin que el negocio tenga que comprar servidores ni aprender a
+        configurarlos.
+      </p>
+      <p>
+        Sirven también para que veas el trabajo antes de contratar. Entra a cualquiera, mírale la
+        velocidad en el celular, la jerarquía de encabezados, el HTTPS y cómo se ve el resultado de
+        búsqueda en Google. Si lo que ves encaja con tu negocio, agenda tu sesión 1 y ve tu web
+        antes de pagar: pídelo en <a href="/contacto/">contacto</a>.
+      </p>
+
+      <h2>Por qué están indexados</h2>
+      <p>
+        Que un sitio esté en Google no es un favor: es el resultado de publicar algo rastreable. Cada
+        sitio de esta lista tiene su propio mapa del sitio (sitemap), sus etiquetas canónicas, sus
+        datos estructurados y una estructura de URL limpia, y su propiedad se registra en Google
+        Search Console para seguimiento. La guía de Google lo describe sin rodeos: los rastreadores
+        descubren las páginas, las analizan y deciden si las incorporan a su índice. Si el sitio
+        cumple esos requisitos técnicos, puede aparecer; si no, no aparece aunque el diseño sea
+        bonito.
+      </p>
+      <p>
+        Tampoco se promete posición. Estar indexado significa que la página puede mostrarse; la
+        posición que ocupe depende de la relevancia del contenido, de la competencia local y de las
+        señales de cada negocio, como las reseñas y la consistencia de su ficha. Ese trabajo de base
+        — <a href="/guias/que-es-presencia-digital/">Presencia digital</a> — es el orden que
+        seguimos en cada publicación.
+      </p>
+
+      <h2>Cómo se construye cada sitio</h2>
+      <p>
+        Los nueve sitios salen del mismo proceso: contenido del negocio, maquetación con
+        encabezados ordenados, revisión de textos, publicación y verificación. Lo que cambia es la
+        identidad y el rubro; la base técnica es la misma en todos.
+      </p>
+      <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th scope="col">Componente</th>
+              <th scope="col">Qué hace en el sitio</th>
+              <th scope="col">Cuándo se revisa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Título y meta descripción</td>
+              <td>Es lo que Google muestra en el resultado de búsqueda</td>
+              <td>Al publicar y en cada cambio de contenido</td>
+            </tr>
+            <tr>
+              <td>Encabezados H1, H2 y H3</td>
+              <td>Ordenan la página para lectores y rastreadores</td>
+              <td>Al publicar, con aprobación del cliente</td>
+            </tr>
+            <tr>
+              <td>URL limpias y HTTPS</td>
+              <td>Direcciones legibles y conexión cifrada</td>
+              <td>En cada publicación y migración</td>
+            </tr>
+            <tr>
+              <td>Datos estructurados (schema)</td>
+              <td>Dan contexto sobre el negocio, sus servicios y sus artículos</td>
+              <td>Al publicar y al ampliar secciones</td>
+            </tr>
+            <tr>
+              <td>Mapa del sitio (sitemap)</td>
+              <td>Lista las páginas vigentes para que Google las rastree</td>
+              <td>Se genera con el sitio y se envía a Search Console</td>
+            </tr>
+            <tr>
+              <td>Imágenes con texto alternativo</td>
+              <td>Describen cada imagen a buscadores y a lectores de pantalla</td>
+              <td>Con cada carga de material</td>
+            </tr>
+            <tr>
+              <td>Peso y velocidad de página</td>
+              <td>Menos espera en celular y mejor experiencia de uso</td>
+              <td>En la publicación y en cada actualización</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
+      <h2>Indexación y Search Console</h2>
+      <p>
+        Search Console es la herramienta gratuita con la que se confirma que Google ya conoce un
+        sitio: permite enviar el sitemap, inspeccionar una URL concreta y ver si hay problemas de
+        cobertura. La usamos para verificar cada publicación y para avisarte si algo deja de
+        rastrearse. Si quieres medir el rendimiento por tu cuenta, pide el acceso a la propiedad de
+        Search Console y compartimos los datos contigo.
+      </p>
+      <p>
+        Cuando un sitio no aparece, primero se revisa el estado técnico: que no haya etiqueta
+        noindex, que el sitemap responda y que la URL se pueda inspeccionar. Solo después se habla
+        de posicionamiento. Consulta
+        <a href="https://search.google.com/search-console/about?hl=es" target="_blank" rel="noopener">qué hace Google Search Console</a>
+        y cómo Google entiende tu página.
+      </p>
+
+      <h2>Cómo pedir un sitio parecido</h2>
+      <p>
+        Escríbenos por <a href="/contacto/">contacto</a> con el nombre de tu negocio, tu municipio y
+        lo que quieres lograr: aparecer en el mapa, que te encuentren por WhatsApp o vender
+        catálogo. Primero agendamos la sesión 1 y construimos una demo con la información de tu
+        negocio; la ves, pides cambios y solo pagas si te convence. Antes puedes revisar entregas
+        anteriores en <a href="/portfolio/">portfolio</a>, ver qué incluye cada plan en
+        <a href="/precios/">precios</a> y comparar opciones en <a href="/comparativas/">comparativas</a>.
+      </p>
+      <p>
+        Si prefieres entender el trabajo antes de pedir nada, empieza por la
+        <a href="/guias/que-es-presencia-digital/">guía de presencia digital</a> o resuelve las
+        dudas más comunes en <a href="/preguntas/">preguntas frecuentes</a>. Ambas rutas explican
+        el mismo proceso que aplicamos en estos nueve sitios.
+      </p>
     </div>
   </section>
+
+  <section class="section wrap">
+    <div class="section-head center">
+      <p class="eyebrow">UNA WEB QUE SE ADAPTA A TI</p>
+      <h2 data-split>Una presencia clara para <em>cada negocio.</em></h2>
+      <p class="lead">
+        La misma base técnica aplicada a tu caso: tu tono, tus fotos y tu forma de atender, con una
+        URL que se puede mandar por WhatsApp, redes, QR o tarjeta.
+      </p>
+    </div>
+    <div class="card-grid cols-3" data-stagger>
+      <article class="card reveal" data-tilt="6">
+        <p class="eyebrow">01</p>
+        <h3>Identidad propia</h3>
+        <p>Cada sitio parte de tu negocio real: tu tono, tus fotos y la forma en que atiendes a tus clientes.</p>
+      </article>
+      <article class="card reveal" data-tilt="6">
+        <p class="eyebrow">02</p>
+        <h3>Indexable y compartible</h3>
+        <p>URL limpia, sitemap y datos estructurados listos para el rastreo — fácil de mandar por WhatsApp, redes, QR o tarjeta.</p>
+      </article>
+      <article class="card reveal" data-tilt="6">
+        <p class="eyebrow">03</p>
+        <h3>Administrada por Presentto</h3>
+        <p>Nosotros la mantenemos publicada y operando según el alcance acordado. Tú no tocas el servidor.</p>
+      </article>
+    </div>
+  </section>
+
+  <FinalCta
+    eyebrow="PUBLICA EL TUYO"
+    title="Un sitio así también <em>para tu negocio.</em>"
+    note="Sesión 1 de 30 min por Google Meet · Primero ves tu web; decides después"
+  />
 </BaseLayout>

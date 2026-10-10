@@ -1,0 +1,49 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  published?: string;
+  modified?: string;
+  toc?: boolean;
+  tocLabel?: string;
+}
+const {
+  eyebrow,
+  title,
+  lead,
+  published,
+  modified,
+  toc = true,
+  tocLabel = 'En esta guía',
+} = Astro.props;
+
+const fmt = (iso?: string) =>
+  iso
+    ? new Date(iso).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
+    : '';
+---
+
+<section class="section wrap article-header">
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h1 data-split>{title}</h1>
+  {lead && <p class="lead">{lead}</p>}
+  {(published || modified) && (
+    <p class="article-meta">
+      {published && <span>Publicado: {fmt(published)}</span>}
+      {modified && <span>Actualizado: {fmt(modified)}</span>}
+      <span>Presentto Online</span>
+    </p>
+  )}
+</section>
+
+<div class:list={['wrap', 'article-layout', { 'with-toc': toc }]}>
+  {toc && (
+    <nav class="article-toc" data-toc aria-label={tocLabel}>
+      <small>{tocLabel}</small>
+    </nav>
+  )}
+  <div class="article-main prose">
+    <slot />
+  </div>
+</div>

@@ -1,14 +1,52 @@
 ---
+import { ctaSession, waDirect } from '../data/business';
+
 const year = new Date().getFullYear();
-const demoUrl =
-  'https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio';
+
+const cols = [
+  {
+    title: 'Explora',
+    links: [
+      { href: '/servicios/', label: 'Servicios' },
+      { href: '/precios/', label: 'Precios' },
+      { href: '/portfolio/', label: 'Portafolio' },
+      { href: '/sitios/', label: 'Sitios publicados' },
+      { href: '/contacto/', label: 'Contacto' },
+    ],
+  },
+  {
+    title: 'Recursos',
+    links: [
+      { href: '/guias/', label: 'Guías' },
+      { href: '/preguntas/', label: 'Preguntas frecuentes' },
+      { href: '/comparativas/', label: 'Comparativas' },
+      { href: '/nosotros/', label: 'Nosotros' },
+    ],
+  },
+  {
+    title: 'Cerca de ti',
+    links: [
+      { href: '/funza/', label: 'Web en Funza' },
+      { href: '/mosquera/', label: 'Web en Mosquera' },
+      { href: '/madrid/', label: 'Web en Madrid' },
+      { href: '/facatativa/', label: 'Web en Facatativá' },
+    ],
+  },
+];
+
+const socials = [
+  { href: 'https://www.tiktok.com/@presenttonline', label: 'TikTok' },
+  { href: 'https://www.instagram.com/presenttonline', label: 'Instagram' },
+  { href: 'https://www.facebook.com/PresenttoOnline', label: 'Facebook' },
+];
 ---
 
 <footer aria-label="Pie de página">
   <p class="managed-by wrap">
-    Web administrada y presencia digital · Demo gratis desde $40.000 COP/mes · Servicio
-    operado por Soverath Holding S.A.S. con respaldo de Aeperion Systems.
+    Web administrada y presencia digital · MVO desde $15.000 COP/mes · Servicio operado por
+    Soverath Holding S.A.S. con respaldo de Aeperion Systems.
   </p>
+
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <a class="brand" href="/" aria-label="Presentto Online">
@@ -21,42 +59,41 @@ const demoUrl =
           decoding="async"
         />
       </a>
-      <a class="footer-demo" href={demoUrl} target="_blank" rel="noopener">Pedir demo gratis ↗</a>
+      <p>
+        Presencia digital administrada para negocios de Colombia: diseño, textos, hosting y
+        asesoría en 3 sesiones.
+      </p>
+      <a class="btn btn-dark btn-sm" href={ctaSession} target="_blank" rel="noopener">
+        Agendar mi sesión 1 <span>↗</span>
+      </a>
     </div>
-    <div>
-      <small>EXPLORA</small>
-      <a href="/servicios/">Servicios</a>
-      <a href="/precios/">Precios</a>
-      <a href="/portfolio/">Portafolio</a>
-      <a href="/guias/">Guías</a>
-      <a href="/comparativas/">Comparativas</a>
-      <a href="/sitios/">Sitios publicados</a>
-      <a href="/contacto/">Contacto</a>
-    </div>
-    <div>
-      <small>GUÍAS</small>
-      <a href="/guias/que-es-presencia-digital/">Guía de presencia digital</a>
-      <a href="/funza/">Web en Funza</a>
-      <a href="/mosquera/">Web en Mosquera</a>
-      <a href="/madrid/">Web en Madrid</a>
-      <a href="/facatativa/">Web en Facatativá</a>
-    </div>
-    <div>
-      <small>HABLEMOS</small>
-      <a href="https://wa.me/573236487336" target="_blank" rel="noopener">+57 323 648 7336</a>
+
+    {cols.map((col) => (
+      <div class="footer-col">
+        <small>{col.title}</small>
+        {col.links.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+      </div>
+    ))}
+
+    <div class="footer-col">
+      <small>Hablemos</small>
+      <a href={waDirect} target="_blank" rel="noopener">+57 323 648 7336</a>
       <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>
-      <a href="https://www.tiktok.com/@presenttonline" target="_blank" rel="noopener">TikTok @presenttonline</a>
-      <a href="https://www.instagram.com/presenttonline" target="_blank" rel="noopener">Instagram @presenttonline</a>
-      <a href="https://www.facebook.com/PresenttoOnline" target="_blank" rel="noopener">Facebook Presentto Online</a>
+      {socials.map((s) => (
+        <a href={s.href} target="_blank" rel="noopener">{s.label} @presenttonline</a>
+      ))}
     </div>
   </div>
-  <div class="footer-info">
-    <small>INFORMACIÓN</small>
-    <a href="/nosotros/">Nosotros</a>
-    <a href="/preguntas/">Preguntas frecuentes</a>
-    <a href="/privacidad/">Privacidad</a>
-    <a href="/terminos/">Términos</a>
-    <a href="/cookies/">Cookies</a>
+
+  <div class="wrap footer-bottom">
+    <div class="footer-legal">
+      <a href="/privacidad/">Privacidad</a>
+      <a href="/terminos/">Términos</a>
+      <a href="/cookies/">Cookies</a>
+      <a href="/sitios/">Mapa del sitio</a>
+    </div>
+    <p class="footer-copy">© {year} Presentto Online · Colombia</p>
   </div>
-  <div class="wrap copyright">© {year} Presentto Online · Colombia</div>
 </footer>

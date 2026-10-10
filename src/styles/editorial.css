@@ -1,0 +1,287 @@
+/* ==========================================================================
+   Presentto Online — Editorial: guías y artículos (serif, revista premium)
+   ========================================================================== */
+
+.article-layout {
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
+.article-header {
+  padding-bottom: clamp(8px, 2vw, 18px);
+}
+.article-header h1 {
+  max-width: 20ch;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  font-weight: var(--fw-black);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.06;
+}
+.article-header .lead {
+  max-width: 62ch;
+  margin-top: 18px;
+}
+.article-toc {
+  display: none;
+}
+.prose {
+  color: var(--ink-2);
+  font-family: var(--font-serif);
+  font-size: clamp(1.08rem, 2.4vw, 1.19rem);
+  line-height: 1.78;
+}
+.prose > * + * {
+  margin-top: 1.05em;
+}
+.prose p {
+  margin-bottom: 0;
+}
+.prose a {
+  color: var(--orange-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(241, 90, 36, 0.45);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--dur-fast) ease;
+}
+.prose a:hover {
+  text-decoration-color: var(--orange);
+}
+.prose h2,
+.prose h3 {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+.prose h2 {
+  margin-top: 2.1em;
+  margin-bottom: 0.55em;
+  font-size: clamp(1.5rem, 3.6vw, 2.1rem);
+}
+.prose h3 {
+  margin-top: 1.7em;
+  margin-bottom: 0.5em;
+  font-size: clamp(1.16rem, 2.6vw, 1.4rem);
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.35rem;
+}
+.prose li {
+  margin-bottom: 0.5em;
+}
+.prose li::marker {
+  color: var(--orange);
+  font-weight: 700;
+}
+.prose strong {
+  font-weight: 700;
+}
+.prose blockquote,
+.prose .pullquote {
+  margin: 1.8em 0;
+  padding: 1.2em 1.4em;
+  border: 0;
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: rgba(255, 253, 249, 0.85);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2.6vw, 1.28rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+.prose .pullquote::before {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--orange);
+  content: "“";
+  font-size: 2.4rem;
+  line-height: 0.6;
+}
+.prose .snippet {
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+}
+.prose .table-scroll {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+}
+.prose .guide-cta,
+.prose .silo-related {
+  font-family: var(--font-sans);
+}
+.prose img {
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+}
+.prose code {
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  background: var(--orange-tint);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+}
+.prose hr {
+  height: 1px;
+  margin: 2.4em 0;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+}
+
+/* Meta editorial */
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+}
+.article-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.article-meta span::before {
+  color: var(--orange);
+  content: "•";
+}
+.article-meta span:first-child::before {
+  display: none;
+}
+
+/* TOC sticky (desktop) */
+.article-toc {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: rgba(255, 253, 249, 0.75);
+  backdrop-filter: var(--blur-sm);
+}
+.article-toc small {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--orange-aa);
+  font-family: var(--font-sans);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-black);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.article-toc ol {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  counter-reset: toc;
+  list-style: none;
+}
+.article-toc li {
+  counter-increment: toc;
+}
+.article-toc a {
+  display: flex;
+  gap: 8px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  transition: color var(--dur-fast) ease, transform var(--dur-fast) var(--ease);
+}
+.article-toc a::before {
+  color: var(--orange);
+  content: counter(toc, decimal-leading-zero);
+  font-size: 0.66rem;
+  font-weight: var(--fw-black);
+  padding-top: 2px;
+}
+.article-toc a:hover,
+.article-toc a.is-current {
+  color: var(--orange-deep);
+  transform: translateX(3px);
+}
+
+/* CTA inline dentro del artículo */
+.article-cta {
+  margin: 2.4em 0;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid rgba(241, 90, 36, 0.3);
+  border-radius: var(--r-lg);
+  background: linear-gradient(140deg, var(--orange-tint), rgba(255, 253, 249, 0.95));
+  font-family: var(--font-sans);
+  text-align: center;
+}
+.article-cta strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  font-weight: var(--fw-black);
+  letter-spacing: -0.02em;
+}
+.article-cta p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+
+/* Author box */
+.author-box {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 2.4rem;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: rgba(255, 253, 249, 0.8);
+  font-family: var(--font-sans);
+}
+.author-box .author-avatar {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(150deg, var(--orange), var(--orange-aa));
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: var(--fw-black);
+}
+.author-box strong {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: var(--fw-black);
+}
+.author-box p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+}
+.author-box a {
+  color: var(--orange-deep);
+  text-decoration: underline;
+}
+
+@media (min-width: 1060px) {
+  .article-layout.with-toc {
+    grid-template-columns: 250px minmax(0, 1fr);
+    align-items: start;
+  }
+  .article-layout.with-toc .article-toc {
+    display: block;
+    position: sticky;
+    top: calc(var(--header-h) + 28px);
+  }
+  .article-layout.with-toc .article-main {
+    max-width: 720px;
+  }
+}

@@ -3,11 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
 import PlansGrid from '../components/PlansGrid.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { ctaSession } from '../data/business';
+
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Servicios' }];
 
 const title = 'Servicios de web administrada | Presentto';
 const description =
-  'Web administrada, dominio propio, correo profesional y presencia digital desde $40.000 COP/mes. Demo gratis antes de pagar.';
+  'Web administrada desde $15.000 COP/mes (MVO) o con dominio propio desde $40.000. Diseño a gusto, 3 sesiones por Google Meet y administración incluida.';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -22,6 +26,8 @@ const serviceSchema = {
   ],
   serviceType: 'Diseño y administración de páginas web',
   offers: [
+    { '@type': 'Offer', name: 'MVO Mensual', price: '15000', priceCurrency: 'COP', url: 'https://mpago.li/1iJFAwE' },
+    { '@type': 'Offer', name: 'MVO Anual', price: '120000', priceCurrency: 'COP', url: 'https://mpago.li/113CYVC' },
     { '@type': 'Offer', name: '1 mes', price: '40000', priceCurrency: 'COP', url: 'https://mpago.li/2j4gTPj' },
     { '@type': 'Offer', name: '3 meses', price: '100000', priceCurrency: 'COP', url: 'https://mpago.li/17JYVwX' },
     { '@type': 'Offer', name: '6 meses', price: '190000', priceCurrency: 'COP', url: 'https://mpago.li/1j4eF1j' },
@@ -57,15 +63,15 @@ const clientsSchema = {
 const faqs = [
   {
     q: '¿Qué incluye la Presenttación Digital?',
-    a: 'Todo lo esencial para existir en internet y verte profesional: web con tu contenido, dominio propio, correo profesional, códigos QR, ajustes durante el plan y administración por Presentto. Desde $40.000 COP/mes, IVA incluido.',
+    a: 'Todo lo esencial para existir en internet y verte profesional: web con tu contenido, diseño a gusto, 3 sesiones por Google Meet, dominio propio y correo profesional en los planes tradicionales (o subdominio en MVO), códigos QR, ajustes durante el plan y administración por Presentto.',
   },
   {
     q: '¿Cuánto cuesta y cómo se paga?',
-    a: 'Planes de prepago: 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP, todos con IVA incluido. Es un pago único por el plazo elegido vía Mercado Pago, sin suscripción automática. Puedes pedir tu demo gratis antes de pagar.',
+    a: 'MVO: mensual $15.000 · anual $120.000 COP. Dominio propio: 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP, todos con IVA incluido. Es prepago por plazo vía Mercado Pago, sin suscripción automática. Agendas tu sesión 1 antes de pagar.',
   },
   {
     q: '¿Qué incluye el dominio y correo profesional?',
-    a: 'La Presenttación Digital incluye el dominio propio tuempresa.online y 1 correo profesional @tuempresa.online. Si ya tienes un dominio, puedes aportarlo sin costo adicional.',
+    a: 'Los planes con dominio propio incluyen tu dominio tuempresa.online y 1 correo profesional @tuempresa.online. Si ya tienes un dominio, puedes aportarlo sin costo adicional. El MVO opera en subdominio cliente.presentto.online para mantener el costo bajo.',
   },
   {
     q: '¿Cómo preparan mi web para que me encuentren en Google?',
@@ -77,150 +83,131 @@ const faqs = [
   },
   {
     q: '¿Puedo ver una demo antes de pagar?',
-    a: 'Sí, y es lo recomendado. Solicitas la demo web de tu negocio sin abono y sin compromiso; la ves, pides cambios y solo pagas cuando decides contratar el plan que prefieras.',
+    a: 'Sí, y es lo recomendado. Agenda tu Sesión 1 por WhatsApp: construimos la web con la información de tu negocio, la ves, pides cambios y solo pagas cuando decides contratar el plan que prefieras.',
   },
 ];
-// FAQPage: solo las preguntas exclusivas de esta página (las compartidas con
-// /preguntas/ tienen el schema canónico ahí para no duplicar FAQPage en el sitio)
 ---
 
 <BaseLayout title={title} description={description} path="/servicios/" breadcrumbs={crumbs} plansOffers={true} jsonld={[serviceSchema, clientsSchema]}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">SERVICIOS PRESENTTO</p>
-    <img
-      class="page-logo"
-      src="/assets/img/Presentto-Slogan-Fondo-Transparente.webp"
-      alt="Tu negocio en internet. Sin complicaciones."
-      width="280"
-      height="108"
-      fetchpriority="high"
-      decoding="async"
-    />
-    <h1>Tu web profesional, <em>sin agencia tradicional.</em></h1>
-    <p class="lead">
-      Presenttación Digital: web administrada con dominio, correo y presencia clara para que tus
-      clientes te encuentren en Google. Entrega en pocos días hábiles; demo gratis antes de pagar.
-    </p>
-    <div class="actions">
-      <a
-        class="button primary"
-        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-        target="_blank"
-        rel="noopener"
-      >
-        Pedir mi demo gratis <span>↗</span>
+  <PageHero
+    eyebrow="SERVICIOS PRESENTTO"
+    title="Tu web profesional, <em>sin agencia tradicional.</em>"
+    lead="Presenttación Digital: web administrada con diseño a tu gusto, presencia clara en Google y acompañamiento por Google Meet. Elige MVO en subdominio desde $15.000/mes o tu dominio propio desde $40.000. Entrega en pocos días hábiles; ves tu web antes de pagar."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
       </a>
-      <a class="button ghost" href="#planes">Ver planes <span>↓</span></a>
-    </div>
-  </section>
+      <a class="btn btn-ghost" href="#planes">Ver planes <span>↓</span></a>
+    </Fragment>
+    <Fragment slot="meta">
+      <span class="tag">Diseño a gusto</span>
+      <span class="tag">3 sesiones Meet</span>
+      <span class="tag">Dominio y correo opcionales</span>
+      <span class="tag">Administración incluida</span>
+    </Fragment>
+  </PageHero>
 
-  <section class="section services-section">
-    <div class="wrap service-list">
-      <article class="service-card service-main">
-        <div class="service-number">01</div>
-        <div>
-          <p class="eyebrow">SERVICIO PRINCIPAL</p>
-          <h2>Presenttación <em>Digital</em></h2>
-          <p>
-            Recibes una web lista para vender, construida desde el día uno con estructura clara: meta títulos,
-            meta descripciones, encabezados jerárquicos, enlaces internos, imágenes comprimidas y datos
-            estructurados. Nosotros construimos, publicamos y ajustamos contigo. Sin plugins, sin hosting
-            que administrar y sin pelear con herramientas.
-          </p>
-          <ul>
-            <li>Creación personalizada con tus imágenes, tu estilo y tu contenido real.</li>
-            <li>Dominio propio incluido: <strong>tuempresa.online</strong>.</li>
-            <li>1 correo profesional: <strong>@tuempresa.online</strong>.</li>
-            <li>Metas, H1–H3, enlaces internos y URLs limpias.</li>
-            <li>Estructura lista para búsquedas de tu zona y “cerca de mí”.</li>
-            <li>Orientación de tu ficha de Google: categorías y datos coherentes.</li>
-            <li>Velocidad y Core Web Vitals: que tu cliente cargue rápido.</li>
-            <li>Sitemap XML, robots.txt e indexación listos al publicar.</li>
-            <li>Códigos QR para llevar tráfico del punto de venta a tu web.</li>
-            <li>Sin permanencia: eliges el plan y decides si renuevas al finalizarlo.</li>
-          </ul>
-        </div>
-        <div class="service-price">
-          <strong>desde $40.000</strong>
-          <span>COP / mes · IVA incluido</span>
-          <a
-            class="button primary"
-            href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-            target="_blank"
-            rel="noopener"
-          >
-            Demo gratis <span>↗</span>
-          </a>
-        </div>
-      </article>
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">SERVICIO PRINCIPAL</p>
+        <h2 data-split>Presenttación <em>Digital</em></h2>
+      </div>
+      <p class="lead">
+        Una sola oferta, dos modalidades de infraestructura. Nosotros construimos, publicamos y
+        administramos; tú apruebas en cada sesión. Sin plugins, sin hosting que administrar y sin
+        pelear con herramientas.
+      </p>
+    </div>
+    <div class="infra-box service-panel reveal">
+      <div>
+        <h3 class="infra-title">Web lista para vender, construida con estructura real</h3>
+        <p class="infra-copy">
+          Desde el día uno: meta títulos, meta descripciones, encabezados jerárquicos, enlaces
+          internos, imágenes comprimidas y datos estructurados. Ajustes de contenido y diseño
+          coordinados en las sesiones, más soporte por WhatsApp en horario hábil.
+        </p>
+        <ul class="feature-list">
+          <li>Creación personalizada con tus imágenes, tu estilo y tu contenido real.</li>
+          <li>Diseño adaptado a tu rubro: landing o multipágina según lo que vendas.</li>
+          <li>3 sesiones por Google Meet: información, muestra con correcciones y entrega.</li>
+          <li>Metas, H1–H3, enlaces internos y URLs limpias.</li>
+          <li>Estructura lista para búsquedas de tu zona y “cerca de mí”.</li>
+          <li>Orientación de tu ficha de Google: categorías y datos coherentes.</li>
+          <li>Velocidad y Core Web Vitals: que tu cliente cargue rápido.</li>
+          <li>Sitemap XML, robots.txt e indexación listos al publicar.</li>
+          <li>Códigos QR para llevar tráfico del punto de venta a tu web.</li>
+          <li>Sin permanencia: eliges el plan y decides si renuevas al finalizarlo.</li>
+        </ul>
+      </div>
+      <aside class="service-price">
+        <p class="eyebrow">MVO · SUBDOMINIO</p>
+        <strong>desde $15.000</strong>
+        <span>COP / mes · IVA incluido</span>
+        <p class="infra-copy">
+          Con dominio propio y correo profesional desde <strong>$40.000/mes</strong> de prepago.
+        </p>
+        <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+          Agendar mi sesión 1 <span>↗</span>
+        </a>
+        <a class="btn btn-ghost btn-sm" href="#planes">Comparar planes <span>↓</span></a>
+      </aside>
     </div>
   </section>
 
   <PlansGrid id="planes" heading={true} />
 
-  <section class="section clients-section">
-    <div class="wrap">
-      <p class="eyebrow">SITIOS PUBLICADOS CON PRESENTTO</p>
-      <h2>Negocios y proyectos <em>ya publicados.</em></h2>
-      <p class="clients-intro">
-        Sitios reales, construidos y publicados en <strong>*.presentto.online</strong>. Cada uno con su
-        identidad, su rubro y sus clientes. Tócalos y compáralos con lo que hoy tienes tú.
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">SITIOS PUBLICADOS CON PRESENTTO</p>
+        <h2 data-split>Negocios y proyectos <em>ya publicados.</em></h2>
+      </div>
+      <p class="lead">
+        Sitios reales, construidos y publicados en <strong>*.presentto.online</strong>. Cada uno con
+        su identidad, su rubro y sus clientes. Ábrelos y compáralos con lo que hoy tienes tú.
       </p>
-      <div class="client-grid">
-        {clientSites.map((site, i) => (
-          <a class="client-card" href={site.url} target="_blank" rel="noopener noreferrer">
-            <span class="client-index">{String(i + 1).padStart(2, '0')} · CLIENTE</span>
-            <strong>{site.name}</strong>
-            <code>{site.host}</code>
-            <span class="client-go">Visitar sitio <span>↗</span></span>
-          </a>
-        ))}
-      </div>
-      <div class="guide-cta guide-cta-tight">
-        <a class="button ghost" href="/sitios/">Ver todos los sitios publicados <span>↗</span></a>
-      </div>
     </div>
+    <div class="client-grid" data-stagger>
+      {clientSites.map((site, i) => (
+        <a class="client-card reveal" href={site.url} target="_blank" rel="noopener noreferrer">
+          <span class="client-index">{String(i + 1).padStart(2, '0')} · CLIENTE</span>
+          <strong>{site.name}</strong>
+          <code>{site.host}</code>
+          <span class="client-go">Visitar sitio <span>↗</span></span>
+        </a>
+      ))}
+    </div>
+    <p class="stack-note">
+      <a href="/sitios/">Ver todos los sitios publicados <span aria-hidden="true">↗</span></a>
+      · también en <a href="/portfolio/">portafolio</a>.
+    </p>
   </section>
 
-  <section class="section wrap faq-section-page">
-    <p class="eyebrow">DUDAS FRECUENTES DEL SERVICIO</p>
-    <h2>Lo esencial, <em>sin letra pequeña.</em></h2>
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">DUDAS FRECUENTES DEL SERVICIO</p>
+        <h2 data-split>Lo esencial, <em>sin letra pequeña.</em></h2>
+      </div>
+      <p class="lead">
+        Alcance, precios, dominio e indexación. Para el resto está la sesión 1 y el hub de
+        preguntas.
+      </p>
+    </div>
     <FaqList faqs={faqs} />
     <p class="stack-note">
-      ¿Otra duda? Ver <a href="/preguntas/">todas las preguntas frecuentes</a> o pídenos la
-      <a href="/contacto/">demo gratis</a>.
+      ¿Otra duda? Ver <a href="/preguntas/">todas las preguntas frecuentes</a> o
+      <a href="/contacto/">escríbenos</a>.
     </p>
-    <div class="guide-cta">
-      <a
-        class="button primary"
-        href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-        target="_blank"
-        rel="noopener"
-      >
-        Pedir mi demo gratis <span>↗</span>
-      </a>
-      &nbsp;
-      <a class="button ghost" href="/preguntas/">Ver todas las preguntas <span>↗</span></a>
-    </div>
   </section>
 
-  <section class="final-cta">
-    <div class="wrap">
-      <p class="eyebrow">EMPIEZA SIN RIESGO</p>
-      <h2>Ve tu web gratis. <em>Decide después.</em></h2>
-      <div class="actions">
-        <a
-          class="button light"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-          target="_blank"
-          rel="noopener"
-        >
-          Pedir mi demo gratis <span>↗</span>
-        </a>
-        <a class="button ghost light-ghost" href="#planes">Ver planes <span>↓</span></a>
-      </div>
-    </div>
-  </section>
+  <FinalCta
+    eyebrow="EMPIEZA SIN RIESGO"
+    title="Ve tu web antes de pagar. <em>Decide después.</em>"
+    note="Sesión 1 de 30 min por Google Meet · Te enviamos el enlace de pago recién cuando decides"
+  />
 </BaseLayout>

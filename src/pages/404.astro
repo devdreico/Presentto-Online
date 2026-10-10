@@ -1,26 +1,78 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: '404' }];
 
 const title = 'Página no encontrada | Presentto Online';
 const description =
   'La página que buscas no existe. Vuelve al inicio o explora las guías de presencia digital de Presentto Online.';
+
+const routes = [
+  {
+    tag: '01 · PLANES',
+    title: 'Planes y precios',
+    copy: 'MVO desde $15.000 COP/mes y dominio propio desde $40.000, todo con IVA incluido y sin permanencia.',
+    href: '/precios/',
+    cta: 'Ver precios',
+  },
+  {
+    tag: '02 · GUÍAS',
+    title: 'Guías de presencia digital',
+    copy: 'Aprende a aparecer en Google, a montar tu ficha de negocio y a entender cuánto cuesta una web en Colombia.',
+    href: '/guias/',
+    cta: 'Leer guías',
+  },
+  {
+    tag: '03 · TRABAJO REAL',
+    title: 'Sitios publicados',
+    copy: 'Nueve sitios en producción sobre *.presentto.online, con su rubro, su identidad y su base técnica.',
+    href: '/sitios/',
+    cta: 'Ver sitios',
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} path="/404/" breadcrumbs={crumbs} noindex={true}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">ERROR 404</p>
-    <h1>Esta página <em>no existe.</em></h1>
-    <p class="lead">
-      Puede que el enlace haya cambiado. Prueba con el inicio, las guías o el contacto.
-    </p>
-    <div class="actions">
-      <a class="button primary" href="/">Ir al inicio <span>↗</span></a>
-      <a class="button ghost" href="/guias/">Ver guías <span>↗</span></a>
-      <a class="button ghost" href="/contacto/">Contacto <span>↗</span></a>
+  <PageHero
+    eyebrow="ERROR 404"
+    title="Esta página <em>no existe.</em>"
+    lead="Puede que el enlace haya cambiado o que la página se haya movido. Vuelve al inicio, entra a las guías o escríbenos por contacto."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href="/">Ir al inicio <span>↗</span></a>
+      <a class="btn btn-ghost" href="/guias/">Ver guías <span>↗</span></a>
+      <a class="btn btn-ghost" href="/contacto/">Contacto <span>↗</span></a>
+    </Fragment>
+    <Fragment slot="meta">
+      <span class="tag">Error 404</span>
+      <span class="tag">Contenido movido</span>
+      <span class="tag">Presentto Online</span>
+    </Fragment>
+  </PageHero>
+
+  <section class="section wrap">
+    <div class="section-head center">
+      <p class="eyebrow">MIENTRAS TANTO</p>
+      <h2 data-split>Prueba por uno de estos <em>lados.</em></h2>
+      <p class="lead">
+        Los recorridos más útiles del sitio: qué cuesta, cómo funciona y qué hemos publicado ya.
+      </p>
+    </div>
+    <div class="card-grid cols-3" data-stagger>
+      {routes.map((route) => (
+        <article class="card reveal" data-tilt="6">
+          <p class="eyebrow">{route.tag}</p>
+          <h3>{route.title}</h3>
+          <p>{route.copy}</p>
+          <a class="btn btn-ghost btn-sm" href={route.href}>
+            {route.cta} <span>↗</span>
+          </a>
+        </article>
+      ))}
     </div>
   </section>
 </BaseLayout>

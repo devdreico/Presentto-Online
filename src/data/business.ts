@@ -76,3 +76,23 @@ export function usd(cop: number): string {
   const value = Math.round(cop / COP_PER_USD / 10) * 10;
   return `US$${value}`;
 }
+
+/* --------------------------------------------------------------------------
+   CTAs — fuente única de WhatsApp. Jerarquía del sitio:
+   primario = "Agendar mi sesión 1", secundario = "Ver planes".
+   -------------------------------------------------------------------------- */
+export const WA_NUMBER = '573236487336';
+
+export const WA_MESSAGES = {
+  session: 'Hola Presentto, quiero agendar mi 1ª sesión para el plan MVO',
+  demo: 'Hola Presentto, quiero agendar mi 1ª sesión para el plan MVO',
+} as const;
+
+export function wa(message: string = WA_MESSAGES.session): string {
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+/** CTA primario de todo el sitio. */
+export const ctaSession = wa(WA_MESSAGES.session);
+/** Número visible / enlace directo (sin mensaje). */
+export const waDirect = `https://wa.me/${WA_NUMBER}`;

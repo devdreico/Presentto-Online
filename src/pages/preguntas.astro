@@ -2,48 +2,55 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { waDirect } from '../data/business';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Preguntas frecuentes' }];
 
-const title = 'FAQ: planes, web administrada y demo | Presentto';
+const title = 'FAQ: MVO, planes y web administrada | Presentto';
 const description =
-  'Dudas sobre la Presenttación Digital, la demo gratis, dominio, correo y planes desde $40.000 COP.';
+  'Dudas sobre el plan MVO, la Presenttación Digital, dominio, correo y precios desde $15.000 COP/mes.';
 
 const faqs = [
   {
     q: '¿Qué incluye la Presenttación Digital?',
-    a: 'Una web lista para tu negocio con estructura clara para Google: meta títulos, meta descripciones, encabezados H1–H3, enlaces internos, datos estructurados (schema), sitemap XML, velocidad, dominio propio, correo profesional, códigos QR, ajustes durante el plan y administración por Presentto. Desde $40.000 COP/mes, IVA incluido. Sin instalaciones ni herramientas que aprender.',
+    a: 'Una web lista para tu negocio con estructura clara para Google: meta títulos, meta descripciones, encabezados H1–H3, enlaces internos, datos estructurados (schema), sitemap XML, velocidad, códigos QR, 3 sesiones por Google Meet, ajustes durante el plan y administración por Presentto. En modalidad MVO desde $15.000 COP/mes sobre subdominio; con dominio propio y correo profesional desde $40.000 COP/mes, IVA incluido. Sin instalaciones ni herramientas que aprender.',
   },
   {
     q: '¿Qué es exactamente Presentto Online?',
-    a: 'Es un servicio para crear y administrar la presencia digital de pequeños negocios: una web propia, dominio, correo profesional, QR, estructura para Google y acompañamiento durante tu plan. La marca oficial es Presentto Online; también puede aparecer escrito como “Presentto”, “Presento” o “Present to” en búsquedas.',
+    a: 'Es un servicio para crear y administrar la presencia digital de pequeños negocios: una web propia (en subdominio MVO o con tu dominio), correo profesional, QR, estructura para Google y acompañamiento por sesiones. La marca oficial es Presentto Online; también puede aparecer escrito como “Presentto”, “Presento” o “Present to” en búsquedas.',
+  },
+  {
+    q: '¿Qué es el plan MVO?',
+    a: 'MVO es la modalidad más económica: tu web vive en subdominio (cliente.presentto.online) sobre infraestructura compartida, desde $15.000 COP/mes o $120.000 al año (equivale a $10.000/mes). Incluye diseño a gusto, 3 sesiones por Google Meet, correcciones y administración. Si necesitas marca propia con dominio .com/.online y correo, usa los planes de dominio propio desde $40.000.',
   },
   {
     q: '¿Es una mensualidad o un pago único?',
-    a: 'Es prepago por plazo, no una suscripción: 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP. Pagas una sola vez el plazo que elijas (Mercado Pago, IVA incluido) y no se te cobra nada automáticamente al final.',
+    a: 'Es prepago por plazo, no una suscripción: MVO mensual $15.000 · MVO anual $120.000 · dominio propio: 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP. Pagas una sola vez el plazo que elijas (Mercado Pago, IVA incluido) y no se te cobra nada automáticamente al final.',
   },
   {
-    q: '¿Puedo ver una demo antes de pagar?',
-    a: 'Sí, y es lo recomendado. Pide tu demo web gratis sin abono y sin compromiso: la construimos con la información de tu negocio, la ves, pides cambios y solo pagas cuando decides contratar.',
+    q: '¿Puedo ver la web antes de pagar?',
+    a: 'Sí, y es lo recomendado. Agenda tu Sesión 1 por WhatsApp sin abono ni compromiso: con la información de tu negocio construimos la web, la ves, pides cambios y solo pagas cuando decides contratar.',
   },
   {
-    q: '¿Qué pasa después de pedir la demo?',
-    a: 'Nos escribes por WhatsApp o envías el formulario, nos pasas textos, fotos y datos de tu negocio, y te entregamos la demo en pocos días hábiles. Si te convence, eliges tu plan y pagas en Mercado Pago; si no, no pasa nada: no hay compromiso.',
+    q: '¿Qué pasa después de agendar la sesión 1?',
+    a: 'Nos pasas textos, fotos y datos de tu negocio en la sesión de Google Meet, y en los días siguientes ves el avance en la sesión 2 con tus correcciones. Si te convence, eliges tu plan y pagas en Mercado Pago; si no, no pasa nada: no hay compromiso.',
   },
   {
     q: '¿Qué pasa si dejo de renovar?',
-    a: 'No hay permanencia obligatoria. El plan rige por su duración (1, 3, 6 meses o 1 año) y al finalizar decides tú si continúas. Sin cargos automáticos ni multas.',
+    a: 'No hay permanencia obligatoria. El plan rige por su duración (mes, año o los plazos de dominio propio) y al finalizar decides tú si continúas. Sin cargos automáticos ni multas.',
   },
   {
     q: '¿Qué diferencia hay con contratar una agencia tradicional?',
-    a: 'Las agencias suelen cotizar sitios desde $800.000 a $3.000.000 COP más mantenimiento mensual. Presentto entrega una presencia completa (web, dominio, correo y administración) desde $40.000 COP/mes, con demo gratis y sin permanencia, pensada para negocios que necesitan empezar ya.',
+    a: 'Las agencias suelen cotizar sitios desde $800.000 a $3.000.000 COP más mantenimiento mensual. Presentto entrega una presencia completa administrada desde $15.000 COP/mes (MVO) o $40.000 con dominio propio, con sesiones guiadas y sin permanencia, pensada para negocios que necesitan empezar ya.',
   },
   {
     q: '¿Qué incluye el dominio y correo profesional?',
-    a: 'Incluimos el dominio tuempresa.online y 1 correo profesional @tuempresa.online. Si ya tienes dominio propio, lo aportas sin costo adicional del servicio.',
+    a: 'Los planes de dominio propio incluyen tu dominio tuempresa.online y 1 correo profesional @tuempresa.online. Si ya tienes un dominio, lo aportas sin costo adicional. El MVO opera en subdominio cliente.presentto.online para mantener el costo bajo.',
   },
   {
     q: '¿Puedo usar mi propio dominio?',
-    a: 'Sí. Si ya tienes un dominio, lo incorporas sin costo adicional. Si necesitas buscar y gestionar uno nuevo, se cobra únicamente el excedente del registro.',
+    a: 'Sí. Si ya tienes un dominio, lo incorporas sin costo adicional en los planes de dominio propio. Si necesitas buscar y gestionar uno nuevo, se cobra únicamente el excedente del registro.',
   },
   {
     q: '¿Cómo preparan mi web para Google?',
@@ -67,44 +74,30 @@ const faqs = [
 <BaseLayout title={title} description={description} path="/preguntas/" breadcrumbs={crumbs} faqs={faqs}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">RESPUESTAS RÁPIDAS</p>
-    <img
-      class="page-logo"
-      src="/assets/img/Presentto-Nombre-Fondo-Transparente.png"
-      alt="Presentto Online"
-      width="240"
-      height="81"
-      fetchpriority="high"
-      decoding="async"
-    />
-    <h1>Tu web, <em>planes y demo.</em></h1>
-    <p class="lead">
-      Todo sobre la Presenttación Digital, el dominio, el correo y los planes — antes de pedir tu demo.
-    </p>
+  <PageHero
+    eyebrow="RESPUESTAS RÁPIDAS"
+    title="Tu web, <em>planes y MVO.</em>"
+    lead="Todo sobre la Presenttación Digital, el plan MVO en subdominio, dominio, correo y precios — antes de agendar tu sesión 1."
+  >
+    <Fragment slot="meta">
+      <span class="tag">MVO desde $15.000/mes</span>
+      <span class="tag">Dominio propio desde $40.000</span>
+      <span class="tag">3 sesiones Google Meet</span>
+      <span class="tag">Sin permanencia</span>
+    </Fragment>
+  </PageHero>
+
+  <section class="section wrap">
+    <FaqList faqs={faqs} />
   </section>
 
-  <section class="section faq-section">
-    <div class="wrap">
-      <FaqList faqs={faqs} />
-    </div>
-  </section>
-
-  <section class="final-cta">
-    <div class="wrap">
-      <p class="eyebrow">¿AÚN TIENES DUDAS?</p>
-      <h2>Pregunta directo. <em>Sin compromiso.</em></h2>
-      <div class="actions">
-        <a
-          class="button light"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20tengo%20una%20duda%20sobre%20la%20Presenttaci%C3%B3n%20Digital"
-          target="_blank"
-          rel="noopener"
-        >
-          Escribir por WhatsApp <span>↗</span>
-        </a>
-        <a class="button ghost light-ghost" href="/contacto/">Ir a contacto <span>↗</span></a>
-      </div>
-    </div>
-  </section>
+  <FinalCta
+    eyebrow="¿AÚN TIENES DUDAS?"
+    title="Pregunta directo. <em>Sin compromiso.</em>"
+    note="Escríbenos por WhatsApp o agenda tu sesión 1 de 30 min por Google Meet"
+  >
+    <a class="btn btn-light-ghost" href={waDirect} target="_blank" rel="noopener">
+      WhatsApp directo <span>↗</span>
+    </a>
+  </FinalCta>
 </BaseLayout>

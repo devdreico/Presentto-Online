@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PageHero from '../../components/PageHero.astro';
+import FinalCta from '../../components/FinalCta.astro';
 import { guideIndex } from '../../data/site-index';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Guías' }];
 
@@ -32,77 +34,95 @@ const collectionSchema = {
 <BaseLayout title={title} description={description} path="/guias/" breadcrumbs={crumbs} jsonld={[collectionSchema]}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">RECURSOS</p>
-    <h1>Guías de presencia digital y precios web</h1>
-    <p class="lead">Contenido práctico para posicionar tu negocio y decidir con datos.</p>
-  </section>
+  <PageHero
+    eyebrow="RECURSOS"
+    title="Guías de presencia digital y precios web"
+    lead="Contenido práctico para posicionar tu negocio y decidir con datos."
+  />
 
-  <section class="section wrap guide-layout">
-    <h2>Cómo está organizado este centro de guías</h2>
+  <section class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">CÓMO ESTÁ ORGANIZADO</p>
+      <h2 data-split>Un pilar, tareas concretas <em>y decisiones de dinero.</em></h2>
+    </div>
     <p class="snippet">
       El contenido sigue una estructura de pilar, clúster y comparativas: primero la guía que explica el
       panorama completo, después guías cortas que resuelven una tarea concreta, y al final tablas para
       elegir entre opciones.
     </p>
     <p>
-      La <a href="/guias/que-es-presencia-digital/">guía de presencia digital</a> es el pilar. Todo lo demás cuelga de
-      ella: si necesitas definir el concepto, montar la ficha, salir en el mapa, gestionar reseñas o decidir
-      entre web propia y anuncios, entra directo a esa guía corta y vuelve al pilar cuando quieras el contexto. Las
-      comparativas van al final, porque solo ayudan a quien ya sabe qué necesita y está comparando
-      alternativas de contratación.
+      La <a href="/guias/que-es-presencia-digital/">guía de presencia digital</a> es el pilar. Todo lo demás
+      cuelga de ella: si necesitas definir el concepto, montar la ficha, salir en el mapa, gestionar reseñas o
+      decidir entre web propia y anuncios, entra directo a esa guía corta y vuelve al pilar cuando quieras el
+      contexto. Las comparativas van al final, porque solo ayudan a quien ya sabe qué necesita y está
+      comparando alternativas de contratación.
     </p>
+  </section>
 
-    <h2>Los tres grupos</h2>
-    <table class="compare-table">
-      <thead>
-        <tr><th>Grupo</th><th>Qué lo compone</th><th>Qué resuelve</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Pilar</td><td>1 guía larga de presencia digital</td><td>Visión completa: factores, checklist y estrategia</td></tr>
-        <tr><td>Clúster de presencia</td><td>5 guías: ficha de Google, mapas, reseñas, web vs anuncios</td><td>Una tarea concreta por guía, con pasos y ejemplos</td></tr>
-        <tr><td>Precios y comparativas</td><td>2 guías: precio de web y web administrada vs agencia</td><td>Comparar costes, plazos y control antes de contratar</td></tr>
-      </tbody>
-    </table>
+  <section class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">LOS TRES GRUPOS</p>
+      <h2 data-split>Cada grupo resuelve <em>un tipo de pregunta.</em></h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Grupo</th><th>Qué lo compone</th><th>Qué resuelve</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Pilar</td><td>1 guía larga de presencia digital</td><td>Visión completa: factores, checklist y estrategia</td></tr>
+          <tr><td>Clúster de presencia</td><td>5 guías: ficha de Google, mapas, reseñas, web vs anuncios</td><td>Una tarea concreta por guía, con pasos y ejemplos</td></tr>
+          <tr><td>Precios y comparativas</td><td>2 guías: precio de web y web administrada vs agencia</td><td>Comparar costes, plazos y control antes de contratar</td></tr>
+        </tbody>
+      </table>
+    </div>
     <p>
-      El pilar sirve para entender el terreno antes de tocar nada: qué piezas necesitas y cuáles no. El clúster resuelve tareas sueltas, una por guía: definición, ficha de Google,
-      mapas, reseñas y pauta. El grupo de precios y comparativas entra cuando ya sabes qué necesitas y toca
-      decidir con quién contratar.
-    </p>
-    <p>
-      No hace falta leerlas en orden: busca la tarea que tienes hoy y sigue desde ahí. Seis de las ocho entradas tratan presencia digital, una trata precios y la comparativa vive también en su propio
-      hub. Google explica la base de todo esto en la
+      El pilar sirve para entender el terreno antes de tocar nada. El clúster resuelve tareas sueltas, una por
+      guía. El grupo de precios entra cuando ya sabes qué necesitas y toca decidir con quién contratar. No hace
+      falta leerlas en orden: busca la tarea que tienes hoy y sigue desde ahí. Google explica la base de todo
+      esto en la
       <a href="https://developers.google.com/search/docs/fundamentals" target="_blank" rel="noopener">documentación de fundamentos de Google</a>.
     </p>
+  </section>
 
-    <h2>Todas las guías</h2>
-    <ul class="collection-list">
+  <section class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">TODAS LAS GUÍAS</p>
+      <h2 data-split>Ocho entradas, <em>una por tarea.</em></h2>
+    </div>
+    <ul class="collection-list" data-stagger>
       {guides.map((g) => (
-        <li>
+        <li class="reveal">
           <p class="eyebrow">{g.tag}</p>
-          <h2>
+          <h3>
             <a href={g.href}>{g.title}</a>
-          </h2>
+          </h3>
           <p>{g.desc}</p>
         </li>
       ))}
     </ul>
+  </section>
 
-    <h2>Por dónde empezar</h2>
+  <section class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">POR DÓNDE EMPEZAR</p>
+      <h2 data-split>Tres puntos de partida <em>según tu caso.</em></h2>
+    </div>
     <h3>Si no tienes nada (ni web ni ficha)</h3>
     <p>
-      Empieza por el pilar de <a href="/guias/que-es-presencia-digital/">presencia digital</a> para entender qué necesitas. Después monta tu ficha con la guía de
-      <a href="/guias/ficha-de-google-mi-negocio/">Google Business Profile</a>, verifica el negocio y
-      deja nombre, categoría y horarios correctos. Cuando la ficha esté lista, publica una web rápida con tus
+      Empieza por el pilar de <a href="/guias/que-es-presencia-digital/">presencia digital</a> para entender
+      qué necesitas. Después monta tu ficha con la guía de
+      <a href="/guias/ficha-de-google-mi-negocio/">Google Business Profile</a>, verifica el negocio y deja
+      nombre, categoría y horarios correctos. Cuando la ficha esté lista, publica una web rápida con tus
       servicios y zonas: sin página a la que enviar el clic, el trabajo anterior pierde la mitad del valor.
     </p>
     <h3>Si ya tienes ficha de Google</h3>
     <p>
       Tu siguiente paso no es hacer más publicaciones, sino cerrar los huecos. Revisa si apareces en el
       <a href="/guias/aparecer-en-google-maps/">pack de mapas</a>, pon en orden las reseñas con la
-      <a href="/guias/resenas-google/">guía de reseñas</a> y decide si la pauta te aporta algo con
-      la <a href="/guias/web-propia-vs-anuncios/">comparativa de web vs anuncios</a>. Trabaja en ese
-      orden: primero lo que ya tienes, después lo nuevo.
+      <a href="/guias/resenas-google/">guía de reseñas</a> y decide si la pauta te aporta algo con la
+      <a href="/guias/web-propia-vs-anuncios/">comparativa de web vs anuncios</a>. Trabaja en ese orden:
+      primero lo que ya tienes, después lo nuevo.
     </p>
     <h3>Si quieres comparar precios antes de decidir</h3>
     <p>
@@ -112,14 +132,19 @@ const collectionSchema = {
       Los precios de este sitio están publicados sin letra pequeña en <a href="/precios/">precios</a> y en
       <a href="/servicios/">servicios</a>.
     </p>
+  </section>
 
-    <h2>Preguntas antes de abrir la primera guía</h2>
+  <section class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">ANTES DE ABRIR LA PRIMERA GUÍA</p>
+      <h2 data-split>Las dudas <em>de siempre.</em></h2>
+    </div>
     <h3>¿Tengo que leer las guías en orden?</h3>
     <p>
       No. Cada guía se sostiene sola. El orden solo importa si partes de cero: primero conceptos y ficha,
       después canales y reputación, y por último dinero y contratación.
     </p>
-    <h3>¿Sirven estas guías si mi negocio está en un municipio pequeño?</h3>
+    <h3>¿Sirven si mi negocio está en un municipio pequeño?</h3>
     <p>
       Sí. La lógica local es la misma en Funza, Mosquera, Madrid o Facatativa: categoría correcta, datos
       consistentes, web que responda la búsqueda y reseñas frescas. Lo que cambia es la competencia, no los
@@ -129,7 +154,7 @@ const collectionSchema = {
     <p>
       No. Las guías están escritas para que tú las ejecutes. Contratar solo tiene sentido cuando no tienes
       tiempo o cuando quieres que alguien mantenga el sistema mes a mes; para eso están las páginas de
-      servicios y precios.
+      <a href="/servicios/">servicios</a> y <a href="/precios/">precios</a>.
     </p>
     <h3>¿Cada cuánto se actualizan?</h3>
     <p>
@@ -139,12 +164,17 @@ const collectionSchema = {
     </p>
     <h3>¿Dónde pregunto si mi caso no aparece?</h3>
     <p>
-      En la página de <a href="/preguntas/">preguntas y respuestas</a> reunimos dudas frecuentes sobre
-      planes, plazos y soporte. Si tu caso no está, escríbenos con tu municipio y tu servicio y te indicamos
-      por qué vía empezar.
+      En la página de <a href="/preguntas/">preguntas y respuestas</a> reunimos dudas frecuentes sobre planes,
+      plazos y soporte. Si tu caso no está, escríbenos con tu municipio y tu servicio y te indicamos por qué
+      vía empezar.
     </p>
+  </section>
 
-    <h2>Sigue desde aquí</h2>
+  <section class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">SIGUE DESDE AQUÍ</p>
+      <h2 data-split>Del contenido <em>a la decisión.</em></h2>
+    </div>
     <ul>
       <li><a href="/servicios/">Servicios</a>: qué incluye la web administrada y el mantenimiento.</li>
       <li><a href="/precios/">Precios</a>: planes con prepago por plazo, sin suscripción ni permanencia.</li>
@@ -159,4 +189,12 @@ const collectionSchema = {
       que todas estas guías intentan mover.
     </p>
   </section>
+
+  <FinalCta
+    eyebrow="EMPIEZA POR LA BASE"
+    title="Ve tu web antes de pagar. <em>Decide después.</em>"
+    note="Agenda tu sesión 1 por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+  >
+    <a class="btn btn-light-ghost" href="/guias/cuanto-cuesta-pagina-web-colombia/">Ver precios de mercado <span>↗</span></a>
+  </FinalCta>
 </BaseLayout>

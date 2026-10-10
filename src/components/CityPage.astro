@@ -2,6 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { ctaSession } from '../data/business';
 import { localBusinessSchema } from '../components/schemas';
 
 interface Props {
@@ -45,10 +48,7 @@ const {
 
 const path = `/${slug}/`;
 const title = `Páginas web y presencia digital en ${city} | Presentto`;
-const description = `Web propia en ${city} desde $40.000 COP/mes con dominio y correo: presencia digital clara para tu negocio. Demo gratis.`;
-const DEMO_URL = `https://wa.me/573236487336?text=${encodeURIComponent(
-  `Hola Presentto, quiero solicitar una demo web gratis de mi negocio en ${city}`
-)}`;
+const description = `Web administrada en ${city} desde $15.000 COP/mes (MVO) o con dominio propio desde $40.000, IVA incluido. Agenda tu sesión 1 y ve tu web antes de pagar.`;
 
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: city }];
 
@@ -59,18 +59,27 @@ const schema = {
   provider: { '@id': 'https://www.presentto.online/#organization' },
   areaServed: { '@type': 'Place', name: `${city}, Cundinamarca, Colombia` },
   serviceType: 'Diseño y administración web',
-  offers: {
-    '@type': 'Offer',
-    price: '40000',
-    priceCurrency: 'COP',
-    description: 'Presenttación Digital — IVA incluido',
-  },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'MVO mensual',
+      price: '15000',
+      priceCurrency: 'COP',
+      description: 'Presenttación Digital MVO en subdominio — IVA incluido',
+    },
+    {
+      '@type': 'Offer',
+      price: '40000',
+      priceCurrency: 'COP',
+      description: 'Presenttación Digital con dominio propio — IVA incluido',
+    },
+  ],
 };
 
 const faqs = [
   {
     q: `¿Cuánto cuesta una página web en ${city}?`,
-    a: `La Presenttación Digital cuesta desde $40.000 COP/mes con IVA incluido e integra diseño, dominio propio, correo y administración para ${city}. Antes de pagar puedes pedir una demo gratis de tu negocio.`,
+    a: `La Presenttación Digital cuesta desde $15.000 COP/mes en MVO y desde $40.000 COP/mes con dominio propio, con IVA incluido: diseño, correo y administración para ${city}. Agenda tu sesión 1 y ve tu web antes de pagar.`,
   },
   {
     q: `¿Cómo hago visible mi negocio de ${city} en Google y Maps?`,
@@ -100,60 +109,115 @@ const relatedCities = [
 >
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">PRESENCIA DIGITAL · {city.toUpperCase()}</p>
-    <h1>Tu negocio en {city}, <em>posicionado en Google.</em></h1>
-    <p class="lead">
-      Un sitio claro, una ficha de Google bien hecha y un correo propio. Así se ve un negocio serio
-      desde {city}. Primero lo ves gratis; pagas solo si te gusta.
-    </p>
-    <div class="actions">
-      <a class="button primary" href={DEMO_URL} target="_blank" rel="noopener">
-        Pedir mi demo gratis <span>↗</span>
+  <PageHero
+    eyebrow={`PRESENCIA DIGITAL · ${city.toUpperCase()}`}
+    title={`Tu negocio en ${city}, <em>posicionado en Google.</em>`}
+    lead={`Un sitio claro, una ficha de Google bien hecha y un correo propio. Así se ve un negocio serio desde ${city}. Agenda tu sesión 1 y ve tu web antes de pagar.`}
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
       </a>
-      <a class="button ghost" href="/servicios/">Ver servicio <span>↓</span></a>
+      <a class="btn btn-ghost" href="/precios/">Ver precios <span>↓</span></a>
+    </Fragment>
+    <Fragment slot="meta">
+      <span class="tag">{poblacion} habitantes</span>
+      <span class="tag">{areaKm2} km²</span>
+      <span class="tag">{city} · Cundinamarca</span>
+      <span class="tag">MVO desde $15.000 COP/mes</span>
+    </Fragment>
+  </PageHero>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">POR QUÉ IMPORTA</p>
+        <h2 data-split>Por qué <em>{city}</em> necesita presencia digital</h2>
+      </div>
+      <p class="lead">
+        {poblacion} habitantes, {areaKm2} km² y un comercio que hoy busca en Google antes de salir a
+        la calle: en {city} la presencia digital decide a quién llega el cliente.
+      </p>
+    </div>
+    <div class="prose">
+      <p class="snippet">
+        Según el Censo Nacional de Población y Vivienda 2018 del DANE, {city} reúne {poblacion} habitantes
+        sobre {areaKm2} km² de territorio (consulta la
+        <a href={fuenteDane} target="_blank" rel="noopener">ficha municipal del DANE</a>). Cada una de esas
+        personas que busca un producto o un servicio con la palabra “{city}” o con “cerca de mí” decide en
+        segundos entre tu competencia local y los resultados de Bogotá que se cuelan por cercanía. Quien no
+        aparece cede el cliente sin darse cuenta. Por eso tener una web y una ficha bien hechas aquí no es un extra: es la forma en que
+        tu negocio se muestra en el mapa y cuando alguien busca lo que tú ofreces.
+      </p>
+      <p>{economia}</p>
     </div>
   </section>
 
-  <section class="section wrap guide-layout">
-    <h2>Por qué {city} necesita presencia digital</h2>
-    <p class="snippet">
-      Según el Censo Nacional de Población y Vivienda 2018 del DANE, {city} reúne {poblacion} habitantes
-      sobre {areaKm2} km² de territorio (consulta la
-      <a href={fuenteDane} target="_blank" rel="noopener">ficha municipal del DANE</a>). Cada una de esas
-      personas que busca un producto o un servicio con la palabra “{city}” o con “cerca de mí” decide en
-      segundos entre tu competencia local y los resultados de Bogotá que se cuelan por cercanía. Quien no
-      aparece cede el cliente sin darse cuenta. Por eso tener una web y una ficha bien hechas aquí no es un extra: es la forma en que
-      tu negocio se muestra en el mapa y cuando alguien busca lo que tú ofreces.
-    </p>
-    <p>{economia}</p>
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">NEGOCIOS Y SERVICIOS</p>
+        <h2 data-split>Presencia web para <em>{focus}</em></h2>
+      </div>
+      <p class="lead">
+        Una web clara convierte esa actividad en llamadas y mensajes, en lugar de perderlos frente a
+        otro municipio.
+      </p>
+    </div>
+    <div class="prose">
+      <p class="snippet">{sectors}.</p>
+      <p>{highlight}</p>
+      <p>{landmarks}</p>
+    </div>
+  </section>
 
-    <h2>Presencia web para {focus}</h2>
-    <p class="snippet">{sectors}. Una web clara convierte esa actividad en llamadas y mensajes,
-      en lugar de perderlos frente a otro municipio.</p>
-    <p>{highlight}</p>
-    <p>{landmarks}</p>
-
-    <h2>Hitos y zona de influencia de {city}</h2>
-    <p>{zona}</p>
-    <ul>
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">GEOGRAFÍA LOCAL</p>
+        <h2 data-split>Hitos y zona de influencia de <em>{city}</em></h2>
+      </div>
+      <p class="lead">{zona}</p>
+    </div>
+    <div class="card-grid cols-3" data-stagger>
       {hitos.map((h) => (
-        <li>{h}</li>
+        <article class="card reveal">
+          <p>{h}</p>
+        </article>
       ))}
-    </ul>
+    </div>
+  </section>
 
-    <h2>Sectores con búsquedas propias en {city}</h2>
-    <p>El patrón de búsqueda cambia según el giro. Estos sectores necesitan una web propia en
-      {city}, con ejemplos de lo que buscan sus clientes:</p>
-    <ul>
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">BÚSQUEDAS POR GIRO</p>
+        <h2 data-split>Sectores con búsquedas propias en <em>{city}</em></h2>
+      </div>
+      <p class="lead">
+        El patrón de búsqueda cambia según el giro. Estos sectores necesitan una web propia en
+        {city}, con ejemplos de lo que buscan sus clientes.
+      </p>
+    </div>
+    <ul class="feature-list">
       {sectoresUnicos.map((s) => (
         <li>{s}</li>
       ))}
     </ul>
     <p>{casoTipo}</p>
+  </section>
 
-    <h2>Qué incluye la web para {city}</h2>
-    <ul>
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">TODO INCLUIDO</p>
+        <h2 data-split>Qué incluye la web para <em>{city}</em></h2>
+      </div>
+      <p class="lead">
+        Diseño, contenido y estructura lista para Google, con administración durante todo el plan.
+      </p>
+    </div>
+    <ul class="feature-list">
       <li>Diseño personalizado alineado con tu marca y con {focus}.</li>
       <li>Dominio propio y correo profesional (por ejemplo, <strong>tuempresa.online</strong>).</li>
       <li>Contenido hecho para tus clientes: servicios, precios, fotos y zonas de cobertura.</li>
@@ -161,78 +225,148 @@ const relatedCities = [
       <li>Orientación de tu ficha de Google: categorías, fotos y datos coherentes.</li>
       <li>Velocidad y administración del hosting por Presentto durante el plan.</li>
     </ul>
-
-    <h2>¿Cuánto cuesta una página web en {city}?</h2>
-    <p class="snippet">
-      Desde $40.000 COP/mes con IVA incluido: creación, dominio, correo y
-      administración. Prepago de 1, 3, 6 meses o 1 año, sin permanencia. Pide tu demo gratis antes de
-      decidir.
-    </p>
-    <table class="compare-table">
-      <thead>
-        <tr><th>Opción</th><th>Inversión típica</th><th>Ideal para</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Presentto ({city}) — 1 mes</td><td>$40.000 COP (IVA incl.)</td><td>Negocios locales que quieren posicionar ya</td></tr>
-        <tr><td>Presentto ({city}) — 1 año</td><td>$350.000 COP (IVA incl.)</td><td>Quien busca el mejor coste por mes</td></tr>
-        <tr><td>Agencia web</td><td>$800.000 – $3.000.000 COP + mant.</td><td>Proyectos grandes con CMS y blog</td></tr>
-        <tr><td>Plantilla DIY (Wix, etc.)</td><td>Desde ~20 USD/mes</td><td>Quien quiere montarla solo</td></tr>
-      </tbody>
-    </table>
-
-    <h2>Cómo trabajamos tu web en {city}</h2>
-    <ol>
-      <li>Entendemos cómo busca tu cliente en {city} y municipios vecinos.</li>
-      {pasosLocales.map((p) => (
-        <li>{p}</li>
-      ))}
-      <li>Revisión de visitas y ajuste continuo durante el plan.</li>
-    </ol>
-
-    <div class="guide-cta">
-      <p><strong>¿Quieres tu web lista en {city}?</strong></p>
-      <a class="button primary" href={DEMO_URL} target="_blank" rel="noopener">
-        Pedir mi demo gratis <span>↗</span>
-      </a>
-      &nbsp;
-      <a class="button ghost" href="/contacto/#planes">Ver planes <span>↗</span></a>
-    </div>
-
-    <h2>Fuentes y referencias de {city}</h2>
-    <ul>
-      {fuentes.map((f) => (
-        <li><a href={f.href} target="_blank" rel="noopener">{f.label}</a></li>
-      ))}
-    </ul>
-
-    <section class="silo-related" aria-label="Municipios relacionados">
-      <h2>También en la Sabana Occidental</h2>
-      <ul>
-        {relatedCities.map((c) => (
-          <li><a href={`/${c.slug}/`}>{c.label}</a></li>
-        ))}
-        <li><a href="/guias/que-es-presencia-digital/">Guía de presencia digital</a></li>
-        <li><a href="/servicios/">Ver servicios y planes</a></li>
-      </ul>
-    </section>
   </section>
 
   <section class="section wrap">
-    <p class="eyebrow">PREGUNTAS FRECUENTES</p>
-    <h2>Dudas sobre <em>presencia web en {city}</em></h2>
-    <FaqList faqs={faqs} />
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">PRECIOS</p>
+        <h2 data-split>¿Cuánto cuesta una página web en <em>{city}</em>?</h2>
+      </div>
+      <p class="lead">
+        MVO desde $15.000 COP/mes o dominio propio desde $40.000 COP/mes, con IVA incluido.
+        Prepago de 1, 3, 6 meses o 1 año, sin permanencia.
+      </p>
+    </div>
+    <p class="snippet">
+      Desde $15.000 COP/mes en MVO y desde $40.000 COP/mes con dominio propio, IVA incluido:
+      creación, correo y administración. Prepago de 1, 3, 6 meses o 1 año, sin permanencia.
+      Agenda tu sesión 1 y ve tu web antes de pagar.
+    </p>
+    <div class="table-scroll reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th scope="col">Opción</th>
+            <th scope="col">Inversión típica</th>
+            <th scope="col">Ideal para</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Presentto ({city}) — MVO</strong></td>
+            <td>$15.000 COP/mes (IVA incl.)</td>
+            <td>Publicar ya en subdominio con administración incluida</td>
+          </tr>
+          <tr>
+            <td><strong>Presentto ({city}) — 1 mes</strong></td>
+            <td>$40.000 COP (IVA incl.)</td>
+            <td>Negocios locales que quieren posicionar ya con dominio propio</td>
+          </tr>
+          <tr>
+            <td><strong>Presentto ({city}) — 1 año</strong></td>
+            <td>$350.000 COP (IVA incl.)</td>
+            <td>Quien busca el mejor coste por mes</td>
+          </tr>
+          <tr>
+            <td>Agencia web</td>
+            <td>$800.000 – $3.000.000 COP + mant.</td>
+            <td>Proyectos grandes con CMS y blog</td>
+          </tr>
+          <tr>
+            <td>Plantilla DIY (Wix, etc.)</td>
+            <td>Desde ~20 USD/mes</td>
+            <td>Quien quiere montarla solo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="stack-note">
+      ¿Quieres comparar? Ver <a href="/precios/">todos los planes</a> o
+      <a href="/comparativas/">comparativas de opciones de web</a>.
+    </p>
   </section>
 
-  <section class="final-cta">
-    <div class="wrap">
-      <p class="eyebrow">EMPIEZA SIN RIESGO</p>
-      <h2>Ve tu web gratis. <em>Decide después.</em></h2>
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">PROCESO</p>
+        <h2 data-split>Cómo trabajamos tu web en <em>{city}</em></h2>
+      </div>
+      <p class="lead">
+        Información, muestra con tus correcciones y entrega publicada: el mismo proceso para todos
+        los clientes.
+      </p>
+    </div>
+    <div class="prose">
+      <ol>
+        <li>Entendemos cómo busca tu cliente en {city} y municipios vecinos.</li>
+        {pasosLocales.map((p) => (
+          <li>{p}</li>
+        ))}
+        <li>Revisión de visitas y ajuste continuo durante el plan.</li>
+      </ol>
+    </div>
+    <div class="guide-cta">
+      <p><strong>¿Quieres tu web lista en {city}?</strong></p>
       <div class="actions">
-        <a class="button light" href={DEMO_URL} target="_blank" rel="noopener">
-          Pedir mi demo gratis <span>↗</span>
+        <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+          Agendar mi sesión 1 <span>↗</span>
         </a>
-        <a class="button ghost light-ghost" href="/contacto/#planes">Ver planes <span>↗</span></a>
+        <a class="btn btn-ghost btn-sm" href="/precios/">Ver planes <span>↓</span></a>
       </div>
     </div>
   </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">FUENTES</p>
+        <h2 data-split>Fuentes y referencias de <em>{city}</em></h2>
+      </div>
+    </div>
+    <div class="prose">
+      <ul>
+        {fuentes.map((f) => (
+          <li><a href={f.href} target="_blank" rel="noopener">{f.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head center">
+      <p class="eyebrow">SABANA OCCIDENTAL</p>
+      <h2 data-split>También en la Sabana Occidental</h2>
+      <p class="lead">
+        Mismos servicios en los municipios vecinos y recursos para decidir con información.
+      </p>
+    </div>
+    <div class="tag-row">
+      {relatedCities.map((c) => (
+        <a class="tag" href={`/${c.slug}/`}>{c.label}</a>
+      ))}
+      <a class="tag" href="/guias/que-es-presencia-digital/">Guía de presencia digital</a>
+      <a class="tag" href="/servicios/">Ver servicios y planes</a>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+        <h2 data-split>Dudas sobre <em>presencia web en {city}</em></h2>
+      </div>
+      <p class="lead">
+        Precios, ficha de Google e indexación. Si tu caso es especial, lo vemos en la sesión 1.
+      </p>
+    </div>
+    <FaqList faqs={faqs} />
+  </section>
+
+  <FinalCta
+    eyebrow="EMPIEZA SIN RIESGO"
+    title={`Primero ves tu web en ${city}. <em>Pagas solo si te gusta.</em>`}
+    note="Sesión 1 de 30 min por Google Meet · Te enviamos el enlace de pago recién cuando decides"
+  />
 </BaseLayout>

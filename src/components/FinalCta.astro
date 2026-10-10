@@ -1,0 +1,29 @@
+---
+import { ctaSession } from '../data/business';
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  note?: string;
+}
+const {
+  eyebrow = 'EMPIEZA HOY',
+  title = 'Ve tu web antes de pagar. <em>Decide después.</em>',
+  note = 'Primera sesión de 30 min por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil',
+} = Astro.props;
+---
+
+<section class="final-cta">
+  <div class="wrap">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2 set:html={title} />
+    <div class="actions">
+      <a class="btn btn-light" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
+      </a>
+      <slot />
+      <a class="btn btn-light-ghost" href="/precios/">Ver planes <span>↓</span></a>
+    </div>
+    <p class="final-cta-note">{note}</p>
+  </div>
+</section>

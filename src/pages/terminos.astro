@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FinalCta from '../components/FinalCta.astro';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Términos' }];
 
 const title = 'Términos del servicio | Presentto Online';
@@ -11,51 +12,64 @@ const description =
 <BaseLayout title={title} description={description} path="/terminos/" breadcrumbs={crumbs}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap info-page">
+  <section class="section wrap article-header">
     <p class="eyebrow">TÉRMINOS DEL SERVICIO</p>
-    <h1>Un acuerdo claro para cada proyecto.</h1>
-    <div class="info-content">
-      <article class="info-block">
-        <h2>
-          La Presenttación Digital se contrata por planes prepago con IVA incluido: 1 mes $40.000 · 3 meses
-          $100.000 · 6 meses $190.000 · 1 año $350.000 COP. Integra la creación de un sitio web con la
-          información, imágenes, datos y funcionalidades necesarias para el negocio.
-        </h2>
-        <p>
-          Es un pago único por el plazo elegido, no una suscripción automática. El alcance, los contenidos y
-          las integraciones se definen con el cliente antes de publicar. Se entrega con dominio propio, correo
-          profesional y administración del hosting por Presentto. El pago se realiza por
-          Mercado Pago tras confirmar el plan; puedes solicitar una demo sin abono antes de pagar.
-        </p>
-      </article>
+    <h1 data-split>Un acuerdo claro para cada proyecto.</h1>
+  </section>
+
+  <section class="section wrap">
+    <div class="prose">
+      <h2>
+        La Presenttación Digital se contrata por planes prepago con IVA incluido: 1 mes $40.000 · 3 meses
+        $100.000 · 6 meses $190.000 · 1 año $350.000 COP. Integra la creación de un sitio web con la
+        información, imágenes, datos y funcionalidades necesarias para el negocio.
+      </h2>
+      <p>
+        Es un pago único por el plazo elegido, no una suscripción automática. El alcance, los contenidos y
+        las integraciones se definen con el cliente antes de publicar. Se entrega con dominio propio, correo
+        profesional y administración del hosting por Presentto. El pago se realiza por
+        Mercado Pago tras confirmar el plan; puedes solicitar una demo sin abono antes de pagar.
+      </p>
+
       <h2>Renovación y permanencia</h2>
       <p>
         No hay permanencia obligatoria más allá del plan contratado ni cargos automáticos al finalizar. Al
         terminar el período puedes renovar o discontinuar el servicio, según las condiciones acordadas en el
         momento de la compra.
       </p>
+
       <h2>Dominio</h2>
       <p>
         Si aportas tu dominio propio, se incorpora sin costo adicional del servicio. Si se necesita buscar y
         gestionar un dominio nuevo, se cobra únicamente el excedente del registro.
       </p>
+
       <h2>Ajustes</h2>
       <p>
         Los tiempos, contenidos, imágenes y ajustes se coordinan con cada cliente antes de publicar. Se realizan
         implementaciones tecnológicas necesarias y ajustes hasta dejar la versión digital del negocio lista.
       </p>
+
       <h2>Pagos</h2>
       <p>
         Los pagos se procesan a través de Mercado Pago como pago único por el plazo elegido. Todos los valores
         publicados incluyen IVA. Primero envía tu solicitud o pide tu demo sin abono y luego realiza el pago
         del plan que elijas.
       </p>
+
       <h2>Contacto</h2>
       <p>
         Dudas sobre estos términos: <a href="mailto:inbox@presentto.online">inbox@presentto.online</a> ·
         <a href="https://wa.me/573236487336" target="_blank" rel="noopener">WhatsApp +57 323 648 7336</a>.
       </p>
-      <p class="guide-meta">Última actualización: septiembre de 2026.</p>
+
+      <p class="article-meta">Última actualización: septiembre de 2026.</p>
     </div>
   </section>
+
+  <FinalCta
+    eyebrow="EMPIEZA SIN RIESGO"
+    title="Agenda tu sesión 1. <em>Ves tu web antes de pagar.</em>"
+    note="Primera sesión de 30 min por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+  />
 </BaseLayout>

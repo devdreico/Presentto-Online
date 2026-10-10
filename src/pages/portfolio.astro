@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { ctaSession } from '../data/business';
+
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Portafolio' }];
 
 const title = 'Portafolio de desarrollo web | Presentto';
 const description =
-  'Portafolio de Presentto: diseño, desarrollo y administración web accesible para negocios de Colombia. Demo gratis desde $40.000 COP/mes.';
+  'Portafolio de Presentto: diseño, desarrollo y administración web para Colombia. Agenda tu sesión 1 y ve tu web antes de pagar; planes desde $40.000 COP/mes.';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -20,82 +24,137 @@ const serviceSchema = {
 <BaseLayout title={title} description={description} path="/portfolio/" breadcrumbs={crumbs} jsonld={[serviceSchema]}>
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">EXPERIENCIA Y DESARROLLO</p>
-    <img
-      class="page-logo"
-      src="/assets/img/Presentto-Nombre-Fondo-Transparente.png"
-      alt="Presentto Online"
-      width="240"
-      height="81"
-      fetchpriority="high"
-      decoding="async"
-    />
-    <h1>Desarrollo web accesible <em>para proyectos reales.</em></h1>
-    <p class="lead">
-      Diseñamos, desarrollamos, publicamos, administramos y mejoramos sitios web para quienes necesitan
-      resultados en internet sin cargar solos con el proceso técnico. Tú miras el resultado; nosotros el código.
-    </p>
-  </section>
+  <PageHero
+    eyebrow="EXPERIENCIA Y DESARROLLO"
+    title="Desarrollo web accesible <em>para proyectos reales.</em>"
+    lead="Diseñamos, desarrollamos, publicamos, administramos y mejoramos sitios web para quienes necesitan resultados en internet sin cargar solos con el proceso técnico. Tú miras el resultado; nosotros, el código."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
+      </a>
+      <a class="btn btn-ghost" href="#proceso">Ver cómo trabajamos <span>↓</span></a>
+    </Fragment>
+    <Fragment slot="meta">
+      <span class="tag">Sitios en producción</span>
+      <span class="tag">Astro + HTML/CSS</span>
+      <span class="tag">Administración incluida</span>
+      <span class="tag">Sabana Occidental · Colombia</span>
+    </Fragment>
+  </PageHero>
 
-  <section class="section portfolio-intro">
-    <div class="wrap split-section">
-      <div>
+  <section class="section wrap">
+    <div class="section-head split">
+      <div class="head-copy">
         <p class="eyebrow">POR QUÉ EXISTE PRESENTTO</p>
-        <h2>La tecnología también debe sentirse <em>cercana.</em></h2>
+        <h2 data-split>La tecnología también debe sentirse <em>cercana.</em></h2>
       </div>
-      <div>
-        <p>
-          Muchos negocios y personas saben que necesitan una presencia digital, pero no tienen el tiempo, el
-          equipo ni el presupuesto de una agencia para construirla y mantenerla. Ese hueco es exactamente
-          donde entra Presentto: una opción clara, útil y proporcionada a lo que un negocio local realmente
-          necesita.
-        </p>
-        <p>
-          El desarrollo web hoy es más rápido y más barato que hace cinco años. Nosotros ese ahorro lo
-          convertimos en un servicio administrado: una web profesional, acompañada y lista para usarse, desde
-          $40.000 COP/mes.
-        </p>
-      </div>
+      <p class="lead">
+        Muchos negocios y personas saben que necesitan presencia digital, pero no tienen el tiempo,
+        el equipo ni el presupuesto de una agencia para construirla y mantenerla. Ese hueco es
+        exactamente donde entra Presentto: una opción clara, útil y proporcionada a lo que un
+        negocio local realmente necesita. El desarrollo web hoy es más rápido y más barato que hace
+        cinco años; nosotros ese ahorro lo convertimos en un servicio administrado —una web
+        profesional, acompañada y lista para usarse— desde $40.000 COP/mes.
+      </p>
     </div>
   </section>
 
   <section class="section wrap">
-    <p class="eyebrow">LO QUE HACEMOS POR TI</p>
-    <div class="feature-grid feature-grid-four process-services">
-      <article><b>01</b><h3>Diseñamos</h3><p>Definimos estructura, estilo y contenido para que tu web represente de verdad el negocio.</p></article>
-      <article><b>02</b><h3>Desarrollamos</h3><p>Construimos una interfaz rápida y adaptable al celular, sin plantillas genéricas mal montadas.</p></article>
-      <article><b>03</b><h3>Publicamos</h3><p>Configuramos dominio, hosting, formularios y QR para poner el proyecto a circular.</p></article>
-      <article><b>04</b><h3>Administramos</h3><p>Hacemos los cambios, el mantenimiento y las mejoras durante todo el plan. Tú pides; nosotros ejecutamos.</p></article>
-    </div>
-  </section>
-
-  <section class="section tech-section">
-    <div class="wrap">
-      <p class="eyebrow">TECNOLOGÍAS</p>
-      <h2>Herramientas para construir <em>soluciones flexibles.</em></h2>
-      <p class="section-intro">
-        Elegimos cada tecnología por su utilidad: velocidad, mantenimiento, accesibilidad y capacidad de crecer
-        con el negocio.
-      </p>
-      <div class="tech-grid">
-        <article><strong>Astro</strong><span>Sitios estáticos ultrarrápidos, ideales para rastreo e indexación.</span></article>
-        <article><strong>HTML + CSS</strong><span>Semántica, responsive y accesibilidad para usuarios y bots.</span></article>
-        <article><strong>JavaScript</strong><span>Interacciones ligeras sin bloquear el rastreador.</span></article>
-        <article><strong>APIs</strong><span>Formularios, mapas, pagos e integraciones de conversión.</span></article>
-        <article><strong>Base técnica</strong><span>Metas, schema, sitemap, robots y datos estructurados.</span></article>
-        <article><strong>Core Web Vitals</strong><span>LCP, INP y CLS optimizados por diseño.</span></article>
-        <article><strong>Automatización</strong><span>Procesos repetibles para publicar y mantener.</span></article>
-        <article><strong>Hosting administrado</strong><span>Supervisión, cambios y soporte continuo.</span></article>
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">LO QUE HACEMOS POR TI</p>
+        <h2 data-split>Cuatro oficios, <em>un solo equipo.</em></h2>
       </div>
+      <p class="lead">
+        Del primer boceto al mantenimiento diario: la misma gente que diseña es la que publica y la
+        que responde cuando necesitas un cambio.
+      </p>
+    </div>
+    <div class="bento" data-stagger>
+      <article class="bento-card reveal">
+        <span class="bento-num">01</span>
+        <span class="bento-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2" style="--len: 70"></rect>
+            <path d="M3 9h18M9 9v11" style="--len: 45"></path>
+          </svg>
+        </span>
+        <h3>Diseñamos</h3>
+        <p>Definimos estructura, estilo y contenido para que tu web represente de verdad el negocio.</p>
+      </article>
+      <article class="bento-card bento-dark reveal">
+        <span class="bento-num">02</span>
+        <span class="bento-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
+            <path d="M8 7l-5 5 5 5M16 7l5 5-5 5" style="--len: 60"></path>
+            <path d="M13.5 5l-3 14" style="--len: 20"></path>
+          </svg>
+        </span>
+        <h3>Desarrollamos</h3>
+        <p>Construimos una interfaz rápida y adaptable al celular, sin plantillas genéricas mal montadas.</p>
+      </article>
+      <article class="bento-card reveal">
+        <span class="bento-num">03</span>
+        <span class="bento-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
+            <path d="M12 16V4M12 4l-4 4M12 4l4 4" style="--len: 40"></path>
+            <path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3" style="--len: 45"></path>
+          </svg>
+        </span>
+        <h3>Publicamos</h3>
+        <p>Configuramos dominio, hosting, formularios y QR para poner el proyecto a circular.</p>
+      </article>
+      <article class="bento-card bento-accent reveal">
+        <span class="bento-num">04</span>
+        <span class="bento-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.5" style="--len: 26"></circle>
+            <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" style="--len: 70"></path>
+          </svg>
+        </span>
+        <h3>Administramos</h3>
+        <p>Hacemos los cambios, el mantenimiento y las mejoras durante todo el plan. Tú pides; nosotros ejecutamos.</p>
+      </article>
     </div>
   </section>
 
-  <section class="section wrap process-section">
-    <p class="eyebrow">CÓMO TRABAJAMOS</p>
-    <h2>De tu idea <em>a la publicación.</em></h2>
-    <div class="process-cards">
-      <article class="process-card">
+  <section class="section wrap tech-section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">TECNOLOGÍAS</p>
+        <h2 data-split>Herramientas para construir <em>soluciones flexibles.</em></h2>
+      </div>
+      <p class="lead">
+        Elegimos cada tecnología por su utilidad: velocidad, mantenimiento, accesibilidad y
+        capacidad de crecer con el negocio.
+      </p>
+    </div>
+    <div class="tech-grid" data-stagger>
+      <article class="reveal"><strong>Astro</strong><span>Sitios estáticos ultrarrápidos, ideales para rastreo e indexación.</span></article>
+      <article class="reveal"><strong>HTML + CSS</strong><span>Semántica, responsive y accesibilidad para usuarios y bots.</span></article>
+      <article class="reveal"><strong>JavaScript</strong><span>Interacciones ligeras sin bloquear el rastreador.</span></article>
+      <article class="reveal"><strong>APIs</strong><span>Formularios, mapas, pagos e integraciones de conversión.</span></article>
+      <article class="reveal"><strong>Base técnica</strong><span>Metas, schema, sitemap, robots y datos estructurados.</span></article>
+      <article class="reveal"><strong>Core Web Vitals</strong><span>LCP, INP y CLS optimizados por diseño.</span></article>
+      <article class="reveal"><strong>Automatización</strong><span>Procesos repetibles para publicar y mantener.</span></article>
+      <article class="reveal"><strong>Hosting administrado</strong><span>Supervisión, cambios y soporte continuo.</span></article>
+    </div>
+  </section>
+
+  <section class="section wrap" id="proceso">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">CÓMO TRABAJAMOS</p>
+        <h2 data-split>De tu idea <em>a la publicación.</em></h2>
+      </div>
+      <p class="lead">
+        Tres momentos, tres sesiones por Google Meet y una sola cuenta por resolver: la tuya es
+        aprobar; la técnica es nuestra.
+      </p>
+    </div>
+    <div class="steps-grid" data-stagger>
+      <article class="step-card reveal">
         <img
           width="1000"
           height="666"
@@ -110,7 +169,7 @@ const serviceSchema = {
           <p>Qué haces, a quién le vendes, qué fotos tienes y qué necesitas que haga la web.</p>
         </div>
       </article>
-      <article class="process-card">
+      <article class="step-card reveal">
         <img
           width="1000"
           height="667"
@@ -122,10 +181,10 @@ const serviceSchema = {
         <div>
           <b>02 · CONSTRUIMOS</b>
           <h3>Tu demo toma forma</h3>
-          <p>Diseñamos y montamos la web con una base ordenada, rápida y lista para Google.</p>
+          <p>Diseñamos y montamos la web con una base ordenada, rápida y lista para Google. La ves antes de pagar.</p>
         </div>
       </article>
-      <article class="process-card">
+      <article class="step-card reveal">
         <img
           width="1000"
           height="667"
@@ -141,40 +200,48 @@ const serviceSchema = {
         </div>
       </article>
     </div>
+    <p class="stack-note">
+      El mismo proceso lo ves explicado en <a href="/servicios/">servicios</a> y en los
+      <a href="/precios/">planes y precios</a>.
+    </p>
   </section>
 
-  <section class="section references-section">
+  <section class="section dark-panel">
     <div class="wrap">
-      <p class="eyebrow">RESPALDO TECNOLÓGICO</p>
-      <h2>Experiencia que suma <em>confianza al proceso.</em></h2>
-      <div class="reference-grid">
-        <article>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">RESPALDO TECNOLÓGICO</p>
+          <h2 data-split>Experiencia que suma <em>confianza al proceso.</em></h2>
+        </div>
+        <p class="lead">
+          Detrás de cada publicación hay un equipo que construye software de verdad, no maquetas
+          bonitas que dejan de funcionar al mes siguiente.
+        </p>
+      </div>
+      <div class="ref-grid" data-stagger>
+        <article class="ref-card reveal">
           <span>DESARROLLO DE SOFTWARE</span>
           <h3>Aeperion Systems</h3>
           <p>
-            Respaldo en desarrollo de software dedicado que sostiene nuestra disciplina técnica y nuestra
-            obsesión por entregar soluciones reales, no maquetas bonitas que no funcionan.
+            Respaldo en desarrollo de software dedicado que sostiene nuestra disciplina técnica y
+            nuestra obsesión por entregar soluciones reales, no maquetas bonitas que no funcionan.
+          </p>
+        </article>
+        <article class="ref-card reveal">
+          <span>OPERACIÓN Y CONTRACTUAL</span>
+          <h3>Soverath Holding S.A.S.</h3>
+          <p>
+            La entidad que opera Presentto Online: contratos, pagos y continuidad del servicio, con
+            la misma base técnica que ves publicada en cada sitio de esta lista.
           </p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="final-cta">
-    <div class="wrap">
-      <p class="eyebrow">EMPIEZA SIN RIESGO</p>
-      <h2>Ve tu web gratis. <em>Decide después.</em></h2>
-      <div class="actions">
-        <a
-          class="button light"
-          href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20solicitar%20una%20demo%20web%20gratis%20de%20mi%20negocio"
-          target="_blank"
-          rel="noopener"
-        >
-          Pedir mi demo gratis <span>↗</span>
-        </a>
-        <a class="button ghost light-ghost" href="/contacto/">Ver planes <span>↗</span></a>
-      </div>
-    </div>
-  </section>
+  <FinalCta
+    eyebrow="EMPIEZA SIN RIESGO"
+    title="Ve tu web antes de pagar. <em>Decide después.</em>"
+    note="Sesión 1 de 30 min por Google Meet · Te enviamos el enlace de pago recién cuando decides"
+  />
 </BaseLayout>

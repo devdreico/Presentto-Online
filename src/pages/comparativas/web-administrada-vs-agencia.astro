@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { authorRef } from '../../components/schemas';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
+import ArticleLayout from '../../components/ArticleLayout.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { ctaSession } from '../../data/business';
 import { datesFor } from '../../data/content-dates';
 const crumbs = [
       { label: 'Inicio', href: '/' },
@@ -46,15 +49,16 @@ const articleSchema = {
 >
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">COMPARATIVA · DECISIÓN DE COMPRA</p>
-    <h1>Web administrada vs agencia tradicional vs hacerlo tú mismo</h1>
-    <p class="lead">Tres caminos para tener web en Colombia — costes, riesgos y encaje real.</p>
-    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
-  </section>
-
-  <section class="section wrap guide-layout">
-    <h2>Resumen en 30 segundos</h2>
+  <ArticleLayout
+    eyebrow="COMPARATIVA · DECISIÓN DE COMPRA"
+    title="Web administrada vs agencia tradicional vs hacerlo tú mismo"
+    lead="Tres caminos para tener web en Colombia — costes, riesgos y encaje real."
+    published={dates.published}
+    modified={dates.modified}
+    toc={true}
+    tocLabel="En esta comparativa"
+  >
+    <h2 id="resumen-en-30-segundos">Resumen en 30 segundos</h2>
     <p class="snippet">
       Si quieres resultados sin aprender herramientas ni gestionar proveedores, una web administrada como la de
       Presentto ($40.000 COP, IVA incluido) ofrece el mejor tiempo/valor para un negocio local. La agencia
@@ -62,57 +66,59 @@ const articleSchema = {
       tecnología tú mismo.
     </p>
 
-    <h2>Tabla comparativa</h2>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Criterio</th>
-          <th>Web administrada (Presentto)</th>
-          <th>Agencia tradicional</th>
-          <th>Hacerlo tú (Wix/WordPress)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Inversión inicial</td>
-          <td>$40.000 COP (IVA incl.)</td>
-          <td>$800.000 – $6.000.000+ COP</td>
-          <td>≈ $20.000–$60.000 COP/mes + tu tiempo</td>
-        </tr>
-        <tr>
-          <td>Mantenimiento</td>
-          <td>Incluido en el servicio</td>
-          <td>$150.000–$500.000 COP/mes</td>
-          <td>Tú (actualizaciones, backups, seguridad)</td>
-        </tr>
-        <tr>
-          <td>Tiempo hasta publicar</td>
-          <td>Días</td>
-          <td>2–8 semanas</td>
-          <td>Semanas/meses aprendiendo</td>
-        </tr>
-        <tr>
-          <td>Presencia en Google</td>
-          <td>Estructura y configuración incluidas</td>
-          <td>Suele cotizarse aparte</td>
-          <td>Depende de plugins y tu criterio</td>
-        </tr>
-        <tr>
-          <td>Control del código</td>
-          <td>Bajo (lo administra Presentto)</td>
-          <td>Medio/alto (según contrato)</td>
-          <td>Alto (pero también la carga)</td>
-        </tr>
-        <tr>
-          <td>Riesgo principal</td>
-          <td>Menor flexibilidad de features raras</td>
-          <td>Sobrecosto y plazos</td>
-          <td>Site lento, inseguro o abandonado</td>
-        </tr>
-      </tbody>
-    </table>
+    <h2 id="tabla-comparativa">Tabla comparativa</h2>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Criterio</th>
+            <th>Web administrada (Presentto)</th>
+            <th>Agencia tradicional</th>
+            <th>Hacerlo tú (Wix/WordPress)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Inversión inicial</td>
+            <td>$40.000 COP (IVA incl.)</td>
+            <td>$800.000 – $6.000.000+ COP</td>
+            <td>≈ $20.000–$60.000 COP/mes + tu tiempo</td>
+          </tr>
+          <tr>
+            <td>Mantenimiento</td>
+            <td>Incluido en el servicio</td>
+            <td>$150.000–$500.000 COP/mes</td>
+            <td>Tú (actualizaciones, backups, seguridad)</td>
+          </tr>
+          <tr>
+            <td>Tiempo hasta publicar</td>
+            <td>Días</td>
+            <td>2–8 semanas</td>
+            <td>Semanas/meses aprendiendo</td>
+          </tr>
+          <tr>
+            <td>Presencia en Google</td>
+            <td>Estructura y configuración incluidas</td>
+            <td>Suele cotizarse aparte</td>
+            <td>Depende de plugins y tu criterio</td>
+          </tr>
+          <tr>
+            <td>Control del código</td>
+            <td>Bajo (lo administra Presentto)</td>
+            <td>Medio/alto (según contrato)</td>
+            <td>Alto (pero también la carga)</td>
+          </tr>
+          <tr>
+            <td>Riesgo principal</td>
+            <td>Menor flexibilidad de features raras</td>
+            <td>Sobrecosto y plazos</td>
+            <td>Site lento, inseguro o abandonado</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    <h2>Cuándo elegir cada opción</h2>
+    <h2 id="cuando-elegir-cada-opcion">Cuándo elegir cada opción</h2>
     <h3>Elige web administrada si…</h3>
     <ul>
       <li>Eres un negocio local (Funza, Mosquera, Madrid, Facatativá) que necesita aparecer ya.</li>
@@ -132,7 +138,7 @@ const articleSchema = {
       <li>Tienes un sitio muy simple y tráfico irrelevante.</li>
     </ul>
 
-    <h2>Cómo llegamos al precio de $40.000 COP</h2>
+    <h2 id="como-llegamos-al-precio">Cómo llegamos al precio de $40.000 COP</h2>
     <p class="snippet">
       Presentto opera con plantillas base y procesos estandarizados sobre infraestructura compartida
       administrada: reducimos costes de desarrollo a medida y de soporte, y entregamos una presencia completa
@@ -149,47 +155,49 @@ const articleSchema = {
       precio, es quién paga esas horas.
     </p>
 
-    <h2>Coste real del primer año (ejemplo cerrado)</h2>
+    <h2 id="coste-real-del-primer-ano">Coste real del primer año (ejemplo cerrado)</h2>
     <p class="snippet">
       El precio de etiqueta engaña: lo que importa es lo que gastas en los primeros 12 meses, incluido tu
       tiempo y el mantenimiento que nadie cotiza al principio.
     </p>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Concepto</th>
-          <th>Web administrada</th>
-          <th>Agencia tradicional</th>
-          <th>DIY (Wix/WordPress)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Creación (1ª vez)</td>
-          <td>$40.000 COP (plan 1 mes)</td>
-          <td>$800.000 – $6.000.000 COP</td>
-          <td>$0 – $120.000 COP (plantilla)</td>
-        </tr>
-        <tr>
-          <td>Alojamiento y dominio</td>
-          <td>Incluidos</td>
-          <td>Suele facturarse aparte</td>
-          <td>≈ $120.000 – $600.000 COP/año</td>
-        </tr>
-        <tr>
-          <td>Mantenimiento 12 meses</td>
-          <td>Incluido</td>
-          <td>$1.800.000 – $6.000.000 COP</td>
-          <td>Tu tiempo (2–6 h/mes)</td>
-        </tr>
-        <tr>
-          <td>Tu tiempo dedicado</td>
-          <td>Mínimo (apuebas y envías material)</td>
-          <td>Medio (reuniones y validaciones)</td>
-          <td>Alto (aprender, arreglar, actualizar)</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Web administrada</th>
+            <th>Agencia tradicional</th>
+            <th>DIY (Wix/WordPress)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Creación (1ª vez)</td>
+            <td>$40.000 COP (plan 1 mes)</td>
+            <td>$800.000 – $6.000.000 COP</td>
+            <td>$0 – $120.000 COP (plantilla)</td>
+          </tr>
+          <tr>
+            <td>Alojamiento y dominio</td>
+            <td>Incluidos</td>
+            <td>Suele facturarse aparte</td>
+            <td>≈ $120.000 – $600.000 COP/año</td>
+          </tr>
+          <tr>
+            <td>Mantenimiento 12 meses</td>
+            <td>Incluido</td>
+            <td>$1.800.000 – $6.000.000 COP</td>
+            <td>Tu tiempo (2–6 h/mes)</td>
+          </tr>
+          <tr>
+            <td>Tu tiempo dedicado</td>
+            <td>Mínimo (apuebas y envías material)</td>
+            <td>Medio (reuniones y validaciones)</td>
+            <td>Alto (aprender, arreglar, actualizar)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <p class="stack-note">
       Rangos de referencia para Colombia basados en
       <a
@@ -202,7 +210,7 @@ const articleSchema = {
       No son una cotización: sirve para comparar órdenes de magnitud.
     </p>
 
-    <h2>Qué preguntar antes de firmar con cualquiera</h2>
+    <h2 id="que-preguntar-antes-de-firmar">Qué preguntar antes de firmar con cualquiera</h2>
     <ol>
       <li>¿El dominio queda a nombre de quién y qué pasa si me voy?</li>
       <li>¿Quién paga hosting y correo después del primer año?</li>
@@ -211,18 +219,21 @@ const articleSchema = {
       <li>¿Quién actualiza el contenido: yo, un CMS, o ustedes?</li>
       <li>¿Cómo se mide el resultado: Search Console, Analytics, informe mensual?</li>
       <li>¿Qué pasa con mis fotos, textos y datos si termino el contrato?</li>
-      <li>¿Hay demo o prueba antes de pagar?</li>
+      <li>¿Puedo ver la web antes de pagar?</li>
     </ol>
 
     <div class="guide-cta">
       <p><strong>¿Encaja contigo la opción administrada?</strong></p>
-      <a class="button primary" href="/contacto/">Comprar Presenttación Digital <span>↗</span></a>
-      &nbsp;
-      <a class="button ghost" href="/guias/cuanto-cuesta-pagina-web-colombia/">Ver todos los precios 2026 <span>↗</span></a>
+      <div class="actions">
+        <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+          Agendar mi sesión 1 <span>↗</span>
+        </a>
+        <a class="btn btn-ghost" href="/guias/cuanto-cuesta-pagina-web-colombia/">Ver todos los precios 2026 <span>↗</span></a>
+      </div>
     </div>
 
     <section class="silo-related" aria-label="Mismo silo: precios y decisión">
-      <h2>Mismo silo: precios y decisión</h2>
+      <h2 id="mismo-silo-precios-y-decision">Mismo silo: precios y decisión</h2>
       <ul>
         <li><a href="/guias/cuanto-cuesta-pagina-web-colombia/">¿Cuánto cuesta una web en Colombia?</a></li>
         <li><a href="/servicios/">Qué incluye la Presenttación Digital</a></li>
@@ -231,13 +242,11 @@ const articleSchema = {
     </section>
 
     <AuthorBox name="Equipo Presentto Online" />
-  </section>
+  </ArticleLayout>
 
-  <section class="final-cta">
-    <div class="wrap">
-      <p class="eyebrow">DECISIÓN RÁPIDA</p>
-      <h2>Empieza con lo esencial <em>sin sobrecosto.</em></h2>
-      <a class="button light" href="/contacto/">Comprar ahora <span>↗</span></a>
-    </div>
-  </section>
+  <FinalCta
+    eyebrow="DECISIÓN RÁPIDA"
+    title="Empieza con lo esencial <em>sin sobrecosto.</em>"
+    note="Agenda tu sesión 1 por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+  />
 </BaseLayout>

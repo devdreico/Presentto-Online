@@ -4,6 +4,9 @@ import { authorRef } from '../../components/schemas';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FaqList from '../../components/FaqList.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
+import ArticleLayout from '../../components/ArticleLayout.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { ctaSession } from '../../data/business';
 import { datesFor } from '../../data/content-dates';
 const crumbs = [
   { label: 'Inicio', href: '/' },
@@ -66,15 +69,15 @@ const articleSchema = {
 >
   <Breadcrumbs items={crumbs} />
 
-  <section class="section wrap page-hero">
-    <p class="eyebrow">PRESENCIA DIGITAL · FUNDAMENTOS</p>
-    <h1>¿Qué es la presencia digital?</h1>
-    <p class="lead">Definición práctica y los mínimos que necesita tu negocio para existir en internet.</p>
-    <p class="guide-meta">Actualizado: {new Date(dates.modified).toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })} · Presentto Online</p>
-  </section>
-
-  <section class="section wrap guide-layout">
-    <h2>Definición</h2>
+  <ArticleLayout
+    eyebrow="PRESENCIA DIGITAL · FUNDAMENTOS"
+    title="¿Qué es la presencia digital?"
+    lead="Definición práctica y los mínimos que necesita tu negocio para existir en internet."
+    published={dates.published}
+    modified={dates.modified}
+    toc={true}
+  >
+    <h2 id="definicion">Definición</h2>
     <p class="snippet">
       La presencia digital es todo lo que un cliente encuentra de ti en internet: tu web, tu ficha de Google,
       tus redes, tu correo y tu número de contacto verificable.
@@ -85,7 +88,7 @@ const articleSchema = {
       presencia digital débil si su información está desactualizada o si nadie le da contexto a lo que vende.
     </p>
 
-    <h2>Las cuatro piezas mínimas</h2>
+    <h2 id="cuatro-piezas-minimas">Las cuatro piezas mínimas</h2>
     <ul>
       <li><strong>Una web propia.</strong> El único punto de internet que controlas por completo: tus textos, tu catálogo, tus precios.</li>
       <li><strong>Ficha de Google.</strong> La tarjeta que aparece en Google y Maps con categoría, horarios, fotos y reseñas.</li>
@@ -93,7 +96,7 @@ const articleSchema = {
       <li><strong>Mensajería y datos consistentes.</strong> El mismo teléfono y horario en web, ficha y redes.</li>
     </ul>
 
-    <h2>Errores frecuentes al empezar</h2>
+    <h2 id="errores-frecuentes">Errores frecuentes al empezar</h2>
     <ul>
       <li>Depender solo de Instagram o WhatsApp y no tener un lugar propio que resuma los servicios.</li>
       <li>Datos distintos en cada canal (horarios, dirección, número). Eso confunde al cliente y a Google.</li>
@@ -101,7 +104,7 @@ const articleSchema = {
       <li>Esperar a tener "todo listo" para publicar. Con los mínimos bien hechos ya puedes recibir clientes.</li>
     </ul>
 
-    <h2>Cómo encaja la web en tu presencia</h2>
+    <h2 id="la-web-en-tu-presencia">Cómo encaja la web en tu presencia</h2>
     <p>
       La web es la base. Las redes publican; la ficha de Google muestra ubicación y reputación; pero la web es
       donde respondes las dudas que no caben en una publicación: qué incluye un servicio, cuánto cuesta, cómo
@@ -110,7 +113,7 @@ const articleSchema = {
       herramientas nuevas.
     </p>
 
-    <h2>Por dónde seguir</h2>
+    <h2 id="por-donde-seguir">Por dónde seguir</h2>
     <ul>
       <li><a href="/guias/ficha-de-google-mi-negocio/">Cómo crear y optimizar tu ficha de Google</a></li>
       <li><a href="/guias/aparecer-en-google-maps/">Aparecer en Google Maps</a></li>
@@ -119,15 +122,26 @@ const articleSchema = {
     </ul>
 
     <div class="guide-cta">
-      <p><strong>¿Quieres ver tu negocio online?</strong></p>
-      <a class="button primary" href="https://wa.me/573236487336?text=Hola%20Presentto%2C%20quiero%20pedir%20una%20demo%20web%20gratis" target="_blank" rel="noopener">
-        Pedir mi demo gratis <span>↗</span>
+      <p><strong>¿Quieres ver tu negocio online antes de pagar?</strong></p>
+      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
+        Agendar mi sesión 1 <span>↗</span>
       </a>
     </div>
 
-    <h2>Preguntas frecuentes</h2>
+    <AuthorBox name="Dilan Andrei Cifuentes Ortiz" role="Fundador y responsable editorial · Presentto Online" />
+  </ArticleLayout>
+
+  <section class="section wrap" id="preguntas-frecuentes">
+    <div class="section-head">
+      <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+      <h2 data-split>Dudas sobre <em>presencia digital.</em></h2>
+    </div>
     <FaqList faqs={faqs} />
   </section>
 
-  <AuthorBox name="Dilan Andrei Cifuentes Ortiz" role="Fundador y responsable editorial · Presentto Online" />
+  <FinalCta
+    eyebrow="EMPIEZA POR LA BASE"
+    title="Ve tu web antes de pagar. <em>Decide después.</em>"
+    note="Agenda tu sesión 1 por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+  />
 </BaseLayout>
