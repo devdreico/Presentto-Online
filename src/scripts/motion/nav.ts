@@ -26,6 +26,9 @@ export function initNav(): () => void {
     toggle?.setAttribute('aria-expanded', String(open));
     toggle?.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     overlay?.setAttribute('aria-hidden', String(!open));
+    document.querySelector('main')?.toggleAttribute('inert', open);
+    document.querySelector('footer')?.toggleAttribute('inert', open);
+    if (open) toggle?.focus();
   };
 
   const onToggle = () => setOpen(!open);

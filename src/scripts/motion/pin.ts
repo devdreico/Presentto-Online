@@ -2,7 +2,12 @@ import { ScrollTrigger, prefersReduced } from './reveal';
 
 /** Sección anclada (storytelling) + parallax ligero. */
 export function initPinned(): () => void {
-  if (prefersReduced()) return () => {};
+  if (prefersReduced()) {
+    document.querySelectorAll<HTMLElement>('[data-pin]').forEach((stage) => {
+      stage.querySelectorAll<HTMLElement>('.pin-step').forEach((step) => step.classList.add('is-active'));
+    });
+    return () => {};
+  }
 
   const cleanups: Array<() => void> = [];
 

@@ -36,12 +36,14 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 20px);
+  overscroll-behavior: none;
   -webkit-text-size-adjust: 100%;
 }
 body {
   min-width: 320px;
   margin: 0;
   overflow-x: hidden;
+  overscroll-behavior: none;
   background: linear-gradient(175deg, var(--paper) 0%, var(--paper-2) 42%, var(--cream) 100%);
   background-attachment: fixed;
   color: var(--ink);
@@ -181,7 +183,7 @@ main {
 
 /* 4. Utilidades de layout ------------------------------------------------- */
 .wrap {
-  width: min(100% - 32px, 1180px);
+  width: min(100% - 32px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px), 1180px);
   margin-inline: auto;
 }
 .wrap-narrow {

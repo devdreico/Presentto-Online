@@ -160,6 +160,8 @@ html.motion-timeout .reveal {
 .k-word {
   display: inline-block;
   overflow: hidden;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
   vertical-align: bottom;
 }
 .k-word > i {
@@ -324,6 +326,9 @@ html:not(.has-motion) .icon-draw * {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+  .pin-step {
+    opacity: 1;
   }
   .k-word > i {
     transform: none !important;
