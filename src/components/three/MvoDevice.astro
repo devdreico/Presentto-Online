@@ -36,6 +36,24 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
     const { RoundedBoxGeometry } = await import('three/addons/geometries/RoundedBoxGeometry.js');
     const { RoomEnvironment } = await import('three/addons/environments/RoomEnvironment.js');
 
+    // RoundedBoxGeometry limita el radio a la mitad de la dimensión menor,
+    // así que el cuerpo y el frente se extruyen desde una Shape explícita.
+    function roundedRectShape(w: number, h: number, r: number) {
+      const s = new THREE.Shape();
+      const x = -w / 2;
+      const y = -h / 2;
+      s.moveTo(x + r, y);
+      s.lineTo(x + w - r, y);
+      s.absarc(x + w - r, y + r, r, -Math.PI / 2, 0, false);
+      s.lineTo(x + w, y + h - r);
+      s.absarc(x + w - r, y + h - r, r, 0, Math.PI / 2, false);
+      s.lineTo(x + r, y + h);
+      s.absarc(x + r, y + h - r, r, Math.PI / 2, Math.PI, false);
+      s.lineTo(x, y + r);
+      s.absarc(x + r, y + r, r, Math.PI, Math.PI * 1.5, false);
+      return s;
+    }
+
     const canvas = wrapper.querySelector<HTMLCanvasElement>('canvas');
     if (!canvas) return;
 
@@ -207,6 +225,18 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.anisotropy = 4;
 
+    // Esquinas redondeadas del contenido: 540 px ≈ 74.2 px/unidad,
+    // BODY_R (1.35) - 0.31 ≈ 1.04 unidades ≈ 78 px.
+    const clipScreen = () => {
+      sc.save();
+      sc.beginPath();
+      sc.roundRect(0, 0, W, H, 78);
+      sc.clip();
+    };
+    const unclipScreen = () => {
+      sc.restore();
+    };
+
     const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
     type IslandState = { w: number; h: number; mode: 'none' | 'msg' | 'media' };
@@ -338,7 +368,17 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
     const BH = 16.1;
     const BD = 0.92;
 
-    const bodyGeo = new RoundedBoxGeometry(BW, BH, BD, 6, 1.15);
+    const BODY_R = 1.35; // iPhone-like: ~17% del ancho
+    const BEVEL = 0.06;
+    const bodyGeo = new THREE.ExtrudeGeometry(roundedRectShape(BW, BH, BODY_R), {
+      depth: BD - BEVEL * 2,
+      bevelEnabled: true,
+      bevelThickness: BEVEL,
+      bevelSize: BEVEL,
+      bevelSegments: 5,
+      curveSegments: 20,
+    });
+    bodyGeo.center();
     const bodyMat = new THREE.MeshPhysicalMaterial({
       color: 0x35353a,
       metalness: 1,
@@ -349,7 +389,16 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
     phone.add(body);
 
     // Frente "vidrio" negro (marco + pantalla)
-    const faceGeo = new RoundedBoxGeometry(BW - 0.12, BH - 0.12, 0.06, 5, 1.08);
+    const FACE_R = 1.28;
+    const faceGeo = new THREE.ExtrudeGeometry(roundedRectShape(BW - 0.12, BH - 0.12, FACE_R), {
+      depth: 0.04,
+      bevelEnabled: true,
+      bevelThickness: 0.02,
+      bevelSize: 0.02,
+      bevelSegments: 3,
+      curveSegments: 20,
+    });
+    faceGeo.center();
     const faceMat = new THREE.MeshPhysicalMaterial({
       color: 0x050505,
       metalness: 0.2,
@@ -389,6 +438,7 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
     /* ---------------- Loop ---------------------------------------------- */
     let raf = 0;
     let running = true;
+    let inView = true;
     let last = performance.now();
     let acc = 0;
     let scroll = 0;
@@ -435,6 +485,7 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
         scroll += 62 * dt; // px/s de scroll del "sitio"
 
         sc.clearRect(0, 0, W, H);
+        clipScreen();
         sc.fillStyle = p.bg;
         sc.fillRect(0, 0, W, H);
 
@@ -460,6 +511,7 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
         sc.fillStyle = 'rgba(255,255,255,.55)';
         rr(sc, W / 2 - 80, H - 34, 160, 10, 5);
 
+        unclipScreen();
         tex.needsUpdate = true;
 
         if (nextIdx !== siteIdx && phase < 0.18) {
@@ -490,9 +542,14 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
       // Render estático único
       phone.rotation.y = -0.18;
       const p0 = SITES[0];
+      clipScreen();
+      sc.clearRect(0, 0, W, H);
+      sc.fillStyle = p0.bg;
+      sc.fillRect(0, 0, W, H);
       drawStatusBar(p0);
       drawIsland(0, p0);
       sc.drawImage(getSite(0), 0, 0, W, H, 0, 0, W, H);
+      unclipScreen();
       tex.needsUpdate = true;
       renderer.render(scene, camera);
     } else {
@@ -503,7 +560,7 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
       if (document.hidden) {
         running = false;
         cancelAnimationFrame(raf);
-      } else if (!reduced()) {
+      } else if (!reduced() && inView && !running) {
         running = true;
         last = performance.now();
         raf = requestAnimationFrame(frame);
@@ -511,10 +568,31 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
     };
     document.addEventListener('visibilitychange', onVisibility);
 
+    // Pausa el loop cuando el dispositivo queda fuera de pantalla
+    const ioPause = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.some((en) => en.isIntersecting);
+        inView = visible;
+        if (!visible) {
+          if (running) {
+            running = false;
+            cancelAnimationFrame(raf);
+          }
+        } else if (!running && !reduced() && !document.hidden) {
+          running = true;
+          last = performance.now();
+          raf = requestAnimationFrame(frame);
+        }
+      },
+      { threshold: 0 },
+    );
+    ioPause.observe(wrapper);
+
     dispose = () => {
       running = false;
       cancelAnimationFrame(raf);
       document.removeEventListener('visibilitychange', onVisibility);
+      ioPause.disconnect();
       wrapper.removeEventListener('pointermove', onPointer);
       ro.disconnect();
       bodyGeo.dispose();
