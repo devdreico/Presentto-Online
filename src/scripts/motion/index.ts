@@ -10,6 +10,7 @@ import { initContactForm } from './forms';
 import { initCheckout } from './checkout';
 import { initPlanTabs } from './plans';
 import { initToc } from './toc';
+import { initHomeHero } from './home-hero';
 
 let cleanups: Array<() => void> = [];
 let cursorReady = false;
@@ -98,6 +99,7 @@ function runPage(): void {
   initCheckout();
   initPlanTabs();
   initToc();
+  cleanups.push(initHomeHero());
   initImageFallbacks();
 
   if (!cursorReady) {

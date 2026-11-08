@@ -63,7 +63,7 @@ const mobileGroups: NavGroup[] = [
 ];
 ---
 
-<header class="site-header">
+<header class="site-header" data-home-header={path === '/' ? '' : undefined}>
   <div class="wrap nav-wrap">
     <a class="brand" href="/" aria-label="Presentto Online — Inicio">
       <img
