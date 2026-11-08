@@ -15,28 +15,6 @@ import { initHomeHero } from './home-hero';
 let cleanups: Array<() => void> = [];
 let cursorReady = false;
 
-/* Preloader: solo primera visita (flag del script inline) ------------------ */
-function handlePreloader(): void {
-  const el = document.querySelector<HTMLElement>('[data-preloader]');
-  if (!el) return;
-  const playing = document.documentElement.classList.contains('play-preloader');
-  if (!playing) {
-    el.remove();
-    return;
-  }
-  const done = () => {
-    document.documentElement.classList.remove('play-preloader');
-    el.classList.add('is-done');
-    window.setTimeout(() => el.remove(), 700);
-  };
-  const minTime = new Promise<void>((r) => window.setTimeout(r, 1150));
-  const loaded =
-    document.readyState === 'complete'
-      ? Promise.resolve()
-      : new Promise<void>((r) => window.addEventListener('load', () => r(), { once: true }));
-  Promise.all([minTime, loaded]).then(done);
-}
-
 /* Tracking global de conversiones (una sola vez) --------------------------- */
 function initTracking(): void {
   const track = (window as unknown as { __presenttoTrack?: (n: string, p?: Record<string, string>) => void })
@@ -89,7 +67,6 @@ function runPage(): void {
   window.clearTimeout(safetyTimer);
   safetyTimer = window.setTimeout(() => html.classList.add('motion-timeout'), 3500);
 
-  handlePreloader();
   initNav();
   initReveals();
   initKinetic();

@@ -171,7 +171,7 @@
   max-width: none;
   margin: 0;
   color: var(--orange);
-  font-size: var(--fs-h1);
+  font-size: 3rem;
   letter-spacing: 0;
   line-height: 1.12;
   text-align: center;
@@ -195,21 +195,20 @@
 .hero-home.is-scroll-scene .home-hero-actions {
   position: absolute;
   z-index: 4;
-  top: 76%;
+  top: 72%;
   left: 50%;
   display: flex;
-  justify-content: center;
-  width: min(92vw, 700px);
+  flex-direction: column;
+  align-items: center;
+  width: min(92vw, 420px);
   margin: 0;
   transform: translate(-50%, -50%);
 }
 .hero-home.is-scroll-scene .hero-visual {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  right: 6%;
-  bottom: -5%;
-  display: block;
-  width: min(25vw, 300px);
+  display: grid;
+  width: 140px;
   min-height: 0;
   margin: 0;
   animation: none;
@@ -252,16 +251,17 @@
     height: 44px;
   }
   .hero-home.is-scroll-scene .home-hero-title {
-    top: 42%;
+    top: 32%;
     width: calc(100% - 32px);
-    font-size: var(--fs-h2);
+    font-size: 1.65rem;
+    line-height: 1.08;
   }
   .hero-home.is-scroll-scene .home-hero-actions {
-    top: auto;
-    bottom: 10%;
+    top: 52%;
     flex-direction: column;
     align-items: stretch;
     width: calc(100% - 40px);
+    gap: 8px;
     transform: translateX(-50%);
   }
   .hero-home.is-scroll-scene .home-hero-actions .btn {
@@ -269,7 +269,8 @@
     width: 100%;
   }
   .hero-home.is-scroll-scene .hero-visual {
-    display: none;
+    align-self: center;
+    width: 92px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

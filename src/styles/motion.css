@@ -4,84 +4,7 @@
    bajo html.has-motion (añadida por script inline con safety timeout).
    ========================================================================== */
 
-/* 1. Preloader -------------------------------------------------------------- */
-.preloader {
-  position: fixed;
-  z-index: var(--z-preloader);
-  inset: 0;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(170deg, var(--paper), var(--cream));
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.55s var(--ease), visibility 0.55s;
-}
-html.play-preloader .preloader {
-  opacity: 1;
-  visibility: visible;
-  transition: none;
-}
-.preloader[hidden] {
-  display: none !important;
-}
-.preloader.is-done {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.preloader-inner {
-  display: grid;
-  justify-items: center;
-  gap: 20px;
-  text-align: center;
-}
-.preloader-mark {
-  font-size: clamp(2rem, 7vw, 3rem);
-  font-weight: var(--fw-black);
-  letter-spacing: var(--tracking-display);
-  animation: preloader-pop 0.7s var(--ease-spring) both;
-}
-.preloader-mark em {
-  color: var(--orange);
-  font-style: normal;
-}
-.preloader-bar {
-  width: min(220px, 56vw);
-  height: 3px;
-  overflow: hidden;
-  border-radius: 3px;
-  background: var(--line);
-}
-.preloader-bar i {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, var(--orange), var(--orange-aa));
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  animation: preloader-fill 0.9s var(--ease) 0.15s forwards;
-}
-.preloader-sub {
-  color: var(--muted);
-  font-size: var(--fs-2xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  animation: preloader-fade 0.6s ease 0.35s both;
-}
-@keyframes preloader-pop {
-  from { opacity: 0; transform: translateY(18px) scale(0.94); }
-  to { opacity: 1; transform: none; }
-}
-@keyframes preloader-fill {
-  to { transform: scaleX(1); }
-}
-@keyframes preloader-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* 2. Cursor personalizado ---------------------------------------------------- */
+/* 1. Cursor personalizado ---------------------------------------------------- */
 .cursor-dot,
 .cursor-ring {
   position: fixed;
@@ -344,9 +267,6 @@ html:not(.has-motion) .icon-draw * {
   .step-card,
   .collection-list > li {
     transition: none !important;
-  }
-  .preloader {
-    display: none !important;
   }
   .cursor-dot,
   .cursor-ring {

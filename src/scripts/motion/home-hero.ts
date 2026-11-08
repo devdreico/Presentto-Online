@@ -39,7 +39,7 @@ export function initHomeHero(): () => void {
         start: 'top top',
         end: () => {
           const mobile = window.matchMedia('(max-width: 719px)').matches;
-          return `+=${Math.round(window.innerHeight * (mobile ? 1.8 : 2.2))}`;
+          return `+=${Math.round(window.innerHeight * (mobile ? 1.05 : 1.3))}`;
         },
         pin: true,
         pinSpacing: true,
@@ -79,7 +79,7 @@ export function initHomeHero(): () => void {
         { autoAlpha: 1, y: 0, duration: 0.12, stagger: 0.05, ease: 'power2.out' },
         0.4,
       )
-      .to(device, { autoAlpha: 0.24, y: 0, scale: 1, duration: 0.2 }, 0.44)
+      .to(device, { autoAlpha: 1, y: 0, scale: 1, duration: 0.2 }, 0.44)
       .to(
         leadWords,
         {

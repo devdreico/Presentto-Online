@@ -152,25 +152,11 @@ const allSchemas = noindex
     <ClientRouter />
 
     <script is:inline>
-      // Motion: habilita animaciones con red de seguridad (3.5s) y decide
-      // si el preloader de marca se reproduce (solo 1ª visita de la sesión).
+      // Motion: habilita animaciones con red de seguridad (3.5s).
       document.documentElement.classList.add('has-motion');
       setTimeout(function () {
         document.documentElement.classList.add('motion-timeout');
       }, 3500);
-      try {
-        var seen = sessionStorage.getItem('presentto-pl');
-        var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!seen && !reduced) {
-          sessionStorage.setItem('presentto-pl', '1');
-          document.documentElement.classList.add('play-preloader');
-        }
-        setTimeout(function () {
-          document.documentElement.classList.remove('play-preloader');
-        }, 3000);
-      } catch (e) {
-        document.documentElement.classList.remove('play-preloader');
-      }
     </script>
 
     <script is:inline>
@@ -268,14 +254,6 @@ const allSchemas = noindex
       <span class="aura aura-3"></span>
       <span class="grain"></span>
     </div>
-
-    <aside class="preloader" data-preloader aria-hidden="true">
-      <div class="preloader-inner">
-        <div class="preloader-mark">Present<em>to</em></div>
-        <div class="preloader-bar"><i></i></div>
-        <div class="preloader-sub">Presencia digital administrada</div>
-      </div>
-    </aside>
 
     <div class="scroll-progress" data-progress aria-hidden="true"><i></i></div>
 
