@@ -1,9 +1,129 @@
 import { gsap, prefersReduced } from './reveal';
 
+interface Raindrop {
+  x: number;
+  y: number;
+  speed: number;
+  length: number;
+  alpha: number;
+  width: number;
+}
+
+function initOrangeRain(canvas: HTMLCanvasElement, reduced: boolean): () => void {
+  const context = canvas.getContext('2d', { alpha: true });
+  if (!context) return () => {};
+
+  const angle = (75 * Math.PI) / 180;
+  const directionX = Math.cos(angle);
+  const directionY = Math.sin(angle);
+  let width = 0;
+  let height = 0;
+  let drops: Raindrop[] = [];
+  let frame = 0;
+  let lastTime = 0;
+  let inView = false;
+
+  const makeDrop = (randomY = true): Raindrop => ({
+    x: Math.random() * width,
+    y: randomY ? Math.random() * height : -Math.random() * 80,
+    speed: 150 + Math.random() * 260,
+    length: 10 + Math.random() * 22,
+    alpha: 0.12 + Math.random() * 0.24,
+    width: 0.6 + Math.random() * 0.8,
+  });
+
+  const paint = (delta: number) => {
+    context.clearRect(0, 0, width, height);
+    drops.forEach((drop) => {
+      if (delta > 0) {
+        drop.x += directionX * drop.speed * delta;
+        drop.y += directionY * drop.speed * delta;
+        if (drop.y - directionY * drop.length > height || drop.x - directionX * drop.length > width) {
+          Object.assign(drop, makeDrop(false));
+        }
+      }
+
+      context.beginPath();
+      context.moveTo(drop.x, drop.y);
+      context.lineTo(drop.x - directionX * drop.length, drop.y - directionY * drop.length);
+      context.strokeStyle = `rgba(241, 90, 36, ${drop.alpha})`;
+      context.lineWidth = drop.width;
+      context.stroke();
+    });
+  };
+
+  const tick = (time: number) => {
+    frame = 0;
+    if (!inView || document.hidden) return;
+    const delta = lastTime ? Math.min((time - lastTime) / 1000, 0.04) : 0;
+    lastTime = time;
+    paint(delta);
+    frame = window.requestAnimationFrame(tick);
+  };
+
+  const start = () => {
+    if (!reduced && inView && !document.hidden && !frame) {
+      lastTime = 0;
+      frame = window.requestAnimationFrame(tick);
+    }
+  };
+
+  const resize = () => {
+    const rect = canvas.getBoundingClientRect();
+    const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+    width = rect.width;
+    height = rect.height;
+    canvas.width = Math.round(width * ratio);
+    canvas.height = Math.round(height * ratio);
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+    const count = Math.min(96, Math.max(28, Math.round((width * height) / 14500)));
+    drops = Array.from({ length: count }, () => makeDrop());
+    paint(0);
+  };
+
+  const resizeObserver = new ResizeObserver(resize);
+  resizeObserver.observe(canvas);
+  window.addEventListener('resize', resize);
+  resize();
+
+  const visibilityObserver = new IntersectionObserver((entries) => {
+    inView = entries.some((entry) => entry.isIntersecting);
+    if (inView) start();
+    else {
+      window.cancelAnimationFrame(frame);
+      frame = 0;
+      lastTime = 0;
+    }
+  });
+  visibilityObserver.observe(canvas);
+
+  const onVisibilityChange = () => {
+    if (document.hidden) {
+      window.cancelAnimationFrame(frame);
+      frame = 0;
+      lastTime = 0;
+    } else start();
+  };
+  document.addEventListener('visibilitychange', onVisibilityChange);
+
+  return () => {
+    window.cancelAnimationFrame(frame);
+    resizeObserver.disconnect();
+    visibilityObserver.disconnect();
+    window.removeEventListener('resize', resize);
+    document.removeEventListener('visibilitychange', onVisibilityChange);
+  };
+}
+
 export function initHomeHero(): () => void {
   const hero = document.querySelector<HTMLElement>('[data-home-scroll]');
   const header = document.querySelector<HTMLElement>('[data-home-header]');
-  if (!hero || !header || prefersReduced()) return () => {};
+  if (!hero) return () => {};
+
+  const reduced = prefersReduced();
+  const rainCanvas = hero.querySelector<HTMLCanvasElement>('[data-home-rain]');
+  const stopRain = rainCanvas ? initOrangeRain(rainCanvas, reduced) : () => {};
+  if (!header || reduced) return stopRain;
 
   const brand = hero.querySelector<HTMLElement>('[data-home-brand]');
   const cue = hero.querySelector<HTMLElement>('[data-home-cue]');
@@ -20,11 +140,17 @@ export function initHomeHero(): () => void {
   const root = document.documentElement;
   const previousInert = header.inert;
   const previousAriaHidden = header.getAttribute('aria-hidden');
+  const previousPointerEvents = header.style.pointerEvents;
+  const setHeaderAvailable = (available: boolean) => {
+    header.inert = !available;
+    header.style.pointerEvents = available ? 'auto' : 'none';
+    if (available) header.removeAttribute('aria-hidden');
+    else header.setAttribute('aria-hidden', 'true');
+  };
 
   hero.classList.add('is-scroll-scene');
   root.classList.add('home-hero-scroll-active');
-  header.inert = true;
-  header.setAttribute('aria-hidden', 'true');
+  setHeaderAvailable(false);
 
   const context = gsap.context(() => {
     gsap.set(header, { autoAlpha: 0, yPercent: -100 });
@@ -46,11 +172,15 @@ export function initHomeHero(): () => void {
         scrub: 0.65,
         anticipatePin: 1,
         invalidateOnRefresh: true,
-        onUpdate: ({ progress }) => {
-          const headerReady = progress >= 0.995;
-          header.inert = !headerReady;
-          if (headerReady) header.removeAttribute('aria-hidden');
-          else header.setAttribute('aria-hidden', 'true');
+        onUpdate: ({ progress }) => setHeaderAvailable(progress >= 0.94),
+        onLeave: () => {
+          setHeaderAvailable(true);
+          gsap.set(header, { autoAlpha: 1, yPercent: 0 });
+        },
+        onEnterBack: () => setHeaderAvailable(true),
+        onLeaveBack: () => {
+          setHeaderAvailable(false);
+          gsap.set(header, { autoAlpha: 0, yPercent: -100 });
         },
       },
     });
@@ -94,7 +224,7 @@ export function initHomeHero(): () => void {
       .to(lead, { height: 0, marginBottom: 0, overflow: 'hidden', duration: 0.14 }, 0.78)
       .to(tail, { y: -28, scale: 1.04, duration: 0.16, ease: 'power2.inOut' }, 0.64)
       .to(actions, { autoAlpha: 1, y: 0, duration: 0.18, ease: 'power2.out' }, 0.75)
-      .to(header, { autoAlpha: 1, yPercent: 0, duration: 0.12, ease: 'power2.out' }, 0.88);
+      .to(header, { autoAlpha: 1, yPercent: 0, duration: 0.12, ease: 'power2.out' }, 0.82);
   }, hero);
 
   return () => {
@@ -102,7 +232,9 @@ export function initHomeHero(): () => void {
     hero.classList.remove('is-scroll-scene');
     root.classList.remove('home-hero-scroll-active');
     header.inert = previousInert;
+    header.style.pointerEvents = previousPointerEvents;
     if (previousAriaHidden === null) header.removeAttribute('aria-hidden');
     else header.setAttribute('aria-hidden', previousAriaHidden);
+    stopRain();
   };
 }
