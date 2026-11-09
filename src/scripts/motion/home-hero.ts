@@ -224,7 +224,9 @@ export function initHomeHero(): () => void {
       .to(lead, { height: 0, marginBottom: 0, overflow: 'hidden', duration: 0.14 }, 0.78)
       .to(tail, { y: -28, scale: 1.04, duration: 0.16, ease: 'power2.inOut' }, 0.64)
       .to(actions, { autoAlpha: 1, y: 0, duration: 0.18, ease: 'power2.out' }, 0.75)
-      .to(header, { autoAlpha: 1, yPercent: 0, duration: 0.12, ease: 'power2.out' }, 0.82);
+      /* Header aparece justo cuando las acciones (incl. "Escribenos por WhatsApp")
+         terminan de entrar (0.75 + 0.18 ≈ 0.93) y queda disponible de inmediato. */
+      .to(header, { autoAlpha: 1, yPercent: 0, duration: 0.1, ease: 'power3.out' }, 0.94);
   }, hero);
 
   return () => {
