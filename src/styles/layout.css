@@ -25,7 +25,16 @@ html.home-hero-scroll-active .site-header[data-home-header] {
   transform: translateY(-100%);
   opacity: 0;
   visibility: hidden;
-  transition: none;
+  transition: border-color var(--dur) ease, box-shadow var(--dur) ease, background var(--dur) ease,
+    transform 0.35s var(--ease), opacity 0.35s var(--ease), visibility 0.35s;
+}
+/* Aparición suave del header al final del hero (progreso >= 0.94) */
+html.home-hero-scroll-active .site-header[data-home-header].is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transition: border-color var(--dur) ease, box-shadow var(--dur) ease, background var(--dur) ease,
+    transform 0.35s var(--ease), opacity 0.35s var(--ease), visibility 0.35s;
 }
 .nav-wrap {
   display: flex;

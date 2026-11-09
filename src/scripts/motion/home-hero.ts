@@ -153,7 +153,6 @@ export function initHomeHero(): () => void {
   setHeaderAvailable(false);
 
   const context = gsap.context(() => {
-    gsap.set(header, { autoAlpha: 0, yPercent: -100 });
     gsap.set([lead, tail, actions], { autoAlpha: 0 });
     gsap.set([...leadWords, ...tailWords], { autoAlpha: 0, y: 24 });
     gsap.set(cue, { autoAlpha: 1, y: 0 });
@@ -172,15 +171,19 @@ export function initHomeHero(): () => void {
         scrub: 0.65,
         anticipatePin: 1,
         invalidateOnRefresh: true,
-        onUpdate: ({ progress }) => setHeaderAvailable(progress >= 0.94),
+        onUpdate: ({ progress }) => {
+          setHeaderAvailable(progress >= 0.94);
+          if (progress >= 0.94) header.classList.add('is-visible');
+          else header.classList.remove('is-visible');
+        },
         onLeave: () => {
           setHeaderAvailable(true);
-          gsap.set(header, { autoAlpha: 1, yPercent: 0 });
+          header.classList.add('is-visible');
         },
         onEnterBack: () => setHeaderAvailable(true),
         onLeaveBack: () => {
           setHeaderAvailable(false);
-          gsap.set(header, { autoAlpha: 0, yPercent: -100 });
+          header.classList.remove('is-visible');
         },
       },
     });
@@ -223,16 +226,14 @@ export function initHomeHero(): () => void {
       )
       .to(lead, { height: 0, marginBottom: 0, overflow: 'hidden', duration: 0.14 }, 0.78)
       .to(tail, { y: -28, scale: 1.04, duration: 0.16, ease: 'power2.inOut' }, 0.64)
-      .to(actions, { autoAlpha: 1, y: 0, duration: 0.18, ease: 'power2.out' }, 0.75)
-      /* Header aparece justo cuando las acciones (incl. "Escribenos por WhatsApp")
-         terminan de entrar (0.75 + 0.18 ≈ 0.93) y queda disponible de inmediato. */
-      .to(header, { autoAlpha: 1, yPercent: 0, duration: 0.1, ease: 'power3.out' }, 0.94);
+      .to(actions, { autoAlpha: 1, y: 0, duration: 0.18, ease: 'power2.out' }, 0.75);
   }, hero);
 
   return () => {
     context.revert();
     hero.classList.remove('is-scroll-scene');
     root.classList.remove('home-hero-scroll-active');
+    header.classList.remove('is-visible');
     header.inert = previousInert;
     header.style.pointerEvents = previousPointerEvents;
     if (previousAriaHidden === null) header.removeAttribute('aria-hidden');
