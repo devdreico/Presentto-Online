@@ -1,0 +1,47 @@
+---
+/** Dos webinars grabados. Mientras `url` sea null, la tarjeta avisa "Próximamente". */
+import { videos } from '../data/proof';
+import { wa } from '../data/business';
+---
+
+<section class="section wrap" id="webinars" aria-labelledby="webinars-title">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">APRENDE ANTES DE CONTRATAR</p>
+      <h2 id="webinars-title" data-split>Dos sesiones, <em>sin costo.</em></h2>
+    </div>
+    <p class="lead">
+      Grabaciones de nuestros webinars: qué mira Google, cómo se mide y cómo usar IA sin exponer la
+      información de tu negocio. Sin registro para verlas.
+    </p>
+  </div>
+
+  <div class="video-grid" data-stagger>
+    {videos.map((video, i) => (
+      <article class:list={['video-card', { 'is-soon': !video.url }]} data-stagger>
+        <div class="video-poster" aria-hidden="true">
+          <span class="video-index">{String(i + 1).padStart(2, '0')}</span>
+          <span class="video-rings"></span>
+          <span class="video-duration">{video.duration}</span>
+        </div>
+        <div class="video-body">
+          <p class="support-tag">{video.tag}</p>
+          <h3>{video.title}</h3>
+          <p>{video.description}</p>
+          {video.url ? (
+            <a class="btn btn-ghost btn-sm" href={video.url} target="_blank" rel="noopener noreferrer">
+              Ver la grabación <span aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <div class="video-soon">
+              <span class="tag">Próximamente</span>
+              <a href={wa(`Hola Presentto, avísenme cuando publiquen el webinar “${video.title}”`)} target="_blank" rel="noopener">
+                Avísame <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          )}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

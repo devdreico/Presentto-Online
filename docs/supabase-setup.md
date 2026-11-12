@@ -149,6 +149,20 @@ Probar en `/cuenta/`: teléfono `3001234567` (o `573001234567`) y el PIN.
   un slug conocido no puede dar acceso por sí solo (ver contrato de handoff en el plan).
 - Revisar mensualmente Authentication → Users para detectar altas inesperadas.
 
+## 8.1 Handoff al dashboard (mismo origen)
+
+El dashboard se publica aparte, pero se sirve bajo `www.presentto.online/app/*` con un
+`rewrite` en `vercel.json` hacia `dashboard.presentto.online`. Consecuencias:
+
+- El navegador ejecuta el dashboard en el origen `www.presentto.online`, así que comparte
+  `localStorage` con `/cuenta/`: **la sesión de Supabase ya está disponible y no hay segundo login**.
+- El proyecto del dashboard debe compilar con base `/app/` (assets y rutas internas relativas),
+  o el proxy devolverá HTML con rutas que apuntan a `www` y romperán los estilos.
+- `/cuenta/` redirige a `/app/{slug}/`. El dashboard debe validar la sesión y leer el slug del
+  path; **el slug por sí solo nunca debe dar acceso**.
+- Si el dashboard se mueve de host, basta cambiar el destino en `vercel.json`.
+- En local, `PUBLIC_DASHBOARD_URL` permite apuntar a otro origen; en producción debe quedar vacío.
+
 ## 9. Checklist de aceptación
 
 - [ ] Migración aplicada por la integración y visible en Migrations.

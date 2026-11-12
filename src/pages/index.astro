@@ -7,6 +7,7 @@ import TrustStrip from '../components/TrustStrip.astro';
 import ServicePillars from '../components/ServicePillars.astro';
 import AiTeam from '../components/AiTeam.astro';
 import ClientGrid from '../components/ClientGrid.astro';
+import ProofSection from '../components/ProofSection.astro';
 import OnboardingTimeline from '../components/OnboardingTimeline.astro';
 import DeviceShowcase from '../components/three/DeviceShowcase.astro';
 import { ctaDiagnostico } from '../data/business';
@@ -39,7 +40,7 @@ const faqs = [
   },
   {
     q: '¿Puedo entrar a mi cuenta y ver mi plan?',
-    a: 'Sí. En /cuenta/ inicias sesión con tu teléfono y un PIN de 6 dígitos, y te llevamos a tu dashboard personal en dashboard.presentto.online. Allí ves plan, fechas, entregables, métricas y solicitudes. Las credenciales se entregan al activar el servicio.',
+    a: 'Sí. En /cuenta/ inicias sesión con tu teléfono y un PIN de 6 dígitos, y te llevamos a tu dashboard personal en presentto.online/app/. Allí ves plan, fechas, entregables, métricas y solicitudes. Las credenciales se entregan al activar el servicio.',
   },
 ];
 
@@ -145,6 +146,9 @@ const marqueeItems = [
 
   <!-- 6. Clientes reales ------------------------------------------------------ -->
   <ClientGrid limit={9} />
+
+  <!-- 6b. Casos y testimonios aprobados (no renderiza si no hay datos) -------- -->
+  <ProofSection />
 
   <!-- 7. Proceso -------------------------------------------------------------- -->
   <OnboardingTimeline />

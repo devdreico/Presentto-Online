@@ -123,28 +123,26 @@ export function initCheckout(): () => void {
       _gotcha: (form.namedItem('_gotcha') as HTMLInputElement | null)?.value || '',
     };
 
+    // El pago nunca depende del CRM: si Formspree falla, igual se cobra.
+    // El lead se envía con keepalive para que sobreviva a la navegación.
     try {
-      const res = await fetch(FORMSPREE, {
+      void fetch(FORMSPREE, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error('send');
-      setStatus('¡Listo! Te llevamos al pago seguro de Mercado Pago…');
-      track?.('checkout_lead_sent', {
-        plan: fPlan?.value || '',
-        price: fPrecio?.value || '',
-        page_path: location.pathname,
-      });
-      window.setTimeout(() => {
-        location.href = payUrl;
-      }, 400);
+        keepalive: true,
+      }).catch(() => {});
     } catch {
-      setStatus('No pudimos enviar tus datos. Revisa tu conexión e inténtalo de nuevo.', true);
-      track?.('checkout_error', { plan: fPlan?.value || '', page_path: location.pathname });
-      busy = false;
-      if (submitBtn) submitBtn.disabled = false;
+      // Sin red igual continuamos al pago.
     }
+
+    track?.('checkout_lead_sent', {
+      plan: fPlan?.value || '',
+      price: fPrecio?.value || '',
+      page_path: location.pathname,
+    });
+    setStatus('Abriendo el pago seguro de Mercado Pago…');
+    location.href = payUrl;
   };
   form.addEventListener('submit', onSubmit);
 

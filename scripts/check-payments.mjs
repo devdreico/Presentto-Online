@@ -22,3 +22,5 @@ if (missing.length === 0) {
 console.log(`Pagos: faltan ${missing.length}/8 links por configurar en src/data/payments.ts`);
 for (const item of missing) console.log(`  - ${item}`);
 console.log('La UI usará "Solicitar link de pago" hasta que se completen.');
+console.log('El modelo es self-serve: sin los 8 links no se puede cobrar desde el sitio.');
+process.exit(1);

@@ -570,5 +570,15 @@
       "destination": "/servicios/",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/app",
+      "destination": "https://dashboard.presentto.online/"
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "https://dashboard.presentto.online/:path*"
+    }
   ]
 }

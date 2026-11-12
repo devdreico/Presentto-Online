@@ -178,3 +178,22 @@ Total: 7 días efectivos.
 4. Pegar los 8 links de Mercado Pago en `src/data/payments.ts`.
 5. Acordar el contrato de sesión con el dashboard externo (hoy solo se envía el slug).
 6. Comunicar el cambio de precios a clientes legacy antes del despliegue.
+
+## 8. Decisiones de producto (2026-11-12)
+
+| Tema | Decisión | Consecuencia técnica |
+|---|---|---|
+| Sesión del dashboard | Mismo origen con `rewrite` `/app/:path*` → `dashboard.presentto.online` | Comparte `localStorage` con `/cuenta/`; sin segundo login ni token en la URL. El dashboard debe compilar con base `/app/`. |
+| Venta | Self-serve en los 4 planes | Los 8 links de Mercado Pago son bloqueantes; `payments:check` falla mientras falten. |
+| Precio de entrada | Presencia se mantiene en $100.000 + setup $250.000 | Riesgo asumido: churn antes del mes 4 no cubre la implementación. |
+| Prueba social | Casos con métricas, testimonios, video del dashboard y logos | `src/data/proof.ts` con `approved`; nada se publica sin permiso. |
+| Webinars | Dos placeholders hasta tener la grabación | `VideoWall.astro` en `/servicios/`. |
+| Imágenes | Sin stock genérico | Los pósters de webinar son CSS; las fotos reales entran cuando existan. |
+
+### Pendiente de contenido (no se puede inventar)
+
+1. 3 casos: cliente, reto, trabajo y 2 métricas verificables (Search Console/Analytics).
+2. 2 testimonios con autorización escrita.
+3. Grabación o enlace de los 2 webinars.
+4. NAP + ficha de Google real (`business.ts`).
+5. 8 links de Mercado Pago.

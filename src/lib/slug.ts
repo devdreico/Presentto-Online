@@ -31,10 +31,14 @@ export function normalizePhone(input: string): string {
   return '';
 }
 
-/** URL única del dashboard del cliente. */
+/**
+ * URL del dashboard del cliente.
+ * Por defecto vive en el mismo origen (`/app/`), proxificado a su despliegue
+ * con un rewrite de Vercel: así comparte la sesión de Supabase y no hay un
+ * segundo login. PUBLIC_DASHBOARD_URL solo se usa para apuntar a otro origen
+ * en desarrollo.
+ */
 export function dashboardUrl(slug: string): string {
-  const base =
-    (import.meta.env.PUBLIC_DASHBOARD_URL as string | undefined)?.replace(/\/+$/, '') ||
-    'https://dashboard.presentto.online';
-  return `${base}/${slug}/`;
+  const base = (import.meta.env.PUBLIC_DASHBOARD_URL as string | undefined)?.replace(/\/+$/, '');
+  return `${base || '/app'}/${slug}/`;
 }
