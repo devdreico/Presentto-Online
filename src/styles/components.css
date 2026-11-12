@@ -2810,3 +2810,90 @@ a.tag:hover {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* 30. Plan finder ---------------------------------------------------------------- */
+.plan-finder {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  display: grid;
+  gap: 22px;
+}
+.plan-finder fieldset {
+  margin: 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: rgba(255, 253, 249, 0.7);
+}
+.plan-finder legend {
+  padding: 0 6px;
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-black);
+}
+.plan-finder label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+.plan-finder label input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--orange);
+}
+.plan-finder label:has(input:checked) {
+  color: var(--ink);
+  font-weight: var(--fw-bold);
+}
+.plan-finder-submit {
+  justify-self: center;
+}
+.plan-finder-result {
+  max-width: 640px;
+  margin: 28px auto 0;
+  padding: clamp(24px, 4vw, 36px);
+  border: 1px solid var(--orange-tint-2);
+  border-radius: var(--r-xl);
+  background: linear-gradient(160deg, var(--orange-tint) 0%, var(--paper) 100%);
+  box-shadow: var(--shadow-md);
+}
+.plan-finder-result[hidden] {
+  display: none;
+}
+.plan-finder-result h3 {
+  margin: 6px 0 8px;
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+}
+.plan-finder-tagline {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+.plan-finder-price {
+  margin: 0 0 14px;
+}
+.plan-finder-price strong {
+  font-size: 1.6rem;
+  font-weight: var(--fw-black);
+  letter-spacing: -0.03em;
+}
+.plan-finder-price span {
+  color: var(--muted);
+  font-size: var(--fs-xs);
+}
+.plan-finder-note {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+.plan-finder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

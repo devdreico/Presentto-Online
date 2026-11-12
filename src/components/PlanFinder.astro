@@ -1,0 +1,107 @@
+---
+import { plans } from '../data/service';
+import { ctaDiagnostico } from '../data/business';
+---
+
+<section class="section wrap" id="plan-finder" aria-labelledby="plan-finder-title">
+  <div class="section-head center">
+    <p class="eyebrow">¿CUÁL PLAN TE SIRVE?</p>
+    <h2 id="plan-finder-title">Responde 3 preguntas. <em>Te decimos cuál aplicar.</em></h2>
+    <p class="lead">
+      No sustituye el diagnóstico, pero te da un punto de partida claro antes de hablar con nosotros.
+    </p>
+  </div>
+
+  <form class="plan-finder" id="planFinder" novalidate>
+    <fieldset>
+      <legend>1. ¿Qué necesitas resolver primero?</legend>
+      <label><input type="radio" name="need" value="presencia" required /> Existir bien en internet (web, ficha, correo).</label>
+      <label><input type="radio" name="need" value="demanda" /> Que la presencia genere más consultas.</label>
+      <label><input type="radio" name="need" value="sistemas" /> Automatizar reservas, catálogos o cotizaciones.</label>
+      <label><input type="radio" name="need" value="empresa" /> Varias sedes, marcas o integraciones críticas.</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. ¿Tienes web hoy?</legend>
+      <label><input type="radio" name="web" value="no" required /> No, hay que construirla.</label>
+      <label><input type="radio" name="web" value="rota" /> Sí, pero no funciona o no se actualiza.</label>
+      <label><input type="radio" name="web" value="ok" /> Sí y funciona, solo falta mejorarla.</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. ¿Presupuesto mensual aproximado?</legend>
+      <label><input type="radio" name="budget" value="100" required /> Hasta $100.000 COP/mes.</label>
+      <label><input type="radio" name="budget" value="300" /> Entre $100.000 y $300.000 COP/mes.</label>
+      <label><input type="radio" name="budget" value="650" /> Entre $300.000 y $650.000 COP/mes.</label>
+      <label><input type="radio" name="budget" value="sin" /> Sin límite definido.</label>
+    </fieldset>
+
+    <button class="btn btn-primary plan-finder-submit" type="submit">
+      Ver mi plan recomendado <span aria-hidden="true">↗</span>
+    </button>
+    <p id="planFinderStatus" class="account-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <div id="planFinderResult" class="plan-finder-result" hidden>
+    <p class="eyebrow">PLAN RECOMENDADO</p>
+    <h3 id="planFinderName"></h3>
+    <p id="planFinderTagline" class="plan-finder-tagline"></p>
+    <p class="plan-finder-price">
+      <strong id="planFinderPrice"></strong>
+      <span id="planFinderUnit"></span>
+    </p>
+    <p id="planFinderNote" class="plan-finder-note"></p>
+    <div class="plan-finder-actions">
+      <a id="planFinderDiag" class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener">
+        Pedir diagnóstico gratis <span aria-hidden="true">↗</span>
+      </a>
+      <a id="planFinderPlans" class="btn btn-ghost btn-sm" href="#planes">
+        Ver todos los planes <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ plans: plans.map((p) => ({ id: p.id, name: p.name, tagline: p.tagline, monthly: p.monthly, fromPrice: p.fromPrice })) }}>
+    (function () {
+      const form = document.getElementById('planFinder');
+      const result = document.getElementById('planFinderResult');
+      const status = document.getElementById('planFinderStatus');
+      if (!form || !result) return;
+
+      const byId = Object.fromEntries(plans.map((p) => [p.id, p]));
+      const fmt = (n) => new Intl.NumberFormat('es-CO').format(n);
+
+      function recommend(need, web, budget) {
+        if (need === 'empresa' || budget === 'sin') return 'empresa';
+        if (need === 'sistemas' || web === 'rota') return 'sistemas';
+        if (need === 'demanda' || web === 'ok') return 'crecimiento';
+        return 'presencia';
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const need = form.querySelector('input[name="need"]:checked')?.value;
+        const web = form.querySelector('input[name="web"]:checked')?.value;
+        const budget = form.querySelector('input[name="budget"]:checked')?.value;
+        if (!need || !web || !budget) {
+          if (status) status.textContent = 'Responde las tres preguntas para ver tu plan.';
+          return;
+        }
+        if (status) status.textContent = '';
+        const id = recommend(need, web, budget);
+        const plan = byId[id];
+        document.getElementById('planFinderName').textContent = plan.name;
+        document.getElementById('planFinderTagline').textContent = plan.tagline;
+        document.getElementById('planFinderPrice').textContent =
+          (plan.fromPrice ? 'Desde ' : '') + '$' + fmt(plan.monthly);
+        document.getElementById('planFinderUnit').textContent = ' COP / mes, IVA incluido';
+        document.getElementById('planFinderNote').textContent =
+          id === 'empresa'
+            ? 'El alcance y el precio se cotizan según tus sedes e integraciones.'
+            : 'El setup inicial se paga una sola vez y cubre auditoría, migración y configuración.';
+        result.hidden = false;
+        result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    })();
+  </script>
+</section>

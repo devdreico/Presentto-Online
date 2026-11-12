@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
 import PlansGrid from '../components/PlansGrid.astro';
+import PlanFinder from '../components/PlanFinder.astro';
 import PlanComparison from '../components/PlanComparison.astro';
 import SlaTable from '../components/SlaTable.astro';
 import PageHero from '../components/PageHero.astro';
@@ -71,6 +72,8 @@ const faqs = [
       <span class="tag">Sin cargo automático</span>
     </Fragment>
   </PageHero>
+
+  <PlanFinder />
 
   <PlansGrid />
 

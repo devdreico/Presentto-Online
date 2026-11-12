@@ -7,3 +7,7 @@ Disallow: /*?page=
 Host: www.presentto.online
 # Sitemap principal (urlset completo con todas las URLs canónicas)
 Sitemap: https://www.presentto.online/sitemap.xml
+
+# Áreas privadas: no indexar
+Disallow: /cuenta/
+Disallow: /app/
