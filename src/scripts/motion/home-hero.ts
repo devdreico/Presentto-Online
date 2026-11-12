@@ -130,10 +130,9 @@ export function initHomeHero(): () => void {
   const lead = hero.querySelector<HTMLElement>('[data-home-lead]');
   const tail = hero.querySelector<HTMLElement>('[data-home-tail]');
   const actions = hero.querySelector<HTMLElement>('[data-home-actions]');
-  const device = hero.querySelector<HTMLElement>('[data-home-device]');
   const leadWords = gsap.utils.toArray<HTMLElement>('[data-home-lead] .home-hero-word');
   const tailWords = gsap.utils.toArray<HTMLElement>('[data-home-tail] .home-hero-word');
-  if (!brand || !cue || !lead || !tail || !actions || !device || !leadWords.length || !tailWords.length) {
+  if (!brand || !cue || !lead || !tail || !actions || !leadWords.length || !tailWords.length) {
     return () => {};
   }
 
@@ -153,7 +152,6 @@ export function initHomeHero(): () => void {
     gsap.set([lead, tail, actions], { autoAlpha: 0 });
     gsap.set([...leadWords, ...tailWords], { autoAlpha: 0, y: 24 });
     gsap.set(cue, { autoAlpha: 1, y: 0 });
-    gsap.set(device, { autoAlpha: 0, y: 32, scale: 0.96 });
 
     const timeline = gsap.timeline({
       scrollTrigger: {
@@ -209,7 +207,6 @@ export function initHomeHero(): () => void {
         { autoAlpha: 1, y: 0, duration: 0.12, stagger: 0.05, ease: 'power2.out' },
         0.4,
       )
-      .to(device, { autoAlpha: 1, y: 0, scale: 1, duration: 0.2 }, 0.44)
       .to(
         leadWords,
         {

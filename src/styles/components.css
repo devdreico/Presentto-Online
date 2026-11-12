@@ -90,7 +90,6 @@
   display: grid;
   min-height: 440px;
   place-items: center;
-  animation: hero-device-arrive 900ms 120ms both;
 }
 .hero-home[data-home-scroll] {
   background: var(--paper-2);
@@ -230,19 +229,12 @@
   margin: 0;
   animation: none;
 }
-.hero-home.is-scroll-scene .hero-device {
-  width: 100%;
-}
 @keyframes hero-grid-drift {
   to { background-position: 56px 56px, 56px 56px; }
 }
 @keyframes hero-scan {
   from { translate: 0 -22px; opacity: 0.35; }
   to { translate: 0 22px; opacity: 0.8; }
-}
-@keyframes hero-device-arrive {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 @media (max-width: 719px) {
   .hero {
@@ -254,8 +246,7 @@
   .hero-copy { text-align: center; }
   .hero-title { margin-inline: auto; }
   .hero-contact { margin-inline: auto; }
-  .hero-visual { min-height: 0; margin-top: 8px; animation-delay: 400ms; }
-  .hero-device { width: min(100%, 290px); }
+  .hero-visual { min-height: 0; margin-top: 8px; }
   .hero-home.is-scroll-scene {
     height: 100svh;
     min-height: 100svh;
@@ -285,10 +276,6 @@
     justify-content: center;
     width: 100%;
   }
-  .hero-home.is-scroll-scene .hero-visual {
-    align-self: center;
-    width: 92px;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-home[data-home-scroll] .home-hero-rain {
@@ -297,123 +284,6 @@
   .hero-motion::before,
   .hero-motion::after,
   .hero-visual { animation: none; }
-}
-
-/* iPhone 16 3D + póster de respaldo */
-.hero-device {
-  position: relative;
-  width: min(100%, 350px);
-  aspect-ratio: 400 / 600;
-  margin-inline: auto;
-}
-.hero-device canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: var(--r-xl);
-}
-.device-poster {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  transition: opacity 0.6s var(--ease);
-}
-.hero-device.is-3d .device-poster {
-  opacity: 0;
-  pointer-events: none;
-}
-.poster-phone {
-  position: relative;
-  width: min(64%, 218px);
-  aspect-ratio: 7.9 / 16.1;
-  padding: 7px;
-  border-radius: 34px;
-  background: linear-gradient(160deg, #4a4a50, #232327 45%, #3c3c42);
-  box-shadow: 0 34px 70px -28px rgba(23, 22, 20, 0.55), var(--glass-inner);
-}
-.poster-island {
-  position: absolute;
-  z-index: 2;
-  top: 16px;
-  left: 50%;
-  width: 34%;
-  height: 4.2%;
-  min-height: 14px;
-  border-radius: var(--r-pill);
-  background: #000;
-  transform: translateX(-50%);
-  animation: poster-island 5.2s var(--ease) infinite;
-}
-.poster-screen {
-  position: relative;
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  gap: 7px;
-  overflow: hidden;
-  padding: 15% 9% 9%;
-  border-radius: 28px;
-  background: linear-gradient(180deg, #17130f, #241d17);
-}
-.poster-screen > span {
-  display: block;
-  border-radius: var(--r-pill);
-}
-.poster-nav {
-  width: 70%;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.24);
-}
-.poster-hero {
-  height: 34%;
-  border-radius: 14px !important;
-  background: linear-gradient(135deg, var(--orange), #f5c173);
-}
-.poster-row {
-  display: flex;
-  gap: 7px;
-}
-.poster-row i {
-  width: 50%;
-  height: 34px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.14);
-}
-.poster-line {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.2);
-}
-.poster-line.w80 {
-  width: 80%;
-}
-.poster-line.w60 {
-  width: 60%;
-}
-.poster-cta {
-  width: 58%;
-  height: 22px;
-  margin-top: auto;
-  background: var(--orange);
-}
-@keyframes poster-island {
-  0%,
-  14%,
-  100% {
-    width: 34%;
-    height: 4.2%;
-  }
-  30%,
-  46% {
-    width: 58%;
-    height: 8%;
-  }
-  60%,
-  76% {
-    width: 64%;
-    height: 9%;
-  }
 }
 
 @media (min-width: 940px) {

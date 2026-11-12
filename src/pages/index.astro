@@ -9,7 +9,6 @@ import AiTeam from '../components/AiTeam.astro';
 import ClientGrid from '../components/ClientGrid.astro';
 import ProofSection from '../components/ProofSection.astro';
 import OnboardingTimeline from '../components/OnboardingTimeline.astro';
-import DeviceShowcase from '../components/three/DeviceShowcase.astro';
 import { ctaDiagnostico } from '../data/business';
 import { clients } from '../data/clients';
 
@@ -96,9 +95,6 @@ const marqueeItems = [
         <a class="btn btn-ghost" href="/servicios/">
           Qué incluye <span aria-hidden="true">↗</span>
         </a>
-        <div class="hero-visual" data-home-device>
-          <DeviceShowcase />
-        </div>
         <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
           Diagnóstico gratis <span aria-hidden="true">↗</span>
         </a>
