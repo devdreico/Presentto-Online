@@ -2774,6 +2774,7 @@ a.tag:hover {
   align-items: center;
   gap: 4px;
   margin-top: 6px;
+  align-self: center;
   color: var(--muted);
   font-size: var(--fs-xs);
   font-weight: var(--fw-semi);
