@@ -1,5 +1,5 @@
 ---
-import { ctaSession } from '../data/business';
+import { ctaDiagnostico } from '../data/business';
 
 interface Props {
   eyebrow?: string;
@@ -7,9 +7,9 @@ interface Props {
   note?: string;
 }
 const {
-  eyebrow = 'EMPIEZA HOY',
-  title = 'Ve tu web antes de pagar. <em>Decide después.</em>',
-  note = 'Primera sesión de 30 min por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil',
+  eyebrow = 'EMPIEZA CON DIAGNÓSTICO GRATIS',
+  title = 'Revisamos tu presencia. <em>Decide después.</em>',
+  note = '20 minutos por Google Meet o WhatsApp · Sin compromiso · Presupuesto antes de pagar',
 } = Astro.props;
 ---
 
@@ -18,8 +18,8 @@ const {
     <p class="eyebrow">{eyebrow}</p>
     <h2 set:html={title} />
     <div class="actions">
-      <a class="btn btn-light" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-        Agendar mi sesión 1 <span>↗</span>
+      <a class="btn btn-light" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+        Pedir diagnóstico gratis <span>↗</span>
       </a>
       <slot />
       <a class="btn btn-light-ghost" href="/precios/">Ver planes <span>↓</span></a>

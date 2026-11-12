@@ -6,7 +6,7 @@ import FaqList from '../../components/FaqList.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
 import ArticleLayout from '../../components/ArticleLayout.astro';
 import FinalCta from '../../components/FinalCta.astro';
-import { ctaSession } from '../../data/business';
+import { ctaDiagnostico } from '../../data/business';
 import { datesFor } from '../../data/content-dates';
 const crumbs = [
   { label: 'Inicio', href: '/' },
@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: '¿Cuánto cuesta tener presencia digital básica en Colombia?',
-    a: 'Hay opciones desde $40.000 COP/mes con la Presenttación Digital de Presentto (web, dominio, correo y administración). También puedes hacerlo tú con plataformas de pago mensual, a costa de tu tiempo.',
+    a: 'Hay opciones desde $100.000 COP/mes con la Administración de Presencia Digital de Presentto (web, dominio o subdominio, correo, ficha de Google, analítica y administración). También puedes hacerlo tú con plataformas de pago mensual, a costa de tu tiempo.',
   },
 ];
 
@@ -108,9 +108,9 @@ const articleSchema = {
     <p>
       La web es la base. Las redes publican; la ficha de Google muestra ubicación y reputación; pero la web es
       donde respondes las dudas que no caben en una publicación: qué incluye un servicio, cuánto cuesta, cómo
-      se entrega. En Presentto la llamamos <em>Presenttación Digital</em>: un sitio con tu marca, dominio
-      propio, correo profesional y administración incluida, pensado para negocios que no quieren aprender
-      herramientas nuevas.
+      se entrega. En Presentto la llamamos <em>Administración de Presencia Digital</em>: un servicio continuo con web,
+      dominio o subdominio, correo profesional, ficha de Google, analítica y administración incluida, pensado
+      para negocios que no quieren aprender herramientas nuevas.
     </p>
 
     <h2 id="por-donde-seguir">Por dónde seguir</h2>
@@ -123,8 +123,8 @@ const articleSchema = {
 
     <div class="guide-cta">
       <p><strong>¿Quieres ver tu negocio online antes de pagar?</strong></p>
-      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-        Agendar mi sesión 1 <span>↗</span>
+      <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+        Pedir diagnóstico gratis <span>↗</span>
       </a>
     </div>
 
@@ -142,6 +142,6 @@ const articleSchema = {
   <FinalCta
     eyebrow="EMPIEZA POR LA BASE"
     title="Ve tu web antes de pagar. <em>Decide después.</em>"
-    note="Agenda tu sesión 1 por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+    note="Diagnóstico de 20 min · Sin compromiso · Presupuesto antes de pagar"
   />
 </BaseLayout>

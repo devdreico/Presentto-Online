@@ -1,0 +1,41 @@
+---
+import { waSoporte, business, serviceHours } from '../data/business';
+---
+
+<div class="support-grid" data-stagger>
+  <article class="support-card reveal">
+    <span class="support-tag">WhatsApp · 24/7</span>
+    <h3>Soporte por WhatsApp</h3>
+    <p>
+      Recepción automática a cualquier hora. Un humano responde dentro del horario de atención y
+      según el SLA de tu plan.
+    </p>
+    <a class="btn btn-primary btn-sm" href={waSoporte} target="_blank" rel="noopener">
+      Abrir WhatsApp <span>↗</span>
+    </a>
+  </article>
+
+  <article class="support-card reveal">
+    <span class="support-tag">Humano · {serviceHours.human}</span>
+    <h3>Atención real</h3>
+    <p>
+      Lunes a domingo, 7:00–19:00 (America/Bogota). Para cambios, incidencias y decisiones que
+      necesitan criterio.
+    </p>
+    <a class="btn btn-ghost btn-sm" href="/contacto/">
+      Agendar diagnóstico <span>↗</span>
+    </a>
+  </article>
+
+  <article class="support-card reveal">
+    <span class="support-tag">Correo</span>
+    <h3>Para lo que necesita registro</h3>
+    <p>
+      Solicitudes formales, accesos y documentación. Respondemos en el mismo horario y dejamos
+      rastro escrito.
+    </p>
+    <a class="btn btn-ghost btn-sm" href={`mailto:${business.email}`}>
+      {business.email} <span>↗</span>
+    </a>
+  </article>
+</div>

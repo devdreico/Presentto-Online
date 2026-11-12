@@ -4,69 +4,69 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
 import PageHero from '../components/PageHero.astro';
 import FinalCta from '../components/FinalCta.astro';
-import { waDirect } from '../data/business';
+import { waDirect, serviceHours } from '../data/business';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Preguntas frecuentes' }];
 
-const title = 'FAQ: MVO, planes y web administrada | Presentto';
+const title = 'FAQ: administración web, planes y acceso | Presentto';
 const description =
-  'Dudas sobre el plan MVO, la Presenttación Digital, dominio, correo y precios desde $15.000 COP/mes.';
+  'Dudas sobre los 4 planes desde $100.000 COP/mes, administración web, IA, acceso de clientes, pagos y soporte. Respuestas claras.';
 
 const faqs = [
   {
-    q: '¿Qué incluye la Presenttación Digital?',
-    a: 'Una web lista para tu negocio con estructura clara para Google: meta títulos, meta descripciones, encabezados H1–H3, enlaces internos, datos estructurados (schema), sitemap XML, velocidad, códigos QR, 3 sesiones por Google Meet, ajustes durante el plan y administración por Presentto. En modalidad MVO desde $15.000 COP/mes sobre subdominio; con dominio propio y correo profesional desde $40.000 COP/mes, IVA incluido. Sin instalaciones ni herramientas que aprender.',
+    q: '¿Qué incluye la Administración de Presencia Digital?',
+    a: 'Cuatro frentes: administración web (hosting, dominio o subdominio, SSL, correo profesional, backups, monitoreo y cambios), implementación (web nueva si no existe, reservas, catálogos, portales), presencia digital (ficha de Google, SEO local, reseñas y contenido) e IA aplicada (inducción y automatizaciones). El plan contratado define la profundidad de cada frente.',
   },
   {
     q: '¿Qué es exactamente Presentto Online?',
-    a: 'Es un servicio para crear y administrar la presencia digital de pequeños negocios: una web propia (en subdominio MVO o con tu dominio), correo profesional, QR, estructura para Google y acompañamiento por sesiones. La marca oficial es Presentto Online; también puede aparecer escrito como “Presentto”, “Presento” o “Present to” en búsquedas.',
+    a: 'Es un servicio para administrar la presencia digital de pequeños y medianos negocios: web, ficha de Google, analítica, sistemas y flujos de IA, con un solo interlocutor y un SLA publicado. La marca oficial es Presentto Online; también puede aparecer escrito como “Presentto”, “Presento” o “Present to” en búsquedas.',
   },
   {
-    q: '¿Qué es el plan MVO?',
-    a: 'MVO es la modalidad más económica: tu web vive en subdominio (cliente.presentto.online) sobre infraestructura compartida, desde $15.000 COP/mes o $120.000 al año (equivale a $10.000/mes). Incluye diseño a gusto, 3 sesiones por Google Meet, correcciones y administración. Si necesitas marca propia con dominio .com/.online y correo, usa los planes de dominio propio desde $40.000.',
+    q: '¿Cuánto cuestan los planes?',
+    a: 'Presencia $100.000/mes, Crecimiento $299.000/mes, Sistemas $640.000/mes y Empresa desde $1.450.000/mes. Todos en COP con IVA incluido. El prepago anual tiene 15% de descuento: $1.020.000, $3.050.000 y $6.530.000 respectivamente; Empresa se cotiza. El setup inicial va aparte: $250.000 en Presencia y Crecimiento, $750.000 en Sistemas y cotizado en Empresa.',
   },
   {
     q: '¿Es una mensualidad o un pago único?',
-    a: 'Es prepago por plazo, no una suscripción: MVO mensual $15.000 · MVO anual $120.000 · dominio propio: 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP. Pagas una sola vez el plazo que elijas (Mercado Pago, IVA incluido) y no se te cobra nada automáticamente al final.',
+    a: 'Es un servicio continuo. Pagas el mes o el año por adelantado; no hay suscripción automática ni cargos sorpresa. Al terminar el plazo decides si renuevas. El setup es un pago único que cubre auditoría, migración y configuración inicial.',
   },
   {
-    q: '¿Puedo ver la web antes de pagar?',
-    a: 'Sí, y es lo recomendado. Agenda tu Sesión 1 por WhatsApp sin abono ni compromiso: con la información de tu negocio construimos la web, la ves, pides cambios y solo pagas cuando decides contratar.',
+    q: '¿Qué pasa si necesito más cambios de los incluidos?',
+    a: 'Se cotizan aparte. Un cambio es una solicitud de hasta 30 minutos que modifica contenido existente: textos, fotos, precios, horarios, enlaces o datos de contacto. Las secciones nuevas, páginas, funcionalidades e integraciones no cuentan como cambio y se presupuestan por separado.',
   },
   {
-    q: '¿Qué pasa después de agendar la sesión 1?',
-    a: 'Nos pasas textos, fotos y datos de tu negocio en la sesión de Google Meet, y en los días siguientes ves el avance en la sesión 2 con tus correcciones. Si te convence, eliges tu plan y pagas en Mercado Pago; si no, no pasa nada: no hay compromiso.',
+    q: '¿Trabajan sobre mi web actual o la reemplazan?',
+    a: 'Primero auditamos. Si tu web funciona, la administramos y la mejoramos sin tirar lo que ya tienes. Si no existe o no se sostiene, construimos una base nueva y migramos el contenido con redirecciones para no perder lo indexado.',
   },
   {
-    q: '¿Qué pasa si dejo de renovar?',
-    a: 'No hay permanencia obligatoria. El plan rige por su duración (mes, año o los plazos de dominio propio) y al finalizar decides tú si continúas. Sin cargos automáticos ni multas.',
+    q: '¿La IA reemplaza a las personas?',
+    a: 'No. La usamos para diagnosticar, redactar borradores, clasificar solicitudes y automatizar tareas repetitivas. Cada entrega pasa por revisión humana. Además te damos una inducción para que tu equipo la use con criterio y sin exponer datos.',
   },
   {
-    q: '¿Qué diferencia hay con contratar una agencia tradicional?',
-    a: 'Las agencias suelen cotizar sitios desde $800.000 a $3.000.000 COP más mantenimiento mensual. Presentto entrega una presencia completa administrada desde $15.000 COP/mes (MVO) o $40.000 con dominio propio, con sesiones guiadas y sin permanencia, pensada para negocios que necesitan empezar ya.',
+    q: '¿Qué incluye la inducción IA?',
+    a: 'Está incluida en todos los planes. Son 45 minutos con tu equipo, grabación de la sesión, 20 prompts adaptados a tu negocio, un checklist de seguridad y un plan de adopción de 30 días. Si quieres profundizar, el curso de aplicación IA cuesta $350.000 y se contrata aparte.',
   },
   {
-    q: '¿Qué incluye el dominio y correo profesional?',
-    a: 'Los planes de dominio propio incluyen tu dominio tuempresa.online y 1 correo profesional @tuempresa.online. Si ya tienes un dominio, lo aportas sin costo adicional. El MVO opera en subdominio cliente.presentto.online para mantener el costo bajo.',
+    q: '¿Cómo entro a mi dashboard de cliente?',
+    a: 'En /cuenta/ con tu teléfono y un PIN de 6 dígitos. Te llevamos a dashboard.presentto.online con tu espacio personal: plan, fechas, entregables, métricas y solicitudes. Las credenciales se entregan al activar el servicio; si las perdiste, escríbenos por WhatsApp.',
   },
   {
-    q: '¿Puedo usar mi propio dominio?',
-    a: 'Sí. Si ya tienes un dominio, lo incorporas sin costo adicional en los planes de dominio propio. Si necesitas buscar y gestionar uno nuevo, se cobra únicamente el excedente del registro.',
-  },
-  {
-    q: '¿Cómo preparan mi web para Google?',
-    a: 'Estructuramos contenido, títulos, descripciones y elementos técnicos para que tu web sea clara para Google. También orientamos la configuración de tu ficha de Google. No prometemos posiciones garantizadas: el resultado depende de la competencia y de la constancia.',
-  },
-  {
-    q: '¿Cómo me van a encontrar en Google?',
-    a: 'En tres frentes: (1) tu web — metas, encabezados, enlaces internos y contenido claro sobre lo que ofreces; (2) la técnica — indexación, sitemap, velocidad y datos estructurados; (3) tu ficha de Google — categorías correctas, fotos, datos coherentes y reseñas reales. No prometemos la primera posición: el ranking depende de competencia, autoridad y constancia.',
-  },
-  {
-    q: '¿Por qué la presencia digital entra en el plan?',
-    a: 'Porque una web sin información coherente en Google no se encuentra. Por eso el plan cuida lo básico: metas claras, estructura, ficha de Google orientada y datos coherentes (nombre, dirección, teléfono). Es lo que permite que un negocio local reciba llamadas y WhatsApp, no solo visitas.',
+    q: '¿Qué pasa si mi plan vence?',
+    a: 'El acceso al dashboard se suspende hasta que renueves. La web se mantiene publicada durante el periodo pagado; al finalizar, si no renuevas, se desactiva el servicio y se coordina la entrega de contenido y accesos. No hay cargos automáticos ni multas.',
   },
   {
     q: '¿Qué pasa con la técnica y el hosting?',
-    a: 'Nosotros nos encargamos: alojamiento, configuración, velocidad de carga, seguridad, sitemap XML, robots.txt y actualizaciones según el alcance acordado. Tú defines el contenido; nosotros mantenemos la presencia publicada, indexable y operando.',
+    a: 'Nosotros nos encargamos: alojamiento en Vercel, configuración, velocidad de carga, seguridad, sitemap, robots.txt y actualizaciones según el alcance acordado. Tú defines el contenido; nosotros mantenemos la presencia publicada, indexable y operando.',
+  },
+  {
+    q: '¿Cómo me van a encontrar en Google?',
+    a: 'En tres frentes: tu web con metas, encabezados, enlaces internos y contenido claro; la técnica con indexación, sitemap, velocidad y datos estructurados; y tu ficha de Google con categorías correctas, fotos, datos coherentes y reseñas reales. No prometemos la primera posición: el ranking depende de competencia, autoridad y constancia.',
+  },
+  {
+    q: '¿Puedo ver resultados antes de pagar?',
+    a: 'Empiezas por un diagnóstico gratuito de 20 minutos. Revisamos tu presencia actual y te decimos qué falta y qué plan aplica. Después decides. No hay compromiso ni cobro por el diagnóstico.',
+  },
+  {
+    q: '¿Atienden fines de semana?',
+    a: `${serviceHours.human}. WhatsApp recibe mensajes 24/7 con respuesta automática; un humano responde dentro del horario de atención y según el SLA de tu plan.`,
   },
 ];
 ---
@@ -76,13 +76,13 @@ const faqs = [
 
   <PageHero
     eyebrow="RESPUESTAS RÁPIDAS"
-    title="Tu web, <em>planes y MVO.</em>"
-    lead="Todo sobre la Presenttación Digital, el plan MVO en subdominio, dominio, correo y precios — antes de agendar tu sesión 1."
+    title="Tu presencia digital, <em>sin dudas.</em>"
+    lead="Todo sobre los planes, la administración web, la IA, el acceso de clientes y los pagos — antes de agendar tu diagnóstico gratuito."
   >
     <Fragment slot="meta">
-      <span class="tag">MVO desde $15.000/mes</span>
-      <span class="tag">Dominio propio desde $40.000</span>
-      <span class="tag">3 sesiones Google Meet</span>
+      <span class="tag">Desde $100.000/mes</span>
+      <span class="tag">IVA incluido</span>
+      <span class="tag">Inducción IA incluida</span>
       <span class="tag">Sin permanencia</span>
     </Fragment>
   </PageHero>
@@ -94,7 +94,7 @@ const faqs = [
   <FinalCta
     eyebrow="¿AÚN TIENES DUDAS?"
     title="Pregunta directo. <em>Sin compromiso.</em>"
-    note="Escríbenos por WhatsApp o agenda tu sesión 1 de 30 min por Google Meet"
+    note="Escríbenos por WhatsApp o pide tu diagnóstico gratuito de 20 minutos"
   >
     <a class="btn btn-light-ghost" href={waDirect} target="_blank" rel="noopener">
       WhatsApp directo <span>↗</span>

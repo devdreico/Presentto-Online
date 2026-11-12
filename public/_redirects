@@ -33,6 +33,18 @@
 /  /facatativa/         301  Query=page:facatativa.html
 /  /portfolio/          301  Query=page:demos.html
 
+# Oferta retirada (MVO) → precios vigentes
+/mvo             /precios/   301
+/mvo/            /precios/   301
+/mvo/*           /precios/   301
+/planes          /precios/   301
+/planes/         /precios/   301
+/planes/*        /precios/   301
+/sesion-1        /precios/   301
+/sesion-1/       /precios/   301
+/sesion-1/*      /precios/   301
+/sesiones/*      /precios/   301
+
 # Trailing slash: /servicios → /servicios/ (evita URLs duplicadas sin slash)
 /comparativas   /comparativas/   301
 /comparativas/web-administrada-vs-agencia   /comparativas/web-administrada-vs-agencia/   301
@@ -71,3 +83,5 @@
 /servicios   /servicios/   301
 /sitios   /sitios/   301
 /terminos   /terminos/   301
+/soporte   /soporte/   301
+/cuenta   /cuenta/   301

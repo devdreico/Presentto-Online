@@ -278,6 +278,26 @@
   ],
   "redirects": [
     {
+      "source": "/mvo/:path*",
+      "destination": "/precios/",
+      "permanent": true
+    },
+    {
+      "source": "/planes/:path*",
+      "destination": "/precios/",
+      "permanent": true
+    },
+    {
+      "source": "/sesion-1/:path*",
+      "destination": "/precios/",
+      "permanent": true
+    },
+    {
+      "source": "/sesiones/:path*",
+      "destination": "/precios/",
+      "permanent": true
+    },
+    {
       "source": "/servicios.html",
       "destination": "/servicios/",
       "permanent": true

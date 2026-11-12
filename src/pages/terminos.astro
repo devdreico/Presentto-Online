@@ -2,11 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FinalCta from '../components/FinalCta.astro';
+import { business } from '../data/business';
+
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Términos' }];
 
 const title = 'Términos del servicio | Presentto Online';
 const description =
-  'Condiciones de la Presenttación Digital (planes prepago desde $40.000 COP/mes, IVA incluido) y del servicio web administrado de Presentto Online.';
+  'Condiciones de la Administración de Presencia Digital: 4 planes desde $100.000 COP/mes, setup, pagos, SLA, acceso de clientes y cancelación.';
 ---
 
 <BaseLayout title={title} description={description} path="/terminos/" breadcrumbs={crumbs}>
@@ -14,62 +16,162 @@ const description =
 
   <section class="section wrap article-header">
     <p class="eyebrow">TÉRMINOS DEL SERVICIO</p>
-    <h1 data-split>Un acuerdo claro para cada proyecto.</h1>
+    <h1 data-split>Un acuerdo claro para cada cliente.</h1>
   </section>
 
   <section class="section wrap">
     <div class="prose">
-      <h2>
-        La Presenttación Digital se contrata por planes prepago con IVA incluido: 1 mes $40.000 · 3 meses
-        $100.000 · 6 meses $190.000 · 1 año $350.000 COP. Integra la creación de un sitio web con la
-        información, imágenes, datos y funcionalidades necesarias para el negocio.
-      </h2>
+      <h2>1. Objeto del servicio</h2>
       <p>
-        Es un pago único por el plazo elegido, no una suscripción automática. El alcance, los contenidos y
-        las integraciones se definen con el cliente antes de publicar. Se entrega con dominio propio, correo
-        profesional y administración del hosting por Presentto. El pago se realiza por
-        Mercado Pago tras confirmar el plan; puedes solicitar una demo sin abono antes de pagar.
+        Presentto Online presta un servicio de <strong>Administración de Presencia Digital</strong>
+        para negocios: administración de la web, ficha de Google, analítica, implementación de
+        sistemas web y flujos de inteligencia artificial aplicada, según el plan contratado.
+      </p>
+      <p>
+        El servicio se ofrece en cuatro planes: <strong>Presencia</strong> ($100.000 COP/mes),
+        <strong>Crecimiento</strong> ($299.000 COP/mes), <strong>Sistemas</strong> ($640.000 COP/mes)
+        y <strong>Empresa</strong> (desde $1.450.000 COP/mes, sujeto a cotización). Todos los valores
+        están en pesos colombianos (COP) con IVA incluido, el cual está a cargo de Presentto. No se
+        publica equivalente en dólares ni en otra moneda.
       </p>
 
-      <h2>Renovación y permanencia</h2>
+      <h2>2. Planes, setup y facturación</h2>
       <p>
-        No hay permanencia obligatoria más allá del plan contratado ni cargos automáticos al finalizar. Al
-        terminar el período puedes renovar o discontinuar el servicio, según las condiciones acordadas en el
-        momento de la compra.
+        El cobro es anticipado por el periodo elegido: mensual o anual. El plan anual tiene un
+        descuento del 15% sobre el valor mensual. No hay suscripción automática: no se debita
+        ningún medio de pago al finalizar el periodo sin una nueva compra del cliente.
+      </p>
+      <p>
+        El <strong>setup</strong> es un pago único que cubre diagnóstico, migración o construcción
+        de la base, configuración de dominio, correo, analítica y ficha de Google. Su valor es de
+        $250.000 en Presencia y Crecimiento, $750.000 en Sistemas, y se cotiza en Empresa.
+      </p>
+      <p>
+        Los pagos se procesan a través de Mercado Pago. La activación del servicio ocurre una vez
+        confirmado el pago y acordado el alcance inicial. Los precios publicados pueden cambiar para
+        nuevas contrataciones; el cambio no afecta periodos ya pagados.
       </p>
 
-      <h2>Dominio</h2>
+      <h2>3. Alcance y cambios</h2>
       <p>
-        Si aportas tu dominio propio, se incorpora sin costo adicional del servicio. Si se necesita buscar y
-        gestionar un dominio nuevo, se cobra únicamente el excedente del registro.
+        El alcance de cada plan está publicado en <a href="/precios/">precios</a>. Un
+        <strong>cambio</strong> es una solicitud de hasta 30 minutos que modifica contenido
+        existente: textos, fotos, precios, horarios, enlaces o datos de contacto. El número de
+        cambios incluidos por mes depende del plan.
+      </p>
+      <p>
+        No cuentan como cambio las secciones nuevas, páginas nuevas, funcionalidades, integraciones,
+        rediseños, migraciones de plataforma ni desarrollos a medida. Esos trabajos se cotizan y
+        aprueban por separado antes de ejecutarse.
       </p>
 
-      <h2>Ajustes</h2>
+      <h2>4. Niveles de servicio (SLA)</h2>
       <p>
-        Los tiempos, contenidos, imágenes y ajustes se coordinan con cada cliente antes de publicar. Se realizan
-        implementaciones tecnológicas necesarias y ajustes hasta dejar la versión digital del negocio lista.
+        Los tiempos de primera respuesta y resolución objetivo están publicados por plan en
+        <a href="/soporte/">soporte</a>. Se cuentan en horas hábiles dentro del horario de atención
+        humana: {business.name} atiende todos los días de 7:00 a 19:00 (America/Bogota), excluyendo
+        festivos nacionales. WhatsApp recibe mensajes 24/7 con respuesta automática.
+      </p>
+      <p>
+        El SLA es un objetivo de servicio publicado. Esta versión no contempla descuentos
+        automáticos por incumplimiento; los casos se revisan y se compensan mediante trabajo
+        acordado cuando corresponda.
       </p>
 
-      <h2>Pagos</h2>
+      <h2>5. Acceso de clientes y dashboard</h2>
       <p>
-        Los pagos se procesan a través de Mercado Pago como pago único por el plazo elegido. Todos los valores
-        publicados incluyen IVA. Primero envía tu solicitud o pide tu demo sin abono y luego realiza el pago
-        del plan que elijas.
+        Al activar el servicio se entrega un acceso personal al dashboard del cliente, disponible en
+        <code>dashboard.presentto.online</code>, mediante teléfono y PIN de 6 dígitos. El acceso es
+        personal e intransferible. El cliente es responsable de custodiar sus credenciales y de
+        informar cualquier uso no autorizado.
+      </p>
+      <p>
+        Si el plan vence o se suspende por falta de pago, el acceso al dashboard se suspende hasta
+        la reactivación. La web administrada se mantiene publicada durante el periodo pagado.
       </p>
 
-      <h2>Contacto</h2>
+      <h2>6. Dominio, hosting y correo</h2>
       <p>
-        Dudas sobre estos términos: <a href="mailto:inbox@presentto.online">inbox@presentto.online</a> ·
-        <a href="https://wa.me/573236487336" target="_blank" rel="noopener">WhatsApp +57 323 648 7336</a>.
+        El dominio se registra o se mantiene a nombre del cliente. Si el cliente aporta su dominio,
+        se incorpora sin costo adicional del servicio. Si se requiere registrar un dominio nuevo, se
+        cobra el valor del registro correspondiente.
+      </p>
+      <p>
+        El hosting se opera en infraestructura administrada por Presentto (Vercel y servicios
+        asociados). El correo profesional se configura sobre el dominio del cliente. Al finalizar el
+        servicio se coordina la entrega de accesos, contenido y respaldos razonables.
       </p>
 
-      <p class="article-meta">Última actualización: septiembre de 2026.</p>
+      <h2>7. Contenido y propiedad intelectual</h2>
+      <p>
+        El cliente conserva la titularidad de sus marcas, textos, imágenes y datos. Presentto
+        conserva la titularidad de su metodología, componentes técnicos reutilizables, código base y
+        herramientas internas. El contenido publicado en el sitio del cliente puede exportarse al
+        finalizar el servicio en formatos estándar razonables.
+      </p>
+      <p>
+        El cliente garantiza que cuenta con los derechos sobre el material que entrega y responde
+        por cualquier reclamación de terceros derivada de ese contenido.
+      </p>
+
+      <h2>8. Uso de inteligencia artificial</h2>
+      <p>
+        El servicio puede usar modelos de IA para diagnóstico, redacción de borradores, clasificación
+        de solicitudes y automatización de tareas. Toda salida relevante pasa por revisión humana.
+        Presentto no garantiza resultados específicos de posicionamiento, tráfico o ventas derivados
+        del uso de IA.
+      </p>
+      <p>
+        El cliente se compromete a no introducir datos sensibles, credenciales ni información de
+        terceros sin autorización en las herramientas de IA. La inducción incluye lineamientos sobre
+        qué datos nunca deben compartirse.
+      </p>
+
+      <h2>9. Cancelación y terminación</h2>
+      <p>
+        No hay permanencia obligatoria más allá del periodo pagado. El cliente puede decidir no
+        renovar al finalizar el plazo. No se realizan reembolsos por periodos ya iniciados, salvo
+        incumplimiento imputable a Presentto.
+      </p>
+      <p>
+        Presentto puede suspender el servicio por falta de pago o por uso indebido (contenido
+        ilegal, intentos de vulneración, suplantación o actividades que afecten la infraestructura),
+        previa comunicación al cliente cuando sea posible.
+      </p>
+
+      <h2>10. Garantías y responsabilidad</h2>
+      <p>
+        Presentto se compromete a ejecutar el servicio con diligencia y a mantener la web publicada
+        y operando dentro del alcance contratado. No garantiza posiciones específicas en Google,
+        resultados de ventas ni el comportamiento de plataformas de terceros.
+      </p>
+      <p>
+        La responsabilidad de Presentto se limita al valor pagado por el periodo en curso, salvo dolo
+        o culpa grave. No responde por caídas atribuibles a terceros, fuerza mayor o uso indebido por
+        parte del cliente.
+      </p>
+
+      <h2>11. Datos personales</h2>
+      <p>
+        El tratamiento de datos se rige por la <a href="/privacidad/">política de privacidad</a>.
+        Presentto usa los datos del cliente únicamente para prestar el servicio, comunicarse y
+        cumplir obligaciones legales.
+      </p>
+
+      <h2>12. Contacto</h2>
+      <p>
+        Dudas sobre estos términos: <a href={`mailto:${business.email}`}>{business.email}</a> ·
+        <a href="https://wa.me/573236487336" target="_blank" rel="noopener">WhatsApp +57 323 648 7336</a>
+        · Responsable: {business.legalName}, {business.name}.
+      </p>
+
+      <p class="article-meta">Última actualización: noviembre de 2026.</p>
     </div>
   </section>
 
   <FinalCta
     eyebrow="EMPIEZA SIN RIESGO"
-    title="Agenda tu sesión 1. <em>Ves tu web antes de pagar.</em>"
-    note="Primera sesión de 30 min por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+    title="Primero el diagnóstico. <em>Después el plan.</em>"
+    note="20 minutos por Google Meet o WhatsApp · Sin compromiso · Presupuesto antes de pagar"
   />
 </BaseLayout>

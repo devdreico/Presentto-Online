@@ -6,7 +6,7 @@ import FaqList from '../../components/FaqList.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
 import ArticleLayout from '../../components/ArticleLayout.astro';
 import FinalCta from '../../components/FinalCta.astro';
-import { ctaSession } from '../../data/business';
+import { ctaDiagnostico } from '../../data/business';
 import { datesFor } from '../../data/content-dates';
 const crumbs = [
   { label: 'Inicio', href: '/' },
@@ -88,8 +88,8 @@ const articleSchema = {
 
     <div class="guide-cta">
       <p><strong>¿Quieres una web que refuerce tu reputación?</strong></p>
-      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-        Agendar mi sesión 1 <span>↗</span>
+      <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+        Pedir diagnóstico gratis <span>↗</span>
       </a>
     </div>
 
@@ -107,6 +107,6 @@ const articleSchema = {
   <FinalCta
     eyebrow="EMPIEZA HOY"
     title="Ve tu web antes de pagar. <em>Decide después.</em>"
-    note="Agenda tu sesión 1 por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+    note="Diagnóstico de 20 min · Sin compromiso · Presupuesto antes de pagar"
   />
 </BaseLayout>

@@ -2,41 +2,44 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PlansGrid from '../components/PlansGrid.astro';
 import FaqList from '../components/FaqList.astro';
-import MvoEconomics from '../components/MvoEconomics.astro';
-import SessionTimeline from '../components/SessionTimeline.astro';
 import FinalCta from '../components/FinalCta.astro';
 import TrustStrip from '../components/TrustStrip.astro';
-import MvoDevice from '../components/three/MvoDevice.astro';
-import { ctaSession, waDirect } from '../data/business';
+import ServicePillars from '../components/ServicePillars.astro';
+import AiTeam from '../components/AiTeam.astro';
+import ClientGrid from '../components/ClientGrid.astro';
+import OnboardingTimeline from '../components/OnboardingTimeline.astro';
+import DeviceShowcase from '../components/three/DeviceShowcase.astro';
+import { ctaDiagnostico } from '../data/business';
+import { clients } from '../data/clients';
 
-const title = 'Página web por mensualidad desde $15.000 | Presentto';
+const title = 'Agencia todo en 1: web y presencia digital | Presentto';
 const description =
-  'MVO con subdominio desde $15.000 COP/mes, o web administrada con dominio propio desde $40.000. Agenda tu 1ª sesión por WhatsApp y ve tu web antes de pagar.';
+  'La agencia todo en 1 para crecer digitalmente: administramos web, ficha de Google, analítica, sistemas e IA. 4 planes desde $100.000 COP/mes, IVA incluido.';
 
 const faqs = [
   {
-    q: '¿Qué es el plan MVO de Presentto Online?',
-    a: 'Es el modelo de infraestructura compartida en subdominio (cliente.presentto.online) con el que puedes tener tu sitio web administrado, con diseño a gusto y 3 sesiones de asesoría por Google Meet, desde $15.000 COP al mes.',
+    q: '¿Qué hace exactamente Presentto por mi negocio?',
+    a: 'Administramos tu presencia digital completa: web, hosting, dominio o subdominio, SSL, correo profesional, backups, ficha de Google, analítica, cambios de contenido y soporte. Si no tienes web, la construimos. Si ya tienes sistemas que faltan (reservas, catálogos, portales), los implementamos. Y si quieres usar IA sin exponer datos, te damos la inducción.',
   },
   {
-    q: '¿Por qué se usa un subdominio y no un dominio propio en el MVO?',
-    a: 'Porque un dominio propio individual encarecería el servicio. El subdominio compartido (cliente.presentto.online) permite que mantengamos una infraestructura única y de alta calidad a un costo extremadamente bajo para tu negocio.',
+    q: '¿Cuánto cuesta y qué incluye el plan más económico?',
+    a: 'El plan Presencia cuesta $100.000 COP/mes con IVA incluido. Incluye web administrada, web nueva base si no tienes, dominio o subdominio, correo profesional, ficha de Google básica, analítica, dos cambios de contenido al mes, soporte con primera respuesta en 8 horas y la inducción IA. El setup inicial es de $250.000 único.',
   },
   {
-    q: '¿Cómo funcionan las tres sesiones por Google Meet?',
-    a: '1ª Sesión (30 min): solicitud de información y lectura previa del contrato. 2ª Sesión: muestra preliminar y correcciones de tu mano. 3ª Sesión: cierre final, entrega, firmado de contrato y pago.',
+    q: '¿Qué diferencia hay entre los cuatro planes?',
+    a: 'Presencia sostiene la base. Crecimiento agrega SEO local mensual, gestión de reseñas, seis cambios al mes y primera respuesta en 4 horas. Sistemas suma desarrollo de sistemas web, tres flujos de automatización y respuesta en 2 horas. Empresa es multi-sede, con alcance y SLA contractuales. Puedes subir o bajar de plan sin penalización.',
   },
   {
-    q: '¿Qué diferencia hay entre el MVO y los planes con dominio propio?',
-    a: 'El MVO opera en subdominio y cuesta desde $15.000/mes con acompañamiento por sesiones. Los planes tradicionales (desde $40.000/mes) incluyen tu propio dominio (ej. .online o .com) y correo profesional.',
+    q: '¿La IA reemplaza a las personas?',
+    a: 'No. Usamos IA para diagnosticar, redactar borradores, clasificar solicitudes y automatizar tareas repetitivas. Todo pasa por revisión humana y se limita a tareas verificables. Además te enseñamos a usarla con criterio, con límites claros sobre qué datos nunca se comparten.',
   },
   {
-    q: '¿Puedo solicitar una demo o asesoría gratis?',
-    a: 'Sí. Puedes escribirnos por WhatsApp para agendar tu primera sesión de coordinación sin compromiso.',
+    q: '¿Cómo se paga y hay permanencia?',
+    a: 'Pagas el mes o el año por adelantado, sin suscripción automática. El plan anual tiene 15% de descuento. No hay permanencia más allá del plazo pagado ni cargos sorpresa. Si decides no renovar, el servicio termina al final del periodo contratado.',
   },
   {
-    q: '¿Trabajan con negocios de Funza, Mosquera, Madrid y Facatativá?',
-    a: 'Sí. Atendemos negocios de Sabana Occidental y toda Colombia con adaptación local a tu zona y clientes.',
+    q: '¿Puedo entrar a mi cuenta y ver mi plan?',
+    a: 'Sí. En /cuenta/ inicias sesión con tu teléfono y un PIN de 6 dígitos, y te llevamos a tu dashboard personal en dashboard.presentto.online. Allí ves plan, fechas, entregables, métricas y solicitudes. Las credenciales se entregan al activar el servicio.',
   },
 ];
 
@@ -54,69 +57,9 @@ const marqueeItems = [
   'Inmobiliarias',
   'Servicios a domicilio',
 ];
-
-const homeService = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'MVO — Presencia Digital Administrada',
-  description:
-    'Sitio web administrado en subdominio con 3 sesiones de asesoría por Google Meet desde $15.000 COP/mes.',
-  provider: { '@id': 'https://www.presentto.online/#organization' },
-  areaServed: [
-    { '@type': 'Place', name: 'Colombia' },
-    { '@type': 'Place', name: 'Funza' },
-    { '@type': 'Place', name: 'Mosquera' },
-    { '@type': 'Place', name: 'Madrid' },
-    { '@type': 'Place', name: 'Facatativá' },
-  ],
-  offers: [
-    {
-      '@type': 'Offer',
-      name: 'MVO Mensual',
-      price: '15000',
-      priceCurrency: 'COP',
-      description: 'MVO — Subdominio cliente.presentto.online, 1 mes',
-      availability: 'https://schema.org/InStock',
-      url: 'https://mpago.li/1iJFAwE',
-    },
-    {
-      '@type': 'Offer',
-      name: 'MVO Anual',
-      price: '120000',
-      priceCurrency: 'COP',
-      description: 'MVO — Subdominio cliente.presentto.online, 1 año',
-      availability: 'https://schema.org/InStock',
-      url: 'https://mpago.li/113CYVC',
-    },
-    {
-      '@type': 'Offer',
-      name: '1 mes (Dominio propio)',
-      price: '40000',
-      priceCurrency: 'COP',
-      description: 'Presentación Digital con dominio propio — 1 mes',
-      availability: 'https://schema.org/InStock',
-      url: 'https://mpago.li/2j4gTPj',
-    },
-    {
-      '@type': 'Offer',
-      name: '1 año (Dominio propio)',
-      price: '350000',
-      priceCurrency: 'COP',
-      description: 'Presentación Digital con dominio propio — 1 año',
-      availability: 'https://schema.org/InStock',
-      url: 'https://mpago.li/344eu17',
-    },
-  ],
-};
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  path="/"
-  plansOffers={true}
-  jsonld={[homeService]}
->
+<BaseLayout title={title} description={description} path="/" plansOffers={true}>
   <!-- 1. Hero ---------------------------------------------------------------- -->
   <section class="hero hero-home wrap" data-home-scroll>
     <div class="hero-motion" aria-hidden="true"></div>
@@ -134,54 +77,52 @@ const homeService = {
     <p class="home-hero-cue" data-home-cue aria-hidden="true">Explora <span>↓</span></p>
     <div class="hero-copy">
       <h1 class="hero-title home-hero-title">
-        <span class="sr-only">El mejor servicio de administración web en Colombia.</span>
+        <span class="sr-only">Administración de presencia digital con IA en Colombia.</span>
         <span class="home-hero-visual" aria-hidden="true">
           <span class="home-hero-line home-hero-lead" data-home-lead>
-            <span class="home-hero-word">EL</span>
-            <span class="home-hero-word">MEJOR</span>
-            <span class="home-hero-word">SERVICIO</span>
-            <span class="home-hero-word">DE</span>
+            <span class="home-hero-word">TU</span>
+            <span class="home-hero-word">PRESENCIA</span>
+            <span class="home-hero-word">DIGITAL</span>
           </span>
           <span class="home-hero-line home-hero-tail" data-home-tail>
-            <span class="home-hero-word">ADMINISTRACIÓN</span>
-            <span class="home-hero-word">WEB</span>
-            <span class="home-hero-word">EN</span>
-            <span class="home-hero-word">COLOMBIA.</span>
+            <span class="home-hero-word">ADMINISTRADA</span>
+            <span class="home-hero-word">DE</span>
+            <span class="home-hero-word">VERDAD.</span>
           </span>
         </span>
       </h1>
       <div class="home-hero-actions" data-home-actions>
-        <a class="btn btn-ghost" href="/comparativas/">
-          Descubre por qué <span aria-hidden="true">↗</span>
+        <a class="btn btn-ghost" href="/servicios/">
+          Qué incluye <span aria-hidden="true">↗</span>
         </a>
         <div class="hero-visual" data-home-device>
-          <MvoDevice />
+          <DeviceShowcase />
         </div>
-        <a class="btn btn-primary" href={waDirect} target="_blank" rel="noopener" data-magnetic>
-          Escríbenos por WhatsApp <span aria-hidden="true">↗</span>
+        <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+          Diagnóstico gratis <span aria-hidden="true">↗</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 2. Prueba / contadores -------------------------------------------------- -->
-  <section class="proof" aria-label="Cifras clave del plan MVO">
+  <!-- 2. Prueba --------------------------------------------------------------- -->
+  <section class="proof" aria-label="Cifras del servicio">
     <div class="wrap proof-grid">
       <div class="stat">
-        <strong data-count="15000" data-prefix="$">$15.000</strong>
+        <strong data-count="100000" data-prefix="$">$100.000</strong>
         <span>COP / mes · desde</span>
       </div>
       <div class="stat">
-        <strong data-count="3">3</strong>
-        <span>sesiones por Google Meet</span>
+        <strong data-count={clients.length}>{clients.length}</strong>
+        <span>clientes en producción</span>
       </div>
       <div class="stat">
-        <strong data-count="10000" data-prefix="$">$10.000</strong>
-        <span>/ mes efectivos en el plan anual</span>
+        <strong>7:00–19:00</strong>
+        <span>atención humana, todos los días</span>
       </div>
       <div class="stat">
-        <strong data-count="100" data-suffix="%">100%</strong>
-        <span>administrado por nosotros</span>
+        <strong>24/7</strong>
+        <span>WhatsApp con recepción automática</span>
       </div>
     </div>
   </section>
@@ -196,248 +137,44 @@ const homeService = {
 
   <TrustStrip />
 
-  <!-- 4. Bento: qué incluye --------------------------------------------------- -->
-  <section class="section wrap" id="incluye">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">TODO INCLUIDO</p>
-        <h2 data-split>Una web completa. <em>Sin sorpresas técnicas.</em></h2>
-      </div>
-      <p class="lead">
-        Diseño, textos, velocidad, contacto y mantenimiento dentro de una sola cuota. Tú apruebas;
-        nosotros construimos, publicamos y administramos.
-      </p>
-    </div>
-    <div class="bento" data-stagger>
-      <article class="bento-card bento-wide reveal">
-        <span class="bento-num">01</span>
-        <span class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="14" rx="2" style="--len: 80"></rect>
-            <path d="M3 9h18M8 18l-1.5 2M16 18l1.5 2" style="--len: 60"></path>
-          </svg>
-        </span>
-        <h3>Diseño a tu gusto, en tu rubro</h3>
-        <p>
-          Landing o multipágina armada con tu identidad, tus fotos y tus servicios. Adaptamos el
-          diseño a cómo busca y decide tu cliente real, no a plantillas genéricas.
-        </p>
-        <div class="bento-figure">
-          <div class="figure-row"><span>Landing de conversión (una página)</span><i>01</i></div>
-          <div class="figure-row"><span>Multipágina con servicios, portafolio y contacto</span><i>02</i></div>
-        </div>
-      </article>
-      <article class="bento-card bento-dark reveal">
-        <span class="bento-num">02</span>
-        <span class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
-            <path d="M4 6h16v9H8l-4 3V6z" style="--len: 70"></path>
-          </svg>
-        </span>
-        <h3>3 sesiones por Google Meet</h3>
-        <p>
-          Coordinamos contigo en vivo: información, muestra con tus correcciones y entrega final.
-          Acompañamiento humano, no un formulario solo.
-        </p>
-      </article>
-      <article class="bento-card reveal">
-        <span class="bento-num">03</span>
-        <span class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
-            <circle cx="12" cy="12" r="8" style="--len: 55"></circle>
-            <path d="M4 12h16M12 4c2.5 2.6 2.5 12.4 0 16-2.5-3.6-2.5-13.4 0-16z" style="--len: 90"></path>
-          </svg>
-        </span>
-        <h3>Subdominio incluido</h3>
-        <p>Tu sitio en <strong>cliente.presentto.online</strong>, publicado y activo durante todo el plan.</p>
-      </article>
-      <article class="bento-card reveal">
-        <span class="bento-num">04</span>
-        <span class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
-            <path d="M4 12l5 5L20 6" style="--len: 40"></path>
-          </svg>
-        </span>
-        <h3>Correcciones incluidas</h3>
-        <p>Ajustes y retoques de contenido y diseño dentro de las sesiones, sin costos ocultos por mensaje.</p>
-      </article>
-      <article class="bento-card reveal">
-        <span class="bento-num">05</span>
-        <span class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
-            <path d="M13 3L5 14h6l-1 7 9-12h-6l0-6z" style="--len: 70"></path>
-          </svg>
-        </span>
-        <h3>Velocidad y SEO técnico</h3>
-        <p>Imágenes optimizadas, HTML limpio y datos estructurados para que Google entienda tu negocio.</p>
-      </article>
-      <article class="bento-card bento-accent reveal">
-        <span class="bento-num">06</span>
-        <span class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
-            <path d="M12 4a8 8 0 018 8 8 8 0 01-8 8H7l-3 2 1-4a8 8 0 017-14z" style="--len: 75"></path>
-          </svg>
-        </span>
-        <h3>WhatsApp que convierte</h3>
-        <p>
-          Botones de contacto con mensaje precargado y tracking de clics, para que cada visita se
-          convierta en conversación.
-        </p>
-      </article>
-      <article class="bento-card bento-wide reveal">
-        <span class="bento-num">07</span>
-        <span class="bento-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" class="icon-draw" aria-hidden="true">
-            <path d="M12 3l7 3v6c0 4.2-2.8 7.6-7 9-4.2-1.4-7-4.8-7-9V6l7-3z" style="--len: 70"></path>
-            <path d="M9 12l2 2 4-4" style="--len: 25"></path>
-          </svg>
-        </span>
-        <h3>Administración continua</h3>
-        <p>
-          Mantenimiento técnico, copias, actualizaciones de seguridad y optimización de velocidad
-          durante todo tu plan. Si algo falla, lo resolvemos nosotros.
-        </p>
-        <div class="bento-figure">
-          <div class="figure-row"><span>Soporte por WhatsApp en horario hábil</span><i>✓</i></div>
-          <div class="figure-row"><span>Cambios de contenido coordinados en sesión</span><i>✓</i></div>
-        </div>
-      </article>
-    </div>
-  </section>
+  <!-- 4. Pilares -------------------------------------------------------------- -->
+  <ServicePillars />
 
-  <!-- 5. Economía MVO ---------------------------------------------------------- -->
-  <MvoEconomics />
+  <!-- 5. Método IA ------------------------------------------------------------ -->
+  <AiTeam />
 
-  <!-- 6. Sesiones -------------------------------------------------------------- -->
-  <SessionTimeline />
+  <!-- 6. Clientes reales ------------------------------------------------------ -->
+  <ClientGrid limit={9} />
 
-  <!-- 7. Comparativa en cards --------------------------------------------------- -->
-  <section class="section wrap">
-    <div class="section-head center">
-      <p class="eyebrow">POR QUÉ MVO</p>
-      <h2 data-split>No es una plantilla. <em>No es una agencia cara.</em></h2>
-      <p class="lead">
-        Tres caminos para tener web hoy. Solo uno de ellos te deja publicado esta semana sin
-        decretar un presupuesto de cientos de miles.
-      </p>
-    </div>
-    <div class="card-grid cols-3" data-stagger>
-      <article class="card reveal" data-tilt="6">
-        <p class="eyebrow">MVO · PRESENTTO</p>
-        <h3>Desde $15.000/mes</h3>
-        <p>
-          Web administrada en subdominio, diseño a tu gusto, 3 sesiones por Meet y correcciones
-          incluidas. Publicas rápido y cancelas cuando quieras.
-        </p>
-        <ul class="feature-list">
-          <li>Sin inversión inicial grande</li>
-          <li>Acompañamiento humano en cada fase</li>
-          <li>Todo lo técnico a nuestro cargo</li>
-        </ul>
-        <a class="btn btn-primary btn-sm" href={ctaSession} target="_blank" rel="noopener">
-          Empezar por aquí <span>↗</span>
-        </a>
-      </article>
-      <article class="card reveal" data-tilt="6">
-        <p class="eyebrow">AGENCIA TRADICIONAL</p>
-        <h3>Desde $1.500.000 +</h3>
-        <p>
-          Desarrollo a medida por proyecto. Potente si lo necesitas, pero con presupuestos altos,
-          plazos largos y mantenimiento que se cotiza aparte.
-        </p>
-        <ul class="feature-list">
-          <li>Alto costo de entrada</li>
-          <li>Semanas o meses de desarrollo</li>
-          <li>Cada cambio = nuevo presupuesto</li>
-        </ul>
-      </article>
-      <article class="card reveal" data-tilt="6">
-        <p class="eyebrow">PLANTILLA / TIENDA ONLINE</p>
-        <h3>$0 – $80.000/mes</h3>
-        <p>
-          Autoservicio con plantillas. Barato al inicio, pero la web queda en tus manos: diseño,
-          textos, velocidad y soporte los resuelves tú.
-        </p>
-        <ul class="feature-list">
-          <li>Curva de aprendizaje real</li>
-          <li>Soporte limitado o nulo</li>
-          <li>Riesgo de web a medio armar</li>
-        </ul>
-      </article>
-    </div>
-  </section>
+  <!-- 7. Proceso -------------------------------------------------------------- -->
+  <OnboardingTimeline />
 
-  <!-- 8. Planes ---------------------------------------------------------------- -->
+  <!-- 8. Planes --------------------------------------------------------------- -->
   <PlansGrid id="planes" heading={true} />
 
-  <!-- 9. Cómo funciona (pinned) ------------------------------------------------- -->
-  <section class="section wrap" id="como-funciona">
-    <div class="pin-stage" data-pin>
-      <div class="section-head split">
-        <div class="head-copy">
-          <p class="eyebrow">DEL PLAN A TU WEB EN LÍNEA</p>
-          <h2 data-split>Cuatro pasos. <em>Cero improvisación.</em></h2>
-        </div>
-        <p class="lead">
-          El proceso es el mismo para cualquier rubro: eliges el plan, coordinamos en Google Meet,
-          apruebas el diseño y publicamos. Nosotros operamos; tú decides.
-        </p>
-      </div>
-      <div class="pin-steps">
-        <article class="pin-step">
-          <span class="bento-num">PASO 01</span>
-          <h3>Elige tu plan y agenda la sesión 1</h3>
-          <p>
-            Escoges MVO (subdominio) o dominio propio, pagas con Mercado Pago y agendamos tu
-            primera sesión de 30 minutos por Google Meet. Sin permanencia.
-          </p>
-        </article>
-        <article class="pin-step">
-          <span class="bento-num">PASO 02</span>
-          <h3>Recolectamos tu información</h3>
-          <p>
-            En la sesión 1 tomamos tus servicios, fotos, logo, zonas de cobertura y objetivos.
-            Explicamos el proceso completo y resolvemos dudas antes de construir.
-          </p>
-        </article>
-        <article class="pin-step">
-          <span class="bento-num">PASO 03</span>
-          <h3>Muestra preliminar con tus correcciones</h3>
-          <p>
-            En la sesión 2 ves tu web avanzada en vivo. Marcamos ajustes juntos y ofrecemos
-            mejoras de contenido o funciones que tengan sentido para tu negocio.
-          </p>
-        </article>
-        <article class="pin-step">
-          <span class="bento-num">PASO 04</span>
-          <h3>Entrega, firma y publicación</h3>
-          <p>
-            Sesión 3: cierre final, entrega del subdominio activo o dominio, firmado del contrato
-            y pago definitivo. Tu presencia digital queda lista y administrada.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. FAQ -------------------------------------------------------------------- -->
+  <!-- 9. FAQ ------------------------------------------------------------------ -->
   <section class="section wrap" id="preguntas">
     <div class="section-head">
       <div>
-        <p class="eyebrow">PREGUNTAS FRECUENTES MVO</p>
-        <h2 data-split>Dudas sobre <em>el plan MVO y tu web</em></h2>
+        <p class="eyebrow">PREGUNTAS FRECUENTES</p>
+        <h2 data-split>Lo esencial, <em>sin letra pequeña.</em></h2>
       </div>
       <p class="lead">
-        Lo que más nos preguntan sobre el subdominio, las sesiones y los precios. Más respuestas
-        en <a href="/preguntas/">preguntas frecuentes</a>.
+        Alcance, precios, IA y acceso de clientes. Para el resto está el diagnóstico gratuito y el
+        hub de preguntas.
       </p>
     </div>
     <FaqList faqs={faqs} />
+    <p class="stack-note">
+      ¿Otra duda? Ver <a href="/preguntas/">todas las preguntas frecuentes</a> o
+      <a href="/contacto/">escríbenos</a>.
+    </p>
   </section>
 
-  <!-- 11. CTA final --------------------------------------------------------------- -->
+  <!-- 10. CTA final ----------------------------------------------------------- -->
   <FinalCta
-    eyebrow="EMPIEZA CON EL MVO"
-    title="El nuevo costo real de mostrar tus servicios online."
+    eyebrow="EMPIEZA CON DIAGNÓSTICO GRATIS"
+    title="Revisamos tu presencia. <em>Te decimos qué falta.</em>"
+    note="20 minutos por Google Meet o WhatsApp · Sin compromiso · Plan y presupuesto claros antes de pagar"
   />
 </BaseLayout>

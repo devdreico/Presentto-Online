@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { business } from '../data/business';
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Privacidad' }];
 
 const title = 'Política de privacidad | Presentto Online';
 const description =
-  'Información sobre el tratamiento de datos personales enviados a Presentto Online (Soverath Holding S.A.S.).';
+  'Cómo trata Presentto Online los datos de contacto, clientes y acceso al dashboard: finalidad, proveedores, conservación y derechos.';
 ---
 
 <BaseLayout title={title} description={description} path="/privacidad/" breadcrumbs={crumbs}>
@@ -18,11 +19,11 @@ const description =
 
   <section class="section wrap">
     <div class="prose">
-      <h2>Presentto solo solicita los datos necesarios para responder consultas comerciales.</h2>
+      <h2>Presentto solo solicita los datos necesarios para prestar y responder sobre el servicio.</h2>
       <p>
-        Cuando envías el formulario de contacto de este sitio (nombre, negocio, medio de contacto, objetivos y
-        necesidades), usamos esos datos únicamente para comunicarnos contigo sobre los servicios solicitados.
-        No vendemos ni publicamos información personal.
+        Cuando envías el formulario de contacto (nombre, negocio, medio de contacto, objetivos y
+        necesidades), usamos esos datos únicamente para comunicarnos contigo sobre los servicios
+        solicitados. No vendemos ni publicamos información personal.
       </p>
 
       <h2>Qué datos recopilamos</h2>
@@ -31,12 +32,42 @@ const description =
         <li>Medio de contacto (teléfono, correo u otro que indiques).</li>
         <li>Objetivos digitales y necesidades que compartas voluntariamente.</li>
         <li>Nombre y WhatsApp, si inicias el pago de un plan desde el sitio.</li>
+        <li>
+          Si eres cliente: teléfono, PIN de acceso al dashboard, plan contratado, fechas de servicio
+          y solicitudes de cambio.
+        </li>
+        <li>Datos técnicos de navegación, solo si autorizas cookies de medición.</li>
       </ul>
+
+      <h2>Acceso de clientes</h2>
+      <p>
+        El área de clientes usa Supabase como proveedor de autenticación. El teléfono se transforma
+        en un identificador interno y el PIN se almacena cifrado por el proveedor; Presentto no puede
+        leer el PIN en texto plano. El dashboard del cliente se opera en un dominio independiente y
+        tiene su propia política de tratamiento.
+      </p>
 
       <h2>Con quién se comparte</h2>
       <p>
-        El formulario se procesa a través de Formspree (proveedor de formularios). Los pagos se procesan por
-        Mercado Pago bajo sus propios términos. No compartimos tus datos con terceros con fines de marketing.
+        El formulario se procesa a través de Formspree. Los pagos se procesan por Mercado Pago.
+        La autenticación y la base de datos de clientes se alojan en Supabase. El sitio se publica en
+        Vercel. Cada proveedor trata los datos bajo sus propios términos. No compartimos tus datos
+        con terceros con fines de marketing.
+      </p>
+
+      <h2>Inteligencia artificial</h2>
+      <p>
+        Podemos usar herramientas de IA para redactar borradores, clasificar solicitudes y
+        automatizar tareas internas. No enviamos a esos modelos datos sensibles, credenciales ni
+        información de terceros sin autorización. Cuando la IA produce contenido para tu negocio, una
+        persona lo revisa antes de publicarse.
+      </p>
+
+      <h2>Conservación</h2>
+      <p>
+        Los datos de contacto se conservan mientras exista una conversación comercial activa o hasta
+        que solicites su eliminación. Los datos de clientes se conservan durante la relación de
+        servicio y el tiempo exigido por obligaciones contables y legales.
       </p>
 
       <h2>Cookies</h2>
@@ -47,12 +78,12 @@ const description =
 
       <h2>Tus derechos</h2>
       <p>
-        Puedes solicitar aclaración, acceso o eliminación de tus datos escribiendo a
-        <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>. Responsable del tratamiento:
-        Soverath Holding S.A.S. (Presentto Online), Sabana Occidental, Colombia.
+        Puedes solicitar aclaración, acceso, corrección o eliminación de tus datos escribiendo a
+        <a href={`mailto:${business.email}`}>{business.email}</a>. Responsable del tratamiento:
+        {business.legalName} ({business.name}), Sabana Occidental, Colombia.
       </p>
 
-      <p class="article-meta">Última actualización: septiembre de 2026.</p>
+      <p class="article-meta">Última actualización: noviembre de 2026.</p>
     </div>
   </section>
 </BaseLayout>

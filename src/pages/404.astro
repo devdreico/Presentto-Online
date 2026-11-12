@@ -7,27 +7,27 @@ const crumbs = [{ label: 'Inicio', href: '/' }, { label: '404' }];
 
 const title = 'Página no encontrada | Presentto Online';
 const description =
-  'La página que buscas no existe. Vuelve al inicio o explora las guías de presencia digital de Presentto Online.';
+  'La página que buscas no existe. Vuelve al inicio, revisa los planes o entra a las guías de presencia digital de Presentto Online.';
 
 const routes = [
   {
     tag: '01 · PLANES',
     title: 'Planes y precios',
-    copy: 'MVO desde $15.000 COP/mes y dominio propio desde $40.000, todo con IVA incluido y sin permanencia.',
+    copy: 'Cuatro planes desde $100.000 COP/mes, IVA incluido, mensual o anual con 15% de descuento.',
     href: '/precios/',
     cta: 'Ver precios',
   },
   {
-    tag: '02 · GUÍAS',
-    title: 'Guías de presencia digital',
-    copy: 'Aprende a aparecer en Google, a montar tu ficha de negocio y a entender cuánto cuesta una web en Colombia.',
-    href: '/guias/',
-    cta: 'Leer guías',
+    tag: '02 · SERVICIO',
+    title: 'Qué administramos',
+    copy: 'Web, ficha de Google, analítica, sistemas y flujos de IA en un solo servicio con SLA publicado.',
+    href: '/servicios/',
+    cta: 'Ver servicio',
   },
   {
     tag: '03 · TRABAJO REAL',
     title: 'Sitios publicados',
-    copy: 'Nueve sitios en producción sobre *.presentto.online, con su rubro, su identidad y su base técnica.',
+    copy: '15 clientes en producción sobre *.presentto.online, con su rubro, su identidad y su base técnica.',
     href: '/sitios/',
     cta: 'Ver sitios',
   },
@@ -40,11 +40,11 @@ const routes = [
   <PageHero
     eyebrow="ERROR 404"
     title="Esta página <em>no existe.</em>"
-    lead="Puede que el enlace haya cambiado o que la página se haya movido. Vuelve al inicio, entra a las guías o escríbenos por contacto."
+    lead="Puede que el enlace haya cambiado o que la página se haya movido. Vuelve al inicio, entra al servicio o escríbenos por contacto."
   >
     <Fragment slot="actions">
       <a class="btn btn-primary" href="/">Ir al inicio <span>↗</span></a>
-      <a class="btn btn-ghost" href="/guias/">Ver guías <span>↗</span></a>
+      <a class="btn btn-ghost" href="/servicios/">Ver servicio <span>↗</span></a>
       <a class="btn btn-ghost" href="/contacto/">Contacto <span>↗</span></a>
     </Fragment>
     <Fragment slot="meta">
@@ -59,7 +59,7 @@ const routes = [
       <p class="eyebrow">MIENTRAS TANTO</p>
       <h2 data-split>Prueba por uno de estos <em>lados.</em></h2>
       <p class="lead">
-        Los recorridos más útiles del sitio: qué cuesta, cómo funciona y qué hemos publicado ya.
+        Los recorridos más útiles del sitio: qué cuesta, qué incluye y qué hemos publicado ya.
       </p>
     </div>
     <div class="card-grid cols-3" data-stagger>

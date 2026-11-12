@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqList from '../components/FaqList.astro';
+import PageHero from '../components/PageHero.astro';
+import FinalCta from '../components/FinalCta.astro';
+import SupportChannels from '../components/SupportChannels.astro';
+import SlaTable from '../components/SlaTable.astro';
+import { business, serviceHours } from '../data/business';
+
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Soporte' }];
+
+const title = 'Soporte y atención al cliente | Presentto';
+const description =
+  'Atención humana de 7:00 a 19:00 y WhatsApp 24/7. SLA por plan, cómo pedir cambios y acceso al dashboard de cliente.';
+
+const faqs = [
+  {
+    q: '¿Cómo pido un cambio en mi web?',
+    a: 'Escríbenos por WhatsApp o correo indicando qué cambia y en qué página. Confirmamos si entra en tu cupo mensual y lo publicamos. Los cambios se agrupan para no romper nada.',
+  },
+  {
+    q: '¿Qué cuenta como cambio?',
+    a: 'Una solicitud de hasta 30 minutos que modifica contenido existente: textos, fotos, precios, horarios, enlaces o datos de contacto. No cuentan secciones nuevas, páginas nuevas, funcionalidades, integraciones ni rediseños: se cotizan aparte.',
+  },
+  {
+    q: '¿Qué pasa si mi web se cae?',
+    a: 'Monitoreamos el uptime. Si detectamos una caída, actuamos sin que tengas que avisar. Si la detectas tú, escríbenos por WhatsApp: es prioridad sobre cualquier otro trabajo.',
+  },
+  {
+    q: '¿Atienden fines de semana?',
+    a: 'Sí. Atención humana todos los días de 7:00 a 19:00 (America/Bogota), excluyendo festivos nacionales. WhatsApp recibe mensajes 24/7 con respuesta automática y un humano responde dentro del horario.',
+  },
+  {
+    q: '¿Cómo entro a mi dashboard?',
+    a: 'En /cuenta/ con tu teléfono y PIN de 6 dígitos. Si no los tienes, escríbenos por WhatsApp. El dashboard es un sitio independiente: dashboard.presentto.online/tu-negocio/.',
+  },
+  {
+    q: '¿Dónde veo mi plan y mi consumo de cambios?',
+    a: 'En tu dashboard. Allí aparecen plan, fechas, cupo de cambios y entregables. Si algo no coincide, escríbenos y lo corregimos.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} path="/soporte/" breadcrumbs={crumbs}>
+  <Breadcrumbs items={crumbs} />
+
+  <PageHero
+    eyebrow="ATENCIÓN AL CLIENTE"
+    title="Soporte que responde. <em>Sin tickets eternos.</em>"
+    lead="Un canal directo por WhatsApp, atención humana real y un SLA publicado por plan. Si eres cliente, aquí encuentras cómo pedir cambios, reportar una caída o entrar a tu dashboard."
+  >
+    <Fragment slot="actions">
+      <a class="btn btn-primary" href="/cuenta/" data-magnetic>
+        Entrar a mi dashboard <span>↗</span>
+      </a>
+      <a class="btn btn-ghost" href="#sla">Ver SLA <span>↓</span></a>
+    </Fragment>
+    <Fragment slot="meta">
+      <span class="tag">WhatsApp 24/7</span>
+      <span class="tag">Humano {serviceHours.human}</span>
+      <span class="tag">SLA por plan</span>
+    </Fragment>
+  </PageHero>
+
+  <section class="section wrap">
+    <SupportChannels />
+  </section>
+
+  <section class="section wrap" id="sla">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">TIEMPOS COMPROMETIDOS</p>
+        <h2 data-split>Qué esperar <em>y cuándo.</em></h2>
+      </div>
+      <p class="lead">
+        El SLA depende del plan. Los tiempos se cuentan en horas hábiles dentro del horario de
+        atención.
+      </p>
+    </div>
+    <SlaTable />
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">CÓMO PEDIR UN CAMBIO</p>
+        <h2 data-split>Tres pasos. <em>Sin fricción.</em></h2>
+      </div>
+      <p class="lead">
+        Cuanto más claro sea el pedido, más rápido se publica. Si no sabes cómo redactarlo,
+        mándanos una foto o un audio y lo convertimos en cambio.
+      </p>
+    </div>
+    <ol class="process-grid" data-stagger>
+      <li class="process-step reveal">
+        <span class="process-num">01</span>
+        <h3>Escribe el cambio</h3>
+        <p>Qué cambia, en qué página y con qué texto o imagen. Un mensaje por solicitud.</p>
+      </li>
+      <li class="process-step reveal">
+        <span class="process-num">02</span>
+        <h3>Confirmamos alcance</h3>
+        <p>Te decimos si entra en tu cupo mensual o si necesita cotización aparte.</p>
+      </li>
+      <li class="process-step reveal">
+        <span class="process-num">03</span>
+        <h3>Publicamos y avisamos</h3>
+        <p>Verificamos en móvil y escritorio. Te enviamos el enlace para que lo revises.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">PREGUNTAS DE CLIENTES ACTIVOS</p>
+        <h2 data-split>Lo que más <em>nos preguntan.</em></h2>
+      </div>
+      <p class="lead">
+        Cambios, caídas, horarios y acceso. Para temas comerciales, el
+        <a href="/contacto/">diagnóstico gratuito</a> es el camino.
+      </p>
+    </div>
+    <FaqList faqs={faqs} />
+    <p class="stack-note">
+      ¿No encuentras tu respuesta? <a href={`mailto:${business.email}`}>{business.email}</a> ·
+      WhatsApp directo en el pie de página.
+    </p>
+  </section>
+
+  <FinalCta
+    eyebrow="¿AÚN NO ERES CLIENTE?"
+    title="Empieza por el diagnóstico. <em>Es gratis.</em>"
+    note="20 minutos · Revisamos tu web, ficha de Google y redes · Sin compromiso"
+  />
+</BaseLayout>

@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
 import ArticleLayout from '../../components/ArticleLayout.astro';
 import FinalCta from '../../components/FinalCta.astro';
-import { ctaSession } from '../../data/business';
+import { ctaDiagnostico } from '../../data/business';
 import { datesFor } from '../../data/content-dates';
 const crumbs = [
       { label: 'Inicio', href: '/' },
@@ -16,7 +16,7 @@ const dates = datesFor('/comparativas/web-administrada-vs-agencia/');
 
 const title = 'Web administrada vs agencia vs DIY';
 const description =
-  'Comparativa: web administrada ($40.000 COP) vs agencia vs DIY. Costes, control, tiempos y a quién conviene cada opción.';
+  'Comparativa: administración web desde $100.000 COP/mes vs agencia vs DIY. Costes, control, tiempos y a quién conviene cada opción.';
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -61,7 +61,7 @@ const articleSchema = {
     <h2 id="resumen-en-30-segundos">Resumen en 30 segundos</h2>
     <p class="snippet">
       Si quieres resultados sin aprender herramientas ni gestionar proveedores, una web administrada como la de
-      Presentto ($40.000 COP, IVA incluido) ofrece el mejor tiempo/valor para un negocio local. La agencia
+      Presentto (desde $100.000 COP/mes, IVA incluido) ofrece el mejor tiempo/valor para un negocio local. La agencia
       tradicional brilla en proyectos grandes con CMS y campañas. El DIY es viable solo si te gusta mantener
       tecnología tú mismo.
     </p>
@@ -80,7 +80,7 @@ const articleSchema = {
         <tbody>
           <tr>
             <td>Inversión inicial</td>
-            <td>$40.000 COP (IVA incl.)</td>
+            <td>Desde $100.000 COP/mes (IVA incl.) + setup $250.000</td>
             <td>$800.000 – $6.000.000+ COP</td>
             <td>≈ $20.000–$60.000 COP/mes + tu tiempo</td>
           </tr>
@@ -123,7 +123,7 @@ const articleSchema = {
     <ul>
       <li>Eres un negocio local (Funza, Mosquera, Madrid, Facatativá) que necesita aparecer ya.</li>
       <li>No quieres gestionar hosting, actualizaciones ni plugins.</li>
-      <li>Presupuesto de lanzamiento muy ajustado.</li>
+      <li>Presupuesto mensual predecible, sin inversión inicial de millones.</li>
       <li>Priorizas WhatsApp, catálogo y presencia sobre tiendas complejas.</li>
     </ul>
     <h3>Elige agencia tradicional si…</h3>
@@ -138,11 +138,12 @@ const articleSchema = {
       <li>Tienes un sitio muy simple y tráfico irrelevante.</li>
     </ul>
 
-    <h2 id="como-llegamos-al-precio">Cómo llegamos al precio de $40.000 COP</h2>
+    <h2 id="como-llegamos-al-precio">Cómo llegamos al precio de $100.000 COP/mes</h2>
     <p class="snippet">
-      Presentto opera con plantillas base y procesos estandarizados sobre infraestructura compartida
-      administrada: reducimos costes de desarrollo a medida y de soporte, y entregamos una presencia completa
-      (web, dominio, correo y administración) a precio de entrada para la Sabana Occidental.
+      Presentto opera con procesos estandarizados, una base técnica propia y una infraestructura administrada:
+      reducimos costes de desarrollo a medida y de soporte, y entregamos una presencia completa (web, dominio o
+      subdominio, correo, ficha de Google, analítica y administración) a un precio mensual predecible para la
+      Sabana Occidental.
     </p>
     <p>
       La contraparte de esa estandarización es honesta: no hacemos portales a medida ni integraciones raras.
@@ -172,8 +173,8 @@ const articleSchema = {
         </thead>
         <tbody>
           <tr>
-            <td>Creación (1ª vez)</td>
-            <td>$40.000 COP (plan 1 mes)</td>
+            <td>Setup inicial (1ª vez)</td>
+            <td>$250.000 COP (setup único)</td>
             <td>$800.000 – $6.000.000 COP</td>
             <td>$0 – $120.000 COP (plantilla)</td>
           </tr>
@@ -191,7 +192,7 @@ const articleSchema = {
           </tr>
           <tr>
             <td>Tu tiempo dedicado</td>
-            <td>Mínimo (apuebas y envías material)</td>
+            <td>Mínimo (apruebas y envías material)</td>
             <td>Medio (reuniones y validaciones)</td>
             <td>Alto (aprender, arreglar, actualizar)</td>
           </tr>
@@ -225,8 +226,8 @@ const articleSchema = {
     <div class="guide-cta">
       <p><strong>¿Encaja contigo la opción administrada?</strong></p>
       <div class="actions">
-        <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-          Agendar mi sesión 1 <span>↗</span>
+        <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+          Pedir diagnóstico gratis <span>↗</span>
         </a>
         <a class="btn btn-ghost" href="/guias/cuanto-cuesta-pagina-web-colombia/">Ver todos los precios 2026 <span>↗</span></a>
       </div>
@@ -236,7 +237,7 @@ const articleSchema = {
       <h2 id="mismo-silo-precios-y-decision">Mismo silo: precios y decisión</h2>
       <ul>
         <li><a href="/guias/cuanto-cuesta-pagina-web-colombia/">¿Cuánto cuesta una web en Colombia?</a></li>
-        <li><a href="/servicios/">Qué incluye la Presenttación Digital</a></li>
+        <li><a href="/servicios/">Qué incluye la Administración de Presencia Digital</a></li>
         <li><a href="/preguntas/">Preguntas frecuentes</a></li>
       </ul>
     </section>
@@ -247,6 +248,6 @@ const articleSchema = {
   <FinalCta
     eyebrow="DECISIÓN RÁPIDA"
     title="Empieza con lo esencial <em>sin sobrecosto.</em>"
-    note="Agenda tu sesión 1 por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+    note="Diagnóstico de 20 min · Sin compromiso · Presupuesto antes de pagar"
   />
 </BaseLayout>

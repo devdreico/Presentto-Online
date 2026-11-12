@@ -20,6 +20,15 @@ export function slugify(input: string): string {
     .replace(/-+$/g, '') || 'cliente';
 }
 
+/** Teléfono E.164 sin "+". Acepta 10 dígitos o +57. Mantener en sincronía con scripts/lib/slug.mjs. */
+export function normalizePhone(input: string): string {
+  const digits = input.replace(/\D/g, '');
+  if (digits.length === 10) return `57${digits}`;
+  if (digits.length === 12 && digits.startsWith('57')) return digits;
+  if (digits.length === 11 && digits.startsWith('0')) return `57${digits.slice(1)}`;
+  return '';
+}
+
 /** URL única del dashboard del cliente. */
 export function dashboardUrl(slug: string): string {
   const base =

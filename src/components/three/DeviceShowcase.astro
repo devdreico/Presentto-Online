@@ -6,7 +6,7 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
   Astro.props;
 ---
 
-<div class="mvo-device" data-mvo-device>
+<div class="hero-device" data-hero-device>
   <div class="device-poster" aria-hidden="true">
     <div class="poster-phone">
       <span class="poster-island"></span>
@@ -615,7 +615,7 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
   }
 
   function setup() {
-    const wrapper = document.querySelector<HTMLElement>('[data-mvo-device]');
+    const wrapper = document.querySelector<HTMLElement>('[data-hero-device]');
     if (!wrapper) return;
     if (reduced()) return; // póster estático
     if (!('IntersectionObserver' in window)) {

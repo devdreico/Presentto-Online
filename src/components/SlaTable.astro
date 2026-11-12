@@ -1,0 +1,44 @@
+---
+import { plans } from '../data/service';
+---
+
+<div class="table-scroll reveal">
+  <table class="compare-table sla-table">
+    <thead>
+      <tr>
+        <th scope="col">Compromiso</th>
+        {plans.map((plan) => <th scope="col">{plan.name}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Primera respuesta</strong></td>
+        {plans.map((plan) => <td>{plan.sla.firstResponse}</td>)}
+      </tr>
+      <tr>
+        <td><strong>Resolución objetivo</strong></td>
+        {plans.map((plan) => <td>{plan.sla.resolution}</td>)}
+      </tr>
+      <tr>
+        <td><strong>Cambios incluidos / mes</strong></td>
+        <td>2</td>
+        <td>6</td>
+        <td>10</td>
+        <td>A convenir</td>
+      </tr>
+      <tr>
+        <td><strong>Canal</strong></td>
+        <td>WhatsApp y correo</td>
+        <td>WhatsApp y correo</td>
+        <td>WhatsApp y correo</td>
+        <td>WhatsApp, correo y reunión</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="stack-note">
+  Horario humano: lunes a domingo, 7:00–19:00 (America/Bogota), excluyendo festivos nacionales.
+  WhatsApp disponible 24/7 con respuesta automática y atención humana dentro del horario.
+  El SLA es un objetivo publicado, sin descuentos automáticos en esta versión.
+</p>

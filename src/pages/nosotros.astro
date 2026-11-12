@@ -3,13 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PageHero from '../components/PageHero.astro';
 import FinalCta from '../components/FinalCta.astro';
-import { ctaSession } from '../data/business';
+import { ctaDiagnostico, business, serviceHours } from '../data/business';
+import { clients } from '../data/clients';
 
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Nosotros' }];
 
-const title = 'Sobre Presentto: web administrada y presencia digital';
+const title = 'Agencia de presencia digital | Presentto';
 const description =
-  'Quiénes somos: MVO y web administrada accesible desde $15.000 COP/mes, operado por Soverath Holding S.A.S.';
+  'Quiénes operan Presentto Online: administración de presencia digital, implementación web, sistemas y IA aplicada para negocios de Colombia.';
 
 const aboutSchema = {
   '@context': 'https://schema.org',
@@ -26,18 +27,19 @@ const aboutSchema = {
 
   <PageHero
     eyebrow="SOBRE PRESENTTO"
-    title="Presentto Online"
-    lead="Presencia digital para negocios reales: creamos, publicamos y administramos tu web para que te encuentren cuando tus clientes buscan —sin contratar una agencia cara ni aprender a programar."
+    title="La agencia todo en 1 <em>para crecer digitalmente.</em>"
+    lead="Administramos la presencia digital de negocios reales: web, ficha de Google, analítica, sistemas y flujos de IA. Un solo equipo responde por todo lo que pasa en línea, con SLA publicado y sin promesas de humo."
   >
     <Fragment slot="actions">
-      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-        Agendar mi sesión 1 <span>↗</span>
+      <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+        Diagnóstico gratis <span>↗</span>
       </a>
-      <a class="btn btn-ghost" href="/precios/">Ver precios <span>↓</span></a>
+      <a class="btn btn-ghost" href="/precios/">Ver los 4 planes <span>↓</span></a>
     </Fragment>
     <Fragment slot="meta">
       <span class="tag">Soverath Holding S.A.S.</span>
       <span class="tag">Respaldo Aeperion Systems</span>
+      <span class="tag">{clients.length} clientes en producción</span>
       <span class="tag">Sabana Occidental · Colombia</span>
     </Fragment>
   </PageHero>
@@ -46,14 +48,16 @@ const aboutSchema = {
     <div class="prose">
       <p>
         Presentto existe para que un comercio, emprendimiento, profesional o restaurante de Funza,
-        Mosquera, Madrid, Facatativá o cualquier ciudad de Colombia pueda presentarse en internet
-        con una web, una ficha de Google bien montada y correo propio. Nuestra propuesta es simple y
-        deliberada: un solo servicio (la <strong>Presenttación Digital</strong>), todo incluido (web
-        con estructura para Google, dominio o subdominio, datos estructurados, QR y administración)
-        y planes desde <strong>$15.000 COP/mes</strong> en modalidad MVO o
-        <strong>$40.000 COP/mes</strong> con dominio propio. Agenda tu sesión 1; pagas solo si te
-        convence. Los valores, los plazos y lo que cubre cada plan están en
-        <a href="/precios/">precios</a>, sin letra pequeña.
+        Mosquera, Madrid, Facatativá o cualquier ciudad de Colombia tenga una presencia digital que
+        funcione sin contratar tres proveedores distintos. Nuestra propuesta es deliberadamente
+        simple: <strong>Administración de Presencia Digital</strong>, un servicio continuo que
+        incluye web, ficha de Google, analítica, sistemas cuando hacen falta y flujos de IA
+        aplicada. Desde <strong>$100.000 COP/mes</strong> con IVA incluido.
+      </p>
+      <p>
+        No vendemos una web y desaparecemos. Administramos lo que ya tienes, construimos lo que
+        falta y mejoramos lo que existe con datos. Los valores, los plazos y lo que cubre cada plan
+        están en <a href="/precios/">precios</a>, sin letra pequeña.
       </p>
 
       <h2>Quiénes somos</h2>
@@ -61,73 +65,102 @@ const aboutSchema = {
         Presentto Online es operado por <strong>Soverath Holding S.A.S.</strong>, con respaldo técnico
         en desarrollo de software de <strong>Aeperion Systems</strong>. Trabajamos con un modelo de
         entrega administrada: nosotros construimos, publicamos y mantenemos la presencia digital
-        según el alcance acordado contigo. Tú te dedicas a tu negocio; la parte técnica es nuestra.
+        según el alcance acordado. Tú te dedicas a tu negocio; la parte técnica es nuestra.
       </p>
       <p>
-        El respaldo técnico importa en lo cotidiano: los despliegues, los certificados y los parches
-        de seguridad los hace un equipo de software, no una figura suelta que deja de contestar al
-        mes siguiente. Puedes ver el resultado de ese trabajo en los
-        <a href="/sitios/">sitios publicados</a>, cada uno con su subdominio y su contenido.
+        El respaldo importa en lo cotidiano: los despliegues, los certificados, las copias y los
+        parches de seguridad los hace un equipo de software, no una figura suelta que deja de
+        contestar al mes siguiente. Puedes ver el resultado en los
+        <a href="/sitios/">sitios publicados</a>: {clients.length} clientes en producción, cada uno con su
+        identidad y su contenido.
       </p>
+
+      <h2>Qué administramos</h2>
+      <ul>
+        <li>
+          <strong>Web:</strong> hosting en Vercel, dominio o subdominio, SSL, correo profesional,
+          backups, monitoreo de uptime y actualizaciones.
+        </li>
+        <li>
+          <strong>Presencia:</strong> ficha de Google, categorías, horarios, fotos, reseñas, SEO local
+          y coherencia del NAP en toda la presencia digital.
+        </li>
+        <li>
+          <strong>Analítica:</strong> GA4, Search Console y mapas de calor revisados mes a mes.
+        </li>
+        <li>
+          <strong>Sistemas:</strong> reservas, catálogos, cotizadores, portales de cliente y bases de
+          datos con autenticación cuando el negocio lo necesita.
+        </li>
+        <li>
+          <strong>IA aplicada:</strong> inducción para el equipo y automatizaciones de atención,
+          contenido y seguimiento, siempre con revisión humana.
+        </li>
+      </ul>
 
       <h2>Cómo trabajamos</h2>
       <p>
-        El proceso es el mismo para todos los clientes y dura lo que dura tu aprobación, no lo que
-        tarda una negociación corporativa:
+        El proceso es el mismo para todos los clientes. Seis pasos, un plan de 30 días y entregables
+        verificables:
       </p>
       <ol>
         <li>
-          <strong>Eliges plan y agendamos la sesión 1.</strong> Coordinamos por WhatsApp una sesión
-          de 30 minutos por Google Meet: nos cuentas de tu negocio, tomamos tu información y leemos
-          el proceso contigo.
+          <strong>Diagnóstico.</strong> Revisamos web, ficha de Google, redes, analítica y accesos.
+          Identificamos qué mejora primero, sin listas infinitas.
         </li>
         <li>
-          <strong>Muestra con tus correcciones.</strong> En la sesión 2 ves tu web avanzada en vivo.
-          Revisas textos, fotos, estructura y enlaces; lo que no te convenza se ajusta.
+          <strong>Plan de 30 días.</strong> Entregables, responsables y fechas por escrito. Nada de
+          promesas fuera de alcance.
         </li>
         <li>
-          <strong>Prepago por plazo.</strong> Eliges MVO mensual/anual o 1, 3, 6 meses o un año con
-          dominio propio, y pagas una sola vez con Mercado Pago e IVA incluido. Sin suscripción, ni
-          renovación automática, ni permanencia. Ver <a href="/precios/">los planes</a>.
+          <strong>Implementación.</strong> Construimos o corregimos web, ficha, analítica, sistemas y
+          automatizaciones. Cada entrega se prueba antes de publicarse.
         </li>
         <li>
-          <strong>Entrega y publicación.</strong> Sesión 3: cierre, entrega del sitio activo,
-          firmado del contrato y pago definitivo. Activamos HTTPS, sitemap, datos estructurados y la
-          verificación en Search Console.
+          <strong>Inducción IA.</strong> 45 minutos para que tu equipo sepa qué pedir, cómo revisar y
+          qué datos nunca compartir.
+        </li>
+        <li>
+          <strong>Operación.</strong> Cambios, monitoreo, soporte y reporte según el plan contratado.
+        </li>
+        <li>
+          <strong>Revisión.</strong> Cada mes o trimestre ajustamos el plan con datos, no con
+          opiniones.
         </li>
       </ol>
       <p>
         Después de publicar, la mantenemos publicada y operando dentro del alcance acordado. Los
-        cambios de contenido se coordinan en sesión o por WhatsApp, y los atiende el mismo equipo
-        que publicó.
+        cambios de contenido se piden por WhatsApp o correo, se confirman contra el cupo del plan y
+        los atiende el mismo equipo que publicó.
       </p>
 
       <h2>Cómo podemos ofrecer este precio</h2>
       <p>
-        Sin trucos: operamos con procesos estandarizados, plantillas base de calidad y una
-        infraestructura compartida administrada (el subdominio <code>cliente.presentto.online</code>
-        del MVO es economías de escala hechas producto). Eso nos permite entregar una web
-        profesional y rápida a una fracción del costo de una agencia tradicional, sin sacrificar lo
-        esencial.
+        Sin trucos: operamos con procesos estandarizados, una base técnica propia y una
+        infraestructura administrada. Eso nos permite entregar y operar una presencia profesional a
+        una fracción del costo de una agencia tradicional, sin sacrificar lo esencial.
       </p>
       <p>
         Hay tres decisiones concretas detrás del precio. Primero, una oferta estandarizada: vendemos
         un servicio con alcance definido en vez de cotizar proyectos a medida uno por uno. Segundo,
         sin equipo comercial: no hay vendedores, ni comisiones, ni campañas de captación pagadas
         dentro del precio; se llega por WhatsApp, por referidos y por este sitio. Tercero, sin
-        permanencia: el pago es prepago por plazo y no se renueva solo. Si quieres ver cómo se
-        compara esto con una agencia tradicional, está explicado en
+        permanencia: el pago es por adelantado y no se renueva solo. Si quieres ver cómo se compara
+        esto con una agencia tradicional, está explicado en
         <a href="/comparativas/">comparativas</a>.
       </p>
 
-      <h2>Cobertura</h2>
+      <h2>Cobertura y horarios</h2>
       <p>
         Nuestra base está en la Sabana Occidental de Colombia: trabajamos con negocios de
         <a href="/funza/">Funza</a>, <a href="/mosquera/">Mosquera</a>, <a href="/madrid/">Madrid</a>
         y <a href="/facatativa/">Facatativá</a>, y con clientes de otras ciudades del país atendidos
-        de forma remota. El servicio es el mismo en todos los casos: sesión 1, muestra con
-        correcciones, prepago y publicación. La documentación pública del servicio, las guías y las
-        comparativas aplican para cualquier municipio de Colombia.
+        de forma remota. El servicio es el mismo en todos los casos.
+      </p>
+      <p>
+        Atención humana {serviceHours.human}, todos los días. WhatsApp disponible 24/7 con recepción
+        automática y respuesta humana dentro del horario. El SLA de cada plan está publicado en
+        <a href="/soporte/">soporte</a>.
       </p>
 
       <h2>Nuestra política editorial</h2>
@@ -135,7 +168,7 @@ const aboutSchema = {
         El contenido de este sitio (guías de presencia digital, precios y comparativas) se redacta
         con información pública actualizable y se revisa cuando cambian las condiciones del
         servicio o del mercado. No publicamos reseñas inventadas ni promesas de “primera página
-        garantizada”. Lo que sí prometemos es entregar lo que acordamos —tu web publicada y
+        garantizada”. Lo que sí prometemos es entregar lo que acordamos —tu presencia publicada y
         funcionando— a tiempo y sin letra pequeña.
       </p>
       <p>
@@ -167,7 +200,7 @@ const aboutSchema = {
       </p>
       <p>
         Correcciones: si detectas un dato desactualizado o un error, escríbenos a
-        <a href="mailto:inbox@presentto.online">inbox@presentto.online</a> con el enlace de la
+        <a href={`mailto:${business.email}`}>{business.email}</a> con el enlace de la
         página. Se revisa y se corrige en la siguiente actualización. Para saber qué datos usamos
         cuando nos escribes, consulta la <a href="/privacidad/">política de privacidad</a>.
       </p>
@@ -175,15 +208,15 @@ const aboutSchema = {
       <h2>Responsable editorial</h2>
       <p>
         Las guías y precios de Presentto Online son revisadas y mantenidas por
-        <strong>Dilan Andrei Cifuentes Ortiz</strong>, fundador y responsable editorial. Para
+        <strong>{business.editor?.name}</strong>, fundador y responsable editorial. Para
         correcciones, solicitudes o dudas sobre los datos publicados, escríbenos a
-        <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>.
+        <a href={`mailto:${business.email}`}>{business.email}</a>.
       </p>
 
       <h2>Cómo contactarnos</h2>
       <p>
         WhatsApp: <a href="https://wa.me/573236487336" target="_blank" rel="noopener">+57 323 648 7336</a>
-        · Correo: <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>
+        · Correo: <a href={`mailto:${business.email}`}>{business.email}</a>
         · TikTok: <a href="https://www.tiktok.com/@presenttonline" target="_blank" rel="noopener">@presenttonline</a>
         · Instagram: <a href="https://www.instagram.com/presenttonline" target="_blank" rel="noopener">@presenttonline</a>
         · Facebook: <a href="https://www.facebook.com/PresenttoOnline" target="_blank" rel="noopener">Presentto Online</a>
@@ -191,8 +224,8 @@ const aboutSchema = {
       </p>
       <p>
         Al escribir, incluye el nombre de tu negocio, tu municipio y qué necesitas (web nueva,
-        mejorar la que tienes, o solo entender opciones). Con eso te respondemos con la ruta que te
-        convenga. Si prefieres comparar antes de hablar, revisa <a href="/servicios/">servicios</a>
+        mejorar la que tienes, sistemas o IA). Con eso te respondemos con la ruta que te convenga. Si
+        prefieres comparar antes de hablar, revisa <a href="/servicios/">servicios</a>
         y <a href="/guias/que-es-presencia-digital/">la guía de presencia digital</a>.
       </p>
     </div>

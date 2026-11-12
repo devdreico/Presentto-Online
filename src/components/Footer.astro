@@ -1,5 +1,5 @@
 ---
-import { ctaSession, waDirect } from '../data/business';
+import { ctaDiagnostico, waDirect } from '../data/business';
 
 const year = new Date().getFullYear();
 
@@ -9,9 +9,10 @@ const cols = [
     links: [
       { href: '/servicios/', label: 'Servicios' },
       { href: '/precios/', label: 'Precios' },
+      { href: '/soporte/', label: 'Soporte' },
+      { href: '/cuenta/', label: 'Mi cuenta' },
       { href: '/portfolio/', label: 'Portafolio' },
       { href: '/sitios/', label: 'Sitios publicados' },
-      { href: '/contacto/', label: 'Contacto' },
     ],
   },
   {
@@ -20,16 +21,17 @@ const cols = [
       { href: '/guias/', label: 'Guías' },
       { href: '/preguntas/', label: 'Preguntas frecuentes' },
       { href: '/comparativas/', label: 'Comparativas' },
+      { href: '/contacto/', label: 'Diagnóstico gratis' },
       { href: '/nosotros/', label: 'Nosotros' },
     ],
   },
   {
     title: 'Cerca de ti',
     links: [
-      { href: '/funza/', label: 'Web en Funza' },
-      { href: '/mosquera/', label: 'Web en Mosquera' },
-      { href: '/madrid/', label: 'Web en Madrid' },
-      { href: '/facatativa/', label: 'Web en Facatativá' },
+      { href: '/funza/', label: 'Presencia digital en Funza' },
+      { href: '/mosquera/', label: 'Presencia digital en Mosquera' },
+      { href: '/madrid/', label: 'Presencia digital en Madrid' },
+      { href: '/facatativa/', label: 'Presencia digital en Facatativá' },
     ],
   },
 ];
@@ -43,8 +45,8 @@ const socials = [
 
 <footer aria-label="Pie de página">
   <p class="managed-by wrap">
-    Web administrada y presencia digital · MVO desde $15.000 COP/mes · Servicio operado por
-    Soverath Holding S.A.S. con respaldo de Aeperion Systems.
+    Administración de Presencia Digital · desde $100.000 COP/mes, IVA incluido · Servicio operado
+    por Soverath Holding S.A.S. con respaldo de Aeperion Systems.
   </p>
 
   <div class="wrap footer-grid">
@@ -60,11 +62,11 @@ const socials = [
         />
       </a>
       <p>
-        Presencia digital administrada para negocios de Colombia: diseño, textos, hosting y
-        asesoría en 3 sesiones.
+        La agencia todo en 1 para crecer digitalmente: web, ficha de Google, analítica, sistemas y
+        flujos de IA administrados por un solo equipo.
       </p>
-      <a class="btn btn-dark btn-sm" href={ctaSession} target="_blank" rel="noopener">
-        Agendar mi sesión 1 <span>↗</span>
+      <a class="btn btn-dark btn-sm" href={ctaDiagnostico} target="_blank" rel="noopener">
+        Pedir diagnóstico gratis <span>↗</span>
       </a>
     </div>
 
@@ -81,6 +83,7 @@ const socials = [
       <small>Hablemos</small>
       <a href={waDirect} target="_blank" rel="noopener">+57 323 648 7336</a>
       <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>
+      <span class="footer-hours">Humano 7:00–19:00 · WhatsApp 24/7</span>
       {socials.map((s) => (
         <a href={s.href} target="_blank" rel="noopener">{s.label} @presenttonline</a>
       ))}

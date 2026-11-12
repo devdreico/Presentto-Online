@@ -190,3 +190,137 @@ const copFormatter = new Intl.NumberFormat('es-CO', {
 export function cop(value: number): string {
   return copFormatter.format(value).replace(/\s/g, '');
 }
+
+/* --------------------------------------------------------------------------
+   Pilares, método y comparativa
+   -------------------------------------------------------------------------- */
+
+export interface Pillar {
+  title: string;
+  desc: string;
+  items: string[];
+}
+
+export const pillars: Pillar[] = [
+  {
+    title: 'Administración web',
+    desc: 'Tu web operada, no abandonada. Nosotros respondemos por el hosting, el correo y los cambios.',
+    items: [
+      'Hosting, dominio o subdominio, SSL y correo profesional',
+      'Backups, monitoreo de uptime y actualizaciones',
+      'Cambios de textos, fotos, precios y horarios',
+      'Velocidad y Core Web Vitals cuidados mes a mes',
+    ],
+  },
+  {
+    title: 'Implementación y sistemas',
+    desc: 'Lo que falta, construido con estructura real: web nueva, reservas, catálogos o portales.',
+    items: [
+      'Web nueva base cuando no existe',
+      'Sistemas web: reservas, catálogos, cotizadores',
+      'Formularios avanzados y portales de cliente',
+      'Bases de datos y autenticación con Supabase',
+    ],
+  },
+  {
+    title: 'Presencia digital',
+    desc: 'Donde te buscan: ficha de Google, reseñas, contenido y búsqueda local.',
+    items: [
+      'Ficha de Google creada, corregida y actualizada',
+      'SEO local: títulos, metas, enlaces y datos estructurados',
+      'Gestión de reseñas y publicaciones',
+      'Contenido y redes según el plan',
+    ],
+  },
+  {
+    title: 'IA aplicada',
+    desc: 'No vendemos humo de IA: instalamos flujos que ahorran tiempo en tareas reales.',
+    items: [
+      'Inducción para usar IA con criterio',
+      'Automatizaciones de atención y seguimiento',
+      'Contenido y respuestas asistidas',
+      'Seguridad y datos: qué nunca se comparte',
+    ],
+  },
+];
+
+export interface WorkflowStep {
+  title: string;
+  desc: string;
+  ai: string;
+}
+
+export const aiWorkflow: WorkflowStep[] = [
+  {
+    title: 'Diagnóstico',
+    desc: 'Inventario de web, ficha, redes, analítica y accesos. Detectamos qué frena al negocio.',
+    ai: 'Auditoría asistida: contenido, velocidad, indexación y coherencia de datos.',
+  },
+  {
+    title: 'Priorización',
+    desc: 'Plan de 30 días con impacto y esfuerzo. Nada de listas infinitas.',
+    ai: 'Clasificación de tareas y borradores de contenido con revisión humana.',
+  },
+  {
+    title: 'Implementación',
+    desc: 'Web, ficha, analítica y sistemas. Cada entrega se prueba antes de publicarse.',
+    ai: 'Estructura, textos base y datos estructurados revisados por una persona.',
+  },
+  {
+    title: 'Automatización',
+    desc: 'Flujos de atención, cotización y seguimiento conectados al negocio.',
+    ai: 'Respuestas, resúmenes y alertas con límites y trazabilidad.',
+  },
+  {
+    title: 'Medición',
+    desc: 'Reporte con tráfico, consultas, clics y tareas del mes.',
+    ai: 'Lectura de datos y detección de anomalías; decisiones humanas.',
+  },
+];
+
+export const process = [
+  {
+    title: 'Diagnóstico',
+    desc: 'Revisamos web, ficha de Google, redes y accesos. Identificamos qué mejorar primero.',
+  },
+  {
+    title: 'Plan de 30 días',
+    desc: 'Entregables, responsables y fechas. Sin promesas fuera de alcance.',
+  },
+  {
+    title: 'Implementación',
+    desc: 'Construimos o corregimos web, ficha, analítica, sistemas y automatizaciones.',
+  },
+  {
+    title: 'Inducción IA',
+    desc: '45 minutos para que tu equipo use IA con criterio y sin exponer datos.',
+  },
+  {
+    title: 'Operación',
+    desc: 'Cambios, monitoreo, soporte y reporte según el plan contratado.',
+  },
+  {
+    title: 'Revisión',
+    desc: 'Cada mes o trimestre ajustamos el plan con datos, no con opiniones.',
+  },
+];
+
+export interface ComparisonRow {
+  label: string;
+  values: [string, string, string, string];
+}
+
+export const comparisonRows: ComparisonRow[] = [
+  { label: 'Inversión mensual', values: ['$100.000', '$299.000', '$640.000', 'Desde $1.450.000'] },
+  { label: 'Web administrada', values: ['✓', '✓', '✓', '✓'] },
+  { label: 'Web nueva base', values: ['✓', '✓', '✓', '✓'] },
+  { label: 'Dominio y correo profesional', values: ['✓', '✓', '✓', '✓'] },
+  { label: 'Cambios de contenido al mes', values: ['2', '6', '10', 'A convenir'] },
+  { label: 'Ficha de Google', values: ['Básica', 'Completa', 'Completa', 'Multi-sede'] },
+  { label: 'SEO local', values: ['Auditoría', 'Mensual', 'Mensual', 'Estratégico'] },
+  { label: 'Gestión de reseñas', values: ['—', '✓', '✓', '✓'] },
+  { label: 'Sistemas web', values: ['—', '—', '✓', '✓'] },
+  { label: 'Automatizaciones con IA', values: ['—', '1 flujo', '3 flujos', 'A medida'] },
+  { label: 'Reporte', values: ['Trimestral', 'Mensual', 'Mensual', 'Contractual'] },
+  { label: 'Primera respuesta', values: ['8 h', '4 h', '2 h', 'Contractual'] },
+];

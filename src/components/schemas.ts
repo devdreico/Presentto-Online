@@ -1,5 +1,6 @@
 // Organization + WebSite schema shared by all pages (stable @id anchors)
-import { plans } from '../data/plans';
+import { plans, service } from '../data/service';
+import { paymentLink } from '../data/payments';
 import { business } from '../data/business';
 
 const site = 'https://www.presentto.online/';
@@ -47,26 +48,56 @@ export function faqPageSchema(faqs: Faq[]) {
   };
 }
 
-// ItemList de ofertas — se inyecta en el <head> vía la prop `plansOffers` de BaseLayout
-export function plansItemListSchema(path: string) {
+// Service + OfferCatalog — se inyecta en el <head> vía la prop `plansOffers` de BaseLayout.
+// Si un precio aún no existe (Empresa anual), se omite la oferta en lugar de inventarla.
+export function serviceOffersSchema(path: string) {
+  const offers = plans.flatMap((plan) => {
+    const cycles = [
+      { cycle: 'mensual' as const, price: plan.monthly, duration: 'P1M', unit: 'mensual' },
+      { cycle: 'anual' as const, price: plan.annual, duration: 'P1Y', unit: 'anual' },
+    ];
+
+    return cycles
+      .filter((c) => c.price !== null)
+      .map((c) => {
+        const url = paymentLink(plan.id, c.cycle);
+        return {
+          '@type': 'Offer',
+          name: `${service.name} — ${plan.name} (${c.unit})`,
+          ...(url ? { url } : {}),
+          priceCurrency: 'COP',
+          price: String(c.price),
+          availability: 'https://schema.org/InStock',
+          seller: { '@id': `${site}#organization` },
+          priceSpecification: {
+            '@type': 'UnitPriceSpecification',
+            price: String(c.price),
+            priceCurrency: 'COP',
+            billingDuration: c.duration,
+            billingIncrement: 1,
+          },
+        };
+      });
+  });
+
   return {
     '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'Planes Presenttación Digital',
-    url: new URL(path, site).href,
-    itemListElement: plans.map((p, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      item: {
-        '@type': 'Offer',
-        name: `Presenttación Digital — ${p.name}`,
-        url: p.url,
-        priceCurrency: 'COP',
-        price: p.price.replace(/[^\d]/g, ''),
-        availability: 'https://schema.org/InStock',
-        seller: { '@id': `${site}#organization` },
-      },
-    })),
+    '@type': 'Service',
+    '@id': `${new URL(path, site).href}#service`,
+    name: service.name,
+    description: service.description,
+    serviceType: 'Administración web y presencia digital',
+    provider: { '@id': `${site}#organization` },
+    areaServed: business.areaServed,
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Planes de Administración de Presencia Digital',
+      itemListElement: offers.map((offer, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: offer,
+      })),
+    },
   };
 }
 
@@ -78,6 +109,7 @@ export const organizationSchema = {
   name: business.name,
   alternateName: ['Presentto', 'Presento', 'Present To'],
   url: site,
+  description: service.description,
   logo: {
     '@type': 'ImageObject',
     url: `${site}assets/img/Presentto-Icono-Fondo-Transparente.webp`,
@@ -116,65 +148,44 @@ export const websiteSchema = {
   brand: { '@type': 'Brand', name: business.name },
 };
 
-// Service-area business (no public storefront): LocalBusiness + areaServed
+// Service-area business (no public storefront): ProfessionalService + areaServed
+const monthlyOffers = plans.map((plan) => ({
+  '@type': 'Offer',
+  name: `${service.name} — ${plan.name}`,
+  itemOffered: {
+    '@type': 'Service',
+    name: `${service.name} — ${plan.name}`,
+    description: plan.tagline,
+  },
+  ...(plan.fromPrice ? {} : { price: String(plan.monthly) }),
+  ...(plan.fromPrice
+    ? { priceSpecification: { '@type': 'PriceSpecification', minPrice: String(plan.monthly), priceCurrency: 'COP' } }
+    : {}),
+  priceCurrency: 'COP',
+  availability: 'https://schema.org/InStock',
+}));
+
 export const localBusinessSchema = (business.address || business.gbpUrl)
   ? {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  '@id': `${site}#localbusiness`,
-  name: business.name,
-  url: site,
-  image: `${site}assets/img/og-presentto.webp`,
-  email: business.email,
-  telephone: business.telephone,
-  priceRange: business.priceRange,
-  currencyAccepted: 'COP',
-  paymentAccepted: 'Mercado Pago, transferencia',
-  ...(business.address ? { address: business.address } : {}),
-  ...(business.geo ? { geo: { '@type': 'GeoCoordinates', ...business.geo } } : {}),
-  ...(business.gbpUrl ? { hasMap: business.gbpUrl } : {}),
-  sameAs,
-  areaServed: business.areaServed,
-  parentOrganization: { '@id': `${site}#organization` },
-  makesOffer: [
-    {
-      '@type': 'Offer',
-      name: 'Presenttación Digital — 1 mes',
-      itemOffered: {
-        '@type': 'Service',
-        name: 'Presenttación Digital',
-        description: 'Sitio web con dominio, correo y administración — plan de 1 mes.',
-      },
-      price: '40000',
-      priceCurrency: 'COP',
-      url: 'https://mpago.li/2j4gTPj',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Presenttación Digital — 3 meses',
-      itemOffered: { '@type': 'Service', name: 'Presenttación Digital' },
-      price: '100000',
-      priceCurrency: 'COP',
-      url: 'https://mpago.li/17JYVwX',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Presenttación Digital — 6 meses',
-      description: 'IVA incluido',
-      price: '190000',
-      priceCurrency: 'COP',
-      url: 'https://mpago.li/1j4eF1j',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Presenttación Digital — 1 año',
-      description: 'IVA incluido',
-      price: '350000',
-      priceCurrency: 'COP',
-      url: 'https://mpago.li/344eu17',
-    },
-  ],
-}
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      '@id': `${site}#localbusiness`,
+      name: business.name,
+      url: site,
+      image: `${site}assets/img/og-presentto.webp`,
+      email: business.email,
+      telephone: business.telephone,
+      priceRange: business.priceRange,
+      currencyAccepted: 'COP',
+      paymentAccepted: 'Mercado Pago, transferencia',
+      ...(business.address ? { address: business.address } : {}),
+      ...(business.geo ? { geo: { '@type': 'GeoCoordinates', ...business.geo } } : {}),
+      ...(business.gbpUrl ? { hasMap: business.gbpUrl } : {}),
+      sameAs,
+      areaServed: business.areaServed,
+      parentOrganization: { '@id': `${site}#organization` },
+      makesOffer: monthlyOffers,
+    }
   : null;
 
 // Person (E-E-A-T) — se activa al configurar `business.editor` en src/data/business.ts.

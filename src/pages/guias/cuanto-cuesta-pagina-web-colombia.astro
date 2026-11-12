@@ -6,7 +6,7 @@ import FaqList from '../../components/FaqList.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
 import ArticleLayout from '../../components/ArticleLayout.astro';
 import FinalCta from '../../components/FinalCta.astro';
-import { ctaSession } from '../../data/business';
+import { ctaDiagnostico } from '../../data/business';
 import { datesFor } from '../../data/content-dates';
 const crumbs = [
       { label: 'Inicio', href: '/' },
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: '¿Hay opciones más económicas para un negocio local?',
-    a: 'Sí. Modelos administrados como la Presenttación Digital de Presentto cuestan desde $40.000 COP/mes (IVA incluido; planes de 1, 3, 6 meses o 1 año) e incluyen web, dominio, correo y presencia en Google, pensados para negocios que necesitan empezar sin inversión de miles de pesos.',
+    a: 'Sí. Modelos administrados como la Administración de Presencia Digital de Presentto cuestan desde $100.000 COP/mes (IVA incluido; mensual o anual con 15% de descuento) e incluyen web, dominio o subdominio, correo, ficha de Google, analítica y administración, pensados para negocios que necesitan empezar sin una inversión inicial de millones.',
   },
   {
     q: 'Qué suele quedar fuera de una cotización de web?',
@@ -76,7 +76,7 @@ const articleSchema = {
   <ArticleLayout
     eyebrow="GUÍA · PRECIOS WEB COLOMBIA"
     title="¿Cuánto cuesta una página web en Colombia en 2026?"
-    lead="Precios reales de mercado, qué incluye cada rango y dónde encaja una opción administrada desde $40.000 COP."
+    lead="Precios reales de mercado, qué incluye cada rango y dónde encaja una opción administrada desde $100.000 COP/mes."
     published={dates.published}
     modified={dates.modified}
     toc={true}
@@ -85,7 +85,7 @@ const articleSchema = {
     <p class="snippet">
       En Colombia 2026, una landing profesional cuesta ≈ $800.000–$2.500.000 COP, un sitio corporativo
       $1.700.000–$6.000.000 COP y un e-commerce desde $2.650.000 COP. Los modelos administrados de bajo
-      costo (como Presentto, $40.000 COP con todo incluido) cubren el caso de negocio local que solo necesita
+      costo (como Presentto, desde $100.000 COP/mes con todo incluido) cubren el caso de negocio local que solo necesita
       presencia y captación por WhatsApp.
     </p>
 
@@ -96,7 +96,7 @@ const articleSchema = {
           <tr><th>Tipo</th><th>Rango típico (COP)</th><th>Entrega</th><th>Ideal para</th></tr>
         </thead>
         <tbody>
-          <tr><td>Web administrada (Presentto)</td><td><strong>$40.000</strong> · IVA incl.</td><td>Días</td><td>Negocio local que quiere empezar ya</td></tr>
+          <tr><td>Web administrada (Presentto)</td><td><strong>Desde $100.000</strong> /mes · IVA incl.</td><td>Días</td><td>Negocio local que quiere empezar ya</td></tr>
           <tr><td>Landing page</td><td>$800.000 – $2.500.000</td><td>5–15 días</td><td>Campañas, un solo servicio</td></tr>
           <tr><td>Sitio corporativo (3–7 págs.)</td><td>$1.700.000 – $6.000.000</td><td>2–6 semanas</td><td>Pymes con varios servicios</td></tr>
           <tr><td>E-commerce</td><td>$2.650.000 – $12.000.000+</td><td>3–8 semanas</td><td>Catálogo y pagos online</td></tr>
@@ -122,7 +122,7 @@ const articleSchema = {
       <li>Hosting: ~$200.000–$800.000 COP/año según plan.</li>
       <li>Mantenimiento: $150.000–$500.000 COP/mes en agencias.</li>
       <li>Contenido y fotos: se cotizan aparte si no los aportas.</li>
-      <li>Web administrada mensual: desde $40.000 COP/mes en Presentto; las campañas por separado suelen partir de $1.500.000+ COP/mes.</li>
+      <li>Web administrada mensual: desde $100.000 COP/mes en Presentto; setup inicial desde $250.000 y campañas por separado desde $1.500.000+ COP/mes.</li>
     </ul>
 
     <h2 id="que-influye-en-el-precio">Qué influye en el precio</h2>
@@ -145,10 +145,10 @@ const articleSchema = {
     <div class="guide-cta">
       <p><strong>¿Solo necesitas presencia y captación local?</strong></p>
       <div class="actions">
-        <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-          Agendar mi sesión 1 <span>↗</span>
+        <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+          Pedir diagnóstico gratis <span>↗</span>
         </a>
-        <a class="btn btn-ghost" href="/contacto/#planes">Ver planes · desde $40.000 COP/mes <span>↗</span></a>
+        <a class="btn btn-ghost" href="/contacto/#planes">Ver planes · desde $100.000 COP/mes <span>↗</span></a>
         <a class="btn btn-ghost" href="/comparativas/web-administrada-vs-agencia/">Comparar opciones <span>↗</span></a>
       </div>
     </div>
@@ -174,8 +174,8 @@ const articleSchema = {
 
   <FinalCta
     eyebrow="OPCIÓN ADMINISTRADA"
-    title="Presencia completa <em>desde $40.000 COP.</em>"
-    note="Agenda tu sesión 1 por Google Meet · Sin compromiso · Respuesta por WhatsApp en horario hábil"
+    title="Presencia completa <em>desde $100.000 COP/mes.</em>"
+    note="Diagnóstico de 20 min · Sin compromiso · Presupuesto antes de pagar"
   >
     <a class="btn btn-light-ghost" href="/precios/">Ver planes <span>↓</span></a>
   </FinalCta>

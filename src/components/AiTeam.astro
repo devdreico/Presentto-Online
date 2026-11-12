@@ -1,0 +1,51 @@
+---
+import { aiWorkflow, aiOnboarding } from '../data/service';
+
+interface Props {
+  heading?: boolean;
+}
+const { heading = true } = Astro.props;
+---
+
+<section class="section wrap" id="ia" aria-labelledby="ia-title">
+  {heading && (
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">MÉTODO · IA CON CRITERIO</p>
+        <h2 id="ia-title" data-split>La IA hace el trabajo pesado. <em>Tú tomas las decisiones.</em></h2>
+      </div>
+      <p class="lead">
+        Usamos modelos de IA para diagnosticar, redactar, clasificar y automatizar. Todo pasa por
+        revisión humana y se limita a tareas verificables. Sin promesas de resultados mágicos.
+      </p>
+    </div>
+  )}
+
+  <ol class="workflow" data-stagger>
+    {aiWorkflow.map((step, i) => (
+      <li class="workflow-step reveal">
+        <span class="workflow-num">{String(i + 1).padStart(2, '0')}</span>
+        <div>
+          <h3>{step.title}</h3>
+          <p>{step.desc}</p>
+          <p class="workflow-ai"><span aria-hidden="true">IA</span> {step.ai}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+
+  <div class="ia-box reveal">
+    <div>
+      <p class="eyebrow">INDUCCIÓN INCLUIDA</p>
+      <h3>{aiOnboarding.name} · {aiOnboarding.duration}</h3>
+      <p>
+        Incluida en todos los planes. Tu equipo sale sabiendo qué pedirle a la IA, cómo revisar lo
+        que devuelve y qué datos nunca debe compartir. Con grabación, 20 prompts adaptados a tu
+        negocio y un plan de adopción de 30 días.
+      </p>
+    </div>
+    <ul class="feature-list">
+      {aiOnboarding.modules.map((module) => <li>{module}</li>)}
+    </ul>
+  </div>
+</section>

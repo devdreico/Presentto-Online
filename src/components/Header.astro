@@ -1,5 +1,5 @@
 ---
-import { ctaSession } from '../data/business';
+import { ctaDiagnostico } from '../data/business';
 
 interface Props {
   path?: string;
@@ -18,15 +18,16 @@ const groups: NavGroup[] = [
   {
     label: 'Servicios',
     links: [
-      { href: '/servicios/', label: 'Servicios', desc: 'Qué incluye tu web administrada' },
-      { href: '/precios/', label: 'Precios', desc: 'MVO desde $15.000/mes' },
+      { href: '/servicios/', label: 'Servicios', desc: 'Administración web y presencia digital' },
+      { href: '/precios/', label: 'Precios', desc: '4 planes desde $100.000/mes' },
+      { href: '/soporte/', label: 'Soporte', desc: 'Canales, SLA y cambios' },
     ],
   },
   {
     label: 'Trabajo',
     links: [
       { href: '/portfolio/', label: 'Portafolio', desc: 'Cómo queda cada proyecto' },
-      { href: '/sitios/', label: 'Sitios publicados', desc: 'Prueba real en producción' },
+      { href: '/sitios/', label: 'Sitios publicados', desc: '15 clientes en producción' },
     ],
   },
   {
@@ -34,12 +35,15 @@ const groups: NavGroup[] = [
     links: [
       { href: '/guias/', label: 'Guías', desc: 'Presencia digital paso a paso' },
       { href: '/preguntas/', label: 'Preguntas', desc: 'Dudas frecuentes resueltas' },
-      { href: '/comparativas/', label: 'Comparativas', desc: 'Agencia vs web administrada' },
+      { href: '/comparativas/', label: 'Comparativas', desc: 'Opciones de servicio comparadas' },
     ],
   },
 ];
 
-const tail: NavLink[] = [{ href: '/contacto/', label: 'Contacto' }];
+const tail: NavLink[] = [
+  { href: '/cuenta/', label: 'Mi cuenta' },
+  { href: '/contacto/', label: 'Contacto' },
+];
 
 const isSame = (href: string, current: string) =>
   href === '/' ? current === '/' : current.startsWith(href);
@@ -57,7 +61,7 @@ const mobileGroups: NavGroup[] = [
   },
   ...groups,
   {
-    label: 'Contacto',
+    label: 'Cuenta',
     links: [...tail, { href: '/nosotros/', label: 'Nosotros', desc: 'Quiénes operan el portal' }],
   },
 ];
@@ -121,12 +125,12 @@ const mobileGroups: NavGroup[] = [
     <div class="header-actions">
       <a
         class="btn btn-primary btn-sm header-cta"
-        href={ctaSession}
+        href={ctaDiagnostico}
         target="_blank"
         rel="noopener"
         data-magnetic
       >
-        Agendar sesión <span>↗</span>
+        Diagnóstico gratis <span>↗</span>
       </a>
       <button
         class="nav-toggle"
@@ -163,9 +167,9 @@ const mobileGroups: NavGroup[] = [
     ))}
   </div>
   <div class="nav-overlay-foot">
-    <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener">
-      Agendar mi sesión 1 <span>↗</span>
+    <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener">
+      Pedir diagnóstico gratis <span>↗</span>
     </a>
-    <p>Primera sesión de 30 min sin compromiso · WhatsApp</p>
+    <p>20 minutos sin compromiso · WhatsApp 24/7</p>
   </div>
 </div>

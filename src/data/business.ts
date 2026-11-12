@@ -29,10 +29,9 @@ export const business = {
   url: 'https://www.presentto.online/',
   email: 'inbox@presentto.online',
   telephone: '+57-323-648-7336',
-  priceRange: '$15000-$350000 COP',
+  priceRange: '$100000-$1450000 COP',
   inLanguage: 'es-CO',
-  slogan:
-    'Presentación digital por tecnologías web y redes, accesible para el público común — demo gratis',
+  slogan: 'La agencia todo en 1 para crecer digitalmente.',
 
   // NAP — dirección física/fiscal visible en GBP y schema (service-area business).
   address: null as PostalAddress | null,
@@ -67,32 +66,40 @@ export const business = {
   ],
 };
 
-// Tipo de cambio de referencia para mostrar equivalente USD junto a los precios COP.
-// Actualizar mensualmente (fuente: Banco de la República o rate.administrativo).
 export const COP_PER_USD = 4050;
 
-// Equivalente aproximado en USD de un monto en COP (redondeado a la decena).
+/** Equivalente aproximado en USD (solo uso interno; la web ya no lo publica). */
 export function usd(cop: number): string {
   const value = Math.round(cop / COP_PER_USD / 10) * 10;
   return `US$${value}`;
 }
 
 /* --------------------------------------------------------------------------
-   CTAs — fuente única de WhatsApp. Jerarquía del sitio:
-   primario = "Agendar mi sesión 1", secundario = "Ver planes".
+   CTAs — fuente única de WhatsApp.
+   Jerarquía: diagnóstico gratis (primario) · ver planes (secundario).
    -------------------------------------------------------------------------- */
 export const WA_NUMBER = '573236487336';
 
 export const WA_MESSAGES = {
-  session: 'Hola Presentto, quiero agendar mi 1ª sesión para el plan MVO',
-  demo: 'Hola Presentto, quiero agendar mi 1ª sesión para el plan MVO',
+  diagnostico: 'Hola Presentto, quiero mi diagnóstico digital gratuito',
+  soporte: 'Hola Presentto, necesito soporte de mi servicio de presencia digital',
+  planes: 'Hola Presentto, quiero información sobre los planes de presencia digital',
 } as const;
 
-export function wa(message: string = WA_MESSAGES.session): string {
+export function wa(message: string = WA_MESSAGES.diagnostico): string {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 /** CTA primario de todo el sitio. */
-export const ctaSession = wa(WA_MESSAGES.session);
+export const ctaDiagnostico = wa(WA_MESSAGES.diagnostico);
+/** @deprecated Usar ctaDiagnostico. Se conserva hasta migrar todas las páginas. */
+export const ctaSession = ctaDiagnostico;
 /** Número visible / enlace directo (sin mensaje). */
 export const waDirect = `https://wa.me/${WA_NUMBER}`;
+/** Soporte para clientes activos. */
+export const waSoporte = wa(WA_MESSAGES.soporte);
+
+export const serviceHours = {
+  human: 'Lunes a domingo, 7:00–19:00 (America/Bogota)',
+  whatsapp: '24/7',
+} as const;

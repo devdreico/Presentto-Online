@@ -1,0 +1,29 @@
+---
+import { plans, comparisonRows, cop } from '../data/service';
+---
+
+<div class="table-scroll reveal">
+  <table class="compare-table plan-compare">
+    <thead>
+      <tr>
+        <th scope="col">Qué recibes</th>
+        {plans.map((plan) => (
+          <th scope="col" class:list={{ 'col-highlight': plan.featured }}>
+            {plan.name}
+            <small>{plan.fromPrice ? 'Desde ' : ''}{cop(plan.monthly)}/mes</small>
+          </th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {comparisonRows.map((row) => (
+        <tr>
+          <td><strong>{row.label}</strong></td>
+          {row.values.map((value, i) => (
+            <td class:list={{ 'col-highlight': plans[i].featured }}>{value}</td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

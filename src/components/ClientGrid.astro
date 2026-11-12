@@ -1,0 +1,44 @@
+---
+import { clients } from '../data/clients';
+
+interface Props {
+  heading?: boolean;
+  limit?: number;
+  showLink?: boolean;
+}
+const { heading = true, limit, showLink = true } = Astro.props;
+const visible = limit ? clients.slice(0, limit) : clients;
+---
+
+<section class="section wrap" id="clientes" aria-labelledby="clientes-title">
+  {heading && (
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">CLIENTES REALES</p>
+        <h2 id="clientes-title" data-split>Negocios que ya <em>están en línea.</em></h2>
+      </div>
+      <p class="lead">
+        {clients.length} sitios publicados y operados por Presentto. Cada uno con su identidad, su
+        rubro y sus clientes. Ábrelos y compara con lo que hoy tiene tu negocio.
+      </p>
+    </div>
+  )}
+
+  <div class="client-grid" data-stagger>
+    {visible.map((site, i) => (
+      <a class="client-card reveal" href={site.url} target="_blank" rel="noopener noreferrer">
+        <span class="client-index">{String(i + 1).padStart(2, '0')} · CLIENTE</span>
+        <strong>{site.name}</strong>
+        <code>{site.slug}.presentto.online</code>
+        <span class="client-go">Visitar sitio <span>↗</span></span>
+      </a>
+    ))}
+  </div>
+
+  {showLink && (
+    <p class="stack-note">
+      <a href="/sitios/">Ver todos los sitios publicados <span aria-hidden="true">↗</span></a>
+      · también en <a href="/portfolio/">portafolio</a>.
+    </p>
+  )}
+</section>

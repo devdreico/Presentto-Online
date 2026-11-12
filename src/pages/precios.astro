@@ -3,139 +3,134 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqList from '../components/FaqList.astro';
 import PlansGrid from '../components/PlansGrid.astro';
+import PlanComparison from '../components/PlanComparison.astro';
+import SlaTable from '../components/SlaTable.astro';
 import PageHero from '../components/PageHero.astro';
 import FinalCta from '../components/FinalCta.astro';
 import TrustStrip from '../components/TrustStrip.astro';
-import { ctaSession } from '../data/business';
+import { addons, cop, prepaid } from '../data/service';
+import { ctaDiagnostico } from '../data/business';
 
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Precios' }];
 
-const title = 'Precios: planes de web administrada | Presentto';
+const title = 'Planes de administración web desde $100.000/mes | Presentto';
 const description =
-  'MVO desde $15.000 COP/mes y dominio propio desde $40.000. Prepago por plazo, IVA incluido, sin suscripción. Agenda tu sesión 1 antes de pagar.';
+  '4 planes de administración web y presencia digital: $100.000, $299.000, $640.000 y desde $1.450.000 COP/mes. Prepago anual −15%. IVA incluido.';
 
 const faqs = [
   {
     q: '¿Es una mensualidad o un pago único?',
-    a: 'Es prepago por plazo, no una suscripción: MVO mensual $15.000 · MVO anual $120.000 · dominio propio: 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP. Pagas una sola vez el plazo que elijas (Mercado Pago, IVA incluido) y no se te cobra nada automáticamente al final.',
+    a: 'Es un servicio continuo. Pagas el mes o el año por adelantado, sin suscripción automática y sin cargos sorpresa. Al terminar el plazo decides si renuevas. El setup inicial es un pago único que cubre auditoría, migración y configuración.',
   },
   {
-    q: '¿Qué incluye cada plan?',
-    a: 'Web lista con tu contenido y fotos, diseño a gusto, 3 sesiones de asesoría por Google Meet, estructura lista para Google, orientación de tu ficha de Google, ajustes durante el plan y administración por Presentto. El MVO opera en subdominio; los planes tradicionales incluyen dominio propio y correo profesional.',
+    q: '¿Por qué hay un setup?',
+    a: 'Porque antes de operar hay que diagnosticar, migrar o construir la base, configurar dominio, correo, analítica y ficha de Google. Ese trabajo se hace una vez. En Presencia y Crecimiento cuesta $250.000; en Sistemas, $750.000; en Empresa se cotiza.',
   },
   {
-    q: '¿Puedo ver la web antes de pagar?',
-    a: 'Sí. Agenda tu Sesión 1 por WhatsApp: con la información de tu negocio construimos la web, la ves, pides cambios y solo pagas cuando decides contratar.',
+    q: '¿Qué pasa si necesito más cambios de los incluidos?',
+    a: 'Se cotizan aparte. Un cambio es una solicitud de hasta 30 minutos que modifica contenido existente. Las secciones nuevas, páginas, funcionalidades e integraciones no cuentan como cambio.',
   },
   {
-    q: '¿Hay costos ocultos o permanencia?',
-    a: 'No. Todos los precios incluyen IVA y el pago es único por el plazo elegido. No hay permanencia obligatoria: al finalizar el plan decides tú si continúas, sin cargos automáticos ni multas.',
+    q: '¿El precio incluye pauta publicitaria?',
+    a: 'No. La inversión en Google Ads o Meta Ads se paga directamente a la plataforma. La gestión de campaña es un add-on de $400.000/mes más la inversión.',
   },
   {
-    q: '¿Por qué es más barato que una agencia?',
-    a: 'Las agencias suelen cotizar sitios desde $800.000 a $3.000.000 COP más mantenimiento mensual. Presentto trabaja con una oferta estandarizada y administrada sobre infraestructura compartida (economía de escala del subdominio), por eso mantiene precios desde $15.000 COP/mes sin sacrificar diseño ni administración.',
+    q: '¿Puedo cambiar de plan?',
+    a: 'Sí. Subir de plan aplica desde el siguiente ciclo; bajar de plan aplica al renovar. No hay penalización por cambiar.',
+  },
+  {
+    q: '¿Hay descuento por pago anual?',
+    a: 'Sí: 15%, equivalente a dos meses. Presencia $1.020.000/año, Crecimiento $3.050.000/año y Sistemas $6.530.000/año. Empresa se cotiza según alcance.',
   },
 ];
 ---
 
-<BaseLayout title={title} description={description} path="/precios/" breadcrumbs={crumbs} plansOffers={true}>
+<BaseLayout
+  title={title}
+  description={description}
+  path="/precios/"
+  breadcrumbs={crumbs}
+  plansOffers={true}
+>
   <Breadcrumbs items={crumbs} />
 
   <PageHero
     eyebrow="PLANES Y PRECIOS"
-    title="Precios claros. <em>Sin sorpresas ni letra pequeña.</em>"
-    lead="Dos formas de estar en línea: MVO en subdominio desde $15.000 COP/mes con 3 sesiones incluidas, o tu dominio propio con correo profesional desde $40.000 por mes de prepago. Todo con IVA incluido, sin suscripción automática y sin permanencia. El equivalente en USD es referenciaal: cobramos en COP."
+    title="Precios claros. <em>Alcance claro.</em>"
+    lead="Cuatro planes para cuatro momentos del negocio. Todos incluyen administración web, ficha de Google, analítica y soporte. Mensual o anual con 15% de descuento. COP con IVA incluido."
   >
     <Fragment slot="actions">
-      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-        Agendar mi sesión 1 <span>↗</span>
+      <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+        Diagnóstico gratis <span>↗</span>
       </a>
-      <a class="btn btn-ghost" href="#planes">Ver los planes <span>↓</span></a>
+      <a class="btn btn-ghost" href="#planes">Comparar planes <span>↓</span></a>
     </Fragment>
     <Fragment slot="meta">
+      <span class="tag">Desde $100.000/mes</span>
       <span class="tag">IVA incluido</span>
-      <span class="tag">Pago único por plazo</span>
-      <span class="tag">Mercado Pago</span>
+      <span class="tag">Mensual o anual</span>
       <span class="tag">Sin cargo automático</span>
     </Fragment>
   </PageHero>
 
   <PlansGrid />
 
-  <TrustStrip />
+  <PlanComparison />
 
   <section class="section wrap">
     <div class="section-head">
       <div>
-        <p class="eyebrow">COMPARATIVA HONESTA</p>
-        <h2 data-split>Qué cuesta lo mismo <em>en el mercado.</em></h2>
+        <p class="eyebrow">COMPROMISO DE SERVICIO</p>
+        <h2 data-split>Qué puedes exigir <em>en cada plan.</em></h2>
       </div>
       <p class="lead">
-        Referencias reales de la industria para que compares con contexto. Presentto cubre la
-        presencia completa de un negocio local desde el plan más bajo.
+        Tiempos publicados, no promesas vagas. Si algo no se cumple, lo revisamos y ajustamos el
+        plan contigo.
       </p>
     </div>
-    <div class="table-scroll reveal">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th scope="col">Opción</th>
-            <th scope="col">Costo típico</th>
-            <th scope="col">Qué obtienes</th>
-            <th scope="col">Sobrecarga para ti</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Agencia tradicional</strong></td>
-            <td>$800.000 – $3.000.000 COP + mantenimiento mensual</td>
-            <td>Diseño a medida y código propio del proyecto</td>
-            <td>Contratos largos; cada cambio se cotiza aparte</td>
-          </tr>
-          <tr>
-            <td><strong>Plataforma hazlo tú mismo</strong></td>
-            <td>Desde ~20 USD/mes de licencia</td>
-            <td>Plantillas y herramientas en autoservicio</td>
-            <td>Tú escribes, optimizas y resuelves el soporte</td>
-          </tr>
-          <tr>
-            <td class="col-highlight"><strong>Presentto MVO</strong></td>
-            <td class="col-highlight"><strong>Desde $15.000 COP/mes</strong></td>
-            <td class="col-highlight">Web administrada en subdominio + 3 sesiones + correcciones</td>
-            <td class="col-highlight">Mínimo: apruebas en Meet; operamos nosotros</td>
-          </tr>
-          <tr>
-            <td class="col-highlight"><strong>Presentto dominio propio</strong></td>
-            <td class="col-highlight"><strong>Desde $40.000 COP/mes</strong></td>
-            <td class="col-highlight">Web + dominio .com/.online + correo profesional</td>
-            <td class="col-highlight">Mismo acompañamiento, con tu marca propia</td>
-          </tr>
-        </tbody>
-      </table>
+    <SlaTable />
+  </section>
+
+  <TrustStrip compact />
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">SERVICIOS ADICIONALES</p>
+        <h2 data-split>Cuando necesitas <em>algo puntual.</em></h2>
+      </div>
+      <p class="lead">
+        Add-ons con precio cerrado. Se suman al plan o se contratan sueltos.
+      </p>
     </div>
-    <p class="stack-note">
-      ¿Quieres el detalle? Ver <a href="/comparativas/">comparativas de opciones de web</a> o
-      <a href="/preguntas/">todas las preguntas frecuentes</a>.
-    </p>
+    <div class="addon-grid" data-stagger>
+      {addons.map((addon) => (
+        <article class="addon-card reveal">
+          <h3>{addon.name}</h3>
+          <p>{addon.detail}</p>
+          <strong>{cop(addon.price)} <span>{addon.unit}</span></strong>
+        </article>
+      ))}
+    </div>
+    <p class="stack-note">{prepaid.note} El setup y los add-ons se pagan una sola vez.</p>
   </section>
 
   <section class="section wrap">
     <div class="section-head">
       <div>
         <p class="eyebrow">PREGUNTAS DE PRECIO</p>
-        <h2 data-split>Dudas frecuentes <em>sobre planes y pagos.</em></h2>
+        <h2 data-split>Dudas sobre <em>planes y pagos.</em></h2>
       </div>
       <p class="lead">
-        Prepago por plazo, Mercado Pago y cero letra pequeña. Si tu caso es especial, lo vemos en
-        la sesión 1.
+        Sin letra pequeña. Si tu caso es distinto, lo vemos en el diagnóstico gratuito.
       </p>
     </div>
     <FaqList faqs={faqs} />
   </section>
 
   <FinalCta
-    eyebrow="EMPEZA SIN RIESGO"
-    title="Primero ves tu web. <em>Pagas solo si te gusta.</em>"
-    note="Sesión 1 de 30 min por Google Meet · Te enviamos el enlace de pago recién cuando decides"
+    eyebrow="EMPIEZA SIN RIESGO"
+    title="Primero el diagnóstico. <em>Después el plan.</em>"
+    note="20 minutos por Google Meet o WhatsApp · Sin compromiso · Presupuesto antes de pagar"
   />
 </BaseLayout>

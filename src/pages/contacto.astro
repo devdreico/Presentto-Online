@@ -3,13 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PlansGrid from '../components/PlansGrid.astro';
 import PageHero from '../components/PageHero.astro';
-import { ctaSession, waDirect } from '../data/business';
+import { ctaDiagnostico, waDirect, business, serviceHours } from '../data/business';
 
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Contacto' }];
 
-const title = 'Contacto, planes y sesión 1 | Presentto Online';
+const title = 'Diagnóstico digital gratis | Presentto Online';
 const description =
-  'Agenda tu sesión 1 por WhatsApp o cuéntanos de tu negocio: te asesoramos sobre MVO desde $15.000/mes o dominio propio desde $40.000.';
+  'Cuéntanos qué tienes hoy y qué necesitas. Revisamos tu web, ficha de Google y redes en 20 minutos. Sin compromiso y con plan claro.';
 
 const contactSchema = {
   '@context': 'https://schema.org',
@@ -36,20 +36,20 @@ const contactSchema = {
   <Breadcrumbs items={crumbs} />
 
   <PageHero
-    eyebrow="HABLEMOS · SESIÓN 1"
-    title="Tu posición en Google <em>empieza aquí.</em>"
-    lead="Agenda tu sesión 1 por WhatsApp (lo más rápido) o cuéntanos de tu negocio por el formulario: te asesoramos sobre el plan ideal, MVO en subdominio o dominio propio, y resolvemos dudas antes de que pagues."
+    eyebrow="DIAGNÓSTICO GRATUITO"
+    title="Revisamos tu presencia. <em>Tú decides después.</em>"
+    lead="En 20 minutos vemos qué tienes, qué falta y qué plan aplica. Sin compromiso, sin reuniones eternas y con un presupuesto claro antes de pagar."
   >
     <Fragment slot="actions">
-      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-        Agendar mi sesión 1 <span>↗</span>
+      <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+        Pedir diagnóstico <span>↗</span>
       </a>
       <a class="btn btn-ghost" href="#formulario">Escribir el formulario <span>↓</span></a>
     </Fragment>
     <Fragment slot="meta">
-      <span class="tag">Respuesta en horario hábil</span>
+      <span class="tag">20 minutos</span>
       <span class="tag">Sin compromiso</span>
-      <span class="tag">Sabana Occidental y Colombia</span>
+      <span class="tag">Humano {serviceHours.human}</span>
     </Fragment>
   </PageHero>
 
@@ -74,15 +74,23 @@ const contactSchema = {
           <input name="telefono" type="tel" required autocomplete="tel" placeholder="+57 300 000 0000" />
         </label>
         <fieldset>
-          <legend>¿Qué quieres lograr?</legend>
-          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Vender más" /> Vender más</label>
-          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Verse más profesional" /> Verse más profesional</label>
-          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Llegar a nuevos clientes" /> Llegar a nuevos clientes</label>
+          <legend>¿Qué tienes hoy?</legend>
+          <label class="checkbox-option"><input name="activos" type="checkbox" value="Web" /> Web</label>
+          <label class="checkbox-option"><input name="activos" type="checkbox" value="Ficha de Google" /> Ficha de Google</label>
+          <label class="checkbox-option"><input name="activos" type="checkbox" value="Instagram o Facebook" /> Instagram o Facebook</label>
+          <label class="checkbox-option"><input name="activos" type="checkbox" value="Nada todavía" /> Nada todavía</label>
+        </fieldset>
+        <fieldset>
+          <legend>¿Qué necesitas?</legend>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Administración web" /> Administración web</label>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Web nueva" /> Web nueva</label>
           <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Aparecer en Google" /> Aparecer en Google</label>
-          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Mostrar servicios o productos" /> Mostrar servicios o productos</label>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="Sistemas web" /> Sistemas web (reservas, catálogo, portal)</label>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="IA y automatizaciones" /> IA y automatizaciones</label>
+          <label class="checkbox-option"><input name="objetivos" type="checkbox" value="No estoy seguro" /> No estoy seguro</label>
         </fieldset>
         <label>¿Algo más que debamos saber?
-          <textarea name="necesidades_extra" rows="5" placeholder="Textos, fotos, horarios, si ya tienes dominio… lo que nos sirva para conocerte"></textarea>
+          <textarea name="necesidades_extra" rows="5" placeholder="Si ya tienes web, dominio, accesos o una idea de lo que quieres lograr"></textarea>
         </label>
         <label class="checkbox-option privacy-option">
           <input name="privacidad" type="checkbox" required value="aceptada" />
@@ -90,29 +98,28 @@ const contactSchema = {
           <a href="/privacidad/" target="_blank" rel="noopener">política de privacidad</a>.
         </label>
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
-        <button class="btn btn-primary" type="submit">Quiero mi asesoría <span>↗</span></button>
+        <button class="btn btn-primary" type="submit">Pedir mi diagnóstico <span>↗</span></button>
         <p class="form-note">
-          Respondemos por WhatsApp o correo en horario hábil. El MVO arranca desde $15.000/mes y los
-          planes con dominio propio desde $40.000/mes de prepago; ambos con 3 sesiones por Google
-          Meet y administración incluida.
+          Respondemos por WhatsApp o correo en horario hábil. Revisamos tu web, ficha de Google y
+          redes; si no tienes nada, partimos de cero. El plan Presencia arranca en $100.000/mes.
         </p>
         <p id="formStatus" role="status" aria-live="polite"></p>
       </form>
       <aside class="contact-aside">
-        <p class="eyebrow">CONTACTO DIRECTO</p>
-        <h2>Hablemos claro.</h2>
+        <p class="eyebrow">QUÉ PASA DESPUÉS</p>
+        <h2>Sin vueltas.</h2>
         <ol class="contact-steps">
-          <li><b>01</b> Nos cuentas de tu negocio y tus metas de visibilidad</li>
-          <li><b>02</b> Coordinamos tu sesión 1 y construimos tu web</li>
-          <li><b>03</b> Apruebas en Meet, pagas y publicamos tu presencia</li>
+          <li><b>01</b> Revisamos tu presencia actual y detectamos lo que frena al negocio</li>
+          <li><b>02</b> Te decimos qué plan aplica y qué incluye el setup</li>
+          <li><b>03</b> Apruebas, pagas y arrancamos con el plan de 30 días</li>
         </ol>
         <p>
-          Sin formularios eternos ni reuniones obligatorias. Nos escribes, entendemos qué necesitas
-          y te mostramos cómo se vería tu web antes de que decidas.
+          Si no tienes web, también aplica. Si ya tienes una, la auditamos antes de proponer
+          cambios. Nada de rehacer por rehacer.
         </p>
         <div class="actions">
-          <a class="btn btn-ghost btn-sm" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-            Agendar sesión 1 <span>↗</span>
+          <a class="btn btn-ghost btn-sm" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+            Agendar diagnóstico <span>↗</span>
           </a>
           <a class="btn btn-ghost btn-sm" href={waDirect} target="_blank" rel="noopener">
             WhatsApp directo <span>↗</span>
@@ -120,7 +127,8 @@ const contactSchema = {
         </div>
         <p class="muted">
           Sabana Occidental, Colombia<br />
-          <a href="mailto:inbox@presentto.online">inbox@presentto.online</a>
+          <a href={`mailto:${business.email}`}>{business.email}</a><br />
+          Atención humana {serviceHours.human}
         </p>
       </aside>
     </div>

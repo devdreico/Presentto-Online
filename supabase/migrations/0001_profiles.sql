@@ -1,5 +1,5 @@
 -- Presentto — perfiles de acceso de clientes
--- Ejecutar en el proyecto Supabase (us-east-1) antes de dar de alta clientes.
+-- Ejecutar en el proyecto Supabase (us-west-2) antes de dar de alta clientes.
 -- No crea usuarios de Auth: eso lo hace scripts/create-client.mjs con service role.
 
 create table if not exists public.profiles (

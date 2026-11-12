@@ -1,0 +1,37 @@
+---
+import { pillars } from '../data/service';
+
+interface Props {
+  heading?: boolean;
+}
+const { heading = true } = Astro.props;
+---
+
+<section class="section wrap" id="pilares" aria-labelledby="pilares-title">
+  {heading && (
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">UN SERVICIO, CUATRO FRENTES</p>
+        <h2 id="pilares-title" data-split>Todo lo digital, <em>en un solo equipo.</em></h2>
+      </div>
+      <p class="lead">
+        No vendemos una web y desaparecemos. Administramos lo que ya tienes, construimos lo que
+        falta y usamos IA para que cada frente trabaje con el mismo objetivo: que tu negocio sea
+        fácil de encontrar, entender y contactar.
+      </p>
+    </div>
+  )}
+
+  <div class="pillars-grid" data-stagger>
+    {pillars.map((pillar, i) => (
+      <article class="pillar-card reveal">
+        <span class="pillar-num">{String(i + 1).padStart(2, '0')}</span>
+        <h3>{pillar.title}</h3>
+        <p>{pillar.desc}</p>
+        <ul>
+          {pillar.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>

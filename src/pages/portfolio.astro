@@ -4,13 +4,13 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PageHero from '../components/PageHero.astro';
 import FinalCta from '../components/FinalCta.astro';
 import TrustStrip from '../components/TrustStrip.astro';
-import { ctaSession } from '../data/business';
+import { ctaDiagnostico } from '../data/business';
 
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Portafolio' }];
 
 const title = 'Portafolio de desarrollo web | Presentto';
 const description =
-  'Portafolio de Presentto: diseño, desarrollo y administración web para Colombia. Agenda tu sesión 1 y ve tu web antes de pagar; planes desde $40.000 COP/mes.';
+  'Portafolio de Presentto: diseño, desarrollo y administración web para Colombia. Diagnóstico gratis y 4 planes desde $100.000 COP/mes, IVA incluido.';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -31,8 +31,8 @@ const serviceSchema = {
     lead="Diseñamos, desarrollamos, publicamos, administramos y mejoramos sitios web para quienes necesitan resultados en internet sin cargar solos con el proceso técnico. Tú miras el resultado; nosotros, el código."
   >
     <Fragment slot="actions">
-      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-        Agendar mi sesión 1 <span>↗</span>
+      <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+        Diagnóstico gratis <span>↗</span>
       </a>
       <a class="btn btn-ghost" href="#proceso">Ver cómo trabajamos <span>↓</span></a>
     </Fragment>
@@ -56,7 +56,7 @@ const serviceSchema = {
         exactamente donde entra Presentto: una opción clara, útil y proporcionada a lo que un
         negocio local realmente necesita. El desarrollo web hoy es más rápido y más barato que hace
         cinco años; nosotros ese ahorro lo convertimos en un servicio administrado —una web
-        profesional, acompañada y lista para usarse— desde $40.000 COP/mes.
+        profesional, acompañada y lista para usarse— desde $100.000 COP/mes.
       </p>
     </div>
   </section>
@@ -152,8 +152,8 @@ const serviceSchema = {
         <h2 data-split>De tu idea <em>a la publicación.</em></h2>
       </div>
       <p class="lead">
-        Tres momentos, tres sesiones por Google Meet y una sola cuenta por resolver: la tuya es
-        aprobar; la técnica es nuestra.
+        Diagnóstico, plan de 30 días, implementación y operación. Una sola cuenta por resolver: la
+        tuya es aprobar; la técnica es nuestra.
       </p>
     </div>
     <div class="steps-grid" data-stagger>
@@ -244,7 +244,7 @@ const serviceSchema = {
 
   <FinalCta
     eyebrow="EMPIEZA SIN RIESGO"
-    title="Ve tu web antes de pagar. <em>Decide después.</em>"
-    note="Sesión 1 de 30 min por Google Meet · Te enviamos el enlace de pago recién cuando decides"
+    title="Revisamos tu presencia. <em>Decide después.</em>"
+    note="Diagnóstico de 20 min · Sin compromiso · Presupuesto claro antes de pagar"
   />
 </BaseLayout>

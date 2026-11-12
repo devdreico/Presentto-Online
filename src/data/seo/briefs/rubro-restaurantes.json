@@ -33,7 +33,7 @@
     "noEs": "Comensales buscando dónde comer (queries 'cerca de mí'): se les menciona solo como contexto de por qué aparecer en Maps importa."
   },
   "valueProposition": "La única guía en español que trata la web de un restaurante como un sistema de captación (menú + reservas por WhatsApp + ficha de Google + reseñas) y no como un folleto: checklist accionable, precios reales 2026 con fuentes enlazadas, y una ruta para empezar en días sin inversión de millones.",
-  "angle": "La SERP de 'página web para restaurantes' mezcla agencias vendiendo proyectos a medida y listicles genéricos de '10 razones para tener web'. Esta página gana porque: (1) responde las dos dudas reales del dueño —qué debe tener y cuánto cuesta— con checklist y tabla; (2) conecta la web con el pack local de Google, que es donde se decide 'dónde comer', citando documentación oficial de Google; (3) muestra precios con fuentes externas y una alternativa administrada desde $40.000 COP/mes verificable en /precios/; (4) demuestra con sitios reales en producción (/sitios/) en vez de prometer.",
+  "angle": "La SERP de 'página web para restaurantes' mezcla agencias vendiendo proyectos a medida y listicles genéricos de '10 razones para tener web'. Esta página gana porque: (1) responde las dos dudas reales del dueño —qué debe tener y cuánto cuesta— con checklist y tabla; (2) conecta la web con el pack local de Google, que es donde se decide 'dónde comer', citando documentación oficial de Google; (3) muestra precios con fuentes externas y una alternativa administrada desde $100.000 COP/mes verificable en /precios/; (4) demuestra con sitios reales en producción (/sitios/) en vez de prometer.",
   "outline": [
     {
       "h1": "Página web para restaurantes y cafés: qué debe tener y cuánto cuesta",
@@ -77,7 +77,7 @@
       "objetivo": "Cubrir 'cuánto cuesta una página web para restaurante' y 'precio de página web para restaurante' (mofu p2) SIN canibalizar la guía general de precios.",
       "h3": [
         { "h3": "Rangos de mercado en Colombia", "nota": "Reusar los rangos ya publicados en /guias/cuanto-cuesta-pagina-web-colombia/ con las mismas fuentes (Muselab + WordPress.com). Enlazar esa guía con anchor 'cuánto cuesta una página web en Colombia'." },
-        { "h3": "La opción administrada desde $40.000 COP/mes", "nota": "Precio propio verificable en /precios/; qué incluye para un restaurante (web, dominio, correo, cambios de menú)." }
+        { "h3": "La opción administrada desde $100.000 COP/mes", "nota": "Precio propio verificable en /precios/; qué incluye para un restaurante (web, dominio, correo, cambios de menú)." }
       ]
     },
     {
@@ -114,7 +114,7 @@
     { "url": "/guias/aparecer-en-google-maps/", "anchor": "cómo aparecer en Google Maps", "desdeSeccion": "H2 'Google Maps y la ficha' → primer párrafo" },
     { "url": "/guias/resenas-google/", "anchor": "pedir reseñas de Google sin riesgos", "desdeSeccion": "H2 'Google Maps y la ficha' → H3 'Reseñas'" },
     { "url": "/guias/cuanto-cuesta-pagina-web-colombia/", "anchor": "cuánto cuesta una página web en Colombia", "desdeSeccion": "H2 'Cuánto cuesta…' → H3 'Rangos de mercado'" },
-    { "url": "/precios/", "anchor": "planes de web administrada desde $40.000 COP/mes", "desdeSeccion": "H2 'Cuánto cuesta…' → H3 'La opción administrada'" },
+    { "url": "/precios/", "anchor": "planes de web administrada desde $100.000 COP/mes", "desdeSeccion": "H2 'Cuánto cuesta…' → H3 'La opción administrada'" },
     { "url": "/sitios/", "anchor": "sitios reales publicados con Presentto", "desdeSeccion": "H2 'Cómo empezar esta semana' → H3 'Si lo hacemos contigo'" },
     { "url": "/contacto/", "anchor": "pedir una demo gratis", "desdeSeccion": "CTA final tras H2 'Cómo empezar esta semana'" }
   ],
@@ -143,7 +143,7 @@
   "stats": [
     { "cifra": "El Perfil de Empresa en Google es gratuito", "fuente": "https://support.google.com/business/answer/3038063?hl=es", "tipo": "hecho citable (sin número)" },
     { "cifra": "Los resultados locales se basan en relevancia, distancia y prominencia", "fuente": "https://support.google.com/business/answer/7091?hl=es", "tipo": "hecho citable (sin número)" },
-    { "cifra": "Web administrada Presentto desde $40.000 COP/mes (IVA incluido)", "fuente": "/precios/ (fuente propia verificable en el sitio)", "tipo": "precio propio" },
+    { "cifra": "Web administrada Presentto desde $100.000 COP/mes (IVA incluido)", "fuente": "/precios/ (fuente propia verificable en el sitio)", "tipo": "precio propio" },
     { "cifra": "Rangos de mercado Colombia: landing ≈ $800.000–$2.500.000 COP; sitio corporativo $1.700.000–$6.000.000 COP", "fuente": "https://muselab.com.co/cuanto-cuesta-una-pagina-web-en-colombia-2025/", "tipo": "rango externo ya publicado en la guía de precios" }
   ],
   "statsProhibidas": [

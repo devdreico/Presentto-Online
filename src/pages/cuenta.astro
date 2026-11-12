@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import LoginForm from '../components/LoginForm.astro';
+import { business, serviceHours } from '../data/business';
+
+const crumbs = [{ label: 'Inicio', href: '/' }, { label: 'Mi cuenta' }];
+
+const title = 'Acceso de clientes | Presentto';
+const description =
+  'Inicia sesión con tu teléfono y PIN para abrir tu dashboard de cliente. Credenciales entregadas al contratar un plan.';
+---
+
+<BaseLayout title={title} description={description} path="/cuenta/" noindex={true}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="section wrap account-page">
+    <div class="account-intro">
+      <p class="eyebrow">ÁREA DE CLIENTES</p>
+      <h1 data-split>Tu dashboard, <em>a un paso.</em></h1>
+      <p class="lead">
+        Ingresa con el teléfono y el PIN de 6 dígitos que entregamos al activar tu plan. Te
+        llevamos directo a tu espacio: plan, entregables, métricas y solicitudes.
+      </p>
+      <ul class="feature-list">
+        <li>Acceso únicamente para clientes activos.</li>
+        <li>El enlace de tu dashboard es único y personal.</li>
+        <li>Si tu plan vence, el acceso se suspende hasta renovar.</li>
+      </ul>
+      <p class="stack-note">
+        ¿Problemas para entrar? Escríbenos a
+        <a href={`mailto:${business.email}`}>{business.email}</a> o por WhatsApp.
+        Atención humana {serviceHours.human}.
+      </p>
+    </div>
+
+    <div class="account-panel">
+      <p class="eyebrow">INICIAR SESIÓN</p>
+      <LoginForm />
+    </div>
+  </section>
+</BaseLayout>

@@ -5,8 +5,9 @@ import FaqList from '../components/FaqList.astro';
 import PageHero from '../components/PageHero.astro';
 import FinalCta from '../components/FinalCta.astro';
 import TrustStrip from './TrustStrip.astro';
-import { ctaSession } from '../data/business';
+import { ctaDiagnostico } from '../data/business';
 import { localBusinessSchema } from '../components/schemas';
+import { plans, cop } from '../data/service';
 
 interface Props {
   city: string;
@@ -48,43 +49,35 @@ const {
 } = Astro.props;
 
 const path = `/${slug}/`;
-const title = `Páginas web y presencia digital en ${city} | Presentto`;
-const description = `Web administrada en ${city} desde $15.000 COP/mes (MVO) o con dominio propio desde $40.000, IVA incluido. Agenda tu sesión 1 y ve tu web antes de pagar.`;
+const title = `Presencia digital en ${city} | Presentto`;
+const description = `Administramos la web, la ficha de Google y la presencia digital de negocios de ${city}. 4 planes desde $100.000 COP/mes, IVA incluido. Diagnóstico gratis.`;
 
 const crumbs = [{ label: 'Inicio', href: '/' }, { label: city }];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: `Páginas web en ${city}`,
+  name: `Administración de presencia digital en ${city}`,
   provider: { '@id': 'https://www.presentto.online/#organization' },
   areaServed: { '@type': 'Place', name: `${city}, Cundinamarca, Colombia` },
-  serviceType: 'Diseño y administración web',
-  offers: [
-    {
-      '@type': 'Offer',
-      name: 'MVO mensual',
-      price: '15000',
-      priceCurrency: 'COP',
-      description: 'Presenttación Digital MVO en subdominio — IVA incluido',
-    },
-    {
-      '@type': 'Offer',
-      price: '40000',
-      priceCurrency: 'COP',
-      description: 'Presenttación Digital con dominio propio — IVA incluido',
-    },
-  ],
+  serviceType: 'Administración web y presencia digital',
+  offers: plans.map((plan) => ({
+    '@type': 'Offer',
+    name: plan.name,
+    price: String(plan.monthly),
+    priceCurrency: 'COP',
+    description: `${plan.tagline} — IVA incluido`,
+  })),
 };
 
 const faqs = [
   {
-    q: `¿Cuánto cuesta una página web en ${city}?`,
-    a: `La Presenttación Digital cuesta desde $15.000 COP/mes en MVO y desde $40.000 COP/mes con dominio propio, con IVA incluido: diseño, correo y administración para ${city}. Agenda tu sesión 1 y ve tu web antes de pagar.`,
+    q: `¿Cuánto cuesta la administración web en ${city}?`,
+    a: `El plan Presencia cuesta $100.000 COP/mes con IVA incluido e incluye web administrada, ficha de Google, analítica y soporte. Crecimiento cuesta $299.000, Sistemas $640.000 y Empresa desde $1.450.000. También hay prepago anual con 15% de descuento.`,
   },
   {
     q: `¿Cómo hago visible mi negocio de ${city} en Google y Maps?`,
-    a: `Con tres patas: una web clara con tus servicios y zona de cobertura; una ficha de Google verificada con categorías y datos coherentes; y reseñas reales y constantes. Nosotros preparamos las dos primeras; las reseñas las decides tú.`,
+    a: `Con tres patas: una web clara con tus servicios y zona de cobertura; una ficha de Google verificada con categorías y datos coherentes; y reseñas reales y constantes. Nosotros administramos las dos primeras; las reseñas las decides tú.`,
   },
   {
     q: `¿Cuánto tarda en indexarse un sitio web en ${city}?`,
@@ -94,10 +87,10 @@ const faqs = [
 ];
 
 const relatedCities = [
-  { slug: 'funza', label: 'Páginas web en Funza' },
-  { slug: 'mosquera', label: 'Páginas web en Mosquera' },
-  { slug: 'madrid', label: 'Páginas web en Madrid' },
-  { slug: 'facatativa', label: 'Páginas web en Facatativá' },
+  { slug: 'funza', label: 'Presencia digital en Funza' },
+  { slug: 'mosquera', label: 'Presencia digital en Mosquera' },
+  { slug: 'madrid', label: 'Presencia digital en Madrid' },
+  { slug: 'facatativa', label: 'Presencia digital en Facatativá' },
 ].filter((c) => c.slug !== slug);
 ---
 
@@ -112,12 +105,12 @@ const relatedCities = [
 
   <PageHero
     eyebrow={`PRESENCIA DIGITAL · ${city.toUpperCase()}`}
-    title={`Tu negocio en ${city}, <em>posicionado en Google.</em>`}
-    lead={`Un sitio claro, una ficha de Google bien hecha y un correo propio. Así se ve un negocio serio desde ${city}. Agenda tu sesión 1 y ve tu web antes de pagar.`}
+    title={`Tu negocio en ${city}, <em>administrado y visible.</em>`}
+    lead={`Web, ficha de Google, analítica y soporte en un solo servicio. Sin que tengas que aprender herramientas ni perseguir a un proveedor. Diagnóstico gratis y planes desde $100.000 COP/mes.`}
   >
     <Fragment slot="actions">
-      <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-        Agendar mi sesión 1 <span>↗</span>
+      <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+        Diagnóstico gratis <span>↗</span>
       </a>
       <a class="btn btn-ghost" href="/precios/">Ver precios <span>↓</span></a>
     </Fragment>
@@ -125,7 +118,7 @@ const relatedCities = [
       <span class="tag">{poblacion} habitantes</span>
       <span class="tag">{areaKm2} km²</span>
       <span class="tag">{city} · Cundinamarca</span>
-      <span class="tag">MVO desde $15.000 COP/mes</span>
+      <span class="tag">Desde $100.000 COP/mes</span>
     </Fragment>
   </PageHero>
 
@@ -147,7 +140,7 @@ const relatedCities = [
         <a href={fuenteDane} target="_blank" rel="noopener">ficha municipal del DANE</a>). Cada una de esas
         personas que busca un producto o un servicio con la palabra “{city}” o con “cerca de mí” decide en
         segundos entre tu competencia local y los resultados de Bogotá que se cuelan por cercanía. Quien no
-        aparece cede el cliente sin darse cuenta. Por eso tener una web y una ficha bien hechas aquí no es un extra: es la forma en que
+        aparece cede el cliente sin darse cuenta. Por eso tener una web y una ficha bien administradas aquí no es un extra: es la forma en que
         tu negocio se muestra en el mapa y cuando alguien busca lo que tú ofreces.
       </p>
       <p>{economia}</p>
@@ -211,20 +204,20 @@ const relatedCities = [
   <section class="section wrap">
     <div class="section-head">
       <div>
-        <p class="eyebrow">TODO INCLUIDO</p>
-        <h2 data-split>Qué incluye la web para <em>{city}</em></h2>
+        <p class="eyebrow">QUÉ ADMINISTRAMOS</p>
+        <h2 data-split>Tu presencia en <em>{city}</em>, operada.</h2>
       </div>
       <p class="lead">
-        Diseño, contenido y estructura lista para Google, con administración durante todo el plan.
+        Web existente o nueva, ficha de Google, analítica y cambios. Todo con un solo interlocutor.
       </p>
     </div>
     <ul class="feature-list">
-      <li>Diseño personalizado alineado con tu marca y con {focus}.</li>
-      <li>Dominio propio y correo profesional (por ejemplo, <strong>tuempresa.online</strong>).</li>
-      <li>Contenido hecho para tus clientes: servicios, precios, fotos y zonas de cobertura.</li>
-      <li>Metas y estructura lista para que Google entienda tu negocio.</li>
-      <li>Orientación de tu ficha de Google: categorías, fotos y datos coherentes.</li>
-      <li>Velocidad y administración del hosting por Presentto durante el plan.</li>
+      <li>Web administrada: hosting, dominio o subdominio, SSL, backups y monitoreo.</li>
+      <li>Web nueva base si no tienes, con tu contenido y tu identidad.</li>
+      <li>Correo profesional y datos coherentes en toda la presencia digital.</li>
+      <li>Ficha de Google: categorías, horarios, fotos y servicios de {city}.</li>
+      <li>Analítica instalada: GA4, Search Console y Clarity.</li>
+      <li>Cambios de contenido mensuales y soporte con SLA.</li>
     </ul>
   </section>
 
@@ -232,59 +225,35 @@ const relatedCities = [
     <div class="section-head">
       <div>
         <p class="eyebrow">PRECIOS</p>
-        <h2 data-split>¿Cuánto cuesta una página web en <em>{city}</em>?</h2>
+        <h2 data-split>¿Cuánto cuesta en <em>{city}</em>?</h2>
       </div>
       <p class="lead">
-        MVO desde $15.000 COP/mes o dominio propio desde $40.000 COP/mes, con IVA incluido.
-        Prepago de 1, 3, 6 meses o 1 año, sin permanencia.
+        Cuatro planes con IVA incluido. Prepago mensual o anual con 15% de descuento.
       </p>
     </div>
-    <p class="snippet">
-      Desde $15.000 COP/mes en MVO y desde $40.000 COP/mes con dominio propio, IVA incluido:
-      creación, correo y administración. Prepago de 1, 3, 6 meses o 1 año, sin permanencia.
-      Agenda tu sesión 1 y ve tu web antes de pagar.
-    </p>
     <div class="table-scroll reveal">
       <table class="compare-table">
         <thead>
           <tr>
-            <th scope="col">Opción</th>
-            <th scope="col">Inversión típica</th>
+            <th scope="col">Plan</th>
+            <th scope="col">Inversión mensual</th>
             <th scope="col">Ideal para</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>Presentto ({city}) — MVO</strong></td>
-            <td>$15.000 COP/mes (IVA incl.)</td>
-            <td>Publicar ya en subdominio con administración incluida</td>
-          </tr>
-          <tr>
-            <td><strong>Presentto ({city}) — 1 mes</strong></td>
-            <td>$40.000 COP (IVA incl.)</td>
-            <td>Negocios locales que quieren posicionar ya con dominio propio</td>
-          </tr>
-          <tr>
-            <td><strong>Presentto ({city}) — 1 año</strong></td>
-            <td>$350.000 COP (IVA incl.)</td>
-            <td>Quien busca el mejor coste por mes</td>
-          </tr>
-          <tr>
-            <td>Agencia web</td>
-            <td>$800.000 – $3.000.000 COP + mant.</td>
-            <td>Proyectos grandes con CMS y blog</td>
-          </tr>
-          <tr>
-            <td>Plantilla DIY (Wix, etc.)</td>
-            <td>Desde ~20 USD/mes</td>
-            <td>Quien quiere montarla solo</td>
-          </tr>
+          {plans.map((plan) => (
+            <tr>
+              <td><strong>{plan.name}</strong></td>
+              <td>{plan.fromPrice ? 'Desde ' : ''}{cop(plan.monthly)} COP</td>
+              <td>{plan.forWho}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
     <p class="stack-note">
       ¿Quieres comparar? Ver <a href="/precios/">todos los planes</a> o
-      <a href="/comparativas/">comparativas de opciones de web</a>.
+      <a href="/comparativas/">comparativas de opciones</a>.
     </p>
   </section>
 
@@ -294,11 +263,11 @@ const relatedCities = [
     <div class="section-head">
       <div>
         <p class="eyebrow">PROCESO</p>
-        <h2 data-split>Cómo trabajamos tu web en <em>{city}</em></h2>
+        <h2 data-split>Cómo trabajamos en <em>{city}</em></h2>
       </div>
       <p class="lead">
-        Información, muestra con tus correcciones y entrega publicada: el mismo proceso para todos
-        los clientes.
+        Diagnóstico, plan de 30 días, implementación e inducción. El mismo proceso para todos los
+        clientes.
       </p>
     </div>
     <div class="prose">
@@ -307,14 +276,14 @@ const relatedCities = [
         {pasosLocales.map((p) => (
           <li>{p}</li>
         ))}
-        <li>Revisión de visitas y ajuste continuo durante el plan.</li>
+        <li>Revisión de visitas, reporte y ajuste continuo durante el plan.</li>
       </ol>
     </div>
     <div class="guide-cta">
-      <p><strong>¿Quieres tu web lista en {city}?</strong></p>
+      <p><strong>¿Quieres saber qué le falta a tu presencia en {city}?</strong></p>
       <div class="actions">
-        <a class="btn btn-primary" href={ctaSession} target="_blank" rel="noopener" data-magnetic>
-          Agendar mi sesión 1 <span>↗</span>
+        <a class="btn btn-primary" href={ctaDiagnostico} target="_blank" rel="noopener" data-magnetic>
+          Pedir diagnóstico gratis <span>↗</span>
         </a>
         <a class="btn btn-ghost btn-sm" href="/precios/">Ver planes <span>↓</span></a>
       </div>
@@ -358,10 +327,10 @@ const relatedCities = [
     <div class="section-head">
       <div>
         <p class="eyebrow">PREGUNTAS FRECUENTES</p>
-        <h2 data-split>Dudas sobre <em>presencia web en {city}</em></h2>
+        <h2 data-split>Dudas sobre <em>presencia digital en {city}</em></h2>
       </div>
       <p class="lead">
-        Precios, ficha de Google e indexación. Si tu caso es especial, lo vemos en la sesión 1.
+        Precios, ficha de Google e indexación. Si tu caso es especial, lo vemos en el diagnóstico.
       </p>
     </div>
     <FaqList faqs={faqs} />
@@ -369,7 +338,7 @@ const relatedCities = [
 
   <FinalCta
     eyebrow="EMPIEZA SIN RIESGO"
-    title={`Primero ves tu web en ${city}. <em>Pagas solo si te gusta.</em>`}
-    note="Sesión 1 de 30 min por Google Meet · Te enviamos el enlace de pago recién cuando decides"
+    title={`Primero revisamos tu presencia en ${city}. <em>Después decides.</em>`}
+    note="Diagnóstico de 20 min · Sin compromiso · Presupuesto claro antes de pagar"
   />
 </BaseLayout>

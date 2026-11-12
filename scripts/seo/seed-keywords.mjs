@@ -132,7 +132,7 @@ const generico = [
   ['planes de página web', 'planes-precios', 'transactional', 'bofu', 1],
   ['precio de web administrada', 'planes-precios', 'transactional', 'bofu', 1],
   ['plan web mensual barato', 'planes-precios', 'transactional', 'bofu', 2],
-  ['web administrada desde 40000', 'planes-precios', 'transactional', 'bofu', 2],
+  ['web administrada desde 100000', 'planes-precios', 'transactional', 'bofu', 2],
   ['demo web gratis', 'contacto-demo', 'transactional', 'bofu', 1],
   ['hacer mi página web gratis', 'contacto-demo', 'transactional', 'bofu', 2],
   ['pedir presupuesto de página web', 'contacto-demo', 'transactional', 'bofu', 1],

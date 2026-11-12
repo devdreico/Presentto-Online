@@ -1,6 +1,6 @@
 import { ScrollTrigger } from './reveal';
 
-/** Tabs segmentados de la sección de planes (MVO / Dominio propio). */
+/** Tabs segmentados de la sección de planes (mensual / anual). */
 export function initPlanTabs(): () => void {
   const tabsWrap = document.querySelector<HTMLElement>('[data-plans-tabs]');
   if (!tabsWrap) return () => {};

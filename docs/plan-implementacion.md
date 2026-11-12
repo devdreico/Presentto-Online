@@ -155,3 +155,26 @@ Total: 7 días efectivos.
 | Slug público | El dashboard debe exigir su propia sesión |
 | 8 links vacíos | Fallback a WhatsApp y `payments:check` |
 | Guías contradicen la oferta | Reescritura en Fase 7, sin cambiar URLs |
+
+## 7. Estado de implementación (2026-11-12)
+
+### Completado en la rama `feat/administracion-web`
+
+- Oferta pública reescrita: portada, servicios, precios, soporte, cuenta, contacto, ciudades,
+  portafolio, sitios, nosotros, preguntas, términos, privacidad, 404, guías y comparativas.
+- 4 planes con precios y setup definitivos; tabs mensual/anual; comparativa y SLA.
+- 15 clientes reales sin revelar tipo de plan (`src/data/clients.ts`).
+- Acceso de clientes con teléfono + PIN y redirección a `dashboard.presentto.online/{slug}/`.
+- Migración `supabase/migrations/0001_profiles.sql` + vista `my_access` con RLS.
+- Scripts `client:create`, `client:pin`, `client:list` y `payments:check`.
+- Redirects 301 de `/mvo/`, `/planes/`, `/sesion-1/` y `/sesiones/` en `vercel.json` y `public/_redirects`.
+- `npm run check`, `npm run build` y `npm run seo:check` en verde.
+
+### Pendiente para publicar
+
+1. `PUBLIC_SUPABASE_ANON_KEY` en Vercel (sin ella `/cuenta/` solo muestra el aviso).
+2. `SUPABASE_SERVICE_ROLE_KEY` local para dar de alta clientes reales.
+3. Confirmar que la integración GitHub de Supabase apunta a `main` y mergear la migración.
+4. Pegar los 8 links de Mercado Pago en `src/data/payments.ts`.
+5. Acordar el contrato de sesión con el dashboard externo (hoy solo se envía el slug).
+6. Comunicar el cambio de precios a clientes legacy antes del despliegue.

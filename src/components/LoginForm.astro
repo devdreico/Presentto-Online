@@ -1,0 +1,52 @@
+---
+import { waSoporte } from '../data/business';
+---
+
+<form id="accountLogin" class="account-form" novalidate>
+  <label>
+    Teléfono
+    <input
+      name="phone"
+      type="tel"
+      required
+      inputmode="tel"
+      autocomplete="tel"
+      placeholder="300 123 4567"
+    />
+  </label>
+  <label>
+    PIN de 6 dígitos
+    <input
+      name="pin"
+      type="password"
+      required
+      inputmode="numeric"
+      autocomplete="current-password"
+      pattern="[0-9]{6}"
+      maxlength="6"
+      placeholder="••••••"
+    />
+  </label>
+  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only" />
+  <button class="btn btn-primary" type="submit">Entrar a mi dashboard <span>↗</span></button>
+  <p id="accountStatus" class="account-status" role="status" aria-live="polite"></p>
+  <p class="form-note">
+    Credenciales entregadas al contratar un plan. Si las perdiste, escríbenos por
+    <a href={waSoporte} target="_blank" rel="noopener">WhatsApp</a>.
+  </p>
+</form>
+
+<div class="account-guest">
+  <a href="/">Entrar como invitado <span aria-hidden="true">→</span></a>
+  <p>Puedes recorrer el sitio sin iniciar sesión.</p>
+</div>
+
+<div id="accountContinue" class="account-continue" hidden>
+  <p>Tu sesión sigue abierta.</p>
+  <a class="btn btn-primary" id="accountContinueLink" href="#">Continuar a mi dashboard <span>↗</span></a>
+  <button class="btn btn-ghost btn-sm" type="button" id="accountLogout">Cerrar sesión</button>
+</div>
+
+<script>
+  import '../scripts/account';
+</script>

@@ -1,154 +1,151 @@
 ---
-import { plans } from '../data/plans';
-import { ctaSession } from '../data/business';
+import { plans, prepaid, cop, type BillingCycle } from '../data/service';
+import { paymentLink } from '../data/payments';
+import { ctaDiagnostico, wa } from '../data/business';
 
 interface Props {
   id?: string;
   heading?: boolean;
+  defaultCycle?: BillingCycle;
 }
-const { id = 'planes', heading = true } = Astro.props;
+const { id = 'planes', heading = true, defaultCycle = 'mensual' } = Astro.props;
 
-const mvoPlans = plans.filter((p) => p.id.includes('mvo'));
-const ownDomainPlans = plans.filter((p) => !p.id.includes('mvo'));
+const cycles: Array<{ id: BillingCycle; label: string }> = [
+  { id: 'mensual', label: 'Mensual' },
+  { id: 'anual', label: 'Anual · −15%' },
+];
 
-const mvoPerks = [
-  'Subdominio <code>cliente.presentto.online</code>',
-  'Sitio administrado y diseño a tu gusto',
-  '3 sesiones de asesoría por Google Meet',
-  'Ajustes, mantenimiento y velocidad incluidos',
-];
-const domainPerks = [
-  'Web lista con tu contenido y fotos',
-  'Dominio propio (.com/.online) y correo profesional',
-  'Presencia digital optimizada para Google',
-  'Administración y soporte durante todo el plan',
-];
+const priceFor = (plan: (typeof plans)[number], cycle: BillingCycle) => {
+  if (cycle === 'anual') {
+    return plan.annual ? cop(plan.annual) : 'Cotización';
+  }
+  return `${plan.fromPrice ? 'Desde ' : ''}${cop(plan.monthly)}`;
+};
+
+const unitFor = (cycle: BillingCycle) => (cycle === 'anual' ? 'COP / año' : 'COP / mes');
+
+const monthlyEquivalent = (plan: (typeof plans)[number]) =>
+  plan.annual ? `${cop(Math.round(plan.annual / 12))}/mes` : 'Precio a medida';
 ---
 
 <section class="section plans-section" id={id} aria-labelledby={`${id}-title`}>
   <div class="wrap">
     {heading && (
       <div class="section-head center">
-        <p class="eyebrow">PLANES · MVO Y DOMINIO PROPIO</p>
-        <h2 id={`${id}-title`}>Elige tu plan. <em>Empieza con la asesoría.</em></h2>
+        <p class="eyebrow">4 PLANES · MENSUAL O ANUAL</p>
+        <h2 id={`${id}-title`}>Elige tu plan. <em>Empieza con el diagnóstico.</em></h2>
         <p class="lead">
-          MVO en subdominio desde $15.000/mes con 3 sesiones incluidas, o tu dominio propio con
-          correo profesional. Pagas con Mercado Pago, sin permanencia.
+          Todos incluyen administración web, ficha de Google, analítica y soporte. Subes de plan
+          cuando necesitas SEO, sistemas o automatizaciones, no cuando cambias de proveedor.
         </p>
       </div>
     )}
 
     <div class="plans-toolbar">
-      <div class="seg-tabs" role="tablist" aria-label="Tipo de plan" data-plans-tabs data-active="0">
+      <div class="seg-tabs" role="tablist" aria-label="Ciclo de pago" data-plans-tabs data-active={defaultCycle === 'anual' ? '1' : '0'}>
         <span class="seg-indicator" aria-hidden="true"></span>
-        <button
-          class="seg-tab"
-          type="button"
-          role="tab"
-          id="tab-mvo"
-          aria-selected="true"
-          aria-controls="panel-mvo"
-          data-tab="mvo"
-        >
-          MVO · Subdominio
-        </button>
-        <button
-          class="seg-tab"
-          type="button"
-          role="tab"
-          id="tab-dominio"
-          aria-selected="false"
-          aria-controls="panel-dominio"
-          data-tab="dominio"
-        >
-          Dominio propio
-        </button>
-      </div>
-    </div>
-
-    <div class="plans-panel" id="panel-mvo" role="tabpanel" aria-labelledby="tab-mvo" data-panel="mvo">
-      <div class="plans-grid cols-2">
-        {mvoPlans.map((plan) => (
-          <article class:list={['plan-card', { 'plan-featured': plan.featured }]}>
-            {plan.badge && <span class="plan-badge">{plan.badge}</span>}
-            <h3 class="plan-name">{plan.name}</h3>
-            <div class="plan-price">
-              <strong>${plan.price}</strong>
-              <span>{plan.unit}</span>
-            </div>
-            {plan.per && <p class="plan-per">{plan.per}</p>}
-            <p class="plan-usd">≈ {plan.priceUsd} (ref. USD)</p>
-            <ul class="plan-perks">
-              {mvoPerks.map((perk) => <li set:html={perk} />)}
-            </ul>
-            <a
-              class:list={['btn', 'plan-cta', { 'btn-primary': plan.featured, 'btn-ghost': !plan.featured }]}
-              href={plan.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-plan-checkout
-              data-pay={plan.url}
-              data-plan={plan.name}
-              data-price={plan.price}
-            >
-              Pagar {plan.name} <span>↗</span>
-            </a>
-          </article>
+        {cycles.map((cycle) => (
+          <button
+            class="seg-tab"
+            type="button"
+            role="tab"
+            id={`tab-${cycle.id}`}
+            aria-selected={defaultCycle === cycle.id}
+            aria-controls={`panel-${cycle.id}`}
+            data-tab={cycle.id}
+          >
+            {cycle.label}
+          </button>
         ))}
       </div>
     </div>
 
-    <div
-      class="plans-panel"
-      id="panel-dominio"
-      role="tabpanel"
-      aria-labelledby="tab-dominio"
-      data-panel="dominio"
-      hidden
-    >
-      <div class="plans-grid cols-4">
-        {ownDomainPlans.map((plan) => (
-          <article class:list={['plan-card', { 'plan-featured': plan.featured }]}>
-            {plan.badge && <span class="plan-badge">{plan.badge}</span>}
-            <h3 class="plan-name">{plan.name}</h3>
-            <div class="plan-price">
-              <strong>${plan.price}</strong>
-              <span>{plan.unit}</span>
-            </div>
-            {plan.per && <p class="plan-per">{plan.per}</p>}
-            <p class="plan-usd">≈ {plan.priceUsd} (ref. USD)</p>
-            <ul class="plan-perks">
-              {domainPerks.map((perk) => <li set:html={perk} />)}
-            </ul>
-            <a
-              class:list={['btn', 'plan-cta', { 'btn-primary': plan.featured, 'btn-ghost': !plan.featured }]}
-              href={plan.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-plan-checkout
-              data-pay={plan.url}
-              data-plan={plan.name}
-              data-price={plan.price}
-            >
-              Pagar {plan.name} <span>↗</span>
-            </a>
-          </article>
-        ))}
+    {cycles.map((cycle) => (
+      <div
+        class="plans-panel"
+        id={`panel-${cycle.id}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${cycle.id}`}
+        data-panel={cycle.id}
+        hidden={defaultCycle !== cycle.id}
+      >
+        <div class="plans-grid cols-4">
+          {plans.map((plan) => {
+            const link = paymentLink(plan.id, cycle.id);
+            const price = priceFor(plan, cycle.id);
+            const per =
+              cycle.id === 'anual' && plan.annual
+                ? `Equivale a ${monthlyEquivalent(plan)} · ahorras 15%`
+                : plan.fromPrice
+                  ? 'Alcance cotizado tras diagnóstico'
+                  : 'Sin permanencia más allá del plazo pagado';
+
+            return (
+              <article class:list={['plan-card', { 'plan-featured': plan.featured }]}>
+                {plan.featured ? (
+                  <span class="plan-badge">Más elegido</span>
+                ) : (
+                  <span class="plan-badge plan-badge-soft">{plan.name}</span>
+                )}
+                <h3 class="plan-name">{plan.name}</h3>
+                <p class="plan-tagline">{plan.tagline}</p>
+                <div class="plan-price">
+                  <strong>{price}</strong>
+                  {cycle.id === 'anual' && !plan.annual ? (
+                    <span>Alcance a medida</span>
+                  ) : (
+                    <span>{unitFor(cycle.id)}</span>
+                  )}
+                </div>
+                <p class="plan-per">{per}</p>
+                <p class="plan-setup">
+                  Setup: {plan.setup ? `${cop(plan.setup)} único` : 'cotizado'}
+                </p>
+                <ul class="plan-perks">
+                  {plan.includes.slice(0, 6).map((item) => <li>{item}</li>)}
+                </ul>
+                {link ? (
+                  <a
+                    class:list={['btn', 'plan-cta', { 'btn-primary': plan.featured, 'btn-ghost': !plan.featured }]}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-plan-checkout
+                    data-pay={link}
+                    data-plan={`${plan.name} ${cycle.id}`}
+                    data-price={price}
+                  >
+                    Pagar {plan.name} <span>↗</span>
+                  </a>
+                ) : (
+                  <a
+                    class:list={['btn', 'plan-cta', { 'btn-primary': plan.featured, 'btn-ghost': !plan.featured }]}
+                    href={wa(`Hola Presentto, quiero el plan ${plan.name} (${cycle.id})`)}
+                    target="_blank"
+                    rel="noopener"
+                    data-plan-request={plan.id}
+                  >
+                    Solicitar link de pago <span>↗</span>
+                  </a>
+                )}
+              </article>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    ))}
 
     <div class="plans-foot">
       <div>
-        <strong>¿Primero quieres hablarlo?</strong>
-        <p>Agenda la Sesión 1 (30 min): resolvemos dudas y vemos tu caso antes de que pagues nada.</p>
+        <strong>¿No sabes cuál te sirve?</strong>
+        <p>Diagnóstico gratis de 20 minutos: revisamos tu presencia actual y te decimos qué plan aplica.</p>
       </div>
-      <a class="btn btn-ghost btn-sm" href={ctaSession} target="_blank" rel="noopener">
-        Agendar sesión 1 <span>↗</span>
+      <a class="btn btn-ghost btn-sm" href={ctaDiagnostico} target="_blank" rel="noopener">
+        Pedir diagnóstico <span>↗</span>
       </a>
     </div>
     <p class="plans-note">
-      Todos los precios incluyen IVA. El MVO funciona mediante subdominio compartido para optimizar
-      costos.
+      Precios en COP con IVA incluido. IVA a cargo de Presentto. {prepaid.note}
       {Astro.url.pathname !== '/precios/' && (
         <> <a href="/precios/">Ver comparativa completa de planes</a>.</>
       )}
@@ -193,8 +190,8 @@ const domainPerks = [
       Enviar y pagar <span>↗</span>
     </button>
     <p class="form-note">
-      Solo usamos tu nombre y WhatsApp para coordinar tus sesiones de Google Meet y la entrega de tu
-      web. <a href="/privacidad/">Política de privacidad</a>.
+      Usamos tu nombre y WhatsApp para coordinar el setup, la inducción y la entrega.
+      <a href="/privacidad/">Política de privacidad</a>.
     </p>
     <p id="planCheckoutStatus" class="plan-checkout-status" role="status" aria-live="polite"></p>
     <button type="button" class="plan-checkout-cancel" data-checkout-cancel>Cancelar</button>

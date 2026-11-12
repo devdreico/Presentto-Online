@@ -24,7 +24,7 @@
   "keywordsNota": "Variantes de tecleo (presentoo nline, presenttoo online, presentto onlin, presentto nline, presneto online, presentto onilne) son solo MONITOREO en GSC: no se escriben en el sitio ni se optimizan. 'presentto precios'→/precios/, 'presentto demo gratis'/'presentto whatsapp'/'presentto contacto'→/contacto/. No canibalizar: la home no debe reoptimizarse para 'cuánto cuesta una página web' ni 'web administrada' (van a /precios/ y /servicios/).",
   "title": "Presentto Online: web propia y presencia digital",
   "titleLength": 50,
-  "description": "Presentto Online: web propia con dominio, correo y presencia digital desde $40.000 COP/mes. Demo gratis antes de pagar. Conoce qué es y cómo funciona.",
+  "description": "Presentto Online: web propia con dominio, correo y presencia digital desde $100.000 COP/mes. Demo gratis antes de pagar. Conoce qué es y cómo funciona.",
   "descriptionLength": 152,
   "intent": "navigational / brand",
   "funnel": "tofu-mofu",
@@ -39,19 +39,19 @@
     "secundaria": "Quien escribe mal la marca ('presento', 'presentto webs') y necesita llegar igual a la página correcta.",
     "noEs": "Quien busca 'página web en Funza' u otros términos comerciales genéricos: esos van a /funza/, /servicios/ y /precios/."
   },
-  "valueProposition": "La home es la única página que puede responder '¿qué es Presentto?' con la voz de la marca: qué hace, cómo funciona el proceso demo→aprobación→publicación, qué incluye la Presenttación Digital y cómo contactar. Gana la query de marca porque concentra logo, nombre, propuesta, planes y FAQ de marca en un solo destino indexable.",
+  "valueProposition": "La home es la única página que puede responder '¿qué es Presentto?' con la voz de la marca: qué hace, cómo funciona el proceso demo→aprobación→publicación, qué incluye la Administración de Presencia Digital y cómo contactar. Gana la query de marca porque concentra logo, nombre, propuesta, planes y FAQ de marca en un solo destino indexable.",
   "angle": "Para queries de marca, Google premia la página oficial que se identifica como tal: nombre consistente, logo, datos de contacto, enlaces a redes y a /nosotros/. Esta página gana porque (1) el H1 y el title llevan 'Presentto' de forma natural; (2) el FAQ responde las dudas reales de marca ('¿Qué es Presentto Online?', '¿Presentto o Presento?'); (3) enlaza a /nosotros/, /sitios/ y /portfolio/ como prueba de existencia real; (4) mantiene el Service schema con offers ya publicado. No inventar cifras ni reseñas: la confianza se demuestra con sitios reales en producción.",
   "outline": [
     {
       "h1": "Presentto Online: tu negocio en internet sin complicaciones",
-      "objetivo": "Confirmar la marca en el primer pantallazo y prometer la propuesta (web propia, demo gratis, desde $40.000 COP)."
+      "objetivo": "Confirmar la marca en el primer pantallazo y prometer la propuesta (web propia, demo gratis, desde $100.000 COP)."
     },
     {
       "h2": "¿Qué es Presentto Online?",
-      "objetivo": "Responder la query de marca informacional; definir la Presenttación Digital en 2-3 frases y enlazar a /servicios/ y /guias/que-es-presencia-digital/.",
+      "objetivo": "Responder la query de marca informacional; definir la Administración de Presencia Digital en 2-3 frases y enlazar a /servicios/ y /guias/que-es-presencia-digital/.",
       "h3": [
         {
-          "h3": "Un solo producto: la Presenttación Digital",
+          "h3": "Un solo producto: la Administración de Presencia Digital",
           "nota": "Web + dominio + correo + administración; enlazar /precios/."
         },
         {
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "h2": "¿Qué incluye la Presenttación Digital?",
+      "h2": "¿Qué incluye la Administración de Presencia Digital?",
       "objetivo": "Featured snippet de lista: web con tu marca, dominio propio, correo profesional, estructura para Google, administración durante el plan. Ya existe como FAQ en la home: mantenerla y enlazar /servicios/.",
       "h3": [
         {
@@ -99,7 +99,7 @@
       ]
     },
     {
-      "h2": "Planes desde $40.000 COP/mes",
+      "h2": "Planes desde $100.000 COP/mes",
       "objetivo": "Responder 'presentto precios' sin canibalizar /precios/: resumen y enlace.",
       "h3": [
         {
@@ -124,7 +124,7 @@
   "questions": [
     "¿Qué es Presentto Online?",
     "¿Presentto o Presento? ¿Cómo se escribe?",
-    "¿Qué incluye la Presenttación Digital?",
+    "¿Qué incluye la Administración de Presencia Digital?",
     "¿Cuánto cuesta Presentto y qué planes hay?",
     "¿La demo web de Presentto es gratis?",
     "¿En qué ciudades trabaja Presentto?"
@@ -139,12 +139,12 @@
     {
       "url": "/servicios/",
       "anchor": "qué incluye el servicio de web administrada",
-      "desdeSeccion": "H2 '¿Qué incluye la Presenttación Digital?'"
+      "desdeSeccion": "H2 '¿Qué incluye la Administración de Presencia Digital?'"
     },
     {
       "url": "/precios/",
       "anchor": "planes y precios de Presentto",
-      "desdeSeccion": "H2 'Planes desde $40.000 COP/mes'"
+      "desdeSeccion": "H2 'Planes desde $100.000 COP/mes'"
     },
     {
       "url": "/sitios/",
@@ -214,7 +214,7 @@
   ],
   "stats": [
     {
-      "cifra": "Web administrada Presentto desde $40.000 COP/mes (IVA incluido)",
+      "cifra": "Web administrada Presentto desde $100.000 COP/mes (IVA incluido)",
       "fuente": "/precios/ (fuente propia verificable en el sitio)",
       "tipo": "precio propio"
     },
