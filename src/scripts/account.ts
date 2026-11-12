@@ -7,6 +7,8 @@ function setStatus(el: HTMLElement | null, message: string, isError = false): vo
   if (!el) return;
   el.textContent = message;
   el.className = 'account-status' + (message ? (isError ? ' is-error' : ' is-ok') : '');
+  // Los errores se anuncian de inmediato; el progreso, de forma cortés.
+  el.setAttribute('role', isError ? 'alert' : 'status');
 }
 
 async function readAccess(): Promise<Access | null> {
@@ -30,6 +32,9 @@ async function initAccount(): Promise<void> {
   const continueLink = document.getElementById('accountContinueLink') as HTMLAnchorElement | null;
   const logout = document.getElementById('accountLogout');
   const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+  const pinToggle = document.getElementById('accountPinToggle');
+  const pinForm = document.getElementById('accountPinForm') as HTMLFormElement | null;
+  const pinStatus = document.getElementById('accountPinStatus');
 
   const supabase = getSupabase();
   if (!supabase) {
@@ -51,12 +56,61 @@ async function initAccount(): Promise<void> {
   const { data: sessionData } = await supabase.auth.getSession();
   if (sessionData.session) {
     const access = await readAccess();
-    if (access?.active) await showContinue(access);
+    if (access?.active) {
+      await showContinue(access);
+    } else {
+      // Sesión abierta sin perfil o con el plan vencido: no dejar el formulario mudo.
+      await supabase.auth.signOut();
+      setStatus(
+        status,
+        access
+          ? 'Tu plan está vencido o suspendido. Escríbenos por WhatsApp para reactivarlo.'
+          : 'No encontramos tu perfil. Escríbenos por WhatsApp y lo revisamos.',
+        true,
+      );
+    }
   }
 
   logout?.addEventListener('click', async () => {
     await supabase.auth.signOut();
     location.reload();
+  });
+
+  // Cambio de PIN con la sesión ya abierta (el PIN llega por WhatsApp).
+  pinToggle?.addEventListener('click', () => {
+    if (!pinForm) return;
+    const open = pinForm.hidden;
+    pinForm.hidden = !open;
+    pinToggle.setAttribute('aria-expanded', String(open));
+    if (open) pinForm.querySelector<HTMLInputElement>('input')?.focus();
+  });
+
+  pinForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const next = (pinForm.namedItem('newPin') as HTMLInputElement | null)?.value ?? '';
+    const repeat = (pinForm.namedItem('repeatPin') as HTMLInputElement | null)?.value ?? '';
+    if (!/^\d{6}$/.test(next)) {
+      setStatus(pinStatus, 'El PIN debe tener 6 dígitos.', true);
+      return;
+    }
+    if (next !== repeat) {
+      setStatus(pinStatus, 'Los dos PIN no coinciden.', true);
+      return;
+    }
+    if (/^(\d)\1{5}$/.test(next) || /^(012345|123456|654321|987654)$/.test(next)) {
+      setStatus(pinStatus, 'Ese PIN es demasiado fácil de adivinar. Elige otro.', true);
+      return;
+    }
+    setStatus(pinStatus, 'Guardando…');
+    const { error } = await supabase.auth.updateUser({ password: next });
+    if (error) {
+      setStatus(pinStatus, 'No pudimos cambiar el PIN. Inténtalo más tarde.', true);
+      return;
+    }
+    pinForm.reset();
+    pinForm.hidden = true;
+    pinToggle?.setAttribute('aria-expanded', 'false');
+    setStatus(pinStatus, 'PIN actualizado.', false);
   });
 
   form.addEventListener('submit', async (e) => {
@@ -82,7 +136,17 @@ async function initAccount(): Promise<void> {
     });
 
     if (error) {
-      setStatus(status, 'Teléfono o PIN incorrectos. Inténtalo de nuevo.', true);
+      const network =
+        error.name === 'AuthRetryableFetchError' ||
+        !('status' in error) ||
+        /fetch|network|conexi/i.test(error.message);
+      setStatus(
+        status,
+        network
+          ? 'No pudimos conectar. Revisa tu conexión e inténtalo otra vez.'
+          : 'Teléfono o PIN incorrectos. Inténtalo de nuevo.',
+        true,
+      );
       if (submit) {
         submit.disabled = false;
         submit.classList.remove('is-loading');

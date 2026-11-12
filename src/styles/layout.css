@@ -19,22 +19,27 @@ html.scrolled .site-header {
   background: rgba(255, 253, 249, 0.88);
   box-shadow: 0 12px 34px -22px rgba(27, 26, 24, 0.4);
 }
+/* Oculta visualmente, pero deja el header alcanzable por teclado y lectores:
+   al recibir foco (:focus-within) vuelve a mostrarse. */
 html.home-hero-scroll-active .site-header[data-home-header] {
   position: fixed;
   inset: 0 0 auto;
   transform: translateY(-100%);
   opacity: 0;
-  visibility: hidden;
+  pointer-events: none;
   transition: border-color var(--dur) ease, box-shadow var(--dur) ease, background var(--dur) ease,
-    transform 0.35s var(--ease), opacity 0.35s var(--ease), visibility 0.35s;
+    transform 0.35s var(--ease), opacity 0.35s var(--ease);
+}
+html.home-hero-scroll-active .site-header[data-home-header]:focus-within {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 /* Aparición suave del header al final del hero (progreso >= 0.94) */
 html.home-hero-scroll-active .site-header[data-home-header].is-visible {
   transform: translateY(0);
   opacity: 1;
-  visibility: visible;
-  transition: border-color var(--dur) ease, box-shadow var(--dur) ease, background var(--dur) ease,
-    transform 0.35s var(--ease), opacity 0.35s var(--ease), visibility 0.35s;
+  pointer-events: auto;
 }
 .nav-wrap {
   display: flex;

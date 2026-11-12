@@ -31,6 +31,26 @@ export function initNav(): () => void {
     if (open) toggle?.focus();
   };
 
+  // Desplegables de escritorio: aria-expanded refleja lo que ya hace el CSS.
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-nav-item]'));
+  const setExpanded = (item: HTMLElement, expanded: boolean) =>
+    item.querySelector('[data-nav-trigger]')?.setAttribute('aria-expanded', String(expanded));
+  const itemHandlers = items.map((item) => {
+    const onEnter = () => setExpanded(item, true);
+    const onLeave = () => setExpanded(item, false);
+    item.addEventListener('pointerenter', onEnter);
+    item.addEventListener('pointerleave', onLeave);
+    item.addEventListener('focusin', onEnter);
+    item.addEventListener('focusout', (e) => {
+      if (!item.contains(e.relatedTarget as Node | null)) onLeave();
+    });
+    return () => {
+      item.removeEventListener('pointerenter', onEnter);
+      item.removeEventListener('pointerleave', onLeave);
+      item.removeEventListener('focusin', onEnter);
+    };
+  });
+
   const onToggle = () => setOpen(!open);
   toggle?.addEventListener('click', onToggle);
   overlay?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
@@ -43,6 +63,7 @@ export function initNav(): () => void {
     window.removeEventListener('scroll', onScroll);
     window.removeEventListener('keydown', onKey);
     toggle?.removeEventListener('click', onToggle);
+    itemHandlers.forEach((off) => off());
     if (open) setOpen(false);
   };
 }

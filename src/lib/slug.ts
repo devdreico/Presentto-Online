@@ -6,6 +6,8 @@
  * si el nombre ya los trae.
  * Casos: "Don Carnes" → "doncarnes"; "Korall BS" → "korallbs";
  * "Korall-BS" → "korall-bs"; "Café & Pan S.A.S." → "cafeypansas".
+ * El subdominio existente manda: si el sitio ya vive en korall-bs.presentto.online,
+ * el perfil usa ese slug aunque el nombre se escriba sin guion.
  */
 export function slugify(input: string): string {
   return input

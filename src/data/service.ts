@@ -18,6 +18,8 @@ export interface ServicePlan {
   annual: number | null;
   /** Implementación inicial en COP. null = cotizada. */
   setup: number | null;
+  /** Cambios de contenido incluidos por mes. null = a convenir. */
+  changes: number | null;
   fromPrice?: boolean;
   featured?: boolean;
   includes: string[];
@@ -49,6 +51,7 @@ export const plans: ServicePlan[] = [
     monthly: 100000,
     annual: 1020000,
     setup: 250000,
+    changes: 2,
     includes: [
       'Web administrada: hosting, dominio o subdominio, SSL, backups y monitoreo',
       'Web nueva base si no existe: landing o sitio de hasta 5 secciones',
@@ -70,6 +73,7 @@ export const plans: ServicePlan[] = [
     monthly: 299000,
     annual: 3050000,
     setup: 250000,
+    changes: 6,
     featured: true,
     includes: [
       'Todo lo de Presencia',
@@ -93,6 +97,7 @@ export const plans: ServicePlan[] = [
     monthly: 640000,
     annual: 6530000,
     setup: 750000,
+    changes: 10,
     includes: [
       'Todo lo de Crecimiento',
       '10 cambios de contenido al mes',
@@ -114,6 +119,7 @@ export const plans: ServicePlan[] = [
     monthly: 1450000,
     annual: null,
     setup: null,
+    changes: null,
     fromPrice: true,
     includes: [
       'Todo lo de Sistemas',

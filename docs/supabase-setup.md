@@ -126,7 +126,7 @@ Probar en `/cuenta/`: teléfono `3001234567` (o `573001234567`) y el PIN.
 
 | Operación | Comando / acción |
 |---|---|
-| Alta | `npm run client:create -- --name ... --phone ... --pin ... --plan ...` |
+| Alta | `npm run client:create -- --name ... --phone ... --plan ...` (genera PIN si se omite `--pin`) |
 | Cambiar PIN | `npm run client:pin -- --phone 3001234567 --pin 913482` |
 | Listar | `npm run client:list` |
 | Suspender | `update profiles set active = false where phone = '573001234567';` |
@@ -138,8 +138,15 @@ Probar en `/cuenta/`: teléfono `3001234567` (o `573001234567`) y el PIN.
 - RLS activo y sin políticas de escritura para clientes.
 - `service_role` solo en `.env.local` y en el script local.
 - El alta es manual: no hay registro público.
-- PIN de 6 dígitos: hash y rate limiting de Supabase; no se almacena en claro.
-- El dashboard comparte proyecto pero debe validar sesión. Un slug conocido no da acceso.
+- PIN de 6 dígitos: hash bcrypt de Supabase; no se almacena en claro. El alta rechaza
+  secuencias obvias (123456, 000000, repetidos) y, si no se pasa `--pin`, genera uno aleatorio.
+- El cliente puede rotar su PIN en `/cuenta/` («Cambiar mi PIN») con la sesión abierta.
+- **Configurar rate limits** en Supabase → Authentication → Rate Limits (sign-in con contraseña).
+  Con 6 dígitos, el límite por IP es la defensa principal contra fuerza bruta.
+- Si el volumen crece, activar CAPTCHA (Turnstile/hCaptcha) en Authentication y enviar
+  `options.captchaToken` desde el formulario de `/cuenta/`.
+- El dashboard comparte proyecto pero **debe validar sesión**. Hoy `/cuenta/` solo envía el slug:
+  un slug conocido no puede dar acceso por sí solo (ver contrato de handoff en el plan).
 - Revisar mensualmente Authentication → Users para detectar altas inesperadas.
 
 ## 9. Checklist de aceptación

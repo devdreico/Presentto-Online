@@ -17,7 +17,8 @@
     "client:create": "node scripts/create-client.mjs create",
     "client:pin": "node scripts/create-client.mjs pin",
     "client:list": "node scripts/create-client.mjs list",
-    "payments:check": "node scripts/check-payments.mjs"
+    "payments:check": "node scripts/check-payments.mjs",
+    "qa": "node scripts/qa.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

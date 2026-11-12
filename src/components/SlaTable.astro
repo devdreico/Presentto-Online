@@ -21,10 +21,7 @@ import { plans } from '../data/service';
       </tr>
       <tr>
         <td><strong>Cambios incluidos / mes</strong></td>
-        <td>2</td>
-        <td>6</td>
-        <td>10</td>
-        <td>A convenir</td>
+        {plans.map((plan) => <td>{plan.changes ?? 'A convenir'}</td>)}
       </tr>
       <tr>
         <td><strong>Canal</strong></td>

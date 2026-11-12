@@ -2558,3 +2558,35 @@ a.tag:hover {
     top: 104px;
   }
 }
+
+/* Enlace secundario bajo el CTA de cada plan */
+.plan-help {
+  align-self: center;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.plan-help:hover {
+  color: var(--orange-deep);
+}
+.plan-card.plan-featured .plan-help {
+  color: var(--on-dark-muted);
+}
+.plan-card.plan-featured .plan-help:hover {
+  color: #fff;
+}
+.plans-panel:focus-visible {
+  outline-offset: 6px;
+}
+
+.account-continue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.account-continue .account-form {
+  margin-top: 4px;
+}

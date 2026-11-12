@@ -618,6 +618,17 @@ const { label = 'Demostración interactiva: un sitio web distinto por rubro dent
     const wrapper = document.querySelector<HTMLElement>('[data-hero-device]');
     if (!wrapper) return;
     if (reduced()) return; // póster estático
+    // El póster basta en móvil, con ahorro de datos o equipos modestos:
+    // cargar three.js (~750 KB) ahí no aporta y cuesta segundos de LCP.
+    const nav = navigator as Navigator & {
+      connection?: { saveData?: boolean };
+      deviceMemory?: number;
+    };
+    const light =
+      window.matchMedia('(max-width: 767px)').matches ||
+      nav.connection?.saveData === true ||
+      (nav.deviceMemory !== undefined && nav.deviceMemory <= 4);
+    if (light) return;
     if (!('IntersectionObserver' in window)) {
       void boot(wrapper);
       return;

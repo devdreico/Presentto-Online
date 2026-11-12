@@ -3,7 +3,6 @@ Allow: /
 
 # URLs legadas con query de la antigua SPA (no indexar)
 Disallow: /*?page=
-Disallow: /*?utm_
 
 Host: www.presentto.online
 # Sitemap principal (urlset completo con todas las URLs canónicas)

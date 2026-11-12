@@ -66,14 +66,6 @@ export const business = {
   ],
 };
 
-export const COP_PER_USD = 4050;
-
-/** Equivalente aproximado en USD (solo uso interno; la web ya no lo publica). */
-export function usd(cop: number): string {
-  const value = Math.round(cop / COP_PER_USD / 10) * 10;
-  return `US$${value}`;
-}
-
 /* --------------------------------------------------------------------------
    CTAs — fuente única de WhatsApp.
    Jerarquía: diagnóstico gratis (primario) · ver planes (secundario).
@@ -92,14 +84,14 @@ export function wa(message: string = WA_MESSAGES.diagnostico): string {
 
 /** CTA primario de todo el sitio. */
 export const ctaDiagnostico = wa(WA_MESSAGES.diagnostico);
-/** @deprecated Usar ctaDiagnostico. Se conserva hasta migrar todas las páginas. */
-export const ctaSession = ctaDiagnostico;
 /** Número visible / enlace directo (sin mensaje). */
 export const waDirect = `https://wa.me/${WA_NUMBER}`;
 /** Soporte para clientes activos. */
 export const waSoporte = wa(WA_MESSAGES.soporte);
 
 export const serviceHours = {
+  /** Uso en frases: «Atención humana lunes a domingo…». */
+  humanInline: 'lunes a domingo, 7:00–19:00 (America/Bogota)',
   human: 'Lunes a domingo, 7:00–19:00 (America/Bogota)',
   whatsapp: '24/7',
 } as const;

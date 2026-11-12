@@ -138,14 +138,11 @@ export function initHomeHero(): () => void {
   }
 
   const root = document.documentElement;
-  const previousInert = header.inert;
-  const previousAriaHidden = header.getAttribute('aria-hidden');
   const previousPointerEvents = header.style.pointerEvents;
+  // Solo se desactiva el puntero: el teclado y los lectores siguen llegando
+  // al menú, y :focus-within lo revela (ver layout.css).
   const setHeaderAvailable = (available: boolean) => {
-    header.inert = !available;
     header.style.pointerEvents = available ? 'auto' : 'none';
-    if (available) header.removeAttribute('aria-hidden');
-    else header.setAttribute('aria-hidden', 'true');
   };
 
   hero.classList.add('is-scroll-scene');
@@ -234,10 +231,7 @@ export function initHomeHero(): () => void {
     hero.classList.remove('is-scroll-scene');
     root.classList.remove('home-hero-scroll-active');
     header.classList.remove('is-visible');
-    header.inert = previousInert;
     header.style.pointerEvents = previousPointerEvents;
-    if (previousAriaHidden === null) header.removeAttribute('aria-hidden');
-    else header.setAttribute('aria-hidden', previousAriaHidden);
     stopRain();
   };
 }

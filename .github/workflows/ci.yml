@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main, feat/**]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Tipos y plantillas
+        run: npm run check
+
+      - name: Build de producción
+        run: npm run build
+        env:
+          PUBLIC_SUPABASE_URL: https://xodvvxtmhaxpthqgkfbe.supabase.co
+          PUBLIC_DASHBOARD_URL: https://dashboard.presentto.online
+
+      - name: SEO (títulos, canonical, sitemap)
+        run: npm run seo:check
+
+      - name: QA del HTML construido
+        run: npm run qa
+
+      - name: Links de pago (informativo)
+        run: npm run payments:check
+        continue-on-error: true

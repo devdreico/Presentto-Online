@@ -93,19 +93,19 @@ const mobileGroups: NavGroup[] = [
           {link.external && <span class="nav-ext" aria-hidden="true">↗</span>}
         </a>
       ))}
-      {groups.map((group) => (
+      {groups.map((group, i) => (
         <div class="nav-item" data-nav-item>
           <a
             class:list={['nav-link', { active: isGroupActive(group) }]}
             href={group.links[0].href}
-            aria-haspopup="true"
             aria-expanded="false"
+            aria-controls={`nav-panel-${i}`}
             data-nav-trigger
           >
             {group.label}
             <i class="nav-caret" aria-hidden="true"></i>
           </a>
-          <div class="nav-panel" role="group" aria-label={group.label}>
+          <div class="nav-panel" id={`nav-panel-${i}`} role="group" aria-label={group.label}>
             {group.links.map((link) => (
               <a href={link.href} class={linkClass(link.href)}>
                 <b>{link.label}</b>

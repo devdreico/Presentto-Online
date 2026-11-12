@@ -44,7 +44,24 @@ import { waSoporte } from '../data/business';
 <div id="accountContinue" class="account-continue" hidden>
   <p>Tu sesión sigue abierta.</p>
   <a class="btn btn-primary" id="accountContinueLink" href="#">Continuar a mi dashboard <span>↗</span></a>
-  <button class="btn btn-ghost btn-sm" type="button" id="accountLogout">Cerrar sesión</button>
+  <div class="account-continue-actions">
+    <button class="btn btn-ghost btn-sm" type="button" id="accountPinToggle" aria-expanded="false" aria-controls="accountPinForm">
+      Cambiar mi PIN
+    </button>
+    <button class="btn btn-ghost btn-sm" type="button" id="accountLogout">Cerrar sesión</button>
+  </div>
+  <form id="accountPinForm" class="account-form" hidden novalidate>
+    <label>
+      Nuevo PIN de 6 dígitos
+      <input name="newPin" type="password" required inputmode="numeric" autocomplete="new-password" pattern="[0-9]{6}" maxlength="6" />
+    </label>
+    <label>
+      Repite el PIN
+      <input name="repeatPin" type="password" required inputmode="numeric" autocomplete="new-password" pattern="[0-9]{6}" maxlength="6" />
+    </label>
+    <button class="btn btn-primary btn-sm" type="submit">Guardar nuevo PIN</button>
+    <p id="accountPinStatus" class="account-status" role="status" aria-live="polite"></p>
+  </form>
 </div>
 
 <script>

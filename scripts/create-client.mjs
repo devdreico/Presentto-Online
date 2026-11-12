@@ -10,6 +10,7 @@
  *   npm run client:create -- --name "Don Carnes" --phone 3001234567 --pin 482913 --plan presencia
  *   npm run client:pin    -- --phone 3001234567 --pin 913482
  */
+import { randomInt } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { createClient } from '@supabase/supabase-js';
 import { normalizePhone, phoneToEmail, slugify } from './lib/slug.mjs';
@@ -65,8 +66,23 @@ function requireEnv() {
   return createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
 }
 
+const WEAK_PINS = new Set([
+  '000000', '111111', '222222', '333333', '444444', '555555',
+  '666666', '777777', '888888', '999999', '123456', '654321',
+  '121212', '112233', '123123', '456789', '987654', '159753',
+]);
+
+/** PIN de 6 dígitos que no sea repetitivo ni una secuencia obvia. */
 function validPin(pin) {
-  return typeof pin === 'string' && /^\d{6}$/.test(pin);
+  return typeof pin === 'string' && /^\d{6}$/.test(pin) && !WEAK_PINS.has(pin);
+}
+
+/** PIN aleatorio criptográfico, sin secuencias obvias. */
+function randomPin() {
+  for (;;) {
+    const pin = String(randomInt(0, 1_000_000)).padStart(6, '0');
+    if (validPin(pin)) return pin;
+  }
 }
 
 async function uniqueSlug(admin, base) {
@@ -85,10 +101,11 @@ async function uniqueSlug(admin, base) {
 async function createClient_(admin, args) {
   const name = String(args.name ?? '').trim();
   const plan = String(args.plan ?? '').trim().toLowerCase();
-  const pin = String(args.pin ?? '');
+  const pin = args.pin ? String(args.pin) : randomPin();
 
   if (!name) throw new Error('Falta --name "Nombre del negocio"');
-  if (!validPin(pin)) throw new Error('El PIN debe ser exactamente 6 dígitos numéricos');
+  if (!validPin(pin))
+    throw new Error('PIN inválido: usa 6 dígitos y evita secuencias obvias (123456, 000000…).');
   if (!PLANS.includes(plan)) throw new Error(`Plan inválido. Usa: ${PLANS.join(', ')}`);
 
   const phone = normalizePhone(args.phone);
@@ -157,7 +174,8 @@ async function createClient_(admin, args) {
 async function rotatePin(admin, args) {
   const phone = normalizePhone(args.phone);
   const pin = String(args.pin ?? '');
-  if (!validPin(pin)) throw new Error('El PIN debe ser exactamente 6 dígitos numéricos');
+  if (!validPin(pin))
+    throw new Error('PIN inválido: usa 6 dígitos y evita secuencias obvias (123456, 000000…).');
 
   const { data: profile, error } = await admin
     .from('profiles')
@@ -194,7 +212,8 @@ async function main() {
   }
 
   console.log('Comandos: create | pin | list');
-  console.log('Ejemplo: npm run client:create -- --name "Don Carnes" --phone 3001234567 --pin 482913 --plan presencia');
+  console.log('Ejemplo: npm run client:create -- --name "Don Carnes" --phone 3001234567 --plan presencia');
+  console.log('Si omites --pin, se genera uno aleatorio y se imprime al final.');
 }
 
 main().catch((err) => {

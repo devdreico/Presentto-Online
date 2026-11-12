@@ -24,8 +24,8 @@ const priceFor = (plan: (typeof plans)[number], cycle: BillingCycle) => {
 
 const unitFor = (cycle: BillingCycle) => (cycle === 'anual' ? 'COP / año' : 'COP / mes');
 
-const monthlyEquivalent = (plan: (typeof plans)[number]) =>
-  plan.annual ? `${cop(Math.round(plan.annual / 12))}/mes` : 'Precio a medida';
+const annualSaving = (plan: (typeof plans)[number]) =>
+  plan.annual ? cop(plan.monthly * 12 - plan.annual) : null;
 ---
 
 <section class="section plans-section" id={id} aria-labelledby={`${id}-title`}>
@@ -73,9 +73,10 @@ const monthlyEquivalent = (plan: (typeof plans)[number]) =>
           {plans.map((plan) => {
             const link = paymentLink(plan.id, cycle.id);
             const price = priceFor(plan, cycle.id);
+            const saving = annualSaving(plan);
             const per =
-              cycle.id === 'anual' && plan.annual
-                ? `Equivale a ${monthlyEquivalent(plan)} · ahorras 15%`
+              cycle.id === 'anual' && saving
+                ? `Ahorras ${saving} frente al pago mensual`
                 : plan.fromPrice
                   ? 'Alcance cotizado tras diagnóstico'
                   : 'Sin permanencia más allá del plazo pagado';
@@ -105,18 +106,28 @@ const monthlyEquivalent = (plan: (typeof plans)[number]) =>
                   {plan.includes.slice(0, 6).map((item) => <li>{item}</li>)}
                 </ul>
                 {link ? (
-                  <a
-                    class:list={['btn', 'plan-cta', { 'btn-primary': plan.featured, 'btn-ghost': !plan.featured }]}
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-plan-checkout
-                    data-pay={link}
-                    data-plan={`${plan.name} ${cycle.id}`}
-                    data-price={price}
-                  >
-                    Pagar {plan.name} <span>↗</span>
-                  </a>
+                  <>
+                    <a
+                      class:list={['btn', 'plan-cta', { 'btn-primary': plan.featured, 'btn-ghost': !plan.featured }]}
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-plan-checkout
+                      data-pay={link}
+                      data-plan={`${plan.name} ${cycle.id}`}
+                      data-price={price}
+                    >
+                      Pagar {plan.name} <span>↗</span>
+                    </a>
+                    <a
+                      class="plan-help"
+                      href={wa(`Hola Presentto, tengo dudas sobre el plan ${plan.name} (${cycle.id})`)}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Tengo dudas
+                    </a>
+                  </>
                 ) : (
                   <a
                     class:list={['btn', 'plan-cta', { 'btn-primary': plan.featured, 'btn-ghost': !plan.featured }]}
@@ -125,7 +136,7 @@ const monthlyEquivalent = (plan: (typeof plans)[number]) =>
                     rel="noopener"
                     data-plan-request={plan.id}
                   >
-                    Solicitar link de pago <span>↗</span>
+                    {plan.fromPrice ? 'Solicitar cotización' : 'Solicitar link de pago'} <span>↗</span>
                   </a>
                 )}
               </article>

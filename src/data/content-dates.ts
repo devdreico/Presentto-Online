@@ -9,18 +9,18 @@ export interface ContentDates {
 }
 
 export const contentDates: Record<string, ContentDates> = {
-  '/guias/que-es-presencia-digital/': { published: '2026-10-01', modified: '2026-10-01' },
-  '/guias/ficha-de-google-mi-negocio/': { published: '2026-10-01', modified: '2026-10-01' },
-  '/guias/aparecer-en-google-maps/': { published: '2026-10-01', modified: '2026-10-01' },
-  '/guias/resenas-google/': { published: '2026-10-01', modified: '2026-10-01' },
-  '/guias/web-propia-vs-anuncios/': { published: '2026-10-01', modified: '2026-10-01' },
-  '/guias/cuanto-cuesta-pagina-web-colombia/': { published: '2026-09-23', modified: '2026-10-01' },
-  '/comparativas/web-administrada-vs-agencia/': { published: '2026-09-23', modified: '2026-09-24' },
-  '/preguntas/': { published: '2026-10-01', modified: '2026-10-05' },
+  '/guias/que-es-presencia-digital/': { published: '2026-10-01', modified: '2026-11-12' },
+  '/guias/ficha-de-google-mi-negocio/': { published: '2026-10-01', modified: '2026-11-12' },
+  '/guias/aparecer-en-google-maps/': { published: '2026-10-01', modified: '2026-11-12' },
+  '/guias/resenas-google/': { published: '2026-10-01', modified: '2026-11-12' },
+  '/guias/web-propia-vs-anuncios/': { published: '2026-10-01', modified: '2026-11-12' },
+  '/guias/cuanto-cuesta-pagina-web-colombia/': { published: '2026-09-23', modified: '2026-11-12' },
+  '/comparativas/web-administrada-vs-agencia/': { published: '2026-09-23', modified: '2026-11-12' },
+  '/preguntas/': { published: '2026-10-01', modified: '2026-11-12' },
 };
 
 // Última revisión del sitio (páginas evergreen sin fecha editorial propia).
-export const SITE_MODIFIED = '2026-10-01';
+export const SITE_MODIFIED = '2026-11-12';
 
 export function datesFor(path: string): ContentDates {
   const normalized = path.endsWith('/') || path === '' ? path : `${path}/`;
