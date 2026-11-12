@@ -364,6 +364,24 @@
   }
 }
 
+.proof-note {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 0 clamp(12px, 2vw, 20px);
+  padding: 0 0 clamp(18px, 3vw, 28px);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--fs-xs);
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.proof-note a {
+  color: #ff8a56;
+  font-weight: var(--fw-bold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* 3. Bento ------------------------------------------------------------------- */
 .bento {
   display: grid;
