@@ -2767,3 +2767,23 @@ a.tag:hover {
   flex-wrap: wrap;
   gap: 10px;
 }
+
+/* Enlace sutil bajo las acciones del hero */
+.home-hero-discover {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+html.has-motion .home-hero-discover {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.home-hero-discover:hover {
+  color: var(--orange-deep);
+}

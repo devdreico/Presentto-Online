@@ -130,9 +130,10 @@ export function initHomeHero(): () => void {
   const lead = hero.querySelector<HTMLElement>('[data-home-lead]');
   const tail = hero.querySelector<HTMLElement>('[data-home-tail]');
   const actions = hero.querySelector<HTMLElement>('[data-home-actions]');
+  const discover = hero.querySelector<HTMLElement>('[data-home-discover]');
   const leadWords = gsap.utils.toArray<HTMLElement>('[data-home-lead] .home-hero-word');
   const tailWords = gsap.utils.toArray<HTMLElement>('[data-home-tail] .home-hero-word');
-  if (!brand || !cue || !lead || !tail || !actions || !leadWords.length || !tailWords.length) {
+  if (!brand || !cue || !lead || !tail || !actions || !discover || !leadWords.length || !tailWords.length) {
     return () => {};
   }
 
@@ -149,7 +150,7 @@ export function initHomeHero(): () => void {
   setHeaderAvailable(false);
 
   const context = gsap.context(() => {
-    gsap.set([lead, tail, actions], { autoAlpha: 0 });
+    gsap.set([lead, tail, actions, discover], { autoAlpha: 0 });
     gsap.set([...leadWords, ...tailWords], { autoAlpha: 0, y: 24 });
     gsap.set(cue, { autoAlpha: 1, y: 0 });
 
@@ -220,7 +221,8 @@ export function initHomeHero(): () => void {
       )
       .to(lead, { height: 0, marginBottom: 0, overflow: 'hidden', duration: 0.14 }, 0.78)
       .to(tail, { y: -28, scale: 1.04, duration: 0.16, ease: 'power2.inOut' }, 0.64)
-      .to(actions, { autoAlpha: 1, y: 0, duration: 0.18, ease: 'power2.out' }, 0.75);
+      .to(actions, { autoAlpha: 1, y: 0, duration: 0.18, ease: 'power2.out' }, 0.75)
+      .to(discover, { autoAlpha: 1, y: 0, duration: 0.16, ease: 'power2.out' }, 0.86);
   }, hero);
 
   return () => {

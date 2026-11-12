@@ -41,7 +41,35 @@ html.home-hero-scroll-active .site-header[data-home-header].is-visible {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* Enlace sutil a WhatsApp centrado en el header (móvil). */
+.header-wa {
+  display: none;
+}
+@media (max-width: 719px) {
+  .header-wa {
+    display: inline-flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--z-content);
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: var(--fw-semi);
+    letter-spacing: 0.02em;
+    text-transform: none;
+    opacity: 0.85;
+    transition: color var(--dur-fast) ease, opacity var(--dur-fast) ease;
+  }
+  .header-wa:hover,
+  .header-wa:focus-visible {
+    color: var(--orange-deep);
+    opacity: 1;
+  }
+}
 .nav-wrap {
+  position: relative;
   display: flex;
   height: var(--header-h);
   align-items: center;
