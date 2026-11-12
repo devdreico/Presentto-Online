@@ -1,4 +1,6 @@
-// Planes prepago — fuente única (render, schema de ofertas y página /precios/).
+// @deprecated Modelo MVO retirado. La oferta vigente vive en src/data/service.ts.
+// Este archivo se mantiene solo hasta reescribir PlansGrid y /precios/ en la Fase 3.
+// No añadir planes ni precios aquí.
 import { usd } from './business';
 
 export interface Plan {

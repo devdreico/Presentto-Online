@@ -4,12 +4,16 @@ Fecha de revisión: 2026-10-01.
 
 ## Modelo de negocio (fuente única de verdad)
 
-Presentto vende **Presenttación Digital**: una web propia + dominio + correo profesional +
-administración, con demo gratis antes de pagar. Precio prepago desde $40.000 COP/mes
-(IVA incluido). El SEO no es el producto; es una consecuencia técnica bien resuelta de entregar
-una web clara, rápida y con información coherente.
+Presentto vende **Administración de Presencia Digital**: la agencia todo en 1 para crecer
+digitalmente. Administra web, dominio, correo, ficha de Google, analítica y sistemas; construye
+lo que falta y aplica flujos de IA. Cuatro planes desde $100.000 COP/mes con IVA incluido.
+Detalle completo en `docs/servicio-administracion.md`.
 
-**Mensaje de marca**: "Tu negocio en internet. Sin complicaciones." — accesible para el público común.
+El SEO no es el producto: es una consecuencia técnica de operar bien cada apartado digital.
+**Mensaje de marca**: "La agencia todo en 1 para crecer digitalmente."
+
+> Revisión 2026-11-12: se retira el modelo MVO y la venta de webs por proyecto. Los clientes
+> legacy conservan sus condiciones 12 meses y no aparecen en la oferta pública.
 
 ## Objetivo de posicionamiento (realista, 6–12 meses)
 
@@ -23,7 +27,7 @@ una web clara, rápida y con información coherente.
 
 - Se eliminó el posicionamiento de "agencia de SEO local" en titles, FAQs, schema y guías.
 - Se reescribió el hub `/guias/seo-local/` como `/guias/que-es-presencia-digital/` + 4 guías reorientadas (ficha de Google, Maps, reseñas, web vs anuncios). Redirects 301 desde todas las URLs viejas.
-- `keywords.json`, `clusters.json`, `snippet-tests.json` y `seed-keywords.mjs` vuelven a intenciones transaccionales reales: precio de web, web para rubros, demo, dominio y correo.
+- `keywords.json`, `clusters.json`, `snippet-tests.json` y `seed-keywords.mjs` se reorientan a intenciones del nuevo servicio: administración web, mantenimiento de páginas web, presencia digital para empresas, sistemas web y automatizaciones con IA. Las guías de precio de web se conservan como contenido TOFU con CTA a diagnóstico.
 - `business.ts`: slogan real, areaServed Colombia, sin promesas de SEO.
 - Copy de ciudades reorientado a "presencia digital" con testimonios de datos locales reales (DANE).
 

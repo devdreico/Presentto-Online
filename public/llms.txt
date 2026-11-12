@@ -1,50 +1,52 @@
 # Presentto Online
 
-> Presentto Online ofrece Presenttación Digital (web administrada, dominio propio y correo profesional) para negocios de Colombia, empezando en la Sabana Occidental: web, dominio, correo y administración desde $40.000 COP/mes. Flujo: demo web gratis sin abono → el cliente aprueba → pago único por plazo en Mercado Pago → publicación en pocos días.
+> Presentto Online ofrece Administración de Presencia Digital: la agencia todo en 1 para crecer digitalmente. Administramos la web, el dominio, el correo, la ficha de Google, la analítica y los sistemas del negocio; construimos lo que falta y usamos flujos de IA para mejorar cada apartado digital. Para negocios locales, pymes y empresas medianas o grandes de Colombia.
 
-Presentto es operado por Soverath Holding S.A.S. con respaldo técnico de Aeperion Systems. Moneda: COP. Idioma: es-CO. Sin permanencia obligatoria; sin suscripción automática.
+Operado por Soverath Holding S.A.S. Moneda: COP. Idioma: es-CO. Precios con IVA incluido, IVA a cargo de Presentto. Sin suscripción automática ni permanencia más allá del plazo pagado.
 
-## Términos y servicios
+## Planes
 
-- Presencia digital: web propia, ficha de Google y correo profesional
-- Estructura clara: meta títulos, meta descripciones, encabezados, enlaces internos, URLs limpias
-- Base técnica: sitemap XML, robots.txt, velocidad, Core Web Vitals, indexación
-- Datos estructurados (schema) LocalBusiness / Service / FAQPage
-- Google Business Profile (GBP): categorías, fotos, NAP (Nombre, Dirección, Teléfono), reseñas
-- Tráfico orgánico, intención de búsqueda, palabras clave de cola larga, keyword research local
-- Web administrada, hosting administrado, dominio propio, correo profesional
+- Presencia: $100.000 COP/mes · $1.020.000 COP/año. Web administrada, web nueva base, correo, 2 cambios/mes, ficha de Google, analítica y reporte trimestral.
+- Crecimiento: $299.000 COP/mes · $3.050.000 COP/año. Todo lo anterior + SEO local mensual, reseñas, 4 publicaciones/mes, 6 cambios/mes, reporte mensual y 1 automatización con IA.
+- Sistemas: $640.000 COP/mes · $6.530.000 COP/año. Todo lo anterior + sistemas web (reservas, catálogos, portales), Supabase, 3 automatizaciones y soporte prioritario.
+- Empresa: desde $1.450.000 COP/mes. Equipo dedicado, multi-sede, integraciones ERP/CRM, seguridad y SLA contractual.
+
+Setup desde $250.000 COP. Inducción IA incluida en todos los planes. Curso de aplicación IA opcional: $350.000 COP.
+
+## Servicios
+
+- Administración web: hosting, dominio o subdominio, SSL, correo profesional, backups, monitoreo de uptime y cambios de contenido.
+- Presencia digital: ficha de Google Business Profile, SEO local, reseñas, contenido y redes.
+- Sistemas web: reservas, catálogos, formularios avanzados, portales de cliente, cotizadores y bases de datos con Supabase.
+- IA aplicada: inducción, flujos de automatización y capacitación del equipo.
+- Analítica y reportes: GA4, Search Console, Microsoft Clarity y Looker Studio.
+- Soporte: WhatsApp 24/7 y atención humana 7:00–19:00 (America/Bogota) todos los días.
 
 ## Páginas principales
 
-- [Servicios y planes](https://www.presentto.online/servicios/): Presenttación Digital — web, dominio, correo y administración.
-- [Contacto y pago](https://www.presentto.online/contacto/): planes prepago 1 mes $40.000 · 3 meses $100.000 · 6 meses $190.000 · 1 año $350.000 COP (IVA incluido).
-- [Portafolio](https://www.presentto.online/portfolio/): trabajos, proceso y respaldo técnico.
-- [Sitios publicados](https://www.presentto.online/sitios/): clientes indexados en *.presentto.online.
-- [Sobre Presentto](https://www.presentto.online/nosotros/): quiénes somos y cómo ofrecemos el precio.
-- [Preguntas frecuentes](https://www.presentto.online/preguntas/): dudas sobre planes, dominio, correo y demo.
+- [Servicios](https://www.presentto.online/servicios/): administración web, presencia digital, sistemas e IA.
+- [Precios](https://www.presentto.online/precios/): 4 planes, comparativa y prepago mensual o anual.
+- [Soporte](https://www.presentto.online/soporte/): canales, horarios, SLA y cómo pedir cambios.
+- [Contacto](https://www.presentto.online/contacto/): asesoría gratuita y diagnóstico.
+- [Acceso de clientes](https://www.presentto.online/cuenta/): inicio de sesión con teléfono y PIN.
+- [Portafolio](https://www.presentto.online/portfolio/): trabajos y proceso.
+- [Sitios publicados](https://www.presentto.online/sitios/): 15 clientes reales en *.presentto.online.
+- [Sobre Presentto](https://www.presentto.online/nosotros/): quiénes somos.
+- [Preguntas frecuentes](https://www.presentto.online/preguntas/): dudas sobre planes, alcance y soporte.
 
 ## Guías de presencia digital
 
-- [Guía de presencia digital (pilar)](https://www.presentto.online/guias/que-es-presencia-digital/)
+- [Qué es la presencia digital](https://www.presentto.online/guias/que-es-presencia-digital/)
 - [Ficha de Google Mi Negocio](https://www.presentto.online/guias/ficha-de-google-mi-negocio/)
 - [Aparecer en Google Maps](https://www.presentto.online/guias/aparecer-en-google-maps/)
 - [Reseñas de Google](https://www.presentto.online/guias/resenas-google/)
 - [Web propia vs anuncios de Google](https://www.presentto.online/guias/web-propia-vs-anuncios/)
-- [Precio de página web en Colombia 2026](https://www.presentto.online/guias/cuanto-cuesta-pagina-web-colombia/)
+- [Cuánto cuesta una página web en Colombia](https://www.presentto.online/guias/cuanto-cuesta-pagina-web-colombia/)
 
 ## Comparativas y ciudades
 
 - [Web administrada vs agencia vs DIY](https://www.presentto.online/comparativas/web-administrada-vs-agencia/)
-- [Web en Funza](https://www.presentto.online/funza/)
-- [Web en Mosquera](https://www.presentto.online/mosquera/)
-- [Web en Madrid](https://www.presentto.online/madrid/)
-- [Web en Facatativá](https://www.presentto.online/facatativa/)
-
-## Contacto
-
-- WhatsApp: https://wa.me/573236487336
-- Email: inbox@presentto.online
-- TikTok: https://www.tiktok.com/@presenttonline
-- Instagram: https://www.instagram.com/presenttonline
-- Facebook: https://www.facebook.com/PresenttoOnline
-- Web: https://www.presentto.online/
+- [Funza](https://www.presentto.online/funza/)
+- [Mosquera](https://www.presentto.online/mosquera/)
+- [Madrid](https://www.presentto.online/madrid/)
+- [Facatativá](https://www.presentto.online/facatativa/)

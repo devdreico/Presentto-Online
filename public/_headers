@@ -1,5 +1,5 @@
-# Fuente única de headers (Netlify y Cloudflare Pages leen este archivo).
-# vercel.json replica estas reglas porque Vercel no los soporta.
+# Referencia de headers para Cloudflare Pages.
+# Vercel es el host de producción: vercel.json es la fuente de verdad y replica estas reglas.
 
 /*
   X-Content-Type-Options: nosniff
@@ -7,7 +7,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://formspree.io https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://formspree.io https://*.supabase.co wss://*.supabase.co https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
@@ -25,6 +25,8 @@
   Cache-Control: public, max-age=0, must-revalidate
 /contacto/
   Cache-Control: public, max-age=0, must-revalidate
+/cuenta/
+  Cache-Control: no-store
 /cookies/
   Cache-Control: public, max-age=0, must-revalidate
 /facatativa/
