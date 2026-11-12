@@ -1,41 +1,64 @@
 # Configuración de Supabase — acceso de clientes
 
-Proyecto único para `www.presentto.online` y `dashboard.presentto.online`.
-Región: `us-east-1`.
+Proyecto **`xodvvxtmhaxpthqgkfbe`** · región **us-west-2**.
+Compartido por `www.presentto.online` y `dashboard.presentto.online`.
+
+> La región no se puede cambiar sin migrar el proyecto. us-west-2 añade latencia
+> (~120–160 ms desde Colombia) solo en el login; no afecta al sitio estático.
 
 ---
 
-## 1. Crear el proyecto
+## 1. Estado actual
 
-1. [supabase.com/dashboard](https://supabase.com/dashboard) → New project.
-2. Nombre: `presentto-clients`.
-3. Región: `East US (us-east-1)`.
-4. Guardar la contraseña de base de datos en el gestor de secretos.
-5. Anotar:
-   - `Project URL` → `PUBLIC_SUPABASE_URL`
-   - `anon public key` → `PUBLIC_SUPABASE_ANON_KEY`
-   - `service_role key` → `SUPABASE_SERVICE_ROLE_KEY` (solo local y servidor)
+| Elemento | Estado |
+|---|---|
+| Proyecto Supabase | Creado en us-west-2 |
+| Integración GitHub | Conectada al repo `devdreico/Presentto-Online` |
+| Migración `0001_profiles.sql` | En el repo, pendiente de aplicar por la integración |
+| `PUBLIC_SUPABASE_URL` | `https://xodvvxtmhaxpthqgkfbe.supabase.co` |
+| `PUBLIC_SUPABASE_ANON_KEY` | **Pendiente** (Dashboard → Settings → API) |
+| `SUPABASE_SERVICE_ROLE_KEY` | **Pendiente** (solo local, nunca en Vercel) |
 
-## 2. Ejecutar la migración
+## 2. Integración con GitHub
 
-SQL Editor → New query → pegar y ejecutar `supabase/migrations/0001_profiles.sql`.
+La integración aplica las migraciones de `supabase/migrations/` cuando se hace push a la rama configurada como producción.
 
-La migración crea:
+1. Dashboard → Project Settings → Integrations → GitHub.
+2. Verificar repositorio: `devdreico/Presentto-Online`.
+3. Rama de producción: **`main`**.
+4. Directorio de migraciones: **`supabase/migrations`**.
+5. Guardar.
 
-- Tabla `public.profiles`.
-- Restricciones de formato de teléfono y slug.
-- RLS con lectura solo de la fila propia.
-- Trigger de `updated_at`.
-- Índices por slug y teléfono.
+Reglas:
+
+- No editar el esquema a mano en el SQL Editor: el cambio se pierde o se desincroniza.
+- Todo cambio va en `supabase/migrations/NNNN_descripcion.sql`, idempotente cuando sea posible.
+- La migración se aplica al mergear a `main`. Las ramas de preview requieren Supabase Branching (plan pago).
+- Tras el merge, verificar en Dashboard → Database → Migrations que `0001_profiles` aparece como aplicada.
+
+## 3. Aplicar la migración
+
+Opción A — por la integración (recomendada):
+
+```bash
+git checkout main
+git merge feat/administracion-web
+git push origin main
+```
+
+Opción B — manual, solo si la integración falla:
+
+SQL Editor → pegar `supabase/migrations/0001_profiles.sql` → Run.
 
 Verificación:
 
 ```sql
 select tablename, rowsecurity from pg_tables where tablename = 'profiles';
 select policyname, cmd from pg_policies where tablename = 'profiles';
+select * from public.my_access; -- 0 filas sin sesión
 ```
 
-## 3. Configurar Auth
+## 4. Configurar Auth
 
 Authentication → Providers → Email:
 
@@ -50,8 +73,7 @@ Authentication → Policies:
 
 Authentication → Rate limits:
 
-- Sign in / sign up: 30 por hora por IP (valor razonable; revisar tras el primer mes).
-- Token refresh: por defecto.
+- Sign in / sign up: 30 por hora por IP. Revisar tras el primer mes.
 
 Authentication → URL Configuration:
 
@@ -60,70 +82,73 @@ Authentication → URL Configuration:
   - `https://www.presentto.online/cuenta/`
   - `http://localhost:4321/cuenta/`
 
-## 4. Variables de entorno
+## 5. Variables de entorno
 
-Copiar `.env.example` a `.env.local` y completar:
+`.env.local` (local, ignorado por git):
 
 ```bash
-PUBLIC_SUPABASE_URL=https://xxxxxxxxxxxx.supabase.co
+PUBLIC_SUPABASE_URL=https://xodvvxtmhaxpthqgkfbe.supabase.co
 PUBLIC_SUPABASE_ANON_KEY=eyJ...
 PUBLIC_DASHBOARD_URL=https://dashboard.presentto.online
 SUPABASE_SERVICE_ROLE_KEY=eyJ...   # solo local, nunca PUBLIC_
 ```
 
-En Vercel → Settings → Environment Variables: solo las tres `PUBLIC_*`.
+Vercel → Settings → Environment Variables: solo las tres `PUBLIC_*`.
 La service role **no se configura en Vercel**.
 
-## 5. Crear el primer cliente
+## 6. Crear el primer cliente
 
 ```bash
 npm run client:create -- \
   --name "Don Carnes" \
   --phone 3001234567 \
   --pin 482913 \
-  --plan presencia
+  --plan presencia \
+  --months 12
 ```
 
 Salida esperada:
 
 ```
 Cliente creado
-  Negocio:  Don Carnes
-  Teléfono: 573001234567
-  PIN:      482913
-  Slug:     doncarnes
+  Negocio:   Don Carnes
+  Teléfono:  573001234567
+  PIN:       482913
+  Plan:      presencia (12 meses)
+  Vence:     2027-11-12
+  Slug:      doncarnes
   Dashboard: https://dashboard.presentto.online/doncarnes/
 ```
 
 Probar en `/cuenta/`: teléfono `3001234567` (o `573001234567`) y el PIN.
 
-## 6. Operaciones
+## 7. Operaciones
 
 | Operación | Comando / acción |
 |---|---|
 | Alta | `npm run client:create -- --name ... --phone ... --pin ... --plan ...` |
 | Cambiar PIN | `npm run client:pin -- --phone 3001234567 --pin 913482` |
+| Listar | `npm run client:list` |
 | Suspender | `update profiles set active = false where phone = '573001234567';` |
 | Reactivar | `update profiles set active = true, plan_expires_at = '2027-11-12';` |
 | Renombrar negocio | `update profiles set display_name = '...' where slug = '...';` (el slug no cambia) |
-| Ver un cliente | `select * from profiles where phone = '573001234567';` |
 
-## 7. Seguridad
+## 8. Seguridad
 
 - RLS activo y sin políticas de escritura para clientes.
-- `service_role` solo en `.env.local` (añadido a `.gitignore`) y en el script local.
+- `service_role` solo en `.env.local` y en el script local.
 - El alta es manual: no hay registro público.
-- PIN de 6 dígitos: Supabase aplica hash y rate limiting; no se almacena en claro.
+- PIN de 6 dígitos: hash y rate limiting de Supabase; no se almacena en claro.
 - El dashboard comparte proyecto pero debe validar sesión. Un slug conocido no da acceso.
 - Revisar mensualmente Authentication → Users para detectar altas inesperadas.
 
-## 8. Checklist de aceptación
+## 9. Checklist de aceptación
 
-- [ ] Migración ejecutada sin errores.
+- [ ] Migración aplicada por la integración y visible en Migrations.
 - [ ] RLS activo y política de `select` propia.
+- [ ] `PUBLIC_SUPABASE_ANON_KEY` en Vercel.
 - [ ] Usuario de prueba creado y login correcto.
-- [ ] Login con PIN incorrecto falla sin filtrar información.
+- [ ] PIN incorrecto falla sin filtrar información.
 - [ ] `active = false` bloquea la redirección.
 - [ ] CSP permite `https://*.supabase.co`.
-- [ ] Variables `PUBLIC_*` configuradas en Vercel.
-- [ ] `noindex` en `/cuenta/`.
+- [ ] `/cuenta/` con `noindex`.

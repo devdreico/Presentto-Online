@@ -26,8 +26,6 @@ export interface ServicePlan {
     firstResponse: string;
     resolution: string;
   };
-  /** Links de Mercado Pago. Se completan antes de Fase 3. */
-  payment: Record<BillingCycle, string | null>;
 }
 
 export const service = {
@@ -63,7 +61,6 @@ export const plans: ServicePlan[] = [
     ],
     tools: ['Astro', 'Vercel', 'Cloudflare DNS', 'Google Workspace / Zoho', 'GA4', 'Search Console', 'Clarity', 'UptimeRobot'],
     sla: { firstResponse: '8 h hábiles', resolution: '48 h hábiles' },
-    payment: { mensual: null, anual: null },
   },
   {
     id: 'crecimiento',
@@ -87,7 +84,6 @@ export const plans: ServicePlan[] = [
     ],
     tools: ['Todo lo anterior', 'Looker Studio', 'Keyword Planner', 'n8n / Make', 'WhatsApp Business', 'Canva'],
     sla: { firstResponse: '4 h hábiles', resolution: '48 h hábiles' },
-    payment: { mensual: null, anual: null },
   },
   {
     id: 'sistemas',
@@ -109,7 +105,6 @@ export const plans: ServicePlan[] = [
     ],
     tools: ['Todo lo anterior', 'Supabase', 'Vercel Functions', 'Google Sheets API', 'Mercado Pago', 'Sentry'],
     sla: { firstResponse: '2 h hábiles', resolution: '24 h hábiles' },
-    payment: { mensual: null, anual: null },
   },
   {
     id: 'empresa',
@@ -131,7 +126,6 @@ export const plans: ServicePlan[] = [
     ],
     tools: ['Stack a medida', 'Integraciones ERP/CRM', 'Automatizaciones a medida', 'Soporte contractual'],
     sla: { firstResponse: 'Contractual', resolution: 'Contractual' },
-    payment: { mensual: null, anual: null },
   },
 ];
 

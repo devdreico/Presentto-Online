@@ -1,0 +1,31 @@
+# Configuración local de Supabase CLI.
+# La integración de GitHub aplica las migraciones de supabase/migrations
+# a la rama de producción configurada en el dashboard (main).
+project_id = "xodvvxtmhaxpthqgkfbe"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+
+[db]
+port = 54322
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "https://www.presentto.online"
+additional_redirect_urls = [
+  "https://www.presentto.online/cuenta/",
+  "http://localhost:4321/cuenta/"
+]
+jwt_expiry = 3600
+enable_signup = false
+
+[auth.email]
+enable_signup = false
+enable_confirmations = false

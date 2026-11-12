@@ -16,7 +16,8 @@
     "indexnow:key": "node scripts/indexnow-key.mjs",
     "client:create": "node scripts/create-client.mjs create",
     "client:pin": "node scripts/create-client.mjs pin",
-    "client:list": "node scripts/create-client.mjs list"
+    "client:list": "node scripts/create-client.mjs list",
+    "payments:check": "node scripts/check-payments.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",

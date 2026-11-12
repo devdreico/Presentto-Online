@@ -11,7 +11,7 @@ Complemento operativo de `docs/servicio-administracion.md`.
 | Sitio comercial | `www.presentto.online` | Captación, oferta, precios, soporte, login | Este repo |
 | Acceso de clientes | `www.presentto.online/cuenta/` | Autenticación y redirección única | Este repo |
 | Dashboard de cliente | `dashboard.presentto.online/{slug}` | Operación, entregables y métricas | Proyecto independiente |
-| Auth y perfiles | Supabase `us-east-1` | Usuarios, PIN, slug, estado del plan | Este repo lo aprovisiona |
+| Auth y perfiles | Supabase `us-west-2` (`xodvvxtmhaxpthqgkfbe`) | Usuarios, PIN, slug, estado del plan | Este repo lo aprovisiona |
 | Leads y checkout | Formspree | Asesoría gratuita y datos previos al pago | Sin cambios |
 | Pagos | Mercado Pago | 8 links: 4 planes × mensual/anual | Manual |
 
@@ -67,8 +67,8 @@ Baja: poner `active = false` y `plan_expires_at`. No se borra el usuario ni el h
 
 Ver `docs/supabase-setup.md`. Resumen:
 
-1. Proyecto en `us-east-1`.
-2. Ejecutar `supabase/migrations/0001_profiles.sql`.
+1. Proyecto `xodvvxtmhaxpthqgkfbe` en `us-west-2`, con integración GitHub.
+2. Mergear a `main`: la integración GitHub aplica `supabase/migrations/0001_profiles.sql`.
 3. Auth: confirmación de email desactivada, mínimo de contraseña 6, límites de intentos.
 4. Redirect URL: `https://www.presentto.online/cuenta/`.
 5. Crear el primer cliente con el script.
